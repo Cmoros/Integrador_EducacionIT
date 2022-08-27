@@ -1,0 +1,43 @@
+.main-nav {
+    background-color: #222;
+
+    &__list {
+        margin: 0;
+        padding: 0;
+        background-color: pink;
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+
+        @media (min-width: 768px) {
+            flex-direction: row;
+        }
+    }
+
+    &__item {
+        // background-color: magenta;
+        text-align: center;
+    }
+
+    &__link {
+        display: block;
+        // width: 100%;
+        background-color: orange;
+        padding: 1em .7em;
+        color: #222;
+        font-size: 1.2em;
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            background-color: orangered;
+            outline: none;
+        }
+
+        @media (min-width:1024px) {
+            padding-left: 1em;
+            padding-right: 1em;
+        }
+    }
+
+}

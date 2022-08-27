@@ -1,0 +1,7 @@
+$textAlignValues:("left", "right", "center", "justify" );
+
+@each $textAlign in $textAlignValues {
+    .u-text-align-#{$textAlign} {
+        text-align: #{$textAlign}!important;
+    }
+}

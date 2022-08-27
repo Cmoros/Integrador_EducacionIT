@@ -1,0 +1,44 @@
+.hamburger-button {
+    display: block;
+    cursor: pointer;
+    width: 2em;
+    height: 2em;
+    background-color: #222;
+    position: relative;
+    border-radius: .2em;
+
+    &:hover {
+        background-color: #2a2a2a;
+    }
+
+    &__top-bread {
+        display: block;
+        position: absolute;
+        width: 80%;
+        height: 10%;
+        top: 20%;
+        left: 10%;
+        background-color: #eee;
+    }
+
+    &__meat {
+        display: block;
+        position: absolute;
+        width: 80%;
+        height: 10%;
+        top: 50%;
+        left: 10%;
+        background-color: #eee;
+        transform: translateY(-50%);
+    }
+
+    &__bottom-bread {
+        display: block;
+        position: absolute;
+        width: 80%;
+        height: 10%;
+        bottom: 20%;
+        left: 10%;
+        background-color: #eee;
+    }
+}
