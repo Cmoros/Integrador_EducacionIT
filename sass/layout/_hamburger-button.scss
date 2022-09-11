@@ -1,44 +1,52 @@
+@use '../abstracts/palette';
+
 .hamburger-button {
-    display: block;
+    display: flex;
+    flex-direction: column;
     cursor: pointer;
-    width: 2em;
-    height: 2em;
-    background-color: #222;
-    position: relative;
+    width: 1.75em;
+    height: 1.75em;
+    // background-color: #222;
     border-radius: .2em;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    
 
     &:hover {
-        background-color: #2a2a2a;
+        // background-color: palette.$baby-blue-eyes;
     }
 
     &__top-bread {
+        border-radius: .2em;
         display: block;
-        position: absolute;
         width: 80%;
-        height: 10%;
-        top: 20%;
-        left: 10%;
-        background-color: #eee;
+        flex-basis: 6%;
+        background-color: white;
+        transition: transform 0.5s;
+        transform: rotateZ(0deg);
+        transform-origin: top left;
     }
 
     &__meat {
+        border-radius: .2em;
         display: block;
-        position: absolute;
         width: 80%;
-        height: 10%;
-        top: 50%;
-        left: 10%;
-        background-color: #eee;
-        transform: translateY(-50%);
+        flex-basis: 6%;
+        background-color: white;
+        transition: transform 0.5s;
+        transform: scale(1);
     }
 
     &__bottom-bread {
+        border-radius: .2em;
         display: block;
-        position: absolute;
         width: 80%;
-        height: 10%;
-        bottom: 20%;
-        left: 10%;
-        background-color: #eee;
+        flex-basis: 6%;
+        background-color: white;
+        transform: rotateZ(0deg);
+        transition: transform 0.5s;
+        transform-origin: bottom left;
     }
 }

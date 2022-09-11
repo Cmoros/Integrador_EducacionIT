@@ -1,0 +1,24 @@
+.cart-button {
+
+    height: 100%;
+    width: 100%;
+    // background-color: rgba(#FFF,0.21);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    &:hover {
+        .cart-button__icon {
+            &-black {
+                display: block;
+            }
+            &-white {
+                display: none;
+            }
+        }
+    }
+    &__icon{
+        &-black {
+            display: none;
+        }
+    }
+}

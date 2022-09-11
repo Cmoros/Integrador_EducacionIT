@@ -12,6 +12,7 @@
 // 3. Base stuff
 @use 'base/reset';
 @use 'base/utilities';
+@use 'base/base';
 
 
 // 4. Layout-related sections
@@ -19,6 +20,8 @@
 @use 'layout/main-header';
 @use 'layout/main-nav';
 @use 'layout/main-nav-toggle';
+@use 'layout/cart-button';
+@use 'layout/search-form';
 
 // 5. Components
 @use 'components/cards';

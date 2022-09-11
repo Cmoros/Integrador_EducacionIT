@@ -1,11 +1,44 @@
+@use '../abstracts/palette';
+
+$svg-size: 30px;
+$svg-padding: 0.2em;
+
 .main-header {
+    background-color: palette.$ultramarine-blue;
     display: flex;
     flex-wrap: wrap;
+    position: fixed;
+    top:0;
+    width: 100%;
+
+    &__message-container {
+        flex-basis: 100%;
+    }
+
+    &__promo {
+        &s-container {
+            padding: 0.4em;
+            display: flex;
+            flex-direction: column;
+            background-color: palette.$oxford-blue;
+        }
+        height: 25px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &--envio {
+            background-color:rgba(#FFF, 0.1);
+            color: white;
+        }
+    }
 
     &__logo-container {
-        background-color: #944;
-        padding: 1em;
+        // border: 2px solid #944;
+        padding: 0.5em;
         flex-basis: 30%;
+        flex-grow: 1;
+        text-align: center;
 
         @media (min-width: 768px) {
             flex-basis: 15%;
@@ -13,9 +46,9 @@
     }
 
     &__search-form-container {
-        background-color: #494;
-        padding: 1em;
-        flex-grow: 1;
+        // border: 2px solid #494;
+        padding: $svg-padding;
+        flex-basis: $svg-size;
 
         @media (min-width: 768px) {
             order: 2;
@@ -26,8 +59,11 @@
     }
 
     &__cart-button-container {
-        background-color: #444;
-        padding: 1em;
+        display: flex;
+        align-items: center;
+        // border: #444 solid 2px;
+        padding: $svg-padding;
+        flex-basis: $svg-size;
 
         @media (min-width: 768px) {
             order: 3;
@@ -35,19 +71,24 @@
     }
 
     &__hamburger-button-container {
-        background-color: #47b;
-        padding: 1em;
+        // border: 2px solid #47b;
+        padding: 0.5em;
         @media (min-width: 768px) {
             display: none;
         }
     }
 
     &__main-nav-container {
-        background-color: yellow;
+        border: 2px solid yellow;
         flex-basis: 100%;
-        display: none;
-        flex-grow: 1;
 
+        width: 50%;
+        top: 100%;
+        // display: none;
+        transition: transform 0.5s;
+        position: absolute;
+        flex-grow: 1;
+        transform: translateX(-100%);
         @media (min-width: 768px) {
             flex-basis: auto;
             order: 1;
