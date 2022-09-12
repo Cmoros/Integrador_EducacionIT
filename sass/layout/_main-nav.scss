@@ -1,10 +1,11 @@
+@use '../abstracts/palette';
+
 .main-nav {
     background-color: #222;
-    
+    background-color: palette.$baby-blue-eyes;
     &__list {
         margin: 0;
         padding: 0;
-        background-color: pink;
         list-style-type: none;
         display: flex;
         flex-direction: column;
@@ -17,21 +18,31 @@
     &__item {
         // background-color: magenta;
         text-align: center;
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-
+    
     &__link {
-        display: block;
+        display: flex;
+        align-items: center;
+        width: 75%;
+        height:75%;
         // width: 100%;
-        background-color: orange;
-        padding: 1em .7em;
-        color: #222;
+        // padding: 1em .7em;
         font-size: 1.2em;
         text-decoration: none;
+        justify-content: center;
+        border-bottom: palette.$oxford-blue 2px solid;
 
         &:hover,
         &:focus {
-            background-color: orangered;
             outline: none;
+        }
+
+        &:visited {
+            color: initial;
         }
 
         @media (min-width:1024px) {

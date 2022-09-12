@@ -1,5 +1,6 @@
-.cart-button {
+@use'../abstracts/palette';
 
+.cart-button {
     height: 100%;
     width: 100%;
     // background-color: rgba(#FFF,0.21);
@@ -14,11 +15,16 @@
             &-white {
                 display: none;
             }
+            
         }
     }
     &__icon{
         &-black {
             display: none;
+        }
+        &-black path,
+        &-white path {
+            fill: palette.$oxford-blue;
         }
     }
 }
