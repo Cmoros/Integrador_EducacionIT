@@ -1,0 +1,114 @@
+@use '../abstracts/palette';
+
+.main-footer {
+    display: flex;
+    flex-direction: column;
+
+
+    &__invitation-newsletter-container {
+        display: flex;
+        justify-content: center;
+        background-color: palette.$sunglow;
+    }
+
+    &__social-container {
+        display: flex;
+        justify-content: center;
+        background-color: palette.$baby-blue-eyes;
+    }
+
+    &__contacto-container {
+        display: flex;
+        justify-content: center;
+        background-color: palette.$baby-blue-eyes;
+
+    }
+
+    &__horario-container {
+        display: flex;
+        justify-content: center;
+        background-color: palette.$baby-blue-eyes;
+
+    }
+
+    &__creator-container {
+
+    }
+
+    &__copyright {
+        color: white;
+        &-container {
+            display: flex;
+            justify-content: center;
+            padding: 0.5em ;
+            background-color: palette.$oxford-blue
+        }
+    }
+}
+
+.footer {
+    &-contacto {
+        border-bottom: 3px solid white;
+        padding: 1em 0;
+        width: 75%;
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75em;
+        &__header {
+            text-align: center;
+            // border-bottom: 2px solid;
+            &-container {
+
+            }
+        }
+
+        &__whatsapp,
+        &__direccion {
+            &-container {
+            }
+            &-title {
+                padding: 0.5em 0;
+                display: flex;
+                width: 50%;
+                gap: 0.5em;
+                align-items: center;
+            }
+            &-info {
+                display: flex;
+                flex-direction: column;
+                gap: 0.25em;
+            }
+        }
+
+        &__icon {
+            width: 1em;
+            height: 1em;
+
+            svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    &-horario {
+        width: 75%;
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75em;
+        padding: 1em 0;
+
+        &__title {
+            text-align: center;
+        }
+        &__info {
+            &-container {
+                display: flex;
+                flex-direction: column;
+                gap: 0.25em;
+            }
+        }
+    }
+}

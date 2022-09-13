@@ -1,30 +1,31 @@
 .main-nav-toggle {
     display: none;
-
-    &:checked {
-        & ~ .main-header {
-            .main-header__main-nav-container {
-                display: block;
-                position: absolute;
-                bottom: 0;
-                transform: translateX(100%);
-            }
-
-            .main-header__hamburger-button-container {
-                .hamburger-button {
-                    &__top-bread {
-                        transform: rotateZ(35deg);
-                    }
-                    &__meat {
-                        transform: scale(0);
-                    }
-                    &__bottom-bread {
-                        transform: rotateZ(-35deg);
-                        
+    @media (max-width: 991px) {
+        &:checked {
+            & ~ .main-header {
+                .main-header__main-nav-container {
+                    display: block;
+                    position: absolute;
+                    bottom: 0;
+                    transform: translateX(100%);
+                }
+    
+                .main-header__hamburger-button-container {
+                    .hamburger-button {
+                        &__top-bread {
+                            transform: rotateZ(35deg);
+                        }
+                        &__meat {
+                            transform: scale(0);
+                        }
+                        &__bottom-bread {
+                            transform: rotateZ(-35deg);
+                            
+                        }
                     }
                 }
             }
         }
- 
     }
+    
 }

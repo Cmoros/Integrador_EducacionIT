@@ -9,24 +9,12 @@ $svg-padding: 0.2em;
     display: flex;
     flex-wrap: wrap;
     position: fixed;
+    z-index: 10;
     top:0;
     width: 100%;
-
-    &__buttons-wrapper {
-        max-width: 100%;
-        display: flex;
-        flex-direction: row;
-        flex: 1;
-        height: 60px;
-        gap: 8px;
-        justify-content: center;
-        align-items: center;
-        padding: 0 8px 0 2px;
-        position: relative;
-        color: palette.$oxford-blue;
-    }
-
+    
     &__message-container {
+        order: 2;
         flex-basis: 100%;
     }
 
@@ -46,11 +34,46 @@ $svg-padding: 0.2em;
             background-color:palette.$oxford-blue;
             color: white;
         }
+        @media (min-width: 768px) {
+            height: 45px;
+            font-size: 1.2em;
+        }
+        @media (min-width: 992px) {
+            height: 50px;
+            font-size: 1.4em;
+        }
+    }
+
+    &__buttons-wrapper {
+        order: 4;
+        max-width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        height: 60px;
+        gap: 8px;
+        justify-content: center;
+        align-items: center;
+        padding: 0 8px 0 2px;
+        position: relative;
+        color: palette.$oxford-blue;
+        max-width: 2000px;
+
+        @media (min-width: 768px) {
+            padding: 0 16px 0 10px;
+            gap: 12px;
+            height: 70px;
+        }
+        @media (min-width: 992px) {
+            gap: 20px;
+            height: 80px;
+        }
     }
 
     &__logo-container {
         // border: 2px solid #944;
         // padding: 0.5em;
+        order: 4;
         flex-basis: 100%;
         text-align: center;
         overflow: hidden;
@@ -59,12 +82,18 @@ $svg-padding: 0.2em;
         transition: flex 0.5s, gap 0.5s;
 
         @media (min-width: 768px) {
-            flex-basis: 15%;
+            flex: 1 1 50%;
+        }
+
+        @media (min-width: 992px) {
+            flex: 1 1 20%;
+            order: 2;
         }
     }
 
     &__search-form-container {
         // border: 2px solid #494;
+        order: 6;
         padding: $svg-padding;
         flex-basis: $svg-size;
         flex-shrink: 0;
@@ -72,14 +101,18 @@ $svg-padding: 0.2em;
         transition: flex 0.5s, gap 0.5s;
 
         @media (min-width: 768px) {
-            order: 2;
-            flex-basis: 15em;
-            flex-grow: 0;
-            flex-shrink: 1;
+            flex: 1 1 50%;
+        }
+        
+        @media (min-width: 992px) {
+            flex: 2 1 35%;
+            order: 8;
+            max-width: 600px;
         }
     }
 
     &__cart-button-container {
+        order: 8;
         display: flex;
         align-items: center;
         // border: #444 solid 2px;
@@ -87,14 +120,19 @@ $svg-padding: 0.2em;
         flex: 0 0 calc($svg-size + 8px);
 
         @media (min-width: 768px) {
-            order: 3;
+        }
+        @media (min-width: 992px) {
+            order: 10;
         }
     }
 
     &__hamburger-button-container {
+        order: 2;
         // border: 2px solid #47b;
         // padding: 0.5em;
         @media (min-width: 768px) {
+        }
+        @media (min-width: 992px) {
             display: none;
         }
     }
@@ -103,17 +141,25 @@ $svg-padding: 0.2em;
         transform: translateX(0);
         align-self: flex-start;
         flex-basis: 100%;
-        width: 50%;
+        width: 75%;
         top: 100%;
         right: 100%;
         // display: none;
         transition: transform 0.5s;
         position: absolute;
         flex-grow: 1;
+        order: 10;
         @media (min-width: 768px) {
-            flex-basis: auto;
-            order: 1;
-            display: block;
+        }
+
+        @media (min-width: 992px) {
+            position: relative;
+            top: initial;
+            right: initial;
+            flex: 1 1 45%;
+            height: 100%;
+            order: 4;
+            max-width: 700px;
         }
     }
 }

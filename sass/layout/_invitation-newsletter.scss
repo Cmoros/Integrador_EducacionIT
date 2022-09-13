@@ -1,0 +1,69 @@
+@use '../abstracts/palette';
+
+.invitation-newsletter {
+    display: flex;
+    max-width: 400px;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    flex: 1;
+    
+    color: palette.$oxford-blue;
+    gap: 12px;
+
+    &__header {
+        font-size: 1.5em;
+        &-container {
+
+        }
+    }
+
+    &__label{
+        &-container {
+            font-size: 1.1em;
+
+        }
+    }
+
+    &__input {
+        background-color: transparent;
+        outline: none;
+        border: none;
+
+        color: palette.$oxford-blue;
+        border-width: 2px;
+        border-style: solid;
+        border-color: palette.$sunglow palette.$sunglow palette.$oxford-blue palette.$sunglow;
+        border-radius: 10px;
+        padding: 0.5em;
+        width: 100%;
+        transition: border 0.2s;
+        &::placeholder {
+            color: palette.$blue-crayola;
+        }
+        &:focus {
+            border: 2px solid;
+        }
+        &-container {
+            width: 75%;
+        }
+    }
+
+    &__submit {
+        font-family:'Quicksand',sans-serif;
+        padding: 0.4em 1em;
+        border-radius: 10px;
+        background-color: palette.$cinnabar;
+        color: white;
+        font-size: 1.2em;
+        letter-spacing: 1px;
+        font-weight: 400;
+        cursor: pointer;
+        width: 100%;
+        border: none;
+        // border: 1px solid palette.$oxford-blue;
+        &-container {
+            width: 75%;
+        }
+    }
+}

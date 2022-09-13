@@ -23,9 +23,16 @@
 @use 'layout/cart-button';
 @use 'layout/search-form';
 @use 'layout/main-nav-search-form-toggle';
+@use 'layout/main-footer';
+@use 'layout/invitation-newsletter';
+@use 'layout/social';
+@use 'layout/creator';
+
 
 // 5. Components
 @use 'components/cards';
+@use 'components/linkedin-link';
+@use 'components/github-link';
 
 // 6. Page-specific styles
 @use 'pages/index';

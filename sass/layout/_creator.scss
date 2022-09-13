@@ -1,0 +1,55 @@
+@use '../abstracts/palette';
+
+.creator {
+    font-family: inherit;
+    width: 100%;
+    padding: 10px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    max-width: 1440px;
+    background-color: palette.$oxford-blue;
+    color: white;
+
+    @media (min-width: 768px) {
+        gap: 20px;
+    }
+
+    &__copyright{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        position: relative;
+        
+
+            &-container {
+                width: 24px;
+                height: 24px;
+        }
+    }
+
+    &__link-container {
+        display: flex;
+        position: relative;
+        align-items: stretch;
+        justify-content: stretch;
+        width: 48px;
+        height: 48px;
+    }
+
+    &__firma-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @media (min-width: 768px) {
+            font-size: 1.5em;
+        }
+    }
+
+    path {
+        fill: white;
+        transition: fill 0.5s;
+    }
+}

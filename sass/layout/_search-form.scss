@@ -9,25 +9,42 @@
     justify-content: flex-end;
     // padding: 0.2em;
 
+    &:focus-within {
+        & .search-form__icon-container {
+            transform: rotateZ(90deg);
+        }
+    }
+
     &__input {
         color: palette.$oxford-blue;
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
+        // border-top-left-radius: 10px;
+        // border-bottom-left-radius: 10px;
+        border-radius: 10px;
         outline: none;
         border: 2px solid;
         padding: 0.6em 40px 0.6em 0.4em;
 
         min-width: none;
         width: 100%;
+        &::placeholder {
+            text-align: center;
+        }
+
+        @media (min-width: 992px) {
+            font-size: 1.3em;
+            padding: 0.6em 40px 0.6em 1em;
+        }
         &-container {
             flex: 0 1 0;
             overflow: hidden;
             transition: flex-basis 0.5s;
             margin-right: -45px;
+            
+            @media (min-width:768px) {
+                flex-basis: 100%;
+            }
         }
-        &::placeholder {
-            text-align: center;
-        }
+
     }
 
     &__icon {
@@ -44,7 +61,11 @@
             path {
                 fill: palette.$oxford-blue;
             }
+            @media (min-width: 768px) {
+                
+            }
         }
         
     }
+
 }

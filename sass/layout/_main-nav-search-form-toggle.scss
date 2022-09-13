@@ -1,30 +1,33 @@
 .main-nav-search-form-toggle {
-    &:checked {
-        & ~ .main-header {
-            & .main-header__search-form-container {
-                flex-basis: 100%;
-                flex-shrink: 1;
-                // margin-right: -30px;
-                & .search-form {
-                    // gap: 10px;
-                    &__input {
-                        &-container {
-                            
-                            flex: 0 1 100%;
+    @media (max-width: 767px) {
+        &:checked {
+            & ~ .main-header {
+                & .main-header__search-form-container {
+                    flex-basis: 100%;
+                    flex-shrink: 1;
+                    // margin-right: -30px;
+                    & .search-form {
+                        // gap: 10px;
+                        &__input {
+                            &-container {
+                                
+                                flex: 0 1 100%;
+                            }
                         }
-                    }
-
-                    &__icon {
-                        &-container {
-                            transform: rotateZ(90deg);
+    
+                        &__icon {
+                            &-container {
+                                transform: rotateZ(90deg);
+                            }
                         }
                     }
                 }
-            }
-
-            & .main-header__logo-container {
-                flex-basis: 0;
+    
+                & .main-header__logo-container {
+                    flex-basis: 0;
+                }
             }
         }
     }
+    
 }
