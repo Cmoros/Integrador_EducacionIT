@@ -407,49 +407,10 @@ body {
   max-width: 100%;
   background-color: rgb(95, 126, 237);
   display: flex;
-  flex-wrap: wrap;
   position: fixed;
   z-index: 10;
-  top: 0;
+  top: 50px;
   width: 100%;
-}
-.main-header__message-container {
-  order: 2;
-  flex-basis: 100%;
-}
-.main-header__promo {
-  height: 40px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.main-header__promos-container {
-  padding: 0.4em;
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(75, 93, 225);
-}
-.main-header__promo--envio {
-  background-color: rgb(0, 18, 58);
-  color: white;
-}
-@media (min-width: 768px) {
-  .main-header__promo {
-    height: 45px;
-    font-size: 1.2em;
-  }
-}
-@media (min-width: 992px) {
-  .main-header__promo {
-    height: 50px;
-    font-size: 1.4em;
-  }
-}
-.main-header__buttons-wrapper {
-  order: 4;
-  max-width: 100%;
-  display: flex;
   flex-direction: row;
   flex: 1;
   height: 60px;
@@ -457,21 +418,22 @@ body {
   justify-content: center;
   align-items: center;
   padding: 0 8px 0 2px;
-  position: relative;
   color: rgb(0, 18, 58);
   max-width: 2000px;
 }
 @media (min-width: 768px) {
-  .main-header__buttons-wrapper {
+  .main-header {
     padding: 0 16px 0 10px;
     gap: 12px;
     height: 70px;
+    top: 55px;
   }
 }
 @media (min-width: 992px) {
-  .main-header__buttons-wrapper {
+  .main-header {
     gap: 20px;
     height: 80px;
+    top: 60px;
   }
 }
 .main-header__logo-container {
@@ -753,32 +715,58 @@ body {
 
 .main-footer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .main-footer__invitation-newsletter-container {
   display: flex;
   justify-content: center;
   background-color: rgb(254, 204, 38);
+  flex-basis: 100%;
 }
 .main-footer__social-container {
   display: flex;
   justify-content: center;
   background-color: rgb(172, 200, 254);
+  flex-basis: 100%;
 }
 .main-footer__contacto-container {
   display: flex;
   justify-content: center;
   background-color: rgb(172, 200, 254);
+  flex-basis: 100%;
+}
+@media (min-width: 768px) {
+  .main-footer__contacto-container {
+    flex-basis: 50%;
+    justify-content: flex-end;
+    text-align: center;
+  }
 }
 .main-footer__horario-container {
   display: flex;
   justify-content: center;
   background-color: rgb(172, 200, 254);
+  flex-basis: 100%;
+}
+@media (min-width: 768px) {
+  .main-footer__horario-container {
+    flex-basis: 50%;
+    justify-content: flex-start;
+    text-align: center;
+  }
+}
+.main-footer__creator-container {
+  background-color: rgb(0, 18, 58);
+  flex-basis: 100%;
+  display: flex;
+  justify-content: center;
 }
 .main-footer__copyright {
   color: white;
 }
 .main-footer__copyright-container {
+  flex-basis: 100%;
   display: flex;
   justify-content: center;
   padding: 0.5em;
@@ -794,6 +782,12 @@ body {
   flex-direction: column;
   gap: 0.75em;
 }
+@media (min-width: 768px) {
+  .footer-contacto {
+    border-bottom: none;
+    border-right: 3px solid white;
+  }
+}
 .footer-contacto__header {
   text-align: center;
 }
@@ -803,6 +797,12 @@ body {
   width: 50%;
   gap: 0.5em;
   align-items: center;
+}
+@media (min-width: 768px) {
+  .footer-contacto__whatsapp-title, .footer-contacto__direccion-title {
+    justify-content: center;
+    width: 100%;
+  }
 }
 .footer-contacto__whatsapp-info, .footer-contacto__direccion-info {
   display: flex;
@@ -844,11 +844,54 @@ body {
   color: rgb(0, 18, 58);
   gap: 12px;
 }
+@media (min-width: 768px) {
+  .invitation-newsletter {
+    flex: 0 0 90%;
+    max-width: 800px;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: center;
+  }
+}
+@media (min-width: 992px) {
+  .invitation-newsletter {
+    flex-wrap: nowrap;
+    flex-direction: row;
+    max-width: 1000px;
+    padding: 2em 0;
+  }
+}
 .invitation-newsletter__header {
   font-size: 1.5em;
 }
+@media (min-width: 768px) {
+  .invitation-newsletter__header-container {
+    flex-basis: 45%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-end;
+  }
+}
+@media (min-width: 992px) {
+  .invitation-newsletter__header-container {
+    flex: 1;
+  }
+}
 .invitation-newsletter__label-container {
   font-size: 1.1em;
+}
+@media (min-width: 768px) {
+  .invitation-newsletter__label-container {
+    flex-basis: 45%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+  }
+}
+@media (min-width: 992px) {
+  .invitation-newsletter__label-container {
+    flex: 1;
+  }
 }
 .invitation-newsletter__input {
   background-color: transparent;
@@ -876,7 +919,20 @@ body {
   border: 2px solid;
 }
 .invitation-newsletter__input-container {
-  width: 75%;
+  flex-basis: 75%;
+}
+@media (min-width: 768px) {
+  .invitation-newsletter__input-container {
+    flex-basis: 45%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-end;
+  }
+}
+@media (min-width: 992px) {
+  .invitation-newsletter__input-container {
+    flex: 1;
+  }
 }
 .invitation-newsletter__submit {
   font-family: "Quicksand", sans-serif;
@@ -892,7 +948,20 @@ body {
   border: none;
 }
 .invitation-newsletter__submit-container {
-  width: 75%;
+  flex-basis: 75%;
+}
+@media (min-width: 768px) {
+  .invitation-newsletter__submit-container {
+    flex-basis: 45%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+  }
+}
+@media (min-width: 992px) {
+  .invitation-newsletter__submit-container {
+    flex: 1;
+  }
 }
 
 .social {
@@ -937,7 +1006,6 @@ body {
   align-items: center;
   gap: 10px;
   max-width: 1440px;
-  background-color: rgb(0, 18, 58);
   color: white;
 }
 @media (min-width: 768px) {
@@ -1040,6 +1108,41 @@ body {
 }
 .github-link:hover > .github-link__svg--hover-show {
   display: block;
+}
+
+.message-container {
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+.message__promo {
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.message__promos-container {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(75, 93, 225);
+}
+.message__promo--envio {
+  background-color: rgb(0, 18, 58);
+  color: white;
+}
+@media (min-width: 768px) {
+  .message__promo {
+    height: 45px;
+    font-size: 1.2em;
+  }
+}
+@media (min-width: 992px) {
+  .message__promo {
+    height: 50px;
+    font-size: 1.4em;
+  }
 }
 
 .cards-container {

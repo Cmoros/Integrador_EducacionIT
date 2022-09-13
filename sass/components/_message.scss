@@ -1,0 +1,40 @@
+@use '../abstracts/palette';
+
+.message {
+    &-container {
+        width: 100%;
+        position: fixed;
+        top: 0;
+    }
+
+    &__alerts {
+        &-container {
+        }
+    }
+
+    &__promo {
+        &s-container {
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            background-color: palette.$ultramarine-blue;
+        }
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &--envio {
+            background-color:palette.$oxford-blue;
+            color: white;
+        }
+        @media (min-width: 768px) {
+            height: 45px;
+            font-size: 1.2em;
+        }
+        @media (min-width: 992px) {
+            height: 50px;
+            font-size: 1.4em;
+        }
+    }
+}
