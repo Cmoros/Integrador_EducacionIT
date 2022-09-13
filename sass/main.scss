@@ -13,7 +13,7 @@
 @use 'base/reset';
 @use 'base/utilities';
 @use 'base/base';
-
+@use 'base/fonts';
 
 // 4. Layout-related sections
 @use 'layout/hamburger-button';
@@ -27,7 +27,7 @@
 @use 'layout/invitation-newsletter';
 @use 'layout/social';
 @use 'layout/creator';
-
+@use 'layout/section-cards';
 
 // 5. Components
 @use 'components/cards';

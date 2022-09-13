@@ -1,15 +1,22 @@
+@use '../abstracts/palette';
+
 .card {
     // border: 2px solid #234;
-    width: 200px;
+    
+    flex: 1 1 140px;
     max-width: 300px;
-    flex-grow: 1;
+    height: 350px;
+    
     box-shadow: 
-        0 1px 5px rgba(0, 0, 0, .2),
-        0 0px 3px rgba(0, 0, 0, .4)
+        0 1px 5px rgba(palette.$oxford-blue, .2),
+        0 0px 3px rgba(palette.$oxford-blue, .4)
     ;
+
     border-radius: 5px 5px 0 0;
     // transition: background-color .4s, transform 2s;
     transition: all .2s;
+    display: flex;
+    flex-direction: column;
 
     &:hover {
         // background-color: yellow;
@@ -19,19 +26,78 @@
         transform-origin: bottom;
     }
         
-    &:nth-child(5n+1) {
-        background-color: #C9D2DA;
+    &__link-add {
+        order: 4;
+        text-decoration: none;
+        color: blue;
+        &:visited {
+            color: inherit;
+        }
     }
-    &:nth-child(5n+2) {
-        background-color: #DEE8EB;
+
+    &__article {
+        order: 2;
+        display: flex;
+        flex-direction: column;
     }
-    &:nth-child(5n+3) {
-        background-color: #F0F6DE;
+
+    &__image {
+        width: 100%;
+        &-container {
+            order: 2;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            border-bottom: 1px solid rgba(palette.$oxford-blue,0.4);
+        }
     }
-    &:nth-child(5n+4) {
-        background-color: #F3DED3;
+
+    &__content{
+        padding: 8px;
+        order: 4;
+        gap: 4px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
     }
-    &:nth-child(5n+5) {
-        background-color: #DBCEC0;
+
+    &__heading {
+        font-size: 16px;
+        flex: 0 1 75%;
+    }
+    &__description {
+        padding: 4px 0;
+        font-size: 12px;
+        flex: 1 1 100%;
+    }
+    &__price {
+        align-self: flex-end;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        flex: 0 1 50%;
+        &-container {
+            display: flex;
+            flex: 0 1 100%;
+            justify-content: flex-end;
+        }
+
+        &::before {
+            content: '$';
+            display: inline-block;
+            padding-right: 4px;
+        }
+        &::after {
+            content: '.00';
+            height: 16px;
+            display: inline-block;
+            font-size: 10px;
+            display: flex;
+            align-items: flex-start;
+            padding-left: 2px;
+        }
     }
 }

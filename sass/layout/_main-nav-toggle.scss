@@ -13,13 +13,14 @@
                 .main-header__hamburger-button-container {
                     .hamburger-button {
                         &__top-bread {
-                            transform: rotateZ(35deg);
+                            transform: rotateZ(30deg);
+
                         }
                         &__meat {
                             transform: scale(0);
                         }
                         &__bottom-bread {
-                            transform: rotateZ(-35deg);
+                            transform: rotateZ(-30deg);
                             
                         }
                     }

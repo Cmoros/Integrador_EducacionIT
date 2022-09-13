@@ -4,6 +4,7 @@
     &-container {
         width: 100%;
         position: fixed;
+        z-index: 10;
         top: 0;
     }
 
@@ -20,6 +21,7 @@
             background-color: palette.$ultramarine-blue;
         }
         height: 40px;
+        padding: 5px 10px;
         border-radius: 10px;
         display: flex;
         align-items: center;

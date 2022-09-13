@@ -1,8 +1,19 @@
 body {
-    padding: 100px 0 0;
+    padding: 120px 0 0;
     min-height: 100vh;
+
+    @media (min-width:768px) {
+        
+    }
+    @media (min-width:992px) {
+        
+    }
 }
 
 * {
     font-family: inherit;
+}
+
+main {
+    padding: 0 0.5em;
 }

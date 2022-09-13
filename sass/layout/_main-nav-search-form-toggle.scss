@@ -1,4 +1,5 @@
 .main-nav-search-form-toggle {
+    display: none;
     @media (max-width: 767px) {
         &:checked {
             & ~ .main-header {
