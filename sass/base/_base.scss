@@ -6,7 +6,7 @@ body {
         
     }
     @media (min-width:992px) {
-        
+        padding: 140px 0 0;
     }
 }
 
@@ -16,6 +16,9 @@ body {
 
 main {
     padding: 0 0.5em;
+    @media (min-width: 992px) {
+        padding: 0 1.5em 1em;
+    }
 }
 
 // main,

@@ -55,7 +55,8 @@
         // padding: 1em .7em;
         font-size: 1.5em;
         text-decoration: none;
-        justify-content: center;
+        justify-content: flex-start;
+        gap: 10px;
         border-bottom: palette.$oxford-blue 2px solid;
         
         &:hover,
@@ -87,6 +88,26 @@
             }
         }
 
+        &-text{
+
+        }
+        &-icon {
+            flex-basis: 1.5em;
+            height: 1.5em;
+            svg {
+                width: 100%;
+                height: 100%;
+            }
+            // filter: invert(1) red;
+            // mask: none;
+            // position: relative;
+            // z-index: 5;
+            // mask-image: url(../img/nav-home.svg);
+            // mask-repeat: no-repeat;
+            // mask-position: center;
+            // background-color: red;
+            // mask-image: url(../img/nav-home.svg);
+        }
 
     }
 

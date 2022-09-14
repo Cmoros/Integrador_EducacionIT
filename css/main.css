@@ -340,12 +340,23 @@ body {
   padding: 120px 0 0;
   min-height: 100vh;
 }
+@media (min-width: 992px) {
+  body {
+    padding: 140px 0 0;
+  }
+}
+
 * {
   font-family: inherit;
 }
 
 main {
   padding: 0 0.5em;
+}
+@media (min-width: 992px) {
+  main {
+    padding: 0 1.5em 1em;
+  }
 }
 
 * {
@@ -598,7 +609,8 @@ main {
   height: 75%;
   font-size: 1.5em;
   text-decoration: none;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 10px;
   border-bottom: rgb(0, 18, 58) 2px solid;
 }
 .main-nav__link:hover, .main-nav__link:focus {
@@ -619,6 +631,14 @@ main {
     background-color: rgb(172, 200, 254);
     border: none;
   }
+}
+.main-nav__link-icon {
+  flex-basis: 1.5em;
+  height: 1.5em;
+}
+.main-nav__link-icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .main-nav-toggle {
@@ -1109,21 +1129,32 @@ main {
 
 .section-cards {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+}
+@media (min-width: 992px) {
+  .section-cards {
+    height: 460px;
+  }
 }
 .section-cards__header {
   padding: 1em 0;
   width: 100%;
   max-width: 650px;
 }
+@media (min-width: 992px) {
+  .section-cards__header {
+    max-width: 1300px;
+  }
+}
 .card {
+  cursor: pointer;
   flex: 1 1 40%;
-  max-width: 500px;
+  max-width: 300px;
   height: 390px;
   box-shadow: 0 1px 5px rgba(0, 18, 58, 0.2), 0 0px 3px rgba(0, 18, 58, 0.4);
-  border-radius: 5px 5px 0 0;
+  border-radius: 7px;
   transition: all 0.2s;
   display: flex;
   flex-direction: column;
@@ -1131,15 +1162,27 @@ main {
   padding-bottom: 8px;
   align-items: center;
 }
-.card:hover {
-  transform: scale(1.05);
-  transform-origin: bottom;
+@media (min-width: 768px) {
+  .card {
+    height: 380px;
+  }
+}
+@media (min-width: 992px) {
+  .card {
+    flex: 1 1 23%;
+    height: 358px;
+    transition: height 0.5s;
+    overflow: hidden;
+  }
+  .card:hover {
+    height: 401px;
+  }
 }
 .card__link-add {
   padding: 0.4em 0.4em;
   border-radius: 10px;
   background-color: rgb(75, 93, 225);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   cursor: pointer;
   color: white;
@@ -1149,10 +1192,20 @@ main {
   text-align: center;
   text-decoration: none;
 }
+@media (min-width: 992px) {
+  .card__link-add {
+    font-size: 18px;
+  }
+}
 .card__article {
   order: 2;
   display: flex;
   flex-direction: column;
+}
+@media (min-width: 992px) {
+  .card__article {
+    padding: 0 5px;
+  }
 }
 .card__image {
   width: 100%;
@@ -1187,14 +1240,38 @@ main {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+@media (min-width: 768px) {
+  .card__heading {
+    font-size: 18px;
+    height: 40px;
+  }
+}
+@media (min-width: 992px) {
+  .card__heading {
+    font-size: 20px;
+    height: 46px;
+  }
+}
 .card__description {
   order: 6;
   padding: 4px 0;
   font-size: 12px;
   flex: 1 1 100%;
-  height: 42px;
+  height: 46px;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+@media (min-width: 768px) {
+  .card__description {
+    font-size: 14px;
+    height: 52px;
+  }
+}
+@media (min-width: 992px) {
+  .card__description {
+    font-size: 16px;
+    height: 60px;
+  }
 }
 .card__description-long {
   display: none;
@@ -1206,15 +1283,10 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
   letter-spacing: -1px;
   flex: 0 1 50%;
-}
-.card__price-container {
-  display: flex;
-  flex: 0 1 100%;
-  justify-content: flex-end;
 }
 .card__price::before {
   content: "$";
@@ -1229,6 +1301,16 @@ main {
   display: flex;
   align-items: flex-start;
   padding-left: 2px;
+}
+@media (min-width: 992px) {
+  .card__price {
+    font-size: 26px;
+  }
+}
+.card__price-container {
+  display: flex;
+  flex: 0 1 100%;
+  justify-content: flex-end;
 }
 
 .linkedin-link__svg {
@@ -1312,6 +1394,21 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5em;
+  width: 100%;
   justify-content: center;
   max-width: 500px;
+}
+@media (min-width: 768px) {
+  .cards-container {
+    gap: 1em;
+    width: 95%;
+    max-width: 800px;
+  }
+}
+@media (min-width: 992px) {
+  .cards-container {
+    width: 95%;
+    max-width: 1100px;
+    gap: 1.5em;
+  }
 }/*# sourceMappingURL=main.css.map */

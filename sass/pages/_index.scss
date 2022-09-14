@@ -3,6 +3,17 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5em;
+    width: 100%;
     justify-content: center;
     max-width: 500px;
+    @media(min-width: 768px) {
+        gap: 1em;
+        width: 95%;
+        max-width: 800px;
+    }
+    @media (min-width: 992px) {
+        width: 95%;
+        max-width: 1100px;
+        gap: 1.5em;
+    }
 }
