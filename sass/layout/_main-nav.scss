@@ -4,7 +4,7 @@
     background-color: #222;
     background-color: palette.$baby-blue-eyes;
     border-style: solid;
-    border-width: 0 1px 1px 0;
+    border-width: 1px 1px 1px 0;
     border-bottom-right-radius: 10px;
 
     @media (min-width: 992px) {
@@ -66,14 +66,15 @@
         }
 
         &:visited {
-            color: initial;
+            // color: initial;
         }
 
         @media (min-width:992px) {
             // padding-left: 1em;
             // padding-right: 1em;
             border-bottom: none;
-            color: palette.$oxford-blue;
+            // color: palette.$oxford-blue;
+            color: white;
             // font-size: 1.5em;
             font-weight: 500;
             width: 100%;

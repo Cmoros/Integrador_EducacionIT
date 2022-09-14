@@ -25,7 +25,8 @@
         }
         &-black path,
         &-white path {
-            fill: palette.$oxford-blue;
+            // fill: palette.$oxford-blue;
+            fill: white;
         }
     }
 }

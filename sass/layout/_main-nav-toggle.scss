@@ -2,6 +2,11 @@
     display: none;
     @media (max-width: 991px) {
         &:checked {
+            // & ~ main,
+            // & ~ footer,
+            // & ~ header {
+            //     left: 300px;
+            // }
             & ~ .main-header {
                 .main-header__main-nav-container {
                     display: block;

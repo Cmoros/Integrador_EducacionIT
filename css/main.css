@@ -385,7 +385,7 @@ main {
   display: block;
   width: 80%;
   flex-basis: 6%;
-  background-color: rgb(0, 18, 58);
+  background-color: white;
   transition: transform 0.5s;
   transform: rotateZ(0deg);
   transform-origin: top left;
@@ -395,7 +395,7 @@ main {
   display: block;
   width: 80%;
   flex-basis: 6%;
-  background-color: rgb(0, 18, 58);
+  background-color: white;
   transition: transform 0.5s;
   transform: scale(1);
 }
@@ -404,7 +404,7 @@ main {
   display: block;
   width: 80%;
   flex-basis: 6%;
-  background-color: rgb(0, 18, 58);
+  background-color: white;
   transform: rotateZ(0deg);
   transition: transform 0.5s;
   transform-origin: bottom left;
@@ -412,11 +412,11 @@ main {
 
 .main-header {
   max-width: 100%;
-  background-color: rgb(95, 126, 237);
+  background-color: rgb(75, 93, 225);
   display: flex;
   position: fixed;
   z-index: 10;
-  top: 50px;
+  top: 60px;
   width: 100%;
   flex-direction: row;
   flex: 1;
@@ -425,7 +425,7 @@ main {
   justify-content: center;
   align-items: center;
   padding: 0 8px 0 2px;
-  color: rgb(0, 18, 58);
+  color: white;
   max-width: 2000px;
 }
 @media (min-width: 768px) {
@@ -443,13 +443,20 @@ main {
     top: 60px;
   }
 }
+.main-header__logo {
+  height: 100%;
+  width: auto;
+  border-radius: 50%;
+}
 .main-header__logo-container {
   order: 4;
   flex-basis: 100%;
   text-align: center;
   overflow: hidden;
-  color: rgb(0, 18, 58);
+  height: 100%;
+  color: white;
   font-size: 2em;
+  padding: 4px 0;
   transition: flex 0.5s, gap 0.5s;
 }
 @media (min-width: 768px) {
@@ -531,7 +538,7 @@ main {
   background-color: #222;
   background-color: rgb(172, 200, 254);
   border-style: solid;
-  border-width: 0 1px 1px 0;
+  border-width: 1px 1px 1px 0;
   border-bottom-right-radius: 10px;
 }
 @media (min-width: 992px) {
@@ -584,13 +591,10 @@ main {
   border-radius: 10px;
   border: rgb(0, 18, 58) 2px solid;
 }
-.main-nav__link:visited {
-  color: initial;
-}
 @media (min-width: 992px) {
   .main-nav__link {
     border-bottom: none;
-    color: rgb(0, 18, 58);
+    color: white;
     font-weight: 500;
     width: 100%;
     padding: 4px 8px;
@@ -641,7 +645,7 @@ main {
   display: none;
 }
 .cart-button__icon-black path, .cart-button__icon-white path {
-  fill: rgb(0, 18, 58);
+  fill: white;
 }
 
 .search-form {
@@ -702,7 +706,7 @@ main {
   transition: transform 0.5s;
 }
 .search-form__icon-container path {
-  fill: rgb(0, 18, 58);
+  fill: white;
 }
 .main-nav-search-form-toggle {
   display: none;
@@ -727,6 +731,8 @@ main {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  background: url("../img/background-stars.png");
+  background-size: 200px;
 }
 .main-footer__invitation-newsletter-container {
   display: flex;
@@ -767,20 +773,20 @@ main {
   }
 }
 .main-footer__creator-container {
-  background-color: rgb(0, 18, 58);
+  background: url;
   flex-basis: 100%;
   display: flex;
   justify-content: center;
 }
 .main-footer__copyright {
   color: white;
+  background-color: rgb(0, 18, 58);
+  padding: 16px;
 }
 .main-footer__copyright-container {
   flex-basis: 100%;
   display: flex;
   justify-content: center;
-  padding: 0.5em;
-  background-color: rgb(0, 18, 58);
 }
 
 .footer-contacto {
@@ -950,7 +956,6 @@ main {
   }
 }
 .invitation-newsletter__submit {
-  font-family: "Quicksand", sans-serif;
   padding: 0.4em 1em;
   border-radius: 10px;
   background-color: rgb(249, 48, 49);
@@ -1014,8 +1019,8 @@ main {
 }
 .creator {
   font-family: inherit;
-  width: 100%;
-  padding: 10px 5px;
+  padding: 10px 10px;
+  background-color: rgb(0, 18, 58);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1050,6 +1055,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: rgb(0, 18, 58);
 }
 @media (min-width: 768px) {
   .creator__firma-container {
@@ -1067,24 +1073,33 @@ main {
 .card {
   flex: 1 1 140px;
   max-width: 300px;
-  height: 350px;
+  height: 390px;
   box-shadow: 0 1px 5px rgba(0, 18, 58, 0.2), 0 0px 3px rgba(0, 18, 58, 0.4);
   border-radius: 5px 5px 0 0;
   transition: all 0.2s;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  align-items: center;
 }
 .card:hover {
   transform: scale(1.05);
   transform-origin: bottom;
 }
 .card__link-add {
+  padding: 0.4em 0.4em;
+  border-radius: 10px;
+  background-color: rgb(75, 93, 225);
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  color: white;
+  width: 60%;
+  border: none;
   order: 4;
+  text-align: center;
   text-decoration: none;
-  color: blue;
-}
-.card__link-add:visited {
-  color: inherit;
 }
 .card__article {
   order: 2;
@@ -1112,20 +1127,25 @@ main {
   align-content: center;
 }
 .card__heading {
+  order: 4;
   font-size: 16px;
-  flex: 0 1 75%;
+  flex: 0 1 100%;
 }
 .card__description {
+  order: 6;
   padding: 4px 0;
   font-size: 12px;
   flex: 1 1 100%;
 }
 .card__price {
+  color: rgb(75, 93, 225);
+  order: 2;
   align-self: flex-end;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: bold;
   flex: 0 1 50%;
 }
 .card__price-container {
@@ -1191,7 +1211,7 @@ main {
   top: 0;
 }
 .message__promo {
-  height: 40px;
+  height: 50px;
   padding: 5px 10px;
   border-radius: 10px;
   display: flex;
@@ -1202,7 +1222,8 @@ main {
   padding: 5px;
   display: flex;
   flex-direction: column;
-  background-color: rgb(75, 93, 225);
+  background: url("../img/background-stars.png");
+  background-size: contain;
 }
 .message__promo--envio {
   background-color: rgb(0, 18, 58);

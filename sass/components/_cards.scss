@@ -5,7 +5,7 @@
     
     flex: 1 1 140px;
     max-width: 300px;
-    height: 350px;
+    height: 390px;
     
     box-shadow: 
         0 1px 5px rgba(palette.$oxford-blue, .2),
@@ -17,7 +17,9 @@
     transition: all .2s;
     display: flex;
     flex-direction: column;
-
+    justify-content: space-between;
+    padding-bottom: 8px;
+    align-items: center;
     &:hover {
         // background-color: yellow;
         // width: 240px;
@@ -27,11 +29,22 @@
     }
         
     &__link-add {
+        padding: 0.4em 0.4em;
+        border-radius: 10px;
+        // background-color: palette.$blue-crayola;
+        background-color: palette.$ultramarine-blue;
+        // color: palette.$oxford-blue;
+        font-size: 14px;
+        font-weight: 400;
+        cursor: pointer;
+        color: white;
+        width: 60%;
+        border: none;
         order: 4;
+        text-align: center;
         text-decoration: none;
-        color: blue;
         &:visited {
-            color: inherit;
+            // color: inherit;
         }
     }
 
@@ -64,20 +77,25 @@
     }
 
     &__heading {
+        order: 4;
         font-size: 16px;
-        flex: 0 1 75%;
+        flex: 0 1 100%;
     }
     &__description {
+        order: 6;
         padding: 4px 0;
         font-size: 12px;
         flex: 1 1 100%;
     }
     &__price {
+        color: palette.$ultramarine-blue;
+        order: 2;
         align-self: flex-end;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 16px;
+        font-size: 18px;
+        font-weight: bold;
         flex: 0 1 50%;
         &-container {
             display: flex;

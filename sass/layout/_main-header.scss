@@ -5,11 +5,12 @@ $svg-padding: 0.2em;
 
 .main-header {
     max-width: 100%;
-    background-color: palette.$blue-crayola;
+    // background-color: palette.$blue-crayola;
+    background-color: palette.$ultramarine-blue;
     display: flex;
     position: fixed;
     z-index: 10;
-    top: 50px;
+    top: 60px;
     width: 100%;
     flex-direction: row;
     flex: 1;
@@ -18,7 +19,8 @@ $svg-padding: 0.2em;
     justify-content: center;
     align-items: center;
     padding: 0 8px 0 2px;
-    color: palette.$oxford-blue;
+    // color: palette.$oxford-blue;
+    color: white;
     max-width: 2000px;
 
     @media (min-width: 768px) {
@@ -32,7 +34,11 @@ $svg-padding: 0.2em;
         height: 80px;
         top: 60px;
     }
-
+    &__logo {
+        height: 100%;
+        width: auto;
+        border-radius: 50%;
+    }
     &__logo-container {
         // border: 2px solid #944;
         // padding: 0.5em;
@@ -40,8 +46,11 @@ $svg-padding: 0.2em;
         flex-basis: 100%;
         text-align: center;
         overflow: hidden;
-        color: palette.$oxford-blue;
+        height: 100%;
+        // color: palette.$oxford-blue;
+        color: white;
         font-size: 2em;
+        padding: 4px 0;
         transition: flex 0.5s, gap 0.5s;
 
         @media (min-width: 768px) {
@@ -109,6 +118,7 @@ $svg-padding: 0.2em;
         right: 100%;
         // display: none;
         transition: transform 0.5s;
+        
         position: absolute;
         flex-grow: 1;
         order: 10;
@@ -123,6 +133,7 @@ $svg-padding: 0.2em;
             height: 100%;
             order: 4;
             max-width: 700px;
+            
         }
     }
 }

@@ -23,7 +23,8 @@
         display: block;
         width: 80%;
         flex-basis: 6%;
-        background-color: palette.$oxford-blue;
+        // background-color: palette.$oxford-blue;
+        background-color: white;
         transition: transform 0.5s;
         transform: rotateZ(0deg);
         transform-origin: top left;
@@ -34,7 +35,8 @@
         display: block;
         width: 80%;
         flex-basis: 6%;
-        background-color: palette.$oxford-blue;
+        // background-color: palette.$oxford-blue;
+        background-color: white;
         transition: transform 0.5s;
         transform: scale(1);
     }
@@ -44,7 +46,8 @@
         display: block;
         width: 80%;
         flex-basis: 6%;
-        background-color: palette.$oxford-blue;
+        // background-color: palette.$oxford-blue;
+        background-color: white;
         transform: rotateZ(0deg);
         transition: transform 0.5s;
         transform-origin: bottom left;

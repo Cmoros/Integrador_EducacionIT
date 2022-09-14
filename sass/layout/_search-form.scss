@@ -59,7 +59,8 @@
             transform: rotateZ(0deg);
             transition: transform 0.5s;
             path {
-                fill: palette.$oxford-blue;
+                // fill: palette.$oxford-blue;
+                fill: white;
             }
             @media (min-width: 768px) {
                 
