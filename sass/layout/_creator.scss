@@ -1,20 +1,23 @@
 @use '../abstracts/palette';
 
 .creator {
-    font-family: inherit;
-    // width: 100%;
-    padding: 10px 10px;
+        border-radius: 10px;
+        font-family: inherit;
+    width: 95%;
+    padding: 0 5px;
     background-color: palette.$oxford-blue;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     gap: 10px;
-    max-width: 1440px;
+    max-width: 400px;
     
     color: white;
 
     @media (min-width: 768px) {
+        justify-content: center;
         gap: 20px;
+        max-width: 500px;
     }
 
     &__copyright{
@@ -39,14 +42,22 @@
         height: 48px;
     }
 
-    &__firma-container {
+    &__firma {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        background-color: palette.$oxford-blue;;
 
-        @media (min-width: 768px) {
-            font-size: 1.5em;
+        @media(min-width: 768px) {
+            display: block;
+        }
+        &-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: palette.$oxford-blue;;
+
+            @media (min-width: 768px) {
+                font-size: 1.5em;
+            }
         }
     }
 

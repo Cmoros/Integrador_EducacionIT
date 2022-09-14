@@ -426,7 +426,6 @@ main {
   align-items: center;
   padding: 0 8px 0 2px;
   color: white;
-  max-width: 2000px;
 }
 @media (min-width: 768px) {
   .main-header {
@@ -444,18 +443,34 @@ main {
   }
 }
 .main-header__logo {
-  height: 100%;
+  height: 80%;
   width: auto;
-  border-radius: 50%;
+  border-radius: 40%;
+}
+.main-header__logo-title {
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-variant: small-caps;
+}
+.main-header__logo-title span:first-child {
+  font-size: 12px;
+  margin-bottom: -4px;
 }
 .main-header__logo-container {
+  gap: 6px;
   order: 4;
+  max-width: 250px;
   flex-basis: 100%;
   text-align: center;
   overflow: hidden;
+  justify-content: center;
+  display: flex;
+  align-items: center;
   height: 100%;
   color: white;
-  font-size: 2em;
   padding: 4px 0;
   transition: flex 0.5s, gap 0.5s;
 }
@@ -707,6 +722,12 @@ main {
 }
 .search-form__icon-container path {
   fill: white;
+  transition: fill 0.5s;
+}
+@media (min-width: 768px) {
+  .search-form__icon-container path {
+    fill: rgb(0, 18, 58);
+  }
 }
 .main-nav-search-form-toggle {
   display: none;
@@ -721,6 +742,9 @@ main {
   }
   .main-nav-search-form-toggle:checked ~ .main-header .main-header__search-form-container .search-form__icon-container {
     transform: rotateZ(90deg);
+  }
+  .main-nav-search-form-toggle:checked ~ .main-header .main-header__search-form-container .search-form__icon-container path {
+    fill: rgb(0, 18, 58);
   }
   .main-nav-search-form-toggle:checked ~ .main-header .main-header__logo-container {
     flex-basis: 0;
@@ -774,16 +798,19 @@ main {
 }
 .main-footer__creator-container {
   background: url;
+  padding: 10px 0;
   flex-basis: 100%;
   display: flex;
   justify-content: center;
 }
 .main-footer__copyright {
   color: white;
+  padding: 8px;
+  border-radius: 10px;
   background-color: rgb(0, 18, 58);
-  padding: 16px;
 }
 .main-footer__copyright-container {
+  padding: 8px;
   flex-basis: 100%;
   display: flex;
   justify-content: center;
@@ -1018,19 +1045,23 @@ main {
   height: 100%;
 }
 .creator {
+  border-radius: 10px;
   font-family: inherit;
-  padding: 10px 10px;
+  width: 95%;
+  padding: 0 5px;
   background-color: rgb(0, 18, 58);
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   gap: 10px;
-  max-width: 1440px;
+  max-width: 400px;
   color: white;
 }
 @media (min-width: 768px) {
   .creator {
+    justify-content: center;
     gap: 20px;
+    max-width: 500px;
   }
 }
 .creator__copyright {
@@ -1051,6 +1082,15 @@ main {
   width: 48px;
   height: 48px;
 }
+.creator__firma {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .creator__firma {
+    display: block;
+  }
+}
 .creator__firma-container {
   display: flex;
   flex-direction: column;
@@ -1067,12 +1107,20 @@ main {
   transition: fill 0.5s;
 }
 
+.section-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 .section-cards__header {
   padding: 1em 0;
+  width: 100%;
+  max-width: 650px;
 }
 .card {
-  flex: 1 1 140px;
-  max-width: 300px;
+  flex: 1 1 40%;
+  max-width: 500px;
   height: 390px;
   box-shadow: 0 1px 5px rgba(0, 18, 58, 0.2), 0 0px 3px rgba(0, 18, 58, 0.4);
   border-radius: 5px 5px 0 0;
@@ -1108,12 +1156,17 @@ main {
 }
 .card__image {
   width: 100%;
+  max-height: 190px;
+  max-width: 200px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .card__image-container {
   order: 2;
   height: 200px;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 8px;
   border-bottom: 1px solid rgba(0, 18, 58, 0.4);
 }
@@ -1129,13 +1182,22 @@ main {
 .card__heading {
   order: 4;
   font-size: 16px;
-  flex: 0 1 100%;
+  flex: 0 1 90%;
+  height: 56px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .card__description {
   order: 6;
   padding: 4px 0;
   font-size: 12px;
   flex: 1 1 100%;
+  height: 42px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card__description-long {
+  display: none;
 }
 .card__price {
   color: rgb(75, 93, 225);
@@ -1144,8 +1206,9 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
+  letter-spacing: -1px;
   flex: 0 1 50%;
 }
 .card__price-container {
@@ -1217,6 +1280,8 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
 }
 .message__promos-container {
   padding: 5px;
@@ -1248,4 +1313,5 @@ main {
   flex-wrap: wrap;
   gap: 0.5em;
   justify-content: center;
+  max-width: 500px;
 }/*# sourceMappingURL=main.css.map */

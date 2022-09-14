@@ -1,3 +1,5 @@
+@use '../abstracts/palette';
+
 .main-nav-search-form-toggle {
     display: none;
     @media (max-width: 767px) {
@@ -19,6 +21,10 @@
                         &__icon {
                             &-container {
                                 transform: rotateZ(90deg);
+
+                                path {
+                                    fill: palette.$oxford-blue;
+                                }
                             }
                         }
                     }
