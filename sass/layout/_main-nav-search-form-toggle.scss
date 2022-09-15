@@ -17,14 +17,12 @@
                                 flex: 0 1 100%;
                             }
                         }
-    
+                        &__label {
+                            transform: rotateZ(90deg);
+                        }
                         &__icon {
-                            &-container {
-                                transform: rotateZ(90deg);
-
-                                path {
-                                    fill: palette.$oxford-blue;
-                                }
+                            path {
+                                fill: palette.$oxford-blue;
                             }
                         }
                     }

@@ -1,3 +1,5 @@
+@use '../abstracts/palette';
+
 .main-nav-toggle {
     display: none;
     @media (max-width: 991px) {
@@ -7,12 +9,17 @@
             // & ~ header {
             //     left: 300px;
             // }
+            & ~ main,
+            & ~ .main-footer {
+                filter: brightness(0.25);
+            }
             & ~ .main-header {
                 .main-header__main-nav-container {
                     display: block;
                     position: absolute;
                     bottom: 0;
                     transform: translateX(100%);
+                    // background-color: rgba(palette.$oxford-blue, 0.5);
                 }
     
                 .main-header__hamburger-button-container {

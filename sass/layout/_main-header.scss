@@ -15,13 +15,14 @@ $svg-padding: 0.2em;
     flex-direction: row;
     flex: 1;
     height: 60px;
-    gap: 8px;
-    justify-content: center;
+    gap: 6px;
+    justify-content: space-between;
     align-items: center;
     padding: 0 8px 0 2px;
     // color: palette.$oxford-blue;
     color: white;
     // max-width: 2000px;
+    transition: top 0.5s linear;
 
     @media (min-width: 768px) {
         padding: 0 16px 0 10px;
@@ -46,9 +47,26 @@ $svg-padding: 0.2em;
             flex-direction: column;
             align-items: center;
             font-variant: small-caps;
-            span:first-child {
+            &--toystore {
                 font-size: 12px;
-                margin-bottom: -4px;
+                margin-bottom: -8px;
+                @media (min-width: 768px) {
+                    font-size: 13px;
+                }
+                @media (min-width: 992px) {
+                    font-size: 14px;
+                }
+            }
+            @media (min-width: 768px) {
+                font-size: 26px;
+            }
+            @media (min-width: 992px) {
+                font-size: 28px;
+            }
+
+            &--a {
+                text-transform: uppercase;
+                font-size: 20px;
             }
         }
 
@@ -57,9 +75,10 @@ $svg-padding: 0.2em;
             // border: 2px solid #944;
             // padding: 0.5em;
             order: 4;
-            max-width: 250px;
+            
             flex-basis: 100%;
             text-align: center;
+            flex: 1;
             overflow: hidden;
             justify-content: center;
             display: flex;
@@ -73,6 +92,7 @@ $svg-padding: 0.2em;
 
             @media (min-width: 768px) {
                 flex: 1 1 50%;
+                max-width: 300px;
             }
 
             @media (min-width: 992px) {
@@ -86,10 +106,12 @@ $svg-padding: 0.2em;
         // border: 2px solid #494;
         order: 6;
         padding: $svg-padding;
-        flex-basis: $svg-size;
+        // flex-basis: $svg-size;
+        flex-basis: 35px;
         flex-shrink: 0;
         height: 100%;
         transition: flex 0.5s, gap 0.5s;
+        // overflow: hidden;
 
         @media (min-width: 768px) {
             flex: 1 1 50%;
@@ -119,6 +141,7 @@ $svg-padding: 0.2em;
 
     &__hamburger-button-container {
         order: 2;
+        flex: 0;
         // border: 2px solid #47b;
         // padding: 0.5em;
         @media (min-width: 768px) {
@@ -132,9 +155,11 @@ $svg-padding: 0.2em;
         transform: translateX(0);
         align-self: flex-start;
         flex-basis: 100%;
-        width: 75%;
+        width: 100%;
         top: 100%;
         right: 100%;
+        height: 100vh;
+        background-color: transparent;
         // display: none;
         transition: transform 0.5s;
         
@@ -145,14 +170,18 @@ $svg-padding: 0.2em;
         }
 
         @media (min-width: 992px) {
+            width: initial;
             position: relative;
             top: initial;
             right: initial;
             flex: 1 1 45%;
             height: 100%;
             order: 4;
-            max-width: 700px;
+            max-width: 1000px;
             
+        }
+        @media (min-width: 992px) {
+            flex-grow: 3;
         }
     }
 }

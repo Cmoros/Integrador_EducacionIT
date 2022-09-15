@@ -339,6 +339,7 @@ body {
 body {
   padding: 120px 0 0;
   min-height: 100vh;
+  transition: padding 0.5s;
 }
 @media (min-width: 992px) {
   body {
@@ -351,7 +352,9 @@ body {
 }
 
 main {
+  background-color: white;
   padding: 0 0.5em;
+  transition: filter 0.25s linear;
 }
 @media (min-width: 992px) {
   main {
@@ -432,11 +435,12 @@ main {
   flex-direction: row;
   flex: 1;
   height: 60px;
-  gap: 8px;
-  justify-content: center;
+  gap: 6px;
+  justify-content: space-between;
   align-items: center;
   padding: 0 8px 0 2px;
   color: white;
+  transition: top 0.5s linear;
 }
 @media (min-width: 768px) {
   .main-header {
@@ -466,16 +470,40 @@ main {
   align-items: center;
   font-variant: small-caps;
 }
-.main-header__logo-title span:first-child {
+.main-header__logo-title--toystore {
   font-size: 12px;
-  margin-bottom: -4px;
+  margin-bottom: -8px;
+}
+@media (min-width: 768px) {
+  .main-header__logo-title--toystore {
+    font-size: 13px;
+  }
+}
+@media (min-width: 992px) {
+  .main-header__logo-title--toystore {
+    font-size: 14px;
+  }
+}
+@media (min-width: 768px) {
+  .main-header__logo-title {
+    font-size: 26px;
+  }
+}
+@media (min-width: 992px) {
+  .main-header__logo-title {
+    font-size: 28px;
+  }
+}
+.main-header__logo-title--a {
+  text-transform: uppercase;
+  font-size: 20px;
 }
 .main-header__logo-container {
   gap: 6px;
   order: 4;
-  max-width: 250px;
   flex-basis: 100%;
   text-align: center;
+  flex: 1;
   overflow: hidden;
   justify-content: center;
   display: flex;
@@ -488,6 +516,7 @@ main {
 @media (min-width: 768px) {
   .main-header__logo-container {
     flex: 1 1 50%;
+    max-width: 300px;
   }
 }
 @media (min-width: 992px) {
@@ -499,7 +528,7 @@ main {
 .main-header__search-form-container {
   order: 6;
   padding: 0.2em;
-  flex-basis: 30px;
+  flex-basis: 35px;
   flex-shrink: 0;
   height: 100%;
   transition: flex 0.5s, gap 0.5s;
@@ -530,6 +559,7 @@ main {
 }
 .main-header__hamburger-button-container {
   order: 2;
+  flex: 0;
 }
 @media (min-width: 992px) {
   .main-header__hamburger-button-container {
@@ -540,9 +570,11 @@ main {
   transform: translateX(0);
   align-self: flex-start;
   flex-basis: 100%;
-  width: 75%;
+  width: 100%;
   top: 100%;
   right: 100%;
+  height: 100vh;
+  background-color: transparent;
   transition: transform 0.5s;
   position: absolute;
   flex-grow: 1;
@@ -550,13 +582,19 @@ main {
 }
 @media (min-width: 992px) {
   .main-header__main-nav-container {
+    width: initial;
     position: relative;
     top: initial;
     right: initial;
     flex: 1 1 45%;
     height: 100%;
     order: 4;
-    max-width: 700px;
+    max-width: 1000px;
+  }
+}
+@media (min-width: 992px) {
+  .main-header__main-nav-container {
+    flex-grow: 3;
   }
 }
 
@@ -566,9 +604,13 @@ main {
   border-style: solid;
   border-width: 1px 1px 1px 0;
   border-bottom-right-radius: 10px;
+  height: 100%;
+  width: 75%;
+  overflow-y: auto;
 }
 @media (min-width: 992px) {
   .main-nav {
+    width: 100%;
     height: 100%;
     background-color: transparent;
     border: none;
@@ -607,11 +649,14 @@ main {
   align-items: center;
   width: 75%;
   height: 75%;
-  font-size: 1.5em;
   text-decoration: none;
   justify-content: flex-start;
   gap: 10px;
+  color: rgb(0, 18, 58);
+  border: 2px solid transparent;
   border-bottom: rgb(0, 18, 58) 2px solid;
+  padding-left: 10px;
+  transition: border 0.2s;
 }
 .main-nav__link:hover, .main-nav__link:focus {
   outline: none;
@@ -620,31 +665,125 @@ main {
 }
 @media (min-width: 992px) {
   .main-nav__link {
-    border-bottom: none;
+    border: none;
     color: white;
     font-weight: 500;
-    width: 100%;
     padding: 4px 8px;
     border-radius: 10px;
+    justify-content: center;
+    height: 50%;
   }
   .main-nav__link:hover, .main-nav__link:focus {
     background-color: rgb(172, 200, 254);
     border: none;
+    color: rgb(0, 18, 58);
+  }
+  .main-nav__link:hover path,
+.main-nav__link:hover rect,
+.main-nav__link:hover line, .main-nav__link:focus path,
+.main-nav__link:focus rect,
+.main-nav__link:focus line {
+    filter: invert(1);
+  }
+}
+@media (min-width: 1440px) {
+  .main-nav__link {
+    width: 100%;
+    gap: 5px;
+  }
+}
+.main-nav__link-text {
+  text-transform: uppercase;
+  font-size: 1.3em;
+}
+@media (min-width: 992px) {
+  .main-nav__link-text {
+    font-size: 1em;
+    text-transform: none;
+  }
+}
+@media (min-width: 1440px) {
+  .main-nav__link-text {
+    display: block;
   }
 }
 .main-nav__link-icon {
+  flex-shrink: 0;
   flex-basis: 1.5em;
   height: 1.5em;
+}
+@media (min-width: 992px) {
+  .main-nav__link-icon {
+    display: none;
+  }
+}
+@media (min-width: 1440px) {
+  .main-nav__link-icon {
+    display: block;
+    flex-basis: 1.5em;
+    height: 1.5em;
+  }
 }
 .main-nav__link-icon svg {
   width: 100%;
   height: 100%;
+}
+.main-nav__link-icon svg rect {
+  fill: white;
+  stroke: rgb(0, 18, 58);
+}
+.main-nav__link-icon svg path {
+  fill: rgb(0, 18, 58);
+  stroke: rgb(95, 126, 237);
+}
+.main-nav__link-icon svg line {
+  stroke: rgb(0, 18, 58);
+}
+@media (min-width: 1440px) {
+  .main-nav__link-icon svg rect {
+    fill: rgb(0, 18, 58);
+    stroke: white;
+  }
+  .main-nav__link-icon svg path {
+    fill: white;
+    stroke: rgb(56, 167, 192);
+  }
+  .main-nav__link-icon svg line {
+    stroke: white;
+  }
+}
+.main-nav__link-icon--contacto svg rect {
+  fill: rgb(0, 18, 58);
+  stroke: rgb(95, 126, 237);
+}
+.main-nav__link-icon--contacto svg path {
+  fill: rgb(0, 18, 58);
+  stroke: rgb(95, 126, 237);
+}
+.main-nav__link-icon--contacto svg line {
+  stroke: rgb(95, 126, 237);
+}
+@media (min-width: 1440px) {
+  .main-nav__link-icon--contacto svg rect {
+    fill: white;
+    stroke: rgb(95, 126, 237);
+  }
+  .main-nav__link-icon--contacto svg path {
+    fill: white;
+    stroke: rgb(95, 126, 237);
+  }
+  .main-nav__link-icon--contacto svg line {
+    stroke: rgb(95, 126, 237);
+  }
 }
 
 .main-nav-toggle {
   display: none;
 }
 @media (max-width: 991px) {
+  .main-nav-toggle:checked ~ main, .main-nav-toggle:checked ~ .main-footer {
+    filter: brightness(0.25);
+  }
   .main-nav-toggle:checked ~ .main-header .main-header__main-nav-container {
     display: block;
     position: absolute;
@@ -687,6 +826,7 @@ main {
   flex-basis: 100%;
   height: 100%;
   display: flex;
+  position: relative;
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
@@ -729,7 +869,7 @@ main {
     flex-basis: 100%;
   }
 }
-.search-form__icon-container {
+.search-form__label {
   flex-basis: 30px;
   flex-shrink: 0;
   display: flex;
@@ -740,15 +880,26 @@ main {
   transform: rotateZ(0deg);
   transition: transform 0.5s;
 }
-.search-form__icon-container path {
+.search-form__label path {
   fill: white;
   transition: fill 0.5s;
 }
 @media (min-width: 768px) {
-  .search-form__icon-container path {
+  .search-form__label path {
     fill: rgb(0, 18, 58);
   }
 }
+.search-form__submit {
+  position: absolute;
+  width: 40px;
+  background-color: red;
+  pointer-events: none;
+  opacity: 0;
+  right: -5px;
+  height: 40px;
+  cursor: pointer;
+}
+
 .main-nav-search-form-toggle {
   display: none;
 }
@@ -760,10 +911,10 @@ main {
   .main-nav-search-form-toggle:checked ~ .main-header .main-header__search-form-container .search-form__input-container {
     flex: 0 1 100%;
   }
-  .main-nav-search-form-toggle:checked ~ .main-header .main-header__search-form-container .search-form__icon-container {
+  .main-nav-search-form-toggle:checked ~ .main-header .main-header__search-form-container .search-form__label {
     transform: rotateZ(90deg);
   }
-  .main-nav-search-form-toggle:checked ~ .main-header .main-header__search-form-container .search-form__icon-container path {
+  .main-nav-search-form-toggle:checked ~ .main-header .main-header__search-form-container .search-form__icon path {
     fill: rgb(0, 18, 58);
   }
   .main-nav-search-form-toggle:checked ~ .main-header .main-header__logo-container {
@@ -777,6 +928,7 @@ main {
   flex-wrap: wrap;
   background: url("../img/background-stars.png");
   background-size: 200px;
+  transition: filter 0.25s linear;
 }
 .main-footer__invitation-newsletter-container {
   display: flex;
@@ -785,6 +937,7 @@ main {
   flex-basis: 100%;
 }
 .main-footer__social-container {
+  padding: 10px 0 5px;
   display: flex;
   justify-content: center;
   background-color: rgb(172, 200, 254);
@@ -793,6 +946,7 @@ main {
 .main-footer__contacto-container {
   display: flex;
   justify-content: center;
+  padding: 5px 0;
   background-color: rgb(172, 200, 254);
   flex-basis: 100%;
 }
@@ -805,6 +959,7 @@ main {
 }
 .main-footer__horario-container {
   display: flex;
+  padding: 5px 0 10px;
   justify-content: center;
   background-color: rgb(172, 200, 254);
   flex-basis: 100%;
@@ -907,7 +1062,7 @@ main {
   max-width: 400px;
   flex-direction: column;
   align-items: center;
-  padding: 16px;
+  padding: 32px 16px;
   flex: 1;
   color: rgb(0, 18, 58);
   gap: 12px;
@@ -1354,6 +1509,7 @@ main {
   position: fixed;
   z-index: 10;
   top: 0;
+  transition: top 0.5s;
 }
 .message__promo {
   height: 50px;

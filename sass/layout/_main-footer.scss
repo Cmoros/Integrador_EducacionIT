@@ -6,6 +6,7 @@
     flex-wrap: wrap;
     background: url('../img/background-stars.png');
     background-size: 200px;
+    transition: filter 0.25s linear;
     &__invitation-newsletter-container {
         display: flex;
         justify-content: center;
@@ -17,6 +18,7 @@
     }
 
     &__social-container {
+        padding: 10px 0 5px;
         display: flex;
         justify-content: center;
         background-color: palette.$baby-blue-eyes;
@@ -26,6 +28,7 @@
     &__contacto-container {
         display: flex;
         justify-content: center;
+        padding: 5px 0;
         background-color: palette.$baby-blue-eyes;
         flex-basis: 100%;
         @media (min-width: 768px) {
@@ -37,6 +40,7 @@
 
     &__horario-container {
         display: flex;
+        padding: 5px 0 10px;
         justify-content: center;
         background-color: palette.$baby-blue-eyes;
         flex-basis: 100%;
