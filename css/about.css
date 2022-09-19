@@ -40,13 +40,14 @@
 
 .section-cards {
   background-color: rgba(172, 200, 254, 0.9);
-  max-width: 1500px;
+  max-width: 1400px;
+  padding-top: 1em;
   margin-left: 5px;
   margin-right: 5px;
   padding-left: 10px;
   padding-right: 10px;
 }
-@media (min-width: 768) {
+@media (min-width: 768px) {
   .section-cards {
     margin-left: auto;
     margin-right: auto;
