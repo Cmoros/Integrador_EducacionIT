@@ -30,4 +30,4 @@ let errors = {
 }
 
 let altaFormHTML = document.querySelector('.main-form');
-let altaForm = new Form(altaForm, errors);
+let altaForm = new Form(altaFormHTML, errors);
