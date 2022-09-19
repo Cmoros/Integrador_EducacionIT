@@ -39,6 +39,9 @@ $svg-padding: 0.2em;
         height: 80%;
         width: auto;
         border-radius: 40%;
+        overflow: visible;
+        position: relative;
+        z-index: 12;
         
         &-title {
             font-size: 24px;

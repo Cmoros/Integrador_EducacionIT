@@ -1,0 +1,25 @@
+.intro-header {
+    &-container {
+        
+    }
+    &__title {
+        background-color: rgba(white, 0.9);
+        text-align: center;
+        padding: 2em 0 1em;
+        margin: 0;
+        @media (min-width: 768px) {
+            padding: 2.5em 0 1.5em;
+        }
+
+        @media (min-width: 1024) {
+            padding: 3em 0 2em;
+        }
+        &-container {
+            // margin: 0 -2em;
+            margin: -2em 0 0;
+            width: 100%;
+            background: url(../img/bg-toys.jpg);
+            background-size: cover;
+        }
+    }
+}

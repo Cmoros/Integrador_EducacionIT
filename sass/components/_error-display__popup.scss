@@ -1,0 +1,19 @@
+.error-display__popup {
+    font-size: 0.7em;
+    color: #cb7678;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    bottom: -15px;
+    right: 0;
+    
+    padding: 0.5em;
+    @media (min-width: 425px) {
+        bottom: -15px;
+    }
+    @media (min-width: 768px) {
+        bottom: -20px;
+        font-size: 0.9em;
+    }
+
+}

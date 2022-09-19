@@ -15,6 +15,7 @@
 @use 'base/base';
 @use 'base/fonts';
 
+
 // 4. Layout-related sections
 @use 'layout/hamburger-button';
 @use 'layout/main-header';
@@ -28,14 +29,20 @@
 @use 'layout/social';
 @use 'layout/creator';
 @use 'layout/section-cards';
+@use 'layout/main-form';
+@use 'layout/intro-header';
 
 // 5. Components
 @use 'components/cards';
 @use 'components/linkedin-link';
 @use 'components/github-link';
 @use 'components/message';
+@use 'components/input-group';
+@use 'components/form-buttons';
+@use 'components/error-display__popup';
+@use 'components/overlap-image';
 
 // 6. Page-specific styles
-@use 'pages/index';
+// @use 'pages/index';
 
 // 7. Themes

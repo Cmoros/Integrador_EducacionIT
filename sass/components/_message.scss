@@ -20,7 +20,9 @@
             display: flex;
             flex-direction: column;
             // background-color: palette.$ultramarine-blue;
-            background: url('../img/background-stars.png');
+            // background: url('../img/background-stars.png');
+            background-color: palette.$baby-blue-eyes;
+            // background-color: palette.$baby-blue-eyes;
             background-size: contain;
         }
         height: 50px;
@@ -32,7 +34,8 @@
         flex-wrap: wrap;
         text-align: center;
         &--envio {
-            background-color:palette.$oxford-blue;
+            // background-color:palette.$oxford-blue;
+            background-color: palette.$dark-pastel-green;
             color: white;
         }
         @media (min-width: 768px) {
