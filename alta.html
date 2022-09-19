@@ -250,6 +250,22 @@
                                 Envio sin cargo:
                             </label>
                             <input type="checkbox" class="input-group__input input-group__input--checkbox" name="product-shipping" id="product-shipping">
+                            
+                        </div>
+                    </div>
+                    <div class="main-form__group">
+                        
+                        <div class="input-group">
+                            <label for="product-picture-portrait" class="input-group__label">
+                                Foto portada:<sup class="required">*</sup>
+                            </label>
+                            <input type="file" name="product-picture-portrait" id="product-picture-portrait" class="input-group__input" accept="image/*" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="product-picture-extras" class="input-group__label">
+                                Fotos adicionales:
+                            </label>
+                            <input type="file" name="product-picture-extras" id="product-picture-extras" class="input-group__input" accept="image/*" multiple>
                         </div>
                     </div>
                     <div class="form-message-container">
@@ -500,7 +516,7 @@
             </div>
         </footer>
         <script src="./js/header.js"></script>
-        <script src="./js/form.js"></script>
+        <script src="./js/Form.js"></script>
         <script src="./js/alta.js"></script>
     </body>
 </html>

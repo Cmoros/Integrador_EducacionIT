@@ -32,6 +32,9 @@
         @media (min-width: 768px){
             padding: 2em;
         }
+        @media (min-width: 1024px) {
+            padding: 40px 32px 80px;
+        }
     }
 
     &__group {

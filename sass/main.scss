@@ -29,11 +29,13 @@
 @use 'layout/social';
 @use 'layout/creator';
 @use 'layout/section-cards';
+@use 'layout/section-big-cards';
 @use 'layout/main-form';
 @use 'layout/intro-header';
 
 // 5. Components
 @use 'components/cards';
+@use 'components/big-cards';
 @use 'components/linkedin-link';
 @use 'components/github-link';
 @use 'components/message';
@@ -41,6 +43,8 @@
 @use 'components/form-buttons';
 @use 'components/error-display__popup';
 @use 'components/overlap-image';
+@use 'components/big-cards-container';
+@use 'components/google-map';
 
 // 6. Page-specific styles
 // @use 'pages/index';
