@@ -1,5 +1,5 @@
 @use '../abstracts/palette';
-$footer-link-height: 18px;
+$footer-link-height: 35px;
 .section-cards {
     display: flex;
     justify-content: flex-start;
@@ -8,10 +8,11 @@ $footer-link-height: 18px;
     position: relative;
     margin: 0.5em;
     border-radius: 10px;
+    padding-bottom: $footer-link-height;
     
     @media (min-width: 1024px) {
         // height: 1000px;
-        height: calc(475px + $footer-link-height);
+        height: calc(475px);
         margin: 1.5em;
     }
     &__header{
@@ -26,11 +27,17 @@ $footer-link-height: 18px;
 
     &__footer {
         &-link {
-            height: $footer-link-height;
+            display: flex;
+            align-items: center;
+            height: calc($footer-link-height);
             position: absolute;
             bottom: 0;
             left: 50%;
-            padding-top: 10px;
+            // padding-top: 10px;
+            @media (min-width: 1024px) {
+                height: $footer-link-height;
+                // align-items: flex-start;
+            }
         }
     }
 }

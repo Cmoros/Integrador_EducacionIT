@@ -51,3 +51,37 @@ document.addEventListener('scroll', e => {
     }
 
 });
+
+const mainNavList = document.querySelector('.main-nav__list');
+const mainNavLinks = mainNavList.querySelectorAll('.main-nav__link');
+console.log('🚀 ~ mainNavLinks', mainNavLinks);
+
+function updateNavBar() {
+    const possiblesLocations = ['index.html', 'alta.html', 'contacto.html', 'nosotros.html'];
+    const HTMLCompleteLocation = window.location.href.split('/');
+    const HTMLActualPage = HTMLCompleteLocation[HTMLCompleteLocation.length - 1];
+    // console.log('🚀 ~ updateNavBar ~ HTMLActualPage', HTMLActualPage);
+    const index = possiblesLocations.indexOf(HTMLActualPage)
+    console.log('🚀 ~ updateNavBar ~ index', index);
+    // if (index < 0) {
+    //     window.location.href += "index.html";
+    //     return;
+    // }
+
+    updateNavList(index);
+}
+
+function updateNavList(index) {
+    for (let i = 0; i < mainNavLinks.length; i++) {
+        // console.log('🚀 ~ updateNavList ~ mainNavLinks', mainNavLinks[i]);
+        // console.log('', mainNavLinks[i].classList);
+        
+        if (i === index) {
+            mainNavLinks[i].classList.add('actual-page');
+        } else {
+            mainNavLinks[i].classList.remove('actual-page');
+        }
+    }
+}
+
+updateNavBar();

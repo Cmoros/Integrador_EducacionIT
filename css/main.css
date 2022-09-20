@@ -674,9 +674,15 @@ main {
   border: 2px solid transparent;
   border-bottom: rgb(0, 18, 58) 2px solid;
   padding-left: 10px;
-  transition: border 0.2s;
+  transition: all 0.15s;
 }
-.main-nav__link:hover, .main-nav__link:focus {
+.main-nav__link svg,
+.main-nav__link path,
+.main-nav__link rect,
+.main-nav__link line {
+  transition: inherit;
+}
+.main-nav__link:hover, .main-nav__link:focus, .main-nav__link.actual-page {
   outline: none;
   border-radius: 10px;
   border: rgb(0, 18, 58) 2px solid;
@@ -691,7 +697,7 @@ main {
     justify-content: center;
     height: 50%;
   }
-  .main-nav__link:hover, .main-nav__link:focus {
+  .main-nav__link:hover, .main-nav__link:focus, .main-nav__link.actual-page {
     background-color: rgb(172, 200, 254);
     border: none;
     color: rgb(0, 18, 58);
@@ -700,7 +706,9 @@ main {
 .main-nav__link:hover rect,
 .main-nav__link:hover line, .main-nav__link:focus path,
 .main-nav__link:focus rect,
-.main-nav__link:focus line {
+.main-nav__link:focus line, .main-nav__link.actual-page path,
+.main-nav__link.actual-page rect,
+.main-nav__link.actual-page line {
     filter: invert(1);
   }
 }
@@ -1287,10 +1295,11 @@ main {
   position: relative;
   margin: 0.5em;
   border-radius: 10px;
+  padding-bottom: 35px;
 }
 @media (min-width: 1024px) {
   .section-cards {
-    height: 493px;
+    height: 475px;
     margin: 1.5em;
   }
 }
@@ -1305,11 +1314,17 @@ main {
   }
 }
 .section-cards__footer-link {
-  height: 18px;
+  display: flex;
+  align-items: center;
+  height: 35px;
   position: absolute;
   bottom: 0;
   left: 50%;
-  padding-top: 10px;
+}
+@media (min-width: 1024px) {
+  .section-cards__footer-link {
+    height: 35px;
+  }
 }
 
 .section-big-cards {

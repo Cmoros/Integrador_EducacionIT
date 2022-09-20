@@ -66,16 +66,21 @@
         border: 2px solid transparent;
         border-bottom: palette.$oxford-blue 2px solid;
         padding-left: 10px;
-        transition: border 0.2s;
+        transition: all 0.15s;
+
+        svg,
+        path, 
+        rect, 
+        line {
+            transition: inherit;
+        }
+
         &:hover,
-        &:focus {
+        &:focus,
+        &.actual-page {
             outline: none;
             border-radius: 10px;
             border: palette.$oxford-blue 2px solid;
-        }
-
-        &:visited {
-            // color: initial;
         }
 
         @media (min-width:992px) {
@@ -93,7 +98,8 @@
             // width: 4em;
             
             &:hover,
-            &:focus {
+            &:focus,
+            &.actual-page {
                 background-color: palette.$baby-blue-eyes;
                 border: none;
                 color: palette.$oxford-blue;
