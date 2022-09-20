@@ -2,12 +2,10 @@
     padding: 0.5em 0 1.5em;
     display: flex;
     flex-wrap: wrap;
-    // gap: 1.5em;
     gap: 0.5em;
     width: 100%;
     justify-content: center;
     max-width: 500px;
-    // margin: auto;
     @media(min-width: 768px) {
         gap: 1em;
         width: 95%;

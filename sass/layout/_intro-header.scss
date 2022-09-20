@@ -1,12 +1,16 @@
+@use '../abstracts/palette';
+
 .intro-header {
     &-container {
         
     }
     &__title {
-        background-color: rgba(white, 0.9);
+        background-color: rgba(white, 0.85);
         text-align: center;
-        padding: 2em 0 1em;
+        padding: 2em 0.5em 1em;
         margin: 0;
+        color: palette.$united-nations-blue;
+        text-shadow: 1px 1px rgba(black, 0.8);
         @media (min-width: 768px) {
             padding: 2.5em 0 1.5em;
         }

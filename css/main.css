@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -359,15 +360,15 @@ body {
 
 /* Coolors Exported Palette - https://coolors.co/acc8fe-5f7eed-4b5de1-00123a-47c23c-f93031-fecc26-d2a735-38a7c0-6189e6 */
 :root {
-  --baby-blue-eyes: hsla(220, 98%, 84%, 1);
-  --blue-crayola: hsla(227, 80%, 65%, 1);
+  --baby-blue-eyes: #aec9fe;
+  --blue-crayola: rgb(94, 125, 237);
   --united-nations-blue: hsla(222, 73%, 64%, 1);
-  --ultramarine-blue: hsla(233, 71%, 59%, 1);
+  --ultramarine-blue: #4c5ee1;
   --pacific-blue: hsla(191, 55%, 49%, 1);
   --oxford-blue: hsla(221, 100%, 11%, 1);
   --dark-pastel-green: hsla(115, 53%, 50%, 1);
-  --cinnabar: hsla(360, 94%, 58%, 1);
-  --sunglow: hsla(46, 99%, 57%, 1);
+  --cinnabar: #f92f2f;
+  --sunglow: #fecb25;
   --satin-sheen-gold: hsla(44, 64%, 52%, 1);
 }
 
@@ -376,7 +377,6 @@ body {
 body {
   padding: 120px 0 0;
   min-height: 100vh;
-  background-color: rgba(172, 200, 254, 0.25);
   transition: padding 0.5s;
 }
 @media (min-width: 992px) {
@@ -390,10 +390,11 @@ body {
 }
 
 main {
+  background-color: #eaf1ff;
   transition: filter 0.25s linear;
 }
 
-* {
+body {
   font-family: "Quicksand", sans-serif;
 }
 
@@ -445,11 +446,11 @@ main {
   display: flex;
   position: fixed;
   z-index: 10;
-  top: 60px;
+  top: 40px;
   width: 100%;
   flex-direction: row;
   flex: 1;
-  height: 60px;
+  height: 70px;
   gap: 6px;
   justify-content: space-between;
   align-items: center;
@@ -461,32 +462,44 @@ main {
   .main-header {
     padding: 0 16px 0 10px;
     gap: 12px;
-    height: 70px;
-    top: 55px;
+    height: 80px;
+    top: 45px;
   }
 }
 @media (min-width: 992px) {
   .main-header {
     gap: 20px;
-    height: 80px;
-    top: 60px;
+    height: 90px;
+    top: 50px;
   }
 }
 .main-header__logo {
-  height: 80%;
+  height: 95%;
   width: auto;
-  border-radius: 40%;
   overflow: visible;
   position: relative;
   z-index: 12;
 }
 .main-header__logo-title {
   font-size: 24px;
+  font-family: "Shrikhand", sans-serif;
   display: flex;
+  text-decoration: none;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   font-variant: small-caps;
+}
+@media (min-width: 768px) {
+  .main-header__logo-title {
+    font-size: 26px;
+  }
+}
+@media (min-width: 992px) {
+  .main-header__logo-title {
+    font-size: 28px;
+    overflow-x: visible;
+  }
 }
 .main-header__logo-title--toystore {
   font-size: 12px;
@@ -502,23 +515,10 @@ main {
     font-size: 14px;
   }
 }
-@media (min-width: 768px) {
-  .main-header__logo-title {
-    font-size: 26px;
-  }
-}
-@media (min-width: 992px) {
-  .main-header__logo-title {
-    font-size: 28px;
-  }
-}
-.main-header__logo-title--a {
-  text-transform: uppercase;
-  font-size: 20px;
-}
 .main-header__logo-container {
   gap: 6px;
   order: 4;
+  text-decoration: none;
   flex-basis: 100%;
   text-align: center;
   flex: 1;
@@ -541,6 +541,26 @@ main {
   .main-header__logo-container {
     flex: 1 1 20%;
     order: 2;
+    overflow: visible;
+  }
+}
+.main-header__logo-text {
+  width: 110px;
+  object-fit: contain;
+}
+@media (min-width: 768px) {
+  .main-header__logo-text {
+    width: 120px;
+  }
+}
+@media (min-width: 1024px) {
+  .main-header__logo-text {
+    width: 130px;
+  }
+}
+@media (min-width: 1440px) {
+  .main-header__logo-text {
+    width: 150px;
   }
 }
 .main-header__search-form-container {
@@ -670,9 +690,9 @@ main {
   text-decoration: none;
   justify-content: flex-start;
   gap: 10px;
-  color: rgb(0, 18, 58);
+  color: #00123a;
   border: 2px solid transparent;
-  border-bottom: rgb(0, 18, 58) 2px solid;
+  border-bottom: #00123a 2px solid;
   padding-left: 10px;
   transition: all 0.15s;
 }
@@ -685,7 +705,7 @@ main {
 .main-nav__link:hover, .main-nav__link:focus, .main-nav__link.actual-page {
   outline: none;
   border-radius: 10px;
-  border: rgb(0, 18, 58) 2px solid;
+  border: #00123a 2px solid;
 }
 @media (min-width: 992px) {
   .main-nav__link {
@@ -700,7 +720,7 @@ main {
   .main-nav__link:hover, .main-nav__link:focus, .main-nav__link.actual-page {
     background-color: rgb(172, 200, 254);
     border: none;
-    color: rgb(0, 18, 58);
+    color: #00123a;
   }
   .main-nav__link:hover path,
 .main-nav__link:hover rect,
@@ -756,18 +776,18 @@ main {
 }
 .main-nav__link-icon svg rect {
   fill: white;
-  stroke: rgb(0, 18, 58);
+  stroke: #00123a;
 }
 .main-nav__link-icon svg path {
-  fill: rgb(0, 18, 58);
+  fill: #00123a;
   stroke: rgb(95, 126, 237);
 }
 .main-nav__link-icon svg line {
-  stroke: rgb(0, 18, 58);
+  stroke: #00123a;
 }
 @media (min-width: 1440px) {
   .main-nav__link-icon svg rect {
-    fill: rgb(0, 18, 58);
+    fill: #00123a;
     stroke: white;
   }
   .main-nav__link-icon svg path {
@@ -779,11 +799,11 @@ main {
   }
 }
 .main-nav__link-icon--contacto svg rect {
-  fill: rgb(0, 18, 58);
+  fill: #00123a;
   stroke: rgb(95, 126, 237);
 }
 .main-nav__link-icon--contacto svg path {
-  fill: rgb(0, 18, 58);
+  fill: #00123a;
   stroke: rgb(95, 126, 237);
 }
 .main-nav__link-icon--contacto svg line {
@@ -861,7 +881,7 @@ main {
   transform: rotateZ(90deg);
 }
 .search-form__input {
-  color: rgb(0, 18, 58);
+  color: #00123a;
   border-radius: 10px;
   outline: none;
   border: 2px solid;
@@ -906,7 +926,7 @@ main {
 }
 @media (min-width: 768px) {
   .search-form__label path {
-    fill: rgb(0, 18, 58);
+    fill: #00123a;
   }
 }
 .search-form__submit {
@@ -935,7 +955,7 @@ main {
     transform: rotateZ(90deg);
   }
   .main-nav-search-form-toggle:checked ~ .main-header .main-header__search-form-container .search-form__icon path {
-    fill: rgb(0, 18, 58);
+    fill: #00123a;
   }
   .main-nav-search-form-toggle:checked ~ .main-header .main-header__logo-container {
     flex-basis: 0;
@@ -1002,7 +1022,7 @@ main {
   color: white;
   padding: 8px;
   border-radius: 10px;
-  background-color: rgb(0, 18, 58);
+  background-color: #00123a;
 }
 .main-footer__copyright-container {
   padding: 8px;
@@ -1084,7 +1104,7 @@ main {
   align-items: center;
   padding: 32px 16px;
   flex: 1;
-  color: rgb(0, 18, 58);
+  color: #00123a;
   gap: 12px;
 }
 @media (min-width: 768px) {
@@ -1129,10 +1149,10 @@ main {
   background-color: transparent;
   outline: none;
   border: none;
-  color: rgb(0, 18, 58);
+  color: #00123a;
   border-width: 2px;
   border-style: solid;
-  border-color: rgb(254, 204, 38) rgb(254, 204, 38) rgb(0, 18, 58) rgb(254, 204, 38);
+  border-color: rgb(254, 204, 38) rgb(254, 204, 38) #00123a rgb(254, 204, 38);
   border-radius: 10px;
   padding: 0.5em;
   width: 100%;
@@ -1229,7 +1249,7 @@ main {
   font-family: inherit;
   width: 95%;
   padding: 0 5px;
-  background-color: rgb(0, 18, 58);
+  background-color: #00123a;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -1275,7 +1295,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: rgb(0, 18, 58);
+  background-color: #00123a;
 }
 @media (min-width: 768px) {
   .creator__firma-container {
@@ -1293,14 +1313,14 @@ main {
   align-items: center;
   flex-direction: column;
   position: relative;
-  margin: 0.5em;
+  padding: 0.5em;
   border-radius: 10px;
-  padding-bottom: 35px;
+  padding-bottom: 75px;
 }
 @media (min-width: 1024px) {
   .section-cards {
-    height: 510px;
-    margin: 1.5em;
+    height: 550px;
+    padding: 1.5em;
   }
 }
 .section-cards__header {
@@ -1316,14 +1336,14 @@ main {
 .section-cards__footer-link {
   display: flex;
   align-items: center;
-  height: 35px;
+  height: 75px;
   position: absolute;
   bottom: 0;
   left: 50%;
 }
 @media (min-width: 1024px) {
   .section-cards__footer-link {
-    height: 35px;
+    height: 75px;
   }
 }
 
@@ -1333,12 +1353,12 @@ main {
   align-items: center;
   flex-direction: column;
   position: relative;
-  margin: 0.5em;
+  padding: 0.5em;
   border-radius: 10px;
 }
 @media (min-width: 1024px) {
   .section-big-cards {
-    margin: 1.5em;
+    padding: 1.5em;
   }
 }
 .section-big-cards__header {
@@ -1357,9 +1377,9 @@ main {
   flex-direction: column;
   gap: 1.7em;
   background-color: rgb(172, 200, 254);
-  color: rgb(0, 18, 58);
+  color: #00123a;
   padding: 1em;
-  box-shadow: rgb(0, 18, 58) 0px 15px 20px -8px;
+  box-shadow: #00123a 0px 15px 20px -8px;
   max-width: 1100px;
   border-radius: 1em;
   width: 95%;
@@ -1401,10 +1421,12 @@ main {
 }
 
 .intro-header__title {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.85);
   text-align: center;
-  padding: 2em 0 1em;
+  padding: 2em 0.5em 1em;
   margin: 0;
+  color: rgb(97, 137, 230);
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.8);
 }
 @media (min-width: 768px) {
   .intro-header__title {
@@ -1436,6 +1458,9 @@ main {
   justify-content: space-between;
   padding-bottom: 8px;
   align-items: center;
+}
+.card * {
+  transition: inherit;
 }
 @media (min-width: 768px) {
   .card {
@@ -1521,7 +1546,7 @@ main {
 }
 .card__image {
   width: 100%;
-  max-height: 190px;
+  max-height: 180px;
   max-width: 200px;
   object-fit: contain;
 }
@@ -1867,11 +1892,12 @@ main {
   transition: top 0.5s;
 }
 .message__promo {
-  height: 50px;
+  height: 30px;
   padding: 5px 10px;
   border-radius: 10px;
   display: flex;
   align-items: center;
+  font-size: 0.95em;
   justify-content: center;
   flex-wrap: wrap;
   text-align: center;
@@ -1880,7 +1906,7 @@ main {
   padding: 5px;
   display: flex;
   flex-direction: column;
-  background-color: rgb(172, 200, 254);
+  background-color: rgb(71, 194, 60);
   background-size: contain;
 }
 .message__promo--envio {
@@ -1889,14 +1915,14 @@ main {
 }
 @media (min-width: 768px) {
   .message__promo {
-    height: 45px;
-    font-size: 1.2em;
+    height: 35px;
+    font-size: 1em;
   }
 }
 @media (min-width: 992px) {
   .message__promo {
-    height: 50px;
-    font-size: 1.4em;
+    height: 40px;
+    font-size: 1.1em;
   }
 }
 
@@ -1952,9 +1978,19 @@ main {
     padding-bottom: 0;
   }
 }
+.input-group__label--checkbox {
+  margin-bottom: 0;
+  height: 100%;
+  margin-right: 5px;
+}
+@media (min-width: 992px) {
+  .input-group__label--checkbox {
+    margin-right: 0;
+  }
+}
 .input-group__input {
   background-color: white;
-  color: rgb(0, 18, 58);
+  color: #00123a;
   border-radius: 0.3em;
   width: 100%;
   outline: none;

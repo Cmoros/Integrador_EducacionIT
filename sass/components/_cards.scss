@@ -26,7 +26,9 @@ $img-container-height:200px;
     justify-content: space-between;
     padding-bottom: 8px;
     align-items: center;
-
+    * {
+        transition: inherit;
+    }
     @media (min-width: 768px) {
         height: calc($card-height - 10px);
         
@@ -112,7 +114,7 @@ $img-container-height:200px;
 
     &__image {
         width: 100%;
-        max-height: calc($img-container-height - 10px);
+        max-height: calc($img-container-height - 20px);
         max-width: 200px;
         object-fit: contain;
 

@@ -1,5 +1,7 @@
 @use '../abstracts/palette';
 
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+
 $svg-size: 30px;
 $svg-padding: 0.2em;
 
@@ -10,11 +12,11 @@ $svg-padding: 0.2em;
     display: flex;
     position: fixed;
     z-index: 10;
-    top: 60px;
+    top: 40px;
     width: 100%;
     flex-direction: row;
     flex: 1;
-    height: 60px;
+    height: 70px;
     gap: 6px;
     justify-content: space-between;
     align-items: center;
@@ -27,29 +29,41 @@ $svg-padding: 0.2em;
     @media (min-width: 768px) {
         padding: 0 16px 0 10px;
         gap: 12px;
-        height: 70px;
-        top: 55px;
+        height: 80px;
+        top: 45px;
     }
     @media (min-width: 992px) {
         gap: 20px;
-        height: 80px;
-        top: 60px;
+        height: 90px;
+        top: 50px;
     }
     &__logo {
-        height: 80%;
+        height: 95%;
         width: auto;
-        border-radius: 40%;
+        // border-radius: 40%;
         overflow: visible;
         position: relative;
         z-index: 12;
         
         &-title {
-            font-size: 24px;
+            $font-size: 24px;
+            font-size: $font-size;
+            font-family: 'Shrikhand', sans-serif;
             display: flex;
+            text-decoration: none;
             justify-content: center;
             flex-direction: column;
             align-items: center;
+            // position: relative;
+            // z-index: 20;
             font-variant: small-caps;
+            @media (min-width: 768px) {
+                font-size: 26px;
+            }
+            @media (min-width: 992px) {
+                font-size: 28px;
+                overflow-x: visible;
+            }
             &--toystore {
                 font-size: 12px;
                 margin-bottom: -8px;
@@ -60,17 +74,11 @@ $svg-padding: 0.2em;
                     font-size: 14px;
                 }
             }
-            @media (min-width: 768px) {
-                font-size: 26px;
-            }
-            @media (min-width: 992px) {
-                font-size: 28px;
-            }
 
-            &--a {
-                text-transform: uppercase;
-                font-size: 20px;
-            }
+            // &--a {
+            //     text-transform: uppercase;
+            //     font-size: 20px;
+            // }
         }
 
         &-container {
@@ -78,7 +86,7 @@ $svg-padding: 0.2em;
             // border: 2px solid #944;
             // padding: 0.5em;
             order: 4;
-            
+            text-decoration: none;
             flex-basis: 100%;
             text-align: center;
             flex: 1;
@@ -101,6 +109,25 @@ $svg-padding: 0.2em;
             @media (min-width: 992px) {
                 flex: 1 1 20%;
                 order: 2;
+                overflow: visible;
+                // position: relative;
+                // z-index: 20;
+            }
+        }
+
+        &-text {
+            width: 110px;
+            object-fit: contain;
+            @media (min-width: 768px) {
+                width: 120px;
+                
+            }
+            @media (min-width: 1024px) {
+                width: 130px;
+                
+            }
+            @media (min-width: 1440px) {
+                width: 150px;
             }
         }
     }

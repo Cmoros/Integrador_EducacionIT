@@ -6,12 +6,12 @@ $footer-link-height: 18px;
     align-items: center;
     flex-direction: column;
     position: relative;
-    margin: 0.5em;
+    padding: 0.5em;
     border-radius: 10px;
     
     @media (min-width: 1024px) {
         // height: 1000px;
-        margin: 1.5em;
+        padding: 1.5em;
     }
     &__header{
         padding: 1em 0 1em 1em;

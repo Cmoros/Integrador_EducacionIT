@@ -1,19 +1,19 @@
 @use '../abstracts/palette';
-$footer-link-height: 35px;
+$footer-link-height: 75px;
 .section-cards {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     position: relative;
-    margin: 0.5em;
+    padding: 0.5em;
     border-radius: 10px;
     padding-bottom: $footer-link-height;
     
     @media (min-width: 1024px) {
         // height: 1000px;
         height: calc(475px + $footer-link-height);
-        margin: 1.5em;
+        padding: 1.5em;
     }
     &__header{
         padding: 1em 0 1em 1em;

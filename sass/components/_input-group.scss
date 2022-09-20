@@ -53,6 +53,15 @@
                 padding-bottom: 0;
             }
         }
+
+        &--checkbox {
+            margin-bottom: 0;
+            height: 100%;
+            margin-right: 5px;
+            @media(min-width: 992px) {
+                margin-right: 0;
+            }
+        }
     }
     
     &__input {

@@ -21,15 +21,16 @@
             flex-direction: column;
             // background-color: palette.$ultramarine-blue;
             // background: url('../img/background-stars.png');
-            background-color: palette.$baby-blue-eyes;
+            background-color: palette.$dark-pastel-green;
             // background-color: palette.$baby-blue-eyes;
             background-size: contain;
         }
-        height: 50px;
+        height: 30px;
         padding: 5px 10px;
         border-radius: 10px;
         display: flex;
         align-items: center;
+        font-size: 0.95em;
         justify-content: center;
         flex-wrap: wrap;
         text-align: center;
@@ -39,12 +40,12 @@
             color: white;
         }
         @media (min-width: 768px) {
-            height: 45px;
-            font-size: 1.2em;
+            height: 35px;
+            font-size: 1em;
         }
         @media (min-width: 992px) {
-            height: 50px;
-            font-size: 1.4em;
+            height: 40px;
+            font-size: 1.1em;
         }
     }
 }
