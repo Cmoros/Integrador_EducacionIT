@@ -1,0 +1,164 @@
+<main>
+            <div class="intro-header-container">
+                <div class="intro-header">
+                    <div class="intro-header__title-container">
+                        <h1 class="intro-header__title">
+                            Alta de productos
+                        </h1>
+                    </div>
+                </div>
+            </div>
+            <div class="main-form-container">
+                <form action="post" class="main-form" autocomplete="off">
+                    <h2 class="main-form__title">Datos del producto</h2>
+                    <div class="main-form__group">
+                        <div class="input-group">
+                            <label for="product-name" class="input-group__label">
+                                Nombre:
+                            </label>
+                            <input id="product-name" class="input-group__input" type="text" required placeholder="" autofocus>
+                        </div>
+                        <div class="input-group-pair">
+                            <div class="input-group input-group--small">
+                                <label for="product-price" class="input-group__label">
+                                    Precio:<sup class="required">*</sup>
+                                </label>
+                                <input id="product-price" class="input-group__input" type="number" required min="1" max="10000000" step=".01">
+                            </div>
+                            <div class="input-group input-group--small">
+                                <label for="product-stock" class="input-group__label">
+                                    Stock:<sup class="required">*</sup>
+                                </label>
+                                <input id="product-stock" class="input-group__input" type="number" required min="1" max="100000">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-form__group">
+                        <div class="input-group">
+                            <label class="input-group__label" for="product-brand">Marca:</label>
+                            <input class="input-group__input" type="text" name="product-brand" id="product-brand" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="product-category" class="input-group__label" >
+                                Categoría:<sup class="required">*</sup>
+                            </label>
+                            <input list="product-category-list" id="product-category" name="product-category" class="input-group__input"/>
+                            <datalist id="product-category-list">
+                                <option value="MUÑECOS Y MUÑECAS"></option>
+                                <option value="JUEGOS DE MESA"></option>
+                                <option value="JUEGOS DE CARTAS"></option>
+                                <option value="PUZZLES"></option>
+                                <option value="VEHÍCULOS DE JUGUETE"></option>
+                                <option value="PRIMERA INFANCIA"></option>
+                                <option value="PELUCHES"></option>
+                                <option value="JUGUETES DE CONSTRUCCIÓN"></option>
+                                <option value="JUGUETES DE OFICIOS"></option>
+                                <option value="ARTE Y MANUALIDADES"></option>
+                                <option value="JUEGOS DE COMBATE"></option>
+                                <option value="JUEGOS DE AGUA Y PLAYA"></option>
+                                <option value="ELECTRÓNICOS PARA NIÑOS"></option>
+                                <option value="INSTRUMENTOS MUSICALES"></option>
+                                <option value="RODADOS"></option>
+                                <option value="JUEGOS DE PLAZA Y AIRE LIBRE"></option>
+                                <option value="JUEGOS DE SALÓN"></option>
+                                <option value="CASAS Y CARPAS PARA NIÑOS"></option>
+                                <option value="HOBBIES"></option>
+                                <option value="TÍTERES Y MARIONETAS"></option>
+                                <option value="JUGUETES DE BROMAS"></option>
+                                <option value="MESAS Y SILLAS PARA NIÑOS"></option>
+                                <option value="OTROS"></option>
+                            </datalist>
+                        </div>
+                    </div>
+                    <div class="main-form__group">
+                        <div class="input-group input-group--large">
+                            <label for="product-description-short" class="input-group__label">
+                                Descripción corta:<sup class="required">*</sup>
+                            </label>
+                            <input id="product-description-short" class="input-group__input" type="text" required>
+                        </div>
+                    </div>
+                    <div class="main-form__group">
+                        <div class="input-group input-group--large">
+                            <label for="product-description-long" class="input-group__label">
+                                Descripción completa:
+                            </label>
+                            <textarea id="product-description-long" rows="6" class="input-group__input input-group__input--textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="main-form__group">
+                        <div class="input-group-pair">
+                            <div class="input-group input-group--small flex-column">
+                                <label for="product-age-min" class="input-group__label">
+                                    Edad desde:<sup class="required">*</sup>
+                                </label>
+                                <select id="product-age-min" class="input-group__input" name="product-age-min" required>
+                                    <option value="" selected disabled>Edad mínima</option>
+                                    <option value="0-3M">0-3 Meses</option>
+                                    <option value="3-6M">3-6 Meses</option>
+                                    <option value="6-12M">6-12 Meses</option>
+                                    <option value="1-3Y">1-3 Años</option>
+                                    <option value="3-6Y">3-6 Años</option>
+                                    <option value="6-9Y">6-9 Años</option>
+                                    <option value="9-12Y">9-12 Años</option>
+                                    <option value="TEEN">Adolescentes</option>
+                                    <option value="ALL">Adultos</option>
+                                </select>
+                            </div>
+                            <div class="input-group input-group--small flex-column">
+                                <label for="product-age-max" class="input-group__label">
+                                    Edad hasta:<sup class="required">*</sup>
+                                </label>
+                                <select id="product-age-max" class="input-group__input" name="product-age-max" required>
+                                    <option value="" selected disabled>Edad máxima</option>
+                                    <option value="0-3M">0-3 Meses</option>
+                                    <option value="3-6M">3-6 Meses</option>
+                                    <option value="6-12M">6-12 Meses</option>
+                                    <option value="1-3Y">1-3 Años</option>
+                                    <option value="3-6Y">3-6 Años</option>
+                                    <option value="6-9Y">6-9 Años</option>
+                                    <option value="9-12Y">9-12 Años</option>
+                                    <option value="TEEN">Adolescentes</option>
+                                    <option value="ALL">Adultos</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="main-form__group">
+                        
+                        <div class="input-group">
+                            <label for="product-picture-portrait" class="input-group__label">
+                                Foto portada:<sup class="required">*</sup>
+                            </label>
+                            <input type="file" name="product-picture-portrait" id="product-picture-portrait" class="input-group__input" accept="image/*" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="product-picture-extras" class="input-group__label">
+                                Fotos adicionales:
+                            </label>
+                            <input type="file" name="product-picture-extras" id="product-picture-extras" class="input-group__input" accept="image/*" multiple>
+                        </div>
+                    </div>
+                    <div class="input-group input-group--checkbox">
+                        <label for="product-shipping" class="input-group__label input-group__label--checkbox">
+                            Envio sin cargo:
+                        </label>
+                        <input type="checkbox" class="input-group__input input-group__input--checkbox" name="product-shipping" id="product-shipping">
+                        
+                    </div>
+                    <div class="form-message-container">
+                        <p class="form-message">
+                            <sup class="required">*</sup>Campos obligatorios
+                        </p>
+
+                    </div>
+                    <div class="form-buttons">
+                        <input class="form-buttons__submit" type="submit" value="Enviar">
+                    </div>
+                </form>
+            </div>
+        </main>
+        <script src="./js/Form.js"></script>
+        <script src="./js/alta.js"></script>

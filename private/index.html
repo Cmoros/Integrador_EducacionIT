@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./css/main.css" />
+        <link rel="icon" href="./img/logo-rocket.png">
+        <title>JUGUETERÍA CÓSMICA - Inicio</title>
+    </head>
+    <body class="index">
+        <input type="checkbox" class="main-nav-toggle" id="main-nav-toggle" />
+        <input
+            type="checkbox"
+            class="main-nav-search-form-toggle"
+            id="main-nav-search-form-toggle" />
+        <div class="message-container">
+            <div class="message">
+                <div class="message__alerts-container"></div>
+                <div class="message__promos-container">
+                    <div class="message__promo message__promo--envio">
+                        ¡ENVÍO GRATIS A PARTIR DE 5000$!
+                    </div>
+                </div>
+            </div>
+        </div>
+        <header class="main-header">
+            <a class="main-header__logo-container" href="./index.html">
+                <img src="./img/logo-rocket.png" alt="" class="main-header__logo" />
+                <img src="./img/logo-txt.png" alt="" class="main-header__logo-text" />
+            </a>
+            <div class="main-header__search-form-container">
+                <form action="get" class="search-form">
+                    <div class="search-form__input-container">
+                        <input
+                            type="search"
+                            class="search-form__input"
+                            placeholder="Encuentra tu juguete" 
+                            id="search-form__input"/>
+                    </div>
+                    <label
+                        for="search-form__input"
+                        class="search-form__label">
+                        <svg class="search-form__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"  x="0px" y="0px" viewBox="0 0 297.001 297.001" style="enable-background: new 0 0 297.001 297.001" xml:space="preserve"> <g> <g> <path d="M289.159,251.301l-82.514-82.513c-5.057-5.058-11.78-7.843-18.932-7.843c-3.63,0-7.149,0.721-10.396,2.089l-11.07-11.07    c13.352-16.546,20.619-36.985,20.619-58.547c0-24.963-9.721-48.431-27.372-66.083c-36.439-36.437-95.727-36.437-132.166,0    c-36.437,36.439-36.437,95.727,0,132.166c17.652,17.651,41.12,27.371,66.083,27.372c21.562,0,42.001-7.268,58.547-20.619    l11.07,11.07c-1.368,3.247-2.089,6.766-2.089,10.396c0,7.152,2.785,13.875,7.842,18.932l82.514,82.514    c5.219,5.219,12.076,7.829,18.932,7.829s13.712-2.61,18.932-7.829c5.057-5.057,7.842-11.781,7.842-18.932    S294.216,256.358,289.159,251.301z M145.206,145.211c-13.835,13.835-32.229,21.455-51.794,21.455    c-19.565-0.001-37.96-7.62-51.795-21.455c-28.559-28.559-28.559-75.029,0-103.589c28.56-28.559,75.03-28.559,103.589,0    c13.836,13.835,21.455,32.23,21.455,51.795S159.042,131.376,145.206,145.211z M187.713,197.006l-4.644-4.644    c-1.24-1.24-1.923-2.889-1.923-4.643c0-1.752,0.681-3.398,1.919-4.639c0.002-0.002,0.003-0.003,0.005-0.005    s0.003-0.004,0.005-0.005c1.24-1.237,2.886-1.918,4.638-1.918c1.755,0,3.403,0.683,4.644,1.924l4.643,4.643L187.713,197.006z     M274.871,274.876c-2.56,2.561-6.729,2.559-9.287,0l-63.582-63.582l9.287-9.287l63.582,63.582    C277.431,268.15,277.431,272.316,274.871,274.876z" /> </g> </g> </svg>
+                    </label>
+                    <input type="submit" value="" class="search-form__submit">
+                </form>
+            </div>
+            <div class="main-header__cart-button-container">
+                <div class="cart-button">
+                    <svg class="cart-button__icon-white" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 60 60" style="enable-background: new 0 0 60 60" xml:space="preserve"> <path d="M11.68,13l-0.833-5h-2.99C7.411,6.28,5.859,5,4,5C1.794,5,0,6.794,0,9s1.794,4,4,4c1.859,0,3.411-1.28,3.858-3h1.294l0.5,3  H9.614l5.171,26.016c-2.465,0.188-4.518,2.086-4.76,4.474c-0.142,1.405,0.32,2.812,1.268,3.858C12.242,48.397,13.594,49,15,49h2  c0,3.309,2.691,6,6,6s6-2.691,6-6h11c0,3.309,2.691,6,6,6s6-2.691,6-6h4c0.553,0,1-0.447,1-1s-0.447-1-1-1h-4.35  c-0.826-2.327-3.043-4-5.65-4s-4.824,1.673-5.65,4h-11.7c-0.826-2.327-3.043-4-5.65-4s-4.824,1.673-5.65,4H15  c-0.842,0-1.652-0.362-2.224-0.993c-0.577-0.639-0.848-1.461-0.761-2.316c0.152-1.509,1.546-2.69,3.173-2.69h0.791  c0.014,0,0.025,0,0.039,0h38.994C57.763,41,60,38.763,60,36.013V13H11.68z M4,11c-1.103,0-2-0.897-2-2s0.897-2,2-2s2,0.897,2,2  S5.103,11,4,11z M46,45c2.206,0,4,1.794,4,4s-1.794,4-4,4s-4-1.794-4-4S43.794,45,46,45z M23,45c2.206,0,4,1.794,4,4s-1.794,4-4,4  s-4-1.794-4-4S20.794,45,23,45z M58,36.013C58,37.66,56.66,39,55.013,39H16.821l-4.77-24H58V36.013z"></path> </svg>
+                    <svg class="cart-button__icon-black" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_2" x="0px" y="0px" viewBox="0 0 60 60" style="enable-background: new 0 0 60 60" xml:space="preserve"> <path d="M11.68,13l-0.833-5h-2.99C7.411,6.28,5.859,5,4,5C1.794,5,0,6.794,0,9s1.794,4,4,4c1.859,0,3.411-1.28,3.858-3h1.294l0.5,3  H9.614l5.171,26.016c-2.465,0.188-4.518,2.086-4.76,4.474c-0.142,1.405,0.32,2.812,1.268,3.858C12.242,48.397,13.594,49,15,49h2  c0,3.309,2.691,6,6,6s6-2.691,6-6h11c0,3.309,2.691,6,6,6s6-2.691,6-6h4c0.553,0,1-0.447,1-1s-0.447-1-1-1h-4.35  c-0.826-2.327-3.043-4-5.65-4s-4.824,1.673-5.65,4h-11.7c-0.826-2.327-3.043-4-5.65-4s-4.824,1.673-5.65,4H15  c-0.842,0-1.652-0.362-2.224-0.993c-0.577-0.639-0.848-1.461-0.761-2.316c0.152-1.509,1.546-2.69,3.173-2.69h0.791  c0.014,0,0.025,0,0.039,0h38.994C57.763,41,60,38.763,60,36.013V13H11.68z M4,11c-1.103,0-2-0.897-2-2s0.897-2,2-2s2,0.897,2,2  S5.103,11,4,11z" /> </svg>
+                </div>
+            </div>
+            <div class="main-header__hamburger-button-container">
+                <label
+                    for="main-nav-toggle"
+                    title="Alternar la barra de navegación"
+                    class="hamburger-button">
+                    <span class="hamburger-button__top-bread"></span>
+                    <span class="hamburger-button__meat"></span>
+                    <span class="hamburger-button__bottom-bread"></span>
+                </label>
+            </div>
+            <div class="main-header__main-nav-container">
+                <nav class="main-nav">
+                    <ul class="main-nav__list">
+                        <li class="main-nav__item">
+                            <a href="./index.html" class="main-nav__link">
+                                <span class="main-nav__link-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="460.298px" height="460.297px" viewBox="0 0 460.298 460.297" style=" enable-background: new 0 0 460.298 460.297; " xml:space="preserve"> <g> <g> <path d="M230.149,120.939L65.986,256.274c0,0.191-0.048,0.472-0.144,0.855c-0.094,0.38-0.144,0.656-0.144,0.852v137.041    c0,4.948,1.809,9.236,5.426,12.847c3.616,3.613,7.898,5.431,12.847,5.431h109.63V303.664h73.097v109.64h109.629    c4.948,0,9.236-1.814,12.847-5.435c3.617-3.607,5.432-7.898,5.432-12.847V257.981c0-0.76-0.104-1.334-0.288-1.707L230.149,120.939    z" /> <path d="M457.122,225.438L394.6,173.476V56.989c0-2.663-0.856-4.853-2.574-6.567c-1.704-1.712-3.894-2.568-6.563-2.568h-54.816    c-2.666,0-4.855,0.856-6.57,2.568c-1.711,1.714-2.566,3.905-2.566,6.567v55.673l-69.662-58.245    c-6.084-4.949-13.318-7.423-21.694-7.423c-8.375,0-15.608,2.474-21.698,7.423L3.172,225.438c-1.903,1.52-2.946,3.566-3.14,6.136    c-0.193,2.568,0.472,4.811,1.997,6.713l17.701,21.128c1.525,1.712,3.521,2.759,5.996,3.142c2.285,0.192,4.57-0.476,6.855-1.998    L230.149,95.817l197.57,164.741c1.526,1.328,3.521,1.991,5.996,1.991h0.858c2.471-0.376,4.463-1.43,5.996-3.138l17.703-21.125    c1.522-1.906,2.189-4.145,1.991-6.716C460.068,229.007,459.021,226.961,457.122,225.438z" /> </g> </g> </svg>
+                                </span>
+                                <span class="main-nav__link-text">Inicio</span>
+                            </a>
+                        </li>
+                        <li class="main-nav__item">
+                            <a href="./alta.html" class="main-nav__link">
+                                <span class="main-nav__link-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg"  data-name="Layer 1" viewBox="0 0 128 128"><defs><style>.cls-1{fill:#2e79bd;}.cls-2{fill:#2d3e50;}</style></defs><title>b</title><path class="cls-1" d="M46.28325,57.0136H25.581a2.30233,2.30233,0,1,0,0,4.60466H46.28325a2.30233,2.30233,0,1,0,0-4.60466Z"/><path class="cls-1" d="M79.11954,61.61826a2.30233,2.30233,0,0,0,0-4.60466H57.457a2.30233,2.30233,0,0,0-.00033,4.60466Z"/><path class="cls-1" d="M46.28325,92.84847H25.581a2.30224,2.30224,0,1,0,0,4.60448H46.28325a2.30224,2.30224,0,1,0,0-4.60448Z"/><path class="cls-1" d="M55.154,95.1524a2.3011,2.3011,0,0,0,2.30378,2.29887H77.28l-.07844-4.60262H57.45777A2.30737,2.30737,0,0,0,55.154,95.1524Z"/><path class="cls-1" d="M46.28325,74.931H25.581a2.30239,2.30239,0,1,0,0,4.60478H46.28325a2.30239,2.30239,0,0,0,0-4.60478Z"/><path class="cls-1" d="M81.4218,77.23337a2.305,2.305,0,0,0-2.30225-2.3024H57.457a2.30239,2.30239,0,0,0-.00033,4.60478H79.11954A2.30493,2.30493,0,0,0,81.4218,77.23337Z"/><path class="cls-2" d="M95.58765,98.85317v12.19039a3.55521,3.55521,0,0,1-3.55369,3.54879H13.00474a3.55521,3.55521,0,0,1-3.55369-3.54879V39.74912H24.29322A11.5181,11.5181,0,0,0,35.79739,28.24494V13.40278H92.034a3.55625,3.55625,0,0,1,3.55369,3.55369V59.9586l7.95048-12.36194V16.95647A11.5118,11.5118,0,0,0,92.034,5.45229H31.82217a4.00894,4.00894,0,0,0-2.81845,1.16659l-6.75448,6.78389L9.45105,26.25978,3.28968,32.45056a3.97661,3.97661,0,0,0-1.78911,3.32333v75.26966a11.51807,11.51807,0,0,0,11.50418,11.50415H92.034a11.51492,11.51492,0,0,0,11.50418-11.50415V86.80982L96.78856,97.30423A11.26152,11.26152,0,0,1,95.58765,98.85317Z"/><path class="cls-1" d="M81.59843,91.93l.12368,7.28135L80.746,100.729a1.0326,1.0326,0,1,0,1.73688,1.11729l.97623-1.51755,6.67706-2.907a6.65935,6.65935,0,0,0,2.9426-2.50333l28.497-44.30353a6.1963,6.1963,0,0,0-10.42264-6.7041l-28.497,44.30353A6.65958,6.65958,0,0,0,81.59843,91.93Z"/><path class="cls-1" d="M125.78824,52.65782a1.54893,1.54893,0,0,0-2.14064.46476L109.67973,74.838a1.54894,1.54894,0,0,0,2.60544,1.67588L126.253,54.79847A1.54894,1.54894,0,0,0,125.78824,52.65782Z"/></svg>
+                                </span>
+                                <span class="main-nav__link-text">Alta</span>
+                                </a
+                            >
+                        </li>
+                        <li class="main-nav__item">
+                            <a href="./contacto.html" class="main-nav__link">
+                                <span class="main-nav__link-icon main-nav__link-icon--contacto">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.25 32"><defs><style>.cls-1{fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}</style></defs><title>Asset 16</title><g data-name="Layer 2"><g data-name="Layer 2"><rect class="cls-1" x="1" y="1" width="45.25" height="30" rx="1"/><path class="cls-1" d="M46.25,2l-22,17.78a1,1,0,0,1-1.29,0L1,2"/><line class="cls-1" x1="45.5" y1="31" x2="28.95" y2="16"/><line class="cls-1" x1="2" y1="31" x2="18" y2="16.5"/></g></g></svg>
+                                </span>
+                                <span class="main-nav__link-text">Contacto</span>
+                                </a>
+                        </li>
+                        <li class="main-nav__item">
+                            <a href="./nosotros.html" class="main-nav__link"
+                                >
+                                <span class="main-nav__link-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg"  data-name="Layer 1" viewBox="0 0 25 25"><title>Group People</title><path id="Group_People" data-name="Group People" d="M16.75,19H16v5.5a.5.5,0,0,1-.5.5h-6a.5.5,0,0,1-.5-.5V19H8.25A1.25,1.25,0,0,1,7,17.75v-3.5a4.25,4.25,0,0,1,3.23-4.11,3.5,3.5,0,1,1,4.55,0A4.25,4.25,0,0,1,18,14.25v3.5A1.25,1.25,0,0,1,16.75,19ZM6,17.75v-3.5A5.23,5.23,0,0,1,8.6,9.73a4.27,4.27,0,0,1-.41-3.45,4.39,4.39,0,0,0-.43-.14,3.5,3.5,0,1,0-4.55,0A4.25,4.25,0,0,0,0,10.25v3.5A1.25,1.25,0,0,0,1.24,15H2v5.5a.5.5,0,0,0,.5.5h5a.5.5,0,0,0,.5-.5V20A2.25,2.25,0,0,1,6,17.75ZM21.77,6.14a3.5,3.5,0,1,0-4.54,0,4.32,4.32,0,0,0-.42.14,4.27,4.27,0,0,1-.41,3.45A5.23,5.23,0,0,1,19,14.25v3.5A2.25,2.25,0,0,1,17,20v.51a.5.5,0,0,0,.5.5h5a.5.5,0,0,0,.5-.5V15h.75A1.25,1.25,0,0,0,25,13.75v-3.5A4.25,4.25,0,0,0,21.77,6.14Z" fill="#0e1d25"/></svg>
+                                </span>
+                                <span class="main-nav__link-text">Nosotros</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <div class="intro-header-container">
+                <div class="intro-header">
+                    <div class="intro-header__title-container">
+                        <h1 class="intro-header__title">
+                            ¡Bienvenido a la Juguetería Cósmica!
+                        </h1>
+                    </div>
+                </div>
+            </div>
+            <section class="section-cards">
+                <header class="section-cards__header">
+                    <h2>Juegos y Juguetes</h2>
+                    <!-- <p>Lorem ipsum dolor sit amet.</p> -->
+                </header>
+                <div class="cards-container">
+                    <div class="card">
+                        <a href="#" class="card__link-add">Agregar</a>
+                        <article class="card__article">
+                            <div class="card__image-container">
+                                <button class="card__favorite">
+                                    <svg height="24" width="24" version="1.1">
+ <g transform="translate(0 -1028.4)">
+  <path d="m7 1031.4c-1.5355 0-3.0784 0.5-4.25 1.7-2.3431 2.4-2.2788 6.1 0 8.5l9.25 9.8 9.25-9.8c2.279-2.4 2.343-6.1 0-8.5-2.343-2.3-6.157-2.3-8.5 0l-0.75 0.8-0.75-0.8c-1.172-1.2-2.7145-1.7-4.25-1.7z" fill="#e74c3c"/>
+ </g>
+</svg>
+                                </button>
+                                <a class="card__image-link" href="#">
+                                <img
+                                    src="img/productos/D_NQ_NP_898901-MLA50786026892_072022-O.webp"
+                                    alt="Producto"
+                                    class="card__image" />
+                                </a>
+                            </div>
+                            <div class="card__content">
+                                <h3 class="card__heading">
+                                    Pelota Nro 2 Infantil
+                                </h3>
+                                <div class="card__price-container">
+                                    <p class="card__price">1.580</p>
+                                </div>
+                                <div class="card__description">
+                                    <p class="card__description-short">
+                                        Compuesta de PVC de 480mm
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="card">
+                        <a href="#" class="card__link-add">Agregar</a>
+                        <article class="card__article">
+                            <div class="card__image-container">
+                                <button class="card__favorite">
+                                    <svg height="24" width="24" version="1.1">
+ <g transform="translate(0 -1028.4)">
+  <path d="m7 1031.4c-1.5355 0-3.0784 0.5-4.25 1.7-2.3431 2.4-2.2788 6.1 0 8.5l9.25 9.8 9.25-9.8c2.279-2.4 2.343-6.1 0-8.5-2.343-2.3-6.157-2.3-8.5 0l-0.75 0.8-0.75-0.8c-1.172-1.2-2.7145-1.7-4.25-1.7z" fill="#e74c3c"/>
+ </g>
+</svg>
+                                </button>
+                                <a class="card__image-link" href="#">
+                                <img
+                                    src="img/productos/autodepolicia.webp"
+                                    alt="Producto"
+                                    class="card__image" />
+                                </a>
+                            </div>
+                            <div class="card__content">
+                                <h3 class="card__heading">
+                                    Auto De Policía A Radio Control Remoto
+                                </h3>
+                                <div class="card__price-container">
+                                    <p class="card__price">2.609</p>
+                                </div>
+                                <div class="card__description">
+                                    <p class="card__description-short">
+                                        Marca: Yifeng. Edad mínima recomendada:
+                                        3 años
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="card">
+                        <a href="#" class="card__link-add">Agregar</a>
+                        <article class="card__article">
+                            <div class="card__image-container">
+                                <button class="card__favorite">
+                                    <svg height="24" width="24" version="1.1">
+ <g transform="translate(0 -1028.4)">
+  <path d="m7 1031.4c-1.5355 0-3.0784 0.5-4.25 1.7-2.3431 2.4-2.2788 6.1 0 8.5l9.25 9.8 9.25-9.8c2.279-2.4 2.343-6.1 0-8.5-2.343-2.3-6.157-2.3-8.5 0l-0.75 0.8-0.75-0.8c-1.172-1.2-2.7145-1.7-4.25-1.7z" fill="#e74c3c"/>
+ </g>
+</svg>
+                                </button>
+                                <a class="card__image-link" href="#">
+                                <img
+                                    src="img/productos/reloj_spiderman.webp"
+                                    alt="Producto"
+                                    class="card__image" />
+                                </a>
+                            </div>
+                            <div class="card__content">
+                                <h3 class="card__heading">
+                                    Reloj Infantil De Spiderman
+                                </h3>
+                                <div class="card__price-container">
+                                    <p class="card__price">1.999</p>
+                                </div>
+                                <div class="card__description">
+                                    <p class="card__description-short">
+                                        Correa ajustable. Proyecta 24 imágenes
+                                        diferente. Hora digital
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="card">
+                        <a href="#" class="card__link-add">Agregar</a>
+                        <article class="card__article">
+                            <div class="card__image-container">
+                                <button class="card__favorite">
+                                    <svg height="24" width="24" version="1.1">
+ <g transform="translate(0 -1028.4)">
+  <path d="m7 1031.4c-1.5355 0-3.0784 0.5-4.25 1.7-2.3431 2.4-2.2788 6.1 0 8.5l9.25 9.8 9.25-9.8c2.279-2.4 2.343-6.1 0-8.5-2.343-2.3-6.157-2.3-8.5 0l-0.75 0.8-0.75-0.8c-1.172-1.2-2.7145-1.7-4.25-1.7z" fill="#e74c3c"/>
+ </g>
+</svg>
+                                </button>
+                                <a class="card__image-link" href="#">
+                                <img
+                                    src="img/productos/crocky_attack.webp"
+                                    alt="Producto"
+                                    class="card__image" />
+                                </a>
+                            </div>
+                            <div class="card__content">
+                                <h3 class="card__heading">
+                                    Juego de mesa Croky attack
+                                </h3>
+                                <div class="card__price-container">
+                                    <p class="card__price">2.570</p>
+                                </div>
+                                <div class="card__description">
+                                    <p class="card__description-short">
+                                        Marca Ditoys. Edad recomendada: 6 años.
+                                        Estimula el ingenio.
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <footer class="section-cards__footer">
+                    <p><a href="#" class="section-cards__footer-link">Ver más...</a></p>
+                    
+                </footer>
+            </section>
+            <section class="section-cards">
+                <header class="section-cards__header">
+                    <h2>Más populares</h2>
+                    <!-- <p>Lorem ipsum dolor sit amet.</p> -->
+                </header>
+                <div class="cards-container">
+                    <div class="card">
+                        <a href="#" class="card__link-add">Agregar</a>
+                        <article class="card__article">
+                            <div class="card__image-container">
+                                <button class="card__favorite">
+                                    <svg height="24" width="24" version="1.1">
+ <g transform="translate(0 -1028.4)">
+  <path d="m7 1031.4c-1.5355 0-3.0784 0.5-4.25 1.7-2.3431 2.4-2.2788 6.1 0 8.5l9.25 9.8 9.25-9.8c2.279-2.4 2.343-6.1 0-8.5-2.343-2.3-6.157-2.3-8.5 0l-0.75 0.8-0.75-0.8c-1.172-1.2-2.7145-1.7-4.25-1.7z" fill="#e74c3c"/>
+ </g>
+</svg>
+                                </button>
+                                <a class="card__image-link" href="#">
+                                <img
+                                    src="img/productos/teclado_musical.webp"
+                                    alt="Producto"
+                                    class="card__image" />
+                                </a>
+                            </div>
+                            <div class="card__content">
+                                <h3 class="card__heading">
+                                    Teclado Musical Infantil
+                                </h3>
+                                <div class="card__price-container">
+                                    <p class="card__price">6.489</p>
+                                </div>
+                                <div class="card__description">
+                                    <p class="card__description-short">
+                                        Marca NEWVISION. Dispone de 37 teclas, 8
+                                        tonos, 8 ritmos y más
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="card">
+                        <a href="#" class="card__link-add">Agregar</a>
+                        <article class="card__article">
+                            <div class="card__image-container">
+                                <button class="card__favorite">
+                                    <svg height="24" width="24" version="1.1">
+ <g transform="translate(0 -1028.4)">
+  <path d="m7 1031.4c-1.5355 0-3.0784 0.5-4.25 1.7-2.3431 2.4-2.2788 6.1 0 8.5l9.25 9.8 9.25-9.8c2.279-2.4 2.343-6.1 0-8.5-2.343-2.3-6.157-2.3-8.5 0l-0.75 0.8-0.75-0.8c-1.172-1.2-2.7145-1.7-4.25-1.7z" fill="#e74c3c"/>
+ </g>
+</svg>
+                                </button>
+                                <a class="card__image-link" href="#">
+                                <img
+                                    src="img/productos/ukelele_infantil.webp"
+                                    alt="Producto"
+                                    class="card__image" />
+                                </a>
+                            </div>
+                            <div class="card__content">
+                                <h3 class="card__heading">
+                                    Ukelele Soprano Infantil
+                                </h3>
+                                <div class="card__price-container">
+                                    <p class="card__price">3.499</p>
+                                </div>
+                                <div class="card__description">
+                                    <p class="card__description-short">
+                                        Ukelele madera soprano infantil,
+                                        importado de primera calidad
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="card">
+                        <a href="#" class="card__link-add">Agregar</a>
+                        <article class="card__article">
+                            <div class="card__image-container">
+                                <button class="card__favorite">
+                                    <svg height="24" width="24" version="1.1">
+ <g transform="translate(0 -1028.4)">
+  <path d="m7 1031.4c-1.5355 0-3.0784 0.5-4.25 1.7-2.3431 2.4-2.2788 6.1 0 8.5l9.25 9.8 9.25-9.8c2.279-2.4 2.343-6.1 0-8.5-2.343-2.3-6.157-2.3-8.5 0l-0.75 0.8-0.75-0.8c-1.172-1.2-2.7145-1.7-4.25-1.7z" fill="#e74c3c"/>
+ </g>
+</svg>
+                                </button>
+                                <a class="card__image-link" href="#">
+                                <img
+                                    src="img/productos/dinosaurio_pone_huevos.webp"
+                                    alt="Producto"
+                                    class="card__image" />
+                                </a>
+                            </div>
+                            <div class="card__content">
+                                <h3 class="card__heading">
+                                    Dinosaurio Tiranosaurio Rex
+                                </h3>
+                                <div class="card__price-container">
+                                    <p class="card__price">5.499</p>
+                                </div>
+                                <div class="card__description">
+                                    <p class="card__description-short">
+                                        Dinosaurio camina ,emite sonido,luces y
+                                        pone huevos. Lyon Toys
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="card">
+                        <a href="#" class="card__link-add">Agregar</a>
+                        <article class="card__article">
+                            <div class="card__image-container">
+                                <button class="card__favorite">
+                                    <svg height="24" width="24" version="1.1">
+ <g transform="translate(0 -1028.4)">
+  <path d="m7 1031.4c-1.5355 0-3.0784 0.5-4.25 1.7-2.3431 2.4-2.2788 6.1 0 8.5l9.25 9.8 9.25-9.8c2.279-2.4 2.343-6.1 0-8.5-2.343-2.3-6.157-2.3-8.5 0l-0.75 0.8-0.75-0.8c-1.172-1.2-2.7145-1.7-4.25-1.7z" fill="#e74c3c"/>
+ </g>
+</svg>
+                                </button>
+                                <a class="card__image-link" href="#">
+                                <img
+                                    src="img/productos/walkie_talkie_baofang.webp"
+                                    alt="Producto"
+                                    class="card__image" />
+                                </a>
+                            </div>
+                            <div class="card__content">
+                                <h3 class="card__heading">
+                                    Walkie Talkie Handy
+                                </h3>
+                                <div class="card__price-container">
+                                    <p class="card__price">3.999</p>
+                                </div>
+                                <div class="card__description">
+                                    <p>
+                                        Kit x 2 handies Baofeng. 16 Canales.
+                                        Frecuencia 400 - 470 Mhz
+                                    </p>
+                                    <p class="card__description-long">
+                                        KIT X 2 HANDIES BAOFENG UHF BF-888S
+                                        Rango de frecuencia: 400 - 470 Mhz - 16
+                                        Canales Escaneo de frecuencias
+                                        automatico - Indicador de bateria baja.
+                                        Manos libres VOX.
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <footer class="section-cards__footer">
+                    <p><a href="#" class="section-cards__footer-link">Ver más...</a></p>
+                </footer>
+            </section>
+            <section class="section-cards">
+                <header class="section-cards__header">
+                    <h2>Más recientes</h2>
+                    <!-- <p>Lorem ipsum dolor sit amet.</p> -->
+                </header>
+                <div class="cards-container">
+                    <div class="card">
+                        <a href="#" class="card__link-add">Agregar</a>
+                        <article class="card__article">
+                            <div class="card__image-container">
+                                <button class="card__favorite">
+                                    <svg height="24" width="24" version="1.1">
+ <g transform="translate(0 -1028.4)">
+  <path d="m7 1031.4c-1.5355 0-3.0784 0.5-4.25 1.7-2.3431 2.4-2.2788 6.1 0 8.5l9.25 9.8 9.25-9.8c2.279-2.4 2.343-6.1 0-8.5-2.343-2.3-6.157-2.3-8.5 0l-0.75 0.8-0.75-0.8c-1.172-1.2-2.7145-1.7-4.25-1.7z" fill="#e74c3c"/>
+ </g>
+</svg>
+                                </button>
+                                <a class="card__image-link" href="#">
+                                <img
+                                    src="img/productos/pato_bailarin.webp"
+                                    alt="Producto"
+                                    class="card__image" />
+                                </a>
+                            </div>
+                            <div class="card__content">
+                                <h3 class="card__heading">
+                                    Cactus Juguete Bailarin
+                                </h3>
+                                <div class="card__price-container">
+                                    <p class="card__price">5.604</p>
+                                </div>
+                                <div class="card__description">
+                                    <p>
+                                        Cactus de juguete peluche bailarín
+                                        electronico interactivo
+                                    </p>
+                                    <p class="card__description-long">
+                                        KIT X 2 HANDIES BAOFENG UHF BF-888S
+                                        Rango de frecuencia: 400 - 470 Mhz - 16
+                                        Canales Escaneo de frecuencias
+                                        automatico - Indicador de bateria baja.
+                                        Manos libres VOX.
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="card">
+                        <a href="#" class="card__link-add">Agregar</a>
+                        <article class="card__article">
+                            <div class="card__image-container">
+                                <button class="card__favorite">
+                                    <svg height="24" width="24" version="1.1">
+ <g transform="translate(0 -1028.4)">
+  <path d="m7 1031.4c-1.5355 0-3.0784 0.5-4.25 1.7-2.3431 2.4-2.2788 6.1 0 8.5l9.25 9.8 9.25-9.8c2.279-2.4 2.343-6.1 0-8.5-2.343-2.3-6.157-2.3-8.5 0l-0.75 0.8-0.75-0.8c-1.172-1.2-2.7145-1.7-4.25-1.7z" fill="#e74c3c"/>
+ </g>
+</svg>
+                                </button>
+                                <a class="card__image-link" href="#">
+                                <img
+                                    src="img/productos/robot_bailarin.webp"
+                                    alt="Producto"
+                                    class="card__image" />
+                                </a>
+                            </div>
+                            <div class="card__content">
+                                <h3 class="card__heading">
+                                    Robot Bailarin Gira 360
+                                </h3>
+                                <div class="card__price-container">
+                                    <p class="card__price">6.500</p>
+                                </div>
+                                <div class="card__description">
+                                    <p>
+                                        Robot bailarin “Naughty” Con luces y
+                                        música, movimientos continuos
+                                    </p>
+                                    <p class="card__description-long">
+                                        KIT X 2 HANDIES BAOFENG UHF BF-888S
+                                        Rango de frecuencia: 400 - 470 Mhz - 16
+                                        Canales Escaneo de frecuencias
+                                        automatico - Indicador de bateria baja.
+                                        Manos libres VOX.
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="card">
+                        <a href="#" class="card__link-add">Agregar</a>
+                        <article class="card__article">
+                            <div class="card__image-container">
+                                <button class="card__favorite">
+                                    <svg height="24" width="24" version="1.1">
+ <g transform="translate(0 -1028.4)">
+  <path d="m7 1031.4c-1.5355 0-3.0784 0.5-4.25 1.7-2.3431 2.4-2.2788 6.1 0 8.5l9.25 9.8 9.25-9.8c2.279-2.4 2.343-6.1 0-8.5-2.343-2.3-6.157-2.3-8.5 0l-0.75 0.8-0.75-0.8c-1.172-1.2-2.7145-1.7-4.25-1.7z" fill="#e74c3c"/>
+ </g>
+</svg>
+                                </button>
+                                <a class="card__image-link" href="#">
+                                <img
+                                    src="img/productos/fidget_spiner.webp"
+                                    alt="Producto"
+                                    class="card__image" />
+                                </a>
+                            </div>
+                            <div class="card__content">
+                                <h3 class="card__heading">
+                                    Juguete Fidget Spiner
+                                </h3>
+                                <div class="card__price-container">
+                                    <p class="card__price">299</p>
+                                </div>
+                                <div class="card__description">
+                                    <p>
+                                        Fidget Spiner Anti-estrés. Marca
+                                        Spinner. Para niños y adultos
+                                    </p>
+                                    <p class="card__description-long">
+                                        KIT X 2 HANDIES BAOFENG UHF BF-888S
+                                        Rango de frecuencia: 400 - 470 Mhz - 16
+                                        Canales Escaneo de frecuencias
+                                        automatico - Indicador de bateria baja.
+                                        Manos libres VOX.
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="card">
+                        <a href="#" class="card__link-add">Agregar</a>
+                        <article class="card__article">
+                            <div class="card__image-container">
+                                <button class="card__favorite">
+                                    <svg height="24" width="24" version="1.1">
+ <g transform="translate(0 -1028.4)">
+  <path d="m7 1031.4c-1.5355 0-3.0784 0.5-4.25 1.7-2.3431 2.4-2.2788 6.1 0 8.5l9.25 9.8 9.25-9.8c2.279-2.4 2.343-6.1 0-8.5-2.343-2.3-6.157-2.3-8.5 0l-0.75 0.8-0.75-0.8c-1.172-1.2-2.7145-1.7-4.25-1.7z" fill="#e74c3c"/>
+ </g>
+</svg>
+                                </button>
+                                <a class="card__image-link" href="#">
+                                <img
+                                    src="img/productos/pista_carrera_bunny_toys.webp"
+                                    alt="Producto"
+                                    class="card__image" />
+                                </a>
+                            </div>
+                            <div class="card__content">
+                                <h3 class="card__heading">
+                                    Pista De Carreras Chicco
+                                </h3>
+                                <div class="card__price-container">
+                                    <p class="card__price">23.749</p>
+                                </div>
+                                <div class="card__description">
+                                    <p>
+                                        Pista De Carreras Para Niños De 2 Años
+                                        Chicco Bunny Toys
+                                    </p>
+                                    <p class="card__description-long">
+                                        KIT X 2 HANDIES BAOFENG UHF BF-888S
+                                        Rango de frecuencia: 400 - 470 Mhz - 16
+                                        Canales Escaneo de frecuencias
+                                        automatico - Indicador de bateria baja.
+                                        Manos libres VOX.
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <footer class="section-cards__footer">
+                    <p><a href="#" class="section-cards__footer-link">Ver más...</a></p>
+                </footer>
+            </section>
+        </main>
+        <footer class="main-footer">
+            <div class="main-footer__invitation-newsletter-container">
+                <form class="invitation-newsletter">
+                    <div class="invitation-newsletter__header-container">
+                        <h3 class="invitation-newsletter__header">
+                            Nuestro newsletter
+                        </h3>
+                    </div>
+                    <div class="invitation-newsletter__label-container">
+                        <label
+                            for="invitation-newsletter__input"
+                            class="invitation-newsletter__label">
+                            ¡Entérate de nuestras promos!
+                        </label>
+                    </div>
+                    <div class="invitation-newsletter__input-container">
+                        <input
+                            type="email"
+                            id="invitation-newsletter__input"
+                            class="invitation-newsletter__input"
+                            placeholder="Ingresa tu mail..." />
+                    </div>
+                    <div class="invitation-newsletter__submit-container">
+                        <input
+                            type="submit"
+                            value="Suscribirse Ahora"
+                            class="invitation-newsletter__submit" />
+                    </div>
+                </form>
+            </div>
+            <div class="main-footer__social-container">
+                <section class="social">
+                    <div class="social__header-container">
+                        <h3 class="social__header">
+                            ¡Síguenos en nuestras redes!
+                        </h3>
+                    </div>
+                    <ul class="social__list">
+                        <li class="social__list-item">
+                            <div class="social__icon social__icon--instagram">
+                                <a
+                                    href="https://instagram.com"
+                                    class="social__link">
+                                    <img src="./img/social-instagram.png" alt="Instagram" class="social__link-img">
+                                </a>
+                            </div>
+                        </li>
+                        <li class="social__list-item">
+                            <div class="social__icon social__icon--facebook">
+                                <a
+                                    href="https://facebook.com"
+                                    class="social__link">
+                                    <img src="./img/social-facebook.png" alt="Facebook" class="social__link-img">
+                                </a>
+                            </div>
+                        </li>
+                        <li class="social__list-item">
+                            <div class="social__icon social__icon--tiktok">
+                                <a
+                                    href="https://tiktok.com"
+                                    class="social__link">
+                                    <img src="./img/social-tiktok.png" alt="Tiktok" class="social__link-img">
+                                </a>
+                            </div>
+                        </li>
+                        <li class="social__list-item">
+                            <div class="social__icon social__icon--youtube">
+                                <a
+                                    href="https://youtube.com"
+                                    class="social__link">
+                                    <img src="./img/social-youtube.png" alt="Youtube" class="social__link-img">
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <div class="main-footer__contacto-container">
+                <section class="footer-contacto">
+                    <div class="footer-contacto__header-container">
+                        <h3 class="footer-contacto__header">Contacto</h3>
+                    </div>
+                    <div class="footer-contacto__whatsapp-container">
+                        <div class="footer-contacto__whatsapp">
+                            <h4 class="footer-contacto__whatsapp-title">
+                                <span class="footer-contacto__icon">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="48"
+                                        height="48"
+                                        viewBox="0 0 48 48"
+                                        fill="none">
+                                        <path
+                                            d="M24 48C37.2548 48 48 37.2548 48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24C0 37.2548 10.7452 48 24 48Z"
+                                            fill="#25D366" />
+                                        <path
+                                            fill-rule="evenodd"
+                                            clip-rule="evenodd"
+                                            d="M24.7911 37.3526H24.7852C22.3967 37.3517 20.0498 36.7525 17.9653 35.6155L10.4 37.6L12.4246 30.2049C11.1757 28.0406 10.5186 25.5855 10.5196 23.0703C10.5228 15.2017 16.9248 8.80005 24.7909 8.80005C28.6086 8.8017 32.1918 10.2879 34.8862 12.9855C37.5806 15.6829 39.0636 19.2684 39.0621 23.0816C39.059 30.9483 32.6595 37.3494 24.7911 37.3526ZM18.3159 33.0319L18.749 33.289C20.5702 34.3697 22.6578 34.9416 24.7863 34.9424H24.7911C31.3288 34.9424 36.6499 29.6212 36.6525 23.0807C36.6538 19.9113 35.4212 16.9311 33.1817 14.689C30.9422 12.4469 27.964 11.2116 24.7957 11.2105C18.2529 11.2105 12.9318 16.5312 12.9292 23.0711C12.9283 25.3124 13.5554 27.4952 14.7427 29.3837L15.0248 29.8325L13.8265 34.2096L18.3159 33.0319ZM31.4924 26.1541C31.7411 26.2743 31.9091 26.3555 31.9808 26.4752C32.0699 26.6239 32.0699 27.3378 31.7729 28.1709C31.4756 29.0038 30.051 29.764 29.3659 29.8664C28.7516 29.9582 27.9741 29.9965 27.1199 29.7251C26.602 29.5608 25.9379 29.3414 25.0871 28.9739C21.7442 27.5305 19.485 24.2904 19.058 23.6781C19.0281 23.6352 19.0072 23.6052 18.9955 23.5896L18.9927 23.5858C18.804 23.334 17.5395 21.6469 17.5395 19.9008C17.5395 18.2583 18.3463 17.3974 18.7177 17.0011C18.7432 16.9739 18.7666 16.9489 18.7875 16.9261C19.1144 16.5691 19.5007 16.4798 19.7384 16.4798C19.9761 16.4798 20.2141 16.482 20.4219 16.4924C20.4475 16.4937 20.4742 16.4936 20.5017 16.4934C20.7095 16.4922 20.9686 16.4907 21.2242 17.1046C21.3225 17.3408 21.4664 17.6911 21.6181 18.0605C21.9249 18.8075 22.264 19.6328 22.3236 19.7523C22.4128 19.9308 22.4722 20.1389 22.3533 20.377C22.3355 20.4127 22.319 20.4464 22.3032 20.4786C22.2139 20.6608 22.1483 20.7949 21.9967 20.9718C21.9372 21.0414 21.8756 21.1164 21.814 21.1914C21.6913 21.3408 21.5687 21.4902 21.4619 21.5966C21.2833 21.7744 21.0975 21.9673 21.3055 22.3243C21.5135 22.6813 22.2292 23.849 23.2892 24.7945C24.4288 25.8109 25.4192 26.2405 25.9212 26.4583C26.0192 26.5008 26.0986 26.5353 26.1569 26.5644C26.5133 26.743 26.7213 26.7131 26.9294 26.4752C27.1374 26.2372 27.8208 25.4339 28.0584 25.077C28.2961 24.7201 28.5339 24.7796 28.8607 24.8985C29.1877 25.0176 30.9408 25.8802 31.2974 26.0586C31.367 26.0935 31.4321 26.125 31.4924 26.1541Z"
+                                            fill="#FDFDFD" />
+                                    </svg>
+                                </span>
+                                WhatsApp
+                            </h4>
+                            <p class="footer-contacto__whatsapp-info">
+                                +54 911 1234 5678
+                            </p>
+                        </div>
+                    </div>
+                    <div class="footer-contacto__direccion-container">
+                        <div class="footer-contacto__direccion">
+                            <h4 class="footer-contacto__direccion-title">
+                                <span class="footer-contacto__icon">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        id="Layer_2"
+                                        data-name="Layer 1"
+                                        viewBox="0 0 24 24">
+                                        <title>Maps, GPS</title>
+                                        <path
+                                            d="M15.92,15.23,18.35,11a7.27,7.27,0,0,0,0-7.35,7.35,7.35,0,0,0-12.72,0,7.27,7.27,0,0,0,0,7.35l2.43,4.21C4,15.71,0,17,0,19.5,0,22.59,6.22,24,12,24s12-1.41,12-4.5C24,17,20,15.71,15.92,15.23ZM7.37,4.67A5.34,5.34,0,1,1,16.62,10L12,18,7.38,10A5.31,5.31,0,0,1,7.37,4.67ZM12,22C5.4,22,2,20.25,2,19.5c0-.53,2.15-1.95,7.18-2.38l1.35,2.33a1.7,1.7,0,0,0,2.94,0l1.35-2.33C19.85,17.55,22,19,22,19.5,22,20.25,18.6,22,12,22Z" />
+                                        <circle cx="12" cy="7" r="2" />
+                                    </svg>
+                                </span>
+                                Dirección
+                            </h4>
+                            <div class="footer-contacto__direccion-info">
+                                <p class="footer-contacto__direccion-info">
+                                    <span
+                                        class="footer-contacto__direccion-icon">
+                                    </span>
+                                    Avenida Corrientes 1710
+                                </p>
+                                <p class="footer-contacto__direccion-info">
+                                    Entre calles Callao y Riobamba
+                                </p>
+                                <p class="footer-contacto__direccion-info">
+                                    Buenos Aires - Capital Federal
+                                </p>
+                                <p class="footer-contacto__direccion-info">
+                                    Argentina
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="main-footer__horario-container">
+                <section class="footer-horario">
+                    <h3 class="footer-horario__title">Horario de Atención</h3>
+                    <div class="footer-horario__info-container">
+                        <p class="footer-horario__info">
+                            Lunes a viernes, 10:00 a 19:00
+                        </p>
+                        <p class="footer-horario__info">
+                            Sabado y domingo, 11:00 a 18:00
+                        </p>
+                    </div>
+                </section>
+            </div>
+            <div class="main-footer__creator-container">
+                <div class="creator">
+                    <div class="creator__copyright-container">
+                        <svg
+                            class="creator__copyright"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 15.781c-2.084 0-3.781-1.696-3.781-3.781s1.696-3.781 3.781-3.781c1.172 0 2.306.523 3.136 1.669l1.857-1.218c-1.281-1.826-3.133-2.67-4.993-2.67-3.308 0-6 2.692-6 6s2.691 6 6 6c1.881 0 3.724-.859 4.994-2.67l-1.857-1.218c-.828 1.14-1.959 1.669-3.137 1.669z" />
+                        </svg>
+                    </div>
+                    <div class="creator__firma-container">
+                        <div class="creator__firma">
+                            Creado por
+                            <span class="creator__nombre">César Moros</span>
+                        </div>
+                    </div>
+                    <div class="creator__link-container">
+                        <a
+                            class="github-link"
+                            href="https://github.com/Cmoros/">
+                            <svg
+                                class="github-link__svg github-link__svg--hover-hide"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm2.218 18.616c-.354.069-.468-.149-.468-.336v-1.921c0-.653-.229-1.079-.481-1.296 1.56-.173 3.198-.765 3.198-3.454 0-.765-.273-1.389-.721-1.879.072-.177.312-.889-.069-1.853 0 0-.587-.188-1.923.717-.561-.154-1.159-.231-1.754-.234-.595.003-1.193.08-1.753.235-1.337-.905-1.925-.717-1.925-.717-.379.964-.14 1.676-.067 1.852-.448.49-.722 1.114-.722 1.879 0 2.682 1.634 3.282 3.189 3.459-.2.175-.381.483-.444.936-.4.179-1.413.488-2.037-.582 0 0-.37-.672-1.073-.722 0 0-.683-.009-.048.426 0 0 .46.215.777 1.024 0 0 .405 1.25 2.353.826v1.303c0 .185-.113.402-.462.337-2.782-.925-4.788-3.549-4.788-6.641 0-3.867 3.135-7 7-7s7 3.133 7 7c0 3.091-2.003 5.715-4.782 6.641z" />
+                            </svg>
+                            <svg
+                                class="github-link__svg github-link__svg--hover-show"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 6c-3.313 0-6 2.686-6 6 0 2.651 1.719 4.9 4.104 5.693.3.056.396-.13.396-.289v-1.117c-1.669.363-2.017-.707-2.017-.707-.272-.693-.666-.878-.666-.878-.544-.373.041-.365.041-.365.603.042.92.619.92.619.535.917 1.403.652 1.746.499.054-.388.209-.652.381-.802-1.333-.152-2.733-.667-2.733-2.965 0-.655.234-1.19.618-1.61-.062-.153-.268-.764.058-1.59 0 0 .504-.161 1.65.615.479-.133.992-.199 1.502-.202.51.002 1.023.069 1.503.202 1.146-.776 1.648-.615 1.648-.615.327.826.121 1.437.06 1.588.385.42.617.955.617 1.61 0 2.305-1.404 2.812-2.74 2.96.216.186.412.551.412 1.111v1.646c0 .16.096.347.4.288 2.383-.793 4.1-3.041 4.1-5.691 0-3.314-2.687-6-6-6z" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="creator__link-container">
+                        <a
+                            class="linkedin-link"
+                            href="https://www.linkedin.com/in/cesar-moros-280336174/">
+                            <svg
+                                class="linkedin-link__svg linkedin-link__svg--hover-hide"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z" />
+                            </svg>
+                            <svg
+                                class="linkedin-link__svg linkedin-link__svg--hover-show"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 8c0 .557-.447 1.008-1 1.008s-1-.45-1-1.008c0-.557.447-1.008 1-1.008s1 .452 1 1.008zm0 2h-2v6h2v-6zm3 0h-2v6h2v-2.861c0-1.722 2.002-1.881 2.002 0v2.861h1.998v-3.359c0-3.284-3.128-3.164-4-1.548v-1.093z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="main-footer__copyright-container">
+                <p class="main-footer__copyright">
+                    Copyright Juguetería Cósmica - 2022. Todos los derechos
+                    reservados. Defensa de las y los consumidores. Para reclamos
+                    ingrese aquí
+                </p>
+            </div>
+        </footer>
+        <script src="./js/header.js"></script>
+        <script src="./js/card.js"></script>
+    </body>
+</html>

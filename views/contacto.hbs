@@ -1,0 +1,107 @@
+<main>
+  <div class="intro-header-container">
+    <div class="intro-header">
+      <div class="intro-header__title-container">
+        <h1 class="intro-header__title">
+          Contacto
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div class="main-form-container">
+    <form action="post" class="main-form" autocomplete="off">
+      <h2 class="main-form__title">
+        Contacto
+      </h2>
+      <div class="main-form__group">
+        <div class="input-group">
+          <label for="contact-name" class="input-group__label">
+            Nombre<sup class="required">*</sup>
+          </label>
+          <input
+            type="text"
+            name="contact-name"
+            id="contact-name"
+            class="input-group__input"
+            placeholder="José"
+            required
+            autofocus
+          />
+        </div>
+        <div class="input-group">
+          <label for="contact-last-name" class="input-group__label">
+            Apellido<sup class="required">*</sup>
+          </label>
+          <input
+            type="text"
+            name="contact-last-name"
+            id="contact-last-name"
+            class="input-group__input"
+            placeholder="Patiño"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="main-form__group">
+        <div class="input-group">
+          <label for="contact-email" class="input-group__label">
+            Email<sup class="required">*</sup>
+          </label>
+          <input
+            type="email"
+            name="contact-email"
+            id="contact-email"
+            class="input-group__input"
+            placeholder="miemail@gmail.com"
+            required
+          />
+        </div>
+        <div class="input-group">
+          <label for="contact-phone-number" class="input-group__label">
+            Telefono
+          </label>
+          <input
+            type="tel"
+            name="contact-phone-number"
+            id="contact-phone-number"
+            class="input-group__input"
+            placeholder="+54 911 1234 5678"
+          />
+        </div>
+      </div>
+      <div class="main-form__group">
+        <div class="input-group input-group--large">
+          <label for="contact-message" class="input-group__label">
+            Comentarios:<sup class="required">*</sup>
+          </label>
+          <textarea
+            name="contact-message"
+            id="contact-message"
+            cols="30"
+            rows="8"
+            class="input-group__input input-group__input--textarea"
+            placeholder="Mensaje, comentarios, sugerencias..."
+            required
+          ></textarea>
+        </div>
+      </div>
+      <div class="form-message-container">
+        <p class="form-message">
+          <sup class="required">*</sup>Campos obligatorios
+        </p>
+
+      </div>
+      <div class="form-buttons">
+        <button
+          type="submit"
+          class="form-buttons__submit"
+        >Contactarnos!</button>
+      </div>
+
+    </form>
+  </div>
+
+</main>
+<script src="./js/Form.js"></script>
+        <script src="./js/contacto.js"></script>

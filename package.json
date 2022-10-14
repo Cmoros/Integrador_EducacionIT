@@ -1,0 +1,32 @@
+{
+  "name": "integrador_educacionit",
+  "version": "1.0.0",
+  "description": "Proyecto integrador del Bootcamp Software Engineer en EducacionIT",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write \"./**/*.js\"",
+    "sass":"sass --watch ./public/sass/main.scss ./public/css/main.css",
+    "format:check": "prettier --check \"src/**/*.{js,jsx}\"",
+    "start": "nodemon ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cmoros/Integrador_EducacionIT.git"
+  },
+  "keywords": [],
+  "author": "César Moros <rdcesar442@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cmoros/Integrador_EducacionIT/issues"
+  },
+  "homepage": "https://github.com/Cmoros/Integrador_EducacionIT#readme",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6"
+  },
+  "devDependencies": {
+    "prettier": "^2.7.1"
+  }
+}
