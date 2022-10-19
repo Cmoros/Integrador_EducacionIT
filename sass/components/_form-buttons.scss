@@ -1,0 +1,37 @@
+@use '../abstracts/palette';
+
+.form-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__submit {
+        width: 100%;
+        max-width: 250px;
+        background: palette.$ultramarine-blue;
+        border: 1px solid #5865f2;
+        border-radius: 6px;
+        box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+        color: #FFFFFF;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 600;
+        min-height: 40px;
+        outline: 0;
+        padding: 12px 14px;
+        text-align: center;
+        
+        &:hover,
+        &:active {
+            background-color: #4752c4;
+            background-position: 0 0;
+            color: #FFFFFF;
+        }
+    
+        &:active {
+            opacity: .5;
+        }
+    }
+}
+

@@ -1,0 +1,164 @@
+@use '../abstracts/palette';
+
+.main-footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background: url('../img/background-stars.png');
+    background-size: 200px;
+    transition: filter 0.25s linear;
+    &__invitation-newsletter-container {
+        display: flex;
+        justify-content: center;
+        background-color: palette.$sunglow;
+
+        flex-basis: 100%;
+        @media (min-width: 768px) {
+        }
+    }
+
+    &__social-container {
+        padding: 10px 0 5px;
+        display: flex;
+        justify-content: center;
+        background-color: palette.$baby-blue-eyes;
+        flex-basis: 100%;
+    }
+
+    &__contacto-container {
+        display: flex;
+        justify-content: center;
+        padding: 5px 0;
+        background-color: palette.$baby-blue-eyes;
+        flex-basis: 100%;
+        @media (min-width: 768px) {
+            flex-basis: 50%;
+            justify-content: flex-end;
+            text-align: center;
+        }
+    }
+
+    &__horario-container {
+        display: flex;
+        padding: 5px 0 10px;
+        justify-content: center;
+        background-color: palette.$baby-blue-eyes;
+        flex-basis: 100%;
+        @media (min-width: 768px) {
+            flex-basis: 50%;
+            justify-content: flex-start;
+            text-align: center;
+            
+        }
+    }
+    
+    &__creator-container {
+        // background-color: palette.$oxford-blue;
+        // background: url('../img/background-stars.png');
+        // background-size: contain;
+        background: url;
+        padding: 10px 0;
+        flex-basis: 100%;
+        display:flex;
+        justify-content: center;
+        // background-color: palette.$oxford-blue;
+    }
+
+    &__copyright {
+        color: white;
+        padding: 8px;
+        border-radius: 10px;
+        background-color: palette.$oxford-blue;
+        &-container {
+
+            padding: 8px;
+            flex-basis: 100%;
+            display: flex;
+            justify-content: center;
+            // padding: 0.5em ;
+            // background-color: palette.$oxford-blue;
+            // background-color: palette.$oxford-blue;
+            // background: url('../img/background-stars.png');
+            // background-size: contain;
+        }
+    }
+}
+
+.footer {
+    &-contacto {
+        border-bottom: 3px solid white;
+        padding: 1em 0;
+        width: 75%;
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75em;
+        @media (min-width: 768px) {
+            border-bottom: none;
+            border-right: 3px solid white;
+        }
+        &__header {
+            text-align: center;
+            // border-bottom: 2px solid;
+            // &-container {
+
+            // }
+        }
+
+        &__whatsapp,
+        &__direccion {
+            // &-container {
+            // }
+            &-title {
+                padding: 0.5em 0;
+                display: flex;
+                width: 50%;
+                gap: 0.5em;
+                align-items: center;
+                @media (min-width: 768px) {
+                    justify-content: center;
+                    width: 100%;
+                }
+            }
+            &-info {
+                display: flex;
+                flex-direction: column;
+                gap: 0.25em;
+            }
+        }
+
+        &__icon {
+            width: 1em;
+            height: 1em;
+
+            svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    &-horario {
+        width: 75%;
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75em;
+        padding: 1em 0;
+        @media (min-width:768px) {
+            justify-content: center;
+        }
+
+        &__title {
+            text-align: center;
+        }
+        &__info {
+            &-container {
+                display: flex;
+                flex-direction: column;
+                gap: 0.25em;
+                
+            }
+        }
+    }
+}

@@ -1,0 +1,57 @@
+@use '../abstracts/palette';
+$footer-link-height: 75px;
+.section-cards {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    padding: 0.5em;
+    border-radius: 10px;
+    padding-bottom: $footer-link-height;
+    
+    @media (min-width: 1024px) {
+        // height: 1000px;
+        height: calc(475px + $footer-link-height);
+        padding: 1.5em;
+    }
+    &__header{
+        padding: 1em 0 1em 1em;
+        width: 100%;
+        max-width: 650px;
+        @media (min-width: 1024px) {
+            max-width: 1300px;
+        }
+    }
+    
+
+    &__footer {
+        &-link {
+            display: flex;
+            align-items: center;
+            height: calc($footer-link-height);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            // padding-top: 10px;
+            @media (min-width: 1024px) {
+                height: $footer-link-height;
+                // align-items: flex-start;
+            }
+        }
+    }
+
+    &--info {
+        background-color: rgba(palette.$baby-blue-eyes, 0.9);
+        max-width: 1400px;
+        padding-top: 1em;
+        margin-left: 5px;
+        margin-right: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        @media (min-width: 768px) {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}

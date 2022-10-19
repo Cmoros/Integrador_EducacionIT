@@ -1,0 +1,29 @@
+.error-display__popup {
+    font-size: 0.7em;
+    color: #cb7678;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    bottom: -15px;
+    right: 0;
+    // z-index: 99;
+    
+    padding: 0.5em;
+    &-input-error {
+        background-color: #f1c3c4;
+    }
+    &-input-check {
+        background: url(/img/check.svg) no-repeat right;
+        background-size: 1.2rem;
+        background-color: white;
+        background-position: 98% center;
+    }
+    @media (min-width: 425px) {
+        bottom: -15px;
+    }
+    @media (min-width: 768px) {
+        bottom: -20px;
+        font-size: 0.9em;
+    }
+
+}

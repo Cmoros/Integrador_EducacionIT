@@ -1,0 +1,19 @@
+.overlap-image {
+    
+    width: 100%;
+    &-container {
+        background: url(../img/about/about-bg.jpg);
+        background-size: cover;
+        background-position: center;
+        height: 300px;
+        margin-bottom: -150px;
+        @media (min-width: 1024px) {
+            height: 400px;
+            margin-bottom: -200px;
+        }
+        @media (min-width: 1024px) {
+            height: 500px;
+            margin-bottom: -250px;
+        }
+    }
+}

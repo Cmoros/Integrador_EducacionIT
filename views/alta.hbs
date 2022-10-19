@@ -1,4 +1,4 @@
-<main>
+{{!-- <main> --}}
             <div class="intro-header-container">
                 <div class="intro-header">
                     <div class="intro-header__title-container">
@@ -9,41 +9,41 @@
                 </div>
             </div>
             <div class="main-form-container">
-                <form action="post" class="main-form" autocomplete="off">
+                <form action="/api/json/product" method="post" class="main-form" autocomplete="off">
                     <h2 class="main-form__title">Datos del producto</h2>
                     <div class="main-form__group">
                         <div class="input-group">
                             <label for="product-name" class="input-group__label">
-                                Nombre:
+                                Nombre:<sup class="required">*</sup>
                             </label>
-                            <input id="product-name" class="input-group__input" type="text" required placeholder="" autofocus>
+                            <input id="product-name" class="input-group__input" type="text" required placeholder="" autofocus name="product[name]">
                         </div>
                         <div class="input-group-pair">
                             <div class="input-group input-group--small">
                                 <label for="product-price" class="input-group__label">
                                     Precio:<sup class="required">*</sup>
                                 </label>
-                                <input id="product-price" class="input-group__input" type="number" required min="1" max="10000000" step=".01">
+                                <input id="product-price" class="input-group__input" type="number" required min="1" max="10000000" step=".01" name="product[price]">
                             </div>
                             <div class="input-group input-group--small">
                                 <label for="product-stock" class="input-group__label">
                                     Stock:<sup class="required">*</sup>
                                 </label>
-                                <input id="product-stock" class="input-group__input" type="number" required min="1" max="100000">
+                                <input id="product-stock" class="input-group__input" type="number" required min="1" max="100000" name="product[number]">
                             </div>
                         </div>
                     </div>
                     <div class="main-form__group">
                         <div class="input-group">
-                            <label class="input-group__label" for="product-brand">Marca:</label>
-                            <input class="input-group__input" type="text" name="product-brand" id="product-brand" required>
+                            <label class="input-group__label" for="product-brand">Marca:<sup class="required">*</sup></label>
+                            <input class="input-group__input" type="text" name="product[brand]" id="product-brand" required>
                         </div>
                         
                         <div class="input-group">
                             <label for="product-category" class="input-group__label" >
                                 Categoría:<sup class="required">*</sup>
                             </label>
-                            <input list="product-category-list" id="product-category" name="product-category" class="input-group__input"/>
+                            <input list="product-category-list" id="product-category" name="product[category]" class="input-group__input"/>
                             <datalist id="product-category-list">
                                 <option value="MUÑECOS Y MUÑECAS"></option>
                                 <option value="JUEGOS DE MESA"></option>
@@ -76,7 +76,7 @@
                             <label for="product-description-short" class="input-group__label">
                                 Descripción corta:<sup class="required">*</sup>
                             </label>
-                            <input id="product-description-short" class="input-group__input" type="text" required>
+                            <input id="product-description-short" class="input-group__input" type="text" required name="product[descriptionShort]">
                         </div>
                     </div>
                     <div class="main-form__group">
@@ -84,7 +84,7 @@
                             <label for="product-description-long" class="input-group__label">
                                 Descripción completa:
                             </label>
-                            <textarea id="product-description-long" rows="6" class="input-group__input input-group__input--textarea"></textarea>
+                            <textarea id="product-description-long" rows="6" class="input-group__input input-group__input--textarea" name="product[descriptionLong]"></textarea>
                         </div>
                     </div>
                     <div class="main-form__group">
@@ -93,7 +93,7 @@
                                 <label for="product-age-min" class="input-group__label">
                                     Edad desde:<sup class="required">*</sup>
                                 </label>
-                                <select id="product-age-min" class="input-group__input" name="product-age-min" required>
+                                <select id="product-age-min" class="input-group__input" name="product[ageMin]" required>
                                     <option value="" selected disabled>Edad mínima</option>
                                     <option value="0-3M">0-3 Meses</option>
                                     <option value="3-6M">3-6 Meses</option>
@@ -110,7 +110,7 @@
                                 <label for="product-age-max" class="input-group__label">
                                     Edad hasta:<sup class="required">*</sup>
                                 </label>
-                                <select id="product-age-max" class="input-group__input" name="product-age-max" required>
+                                <select id="product-age-max" class="input-group__input" name="product[ageMax]" required>
                                     <option value="" selected disabled>Edad máxima</option>
                                     <option value="0-3M">0-3 Meses</option>
                                     <option value="3-6M">3-6 Meses</option>
@@ -129,23 +129,23 @@
                     <div class="main-form__group">
                         
                         <div class="input-group">
-                            <label for="product-picture-portrait" class="input-group__label">
+                            <label for="product-profile-image" class="input-group__label">
                                 Foto portada:<sup class="required">*</sup>
                             </label>
-                            <input type="file" name="product-picture-portrait" id="product-picture-portrait" class="input-group__input" accept="image/*" required>
+                            <input type="file" name="product[profileImageUrl]" id="product-profile-image" class="input-group__input" accept="image/*" required>
                         </div>
                         <div class="input-group">
-                            <label for="product-picture-extras" class="input-group__label">
+                            <label for="product-images" class="input-group__label">
                                 Fotos adicionales:
                             </label>
-                            <input type="file" name="product-picture-extras" id="product-picture-extras" class="input-group__input" accept="image/*" multiple>
+                            <input type="file" name="product[imagesUrls]" id="product-images" class="input-group__input" accept="image/*" multiple>
                         </div>
                     </div>
                     <div class="input-group input-group--checkbox">
                         <label for="product-shipping" class="input-group__label input-group__label--checkbox">
                             Envio sin cargo:
                         </label>
-                        <input type="checkbox" class="input-group__input input-group__input--checkbox" name="product-shipping" id="product-shipping">
+                        <input type="checkbox" class="input-group__input input-group__input--checkbox" name="product[shipping]" id="product-shipping">
                         
                     </div>
                     <div class="form-message-container">
@@ -159,6 +159,6 @@
                     </div>
                 </form>
             </div>
-        </main>
+        {{!-- </main> --}}
         <script src="./js/Form.js"></script>
         <script src="./js/alta.js"></script>

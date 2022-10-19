@@ -6,9 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write \"./**/*.js\"",
-    "sass":"sass --watch ./public/sass/main.scss ./public/css/main.css",
+    "sass":"sass --watch ./sass/main.scss ./public/css/main.css",
     "format:check": "prettier --check \"src/**/*.{js,jsx}\"",
-    "start": "nodemon ."
+    "debug": "node --inspect app.js",
+    "start": "nodemon .",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -20,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/Cmoros/Integrador_EducacionIT/issues"
   },
-  "homepage": "https://github.com/Cmoros/Integrador_EducacionIT#readme",
+  "homepage": "https://cmoros.github.io/Integrador_EducacionIT/",
   "type": "module",
   "dependencies": {
     "express": "^4.18.2",

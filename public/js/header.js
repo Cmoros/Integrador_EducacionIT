@@ -1,3 +1,5 @@
+import Cart from "/modules/Cart.js";
+
 const searchFormLabel = document.querySelector(".search-form__label");
 const searchFormInput = document.querySelector(".search-form__input");
 const searchFormSubmit = document.querySelector(".search-form__submit");
@@ -50,35 +52,70 @@ document.addEventListener("scroll", (e) => {
   }
 });
 
-const mainNavList = document.querySelector(".main-nav__list");
-const mainNavLinks = mainNavList.querySelectorAll(".main-nav__link");
+const mainNavToggle = document.querySelector(".main-nav-toggle");
 
-function updateNavBar() {
-  const possiblesLocations = [
-    "",
-    "alta",
-    "contacto",
-    "nosotros",
-  ];
-  const HTMLCompleteLocation = window.location.href.split("/");
-  const HTMLActualPage = HTMLCompleteLocation[HTMLCompleteLocation.length - 1];
-  const index = possiblesLocations.indexOf(HTMLActualPage);
-  // if (index < 0) {
-  //     window.location.href += "index.html";
-  //     return;
-  // }
-
-  updateNavList(index);
-}
-
-function updateNavList(index) {
-  for (let i = 0; i < mainNavLinks.length; i++) {
-    if (i === index) {
-      mainNavLinks[i].classList.add("actual-page");
-    } else {
-      mainNavLinks[i].classList.remove("actual-page");
-    }
+document.addEventListener("click", function delegateClickEvents(e) {
+  if (
+    e.target.classList.contains("main-nav__link") ||
+    e.target.classList.contains("main-header__logo-container")
+  ) {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+    mainNavToggle.checked = false;
+    cart.toggleCartModal('hide');
   }
-}
+});
 
-updateNavBar();
+
+
+const cartCheckboxToggle = document.querySelector(".cart-modal-toggle");
+const cartButton = document.querySelector(".cart-button");
+const cartWindow = document.querySelector(".cart-window");
+
+export const cart = new Cart(cartCheckboxToggle, cartButton, cartWindow);
+
+document.addEventListener("input", (e) => {
+  if (e.target == cart.cartCheckboxToggle) {
+    mainNavToggle.checked = false;
+    cart.toggleCartModal("show");
+    return;
+  }
+  if (e.target == mainNavToggle) {
+    cart.toggleCartModal();
+  }
+});
+
+// const mainNavList = document.querySelector(".main-nav__list");
+// const mainNavLinks = mainNavList.querySelectorAll(".main-nav__link");
+
+// function updateNavBar() {
+//   const possiblesLocations = [
+//     "",
+//     "alta",
+//     "contacto",
+//     "nosotros",
+//   ];
+//   const HTMLCompleteLocation = window.location.href.split("/");
+//   const HTMLActualPage = HTMLCompleteLocation[HTMLCompleteLocation.length - 1];
+//   const index = possiblesLocations.indexOf(HTMLActualPage);
+//   // if (index < 0) {
+//   //     window.location.href += "index.html";
+//   //     return;
+//   // }
+
+//   updateNavList(index);
+// }
+
+// function updateNavList(index) {
+//   for (let i = 0; i < mainNavLinks.length; i++) {
+//     if (i === index) {
+//       mainNavLinks[i].classList.add("actual-page");
+//     } else {
+//       mainNavLinks[i].classList.remove("actual-page");
+//     }
+//   }
+// }
+
+// updateNavBar();

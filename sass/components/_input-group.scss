@@ -1,0 +1,151 @@
+@use '../abstracts/palette';
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    height: 100%;
+    position: relative;
+    
+
+
+    @media (min-width: 425px) {
+        flex-direction: row;
+        align-items: center;
+        padding: 5px;
+        gap: 0.5em;
+    }
+    
+    @media (min-width: 768px){
+        flex-direction: column;
+        flex-basis: 100%;
+        align-items: flex-start;
+
+    }
+
+    &:focus-within {
+        .input-group__label {
+            font-weight: 600;
+        }
+    }
+
+    &-pair {
+        width: 100%;
+        display: flex;
+        gap: 1em;
+    }
+
+    &__label {
+        margin-bottom: 0.5em;
+        // letter-spacing: 1px;
+        font-weight: 500;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        @media (min-width: 425px) {
+            flex-basis: 50%;
+            margin-bottom: 0;
+        }
+        @media (min-width: 768px) {
+            align-self: flex-start;
+            padding-bottom: 5px;
+            &--checkbox {
+                padding-bottom: 0;
+            }
+        }
+
+        &--checkbox {
+            margin-bottom: 0;
+            height: 100%;
+            margin-right: 5px;
+            @media(min-width: 992px) {
+                margin-right: 0;
+            }
+        }
+    }
+    
+    &__input {
+        // background-color: #202225;
+        // background-color: palette.$baby-blue-eyes;
+        // background-color: palette.$oxford-blue;
+        background-color: white;
+        // color: palette.$oxford-blue;
+        
+        color: palette.$oxford-blue;
+        border-radius: 0.3em;
+        width: 100%;
+        outline: none;
+        padding: .5em 0 .5em .5em;
+        border: 2px solid transparent;
+        transition: border 0.2s;
+        &:focus {
+            border: 2px solid #5865f2;
+        }
+
+        @media (min-width: 425px) {
+            flex-basis: 50%;
+            min-width: 0px;
+        }
+        @media (min-width: 768px) {
+            width: 100%;
+        }
+
+        &--checkbox {
+            display: flex;
+            align-items: center;
+            height: 1.5em;
+            width: 1.5em;
+            padding-bottom: 0;
+            @media (min-width: 425px) {
+                height: 1.5em;
+                width: 1.5em;
+            }
+            @media (min-width: 768px) {
+                height: 1.5em;
+                width: 1.5em;
+            }
+        }
+
+        &--textarea {
+            resize: none;
+            overflow-y: auto;
+        }
+    }
+    
+    &__description {
+        letter-spacing: 1px;
+        font-weight: 500;
+        margin-bottom: 5px;
+        @media (min-width: 425px) {
+            flex-basis: 50%;
+            margin-bottom: 0;
+        }
+        @media (min-width: 768px) {
+            align-self: flex-start;
+        }
+    }
+
+    
+
+    &--large {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    &--small {
+        flex-basis: 50%;
+    }
+
+    &--checkbox {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        // flex-basis: auto;
+        max-width: 200px;
+        // text dont wrap
+        white-space: nowrap;
+        justify-content: center;
+    }
+
+}

@@ -1,0 +1,96 @@
+@use '../abstracts/mixins';
+@use '../abstracts/palette';
+
+.cart-window {
+  color: palette.$oxford-blue;
+  opacity: 0;
+  position: absolute;
+  top: 75%;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  right: 0;
+  transition: opacity 0.25s;
+  background-color: rgba(0,0,0,0.25);
+  @include mixins.display-flex(row, center, flex-start);
+  padding: 2rem 0 0.5rem;
+  // cursor: pointer;
+  // &:hover {
+  //   @media(min-width: 992px) {
+  //     opacity: 1;
+  //     pointer-events: initial;
+  //   }
+  // }
+
+  &__close-button {
+    background-color: transparent;
+    color: red;
+    position: absolute;
+    top: 0.2rem;
+    font-size: 2rem;
+    line-height: 2rem;
+    right: 0.3rem;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__wrapper {
+    position: relative;
+    padding: 0.5;
+    border-radius: 0.5rem;
+    background-color: white;
+    gap: 0.5rem;
+    max-height: 70%;
+    height: fit-content;
+    min-height: 400px;
+    width: 95%;
+    max-width: 1200px;
+    @include mixins.display-flex(column, space-between, stretch);
+    
+  }
+  &__title {
+    font-size: calc(1rem + 1vw);
+    padding: 1rem;
+    @include mixins.display-flex();
+    
+  }
+  &__products {
+    padding: 0.5rem 0;
+    flex: 1;
+    // height: 300px;
+    overflow-y: auto;
+    // min-height: 300px;
+    // height: 80%;
+    border-radius: 0.5rem;
+    
+    @include mixins.display-flex(column, stretch, stretch);
+    gap: 0.5rem;
+  }
+  &__product-container {
+    height: calc(1.5rem + 5vw);
+  }
+
+
+  &__subtotal {
+    @include mixins.display-flex(row, space-between, center);
+    font-size: calc(0.9rem + 0.9vw);
+    gap: 2rem;
+    &-title {
+      flex: 1;
+      
+      text-align: right;
+    }
+    &-price {
+      flex: 0 0 calc(3rem + 5vw);
+      color: palette.$dark-pastel-green;
+    }
+  }
+
+  &__link {
+    &-container {
+      padding: 0.5rem;
+      flex: none;
+      @include mixins.display-flex;
+    }
+  }
+}

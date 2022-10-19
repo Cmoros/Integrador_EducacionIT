@@ -1,55 +1,87 @@
+"use strict";
+
 import express from "express";
 // import { engine } from "express-handlebars";
-import { create } from "express-handlebars"; 
+import { create } from "express-handlebars";
 
-import * as path from 'path';
+import * as path from "path";
 import { fileURLToPath } from "url";
+import fs from "fs";
+import MainRouter from "./routers/MainRouter.js";
+import PageRouter from "./routers/PageRouter.js";
+import ProductRouter from "./routers/productRouter.js";
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const dir = "./views";
+async function getFilesNames(dir, ext = "", exceptions = new Set()) {
+  const files = await fs.promises.readdir(dir);
+  return files.filter((file) => file.includes(ext) && !exceptions.has(file));
+}
+const exceptionsHbsFiles = new Set(["main.hbs", "404.hbs"]);
+export const hbsFiles = await getFilesNames(
+  dir,
+  ".hbs",
+  exceptionsHbsFiles
+).then((files) => {
+  return new Set(files.map((file) => file.split(".hbs")[0]));
+});
 
 const app = express();
 const hbs = create({
-  partialsDir: [
-    "views/partials/"
-  ],
-  extname: ".hbs"
-})
+  partialsDir: ["views/partials/"],
+  extname: ".hbs",
+  helpers: {
+    // Function to do basic mathematical operation in handlebar
+    math: function (lvalue, operator, rvalue) {
+      lvalue = parseFloat(lvalue);
+      rvalue = parseFloat(rvalue);
+      return {
+        "+": lvalue + rvalue,
+        "-": lvalue - rvalue,
+        "*": lvalue * rvalue,
+        "/": lvalue / rvalue,
+        "%": lvalue % rvalue,
+      }[operator];
+    },
+  },
+});
 
-app.enable('view cache');
+app.enable("view cache");
 // app.engine(".hbs", engine({ extname: ".hbs" }));
 
-app.engine(".hbs", hbs.engine)
+app.engine(".hbs", hbs.engine);
 app.set("view engine", ".hbs");
 app.set("views", path.resolve(__dirname, "./views"));
 
 app.use(express.json());
 app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
 
 app.get("*", (req, res, next) => {
-  console.log("req.url", req.url);
+  console.log("req.url get", req.url);
   next();
 });
 
-
-app.get("/#test", (req, res) => {
-  res.send('<h1>Home</h1>');
+app.post("*", (req, res, next) => {
+  console.log("req.url post", req.url);
+  next();
 });
 
-app.get("/", function getMain(req, res) {
-  // res.redirect("/#test");
-  res.render("home", {title: "Inicio"});
+const mainRouter = new MainRouter(app);
+
+app.get("/api", (req, res) => {
+  res.json({ message: "Hello from server!" });
 });
 
-app.get("/alta", function getAlta(req, res) {
-  res.render("alta", {title: "Alta"});
-})
+const productRouter = new ProductRouter(app);
 
-app.get("/nosotros", function getNosotros(req, res) {
-  res.render("nosotros", {title: "Nosotros"});
-})
+export {productRouter}
 
-app.get("/contacto", function getContacto(req, res) {
-  res.render("contacto", {title: "Contacto"});
-})
+const pageRouter = new PageRouter(app);
+
+app.get("/*", function getMain(req, res) {
+  res.redirect("/#/404");
+});
 
 const PORT = 1234;
 
