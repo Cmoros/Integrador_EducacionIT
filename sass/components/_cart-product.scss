@@ -1,0 +1,68 @@
+@use '../abstracts/mixins';
+
+.cart-product {
+  height: 100%;
+  width: 100%;
+  padding: 0 calc(0.1rem + 1vw);
+  @include mixins.display-flex(row, stretch,stretch);
+  gap: calc(0.1rem + 2vw);
+  &__img {
+    height: 100%;
+    object-fit: contain;
+    &-container {
+      height: 100%;
+      @include mixins.display-flex();
+      // height: 2rem;
+      flex: 0 0 calc(1.5rem + 3vw);
+      overflow: hidden;
+    }
+  }
+  &__title {
+    @include mixins.display-flex(row, flex-start, center);
+    font-size: calc(0.5rem + 1vw);
+    flex: 1;
+  }
+  &__quantity {
+    font-size: calc(0.75rem + 0.5vw);
+    flex: none;
+    width: 1.5rem;
+    @include mixins.display-flex;
+  }
+
+  &__button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: calc(1rem + 0.5vw);
+    @include mixins.display-flex();
+    display: inline-block;
+    width: 2rem;
+    &::before {
+      pointer-events: none;
+      cursor: pointer;
+      @include mixins.display-flex();
+
+    }
+    &s-container {
+      @include mixins.display-flex();
+      // gap: 0.5rem;
+      gap: 0.75vw;
+    }
+  }
+
+  &__subtotal {
+    font-size: calc(0.5rem + 0.5vw);
+    width: calc(3rem + 2vw);
+    gap: 0.5vw;
+    height: 100%;
+    @include mixins.display-flex(column, center, stretch);
+    &-price {
+      text-align: center;
+    }
+    &-total {
+      
+      text-align: center;
+    }
+  }
+}

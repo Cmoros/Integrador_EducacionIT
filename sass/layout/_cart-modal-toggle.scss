@@ -1,0 +1,11 @@
+.cart-modal-toggle {
+  display: none;
+  &:checked {
+    & ~ .main-header {
+      .cart-window {
+        opacity: 1;
+        pointer-events: initial;
+      }
+    }
+  }
+}

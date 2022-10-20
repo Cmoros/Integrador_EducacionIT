@@ -1,0 +1,261 @@
+<input type="checkbox" class="main-nav-toggle" id="main-nav-toggle" aria-hidden="true" tabindex="-1"/>
+<input
+  type="checkbox"
+  class="main-nav-search-form-toggle"
+  id="main-nav-search-form-toggle"
+aria-hidden="true" tabindex="-1"/>
+<input type="checkbox" class="cart-modal-toggle" id="cart-modal-toggle"aria-hidden="true" tabindex="-1">
+<div class="message-container">
+  <div class="message">
+    <div class="message__alerts-container"></div>
+    <div class="message__promos-container">
+      <div class="message__promo message__promo--envio">
+        ¡ENVÍO GRATIS A PARTIR DE 5000$!
+      </div>
+    </div>
+  </div>
+</div>
+<header class="main-header">
+  <a class="main-header__logo-container" href="#/home">
+    <img
+      src="./img/logo-rocket.png"
+      alt="juguetería cósmica logo"
+      class="main-header__logo"
+    />
+    <img
+      src="./img/logo-txt.png"
+      alt="juguetería cósmica título"
+      class="main-header__logo-text"
+    />
+  </a>
+  <div class="main-header__search-form-container">
+    <form action="get" class="search-form">
+      <div class="search-form__input-container">
+        <input
+          type="search"
+          class="search-form__input"
+          placeholder="Encuentra tu juguete"
+          id="search-form__input"
+        />
+      </div>
+      <label for="search-form__input" class="search-form__label">
+        <svg
+          class="search-form__icon"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          version="1.1"
+          x="0px"
+          y="0px"
+          viewBox="0 0 297.001 297.001"
+          style="enable-background: new 0 0 297.001 297.001"
+          xml:space="preserve"
+        >
+          <g>
+            <g>
+              <path
+                d="M289.159,251.301l-82.514-82.513c-5.057-5.058-11.78-7.843-18.932-7.843c-3.63,0-7.149,0.721-10.396,2.089l-11.07-11.07    c13.352-16.546,20.619-36.985,20.619-58.547c0-24.963-9.721-48.431-27.372-66.083c-36.439-36.437-95.727-36.437-132.166,0    c-36.437,36.439-36.437,95.727,0,132.166c17.652,17.651,41.12,27.371,66.083,27.372c21.562,0,42.001-7.268,58.547-20.619    l11.07,11.07c-1.368,3.247-2.089,6.766-2.089,10.396c0,7.152,2.785,13.875,7.842,18.932l82.514,82.514    c5.219,5.219,12.076,7.829,18.932,7.829s13.712-2.61,18.932-7.829c5.057-5.057,7.842-11.781,7.842-18.932    S294.216,256.358,289.159,251.301z M145.206,145.211c-13.835,13.835-32.229,21.455-51.794,21.455    c-19.565-0.001-37.96-7.62-51.795-21.455c-28.559-28.559-28.559-75.029,0-103.589c28.56-28.559,75.03-28.559,103.589,0    c13.836,13.835,21.455,32.23,21.455,51.795S159.042,131.376,145.206,145.211z M187.713,197.006l-4.644-4.644    c-1.24-1.24-1.923-2.889-1.923-4.643c0-1.752,0.681-3.398,1.919-4.639c0.002-0.002,0.003-0.003,0.005-0.005    s0.003-0.004,0.005-0.005c1.24-1.237,2.886-1.918,4.638-1.918c1.755,0,3.403,0.683,4.644,1.924l4.643,4.643L187.713,197.006z     M274.871,274.876c-2.56,2.561-6.729,2.559-9.287,0l-63.582-63.582l9.287-9.287l63.582,63.582    C277.431,268.15,277.431,272.316,274.871,274.876z"
+              ></path>
+            </g>
+          </g>
+        </svg>
+      </label>
+      <input type="submit" value="" class="search-form__submit" />
+    </form>
+  </div>
+  <div class="main-header__cart-button-container">
+    <label class="cart-button" for="cart-modal-toggle" role="button" tabindex="0">
+      <svg
+        class="cart-button__icon-white"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        version="1.1"
+        x="0px"
+        y="0px"
+        viewBox="0 0 60 60"
+        style="enable-background: new 0 0 60 60"
+        xml:space="preserve"
+      >
+        <path
+          d="M11.68,13l-0.833-5h-2.99C7.411,6.28,5.859,5,4,5C1.794,5,0,6.794,0,9s1.794,4,4,4c1.859,0,3.411-1.28,3.858-3h1.294l0.5,3  H9.614l5.171,26.016c-2.465,0.188-4.518,2.086-4.76,4.474c-0.142,1.405,0.32,2.812,1.268,3.858C12.242,48.397,13.594,49,15,49h2  c0,3.309,2.691,6,6,6s6-2.691,6-6h11c0,3.309,2.691,6,6,6s6-2.691,6-6h4c0.553,0,1-0.447,1-1s-0.447-1-1-1h-4.35  c-0.826-2.327-3.043-4-5.65-4s-4.824,1.673-5.65,4h-11.7c-0.826-2.327-3.043-4-5.65-4s-4.824,1.673-5.65,4H15  c-0.842,0-1.652-0.362-2.224-0.993c-0.577-0.639-0.848-1.461-0.761-2.316c0.152-1.509,1.546-2.69,3.173-2.69h0.791  c0.014,0,0.025,0,0.039,0h38.994C57.763,41,60,38.763,60,36.013V13H11.68z M4,11c-1.103,0-2-0.897-2-2s0.897-2,2-2s2,0.897,2,2  S5.103,11,4,11z M46,45c2.206,0,4,1.794,4,4s-1.794,4-4,4s-4-1.794-4-4S43.794,45,46,45z M23,45c2.206,0,4,1.794,4,4s-1.794,4-4,4  s-4-1.794-4-4S20.794,45,23,45z M58,36.013C58,37.66,56.66,39,55.013,39H16.821l-4.77-24H58V36.013z"
+        ></path>
+      </svg>
+      <svg
+        class="cart-button__icon-black"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        version="1.1"
+        id="Capa_2"
+        x="0px"
+        y="0px"
+        viewBox="0 0 60 60"
+        style="enable-background: new 0 0 60 60"
+        xml:space="preserve"
+      >
+        <path
+          d="M11.68,13l-0.833-5h-2.99C7.411,6.28,5.859,5,4,5C1.794,5,0,6.794,0,9s1.794,4,4,4c1.859,0,3.411-1.28,3.858-3h1.294l0.5,3  H9.614l5.171,26.016c-2.465,0.188-4.518,2.086-4.76,4.474c-0.142,1.405,0.32,2.812,1.268,3.858C12.242,48.397,13.594,49,15,49h2  c0,3.309,2.691,6,6,6s6-2.691,6-6h11c0,3.309,2.691,6,6,6s6-2.691,6-6h4c0.553,0,1-0.447,1-1s-0.447-1-1-1h-4.35  c-0.826-2.327-3.043-4-5.65-4s-4.824,1.673-5.65,4h-11.7c-0.826-2.327-3.043-4-5.65-4s-4.824,1.673-5.65,4H15  c-0.842,0-1.652-0.362-2.224-0.993c-0.577-0.639-0.848-1.461-0.761-2.316c0.152-1.509,1.546-2.69,3.173-2.69h0.791  c0.014,0,0.025,0,0.039,0h38.994C57.763,41,60,38.763,60,36.013V13H11.68z M4,11c-1.103,0-2-0.897-2-2s0.897-2,2-2s2,0.897,2,2  S5.103,11,4,11z"
+        ></path>
+      </svg>
+    </label>
+    <div class="cart-window">
+      <div class="cart-window__wrapper">
+        <h2 class="cart-window__title">Tus Productos</h2>
+          <button class="cart-window__close-button"><i class="fa-solid fa-xmark cart-window__close-button-icon"></i></button>
+        <div class="cart-window__products">
+          
+        </div>
+        <div class="cart-window__subtotal">
+          <p class="cart-window__subtotal-title">Subtotal:</p>
+          <p class="cart-window__subtotal-price"></p>
+        </div>
+          <div class="cart-window__link-container"><a href="" class="cart-window__submit btn"><i class="fa-solid fa-receipt mr-2"></i>Ir a pagar</a></div>
+      </div>
+
+    </div>
+    {{!-- <div class="cart-modal">
+
+    </div> --}}
+  </div>
+  <div class="main-header__hamburger-button-container">
+    <label
+      for="main-nav-toggle"
+      title="Alternar la barra de navegación"
+      class="hamburger-button"
+    >
+      <span class="hamburger-button__top-bread"></span>
+      <span class="hamburger-button__meat"></span>
+      <span class="hamburger-button__bottom-bread"></span>
+    </label>
+  </div>
+  <div class="main-header__main-nav-container">
+    <nav class="main-nav">
+      <ul class="main-nav__list">
+        <li class="main-nav__item">
+          <a href="#/home" class="main-nav__link">
+            <span class="main-nav__link-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                version="1.1"
+                x="0px"
+                y="0px"
+                width="460.298px"
+                height="460.297px"
+                viewBox="0 0 460.298 460.297"
+                style=" enable-background: new 0 0 460.298 460.297; "
+                xml:space="preserve"
+              >
+                <g>
+                  <g>
+                    <path
+                      d="M230.149,120.939L65.986,256.274c0,0.191-0.048,0.472-0.144,0.855c-0.094,0.38-0.144,0.656-0.144,0.852v137.041    c0,4.948,1.809,9.236,5.426,12.847c3.616,3.613,7.898,5.431,12.847,5.431h109.63V303.664h73.097v109.64h109.629    c4.948,0,9.236-1.814,12.847-5.435c3.617-3.607,5.432-7.898,5.432-12.847V257.981c0-0.76-0.104-1.334-0.288-1.707L230.149,120.939    z"
+                    ></path>
+                    <path
+                      d="M457.122,225.438L394.6,173.476V56.989c0-2.663-0.856-4.853-2.574-6.567c-1.704-1.712-3.894-2.568-6.563-2.568h-54.816    c-2.666,0-4.855,0.856-6.57,2.568c-1.711,1.714-2.566,3.905-2.566,6.567v55.673l-69.662-58.245    c-6.084-4.949-13.318-7.423-21.694-7.423c-8.375,0-15.608,2.474-21.698,7.423L3.172,225.438c-1.903,1.52-2.946,3.566-3.14,6.136    c-0.193,2.568,0.472,4.811,1.997,6.713l17.701,21.128c1.525,1.712,3.521,2.759,5.996,3.142c2.285,0.192,4.57-0.476,6.855-1.998    L230.149,95.817l197.57,164.741c1.526,1.328,3.521,1.991,5.996,1.991h0.858c2.471-0.376,4.463-1.43,5.996-3.138l17.703-21.125    c1.522-1.906,2.189-4.145,1.991-6.716C460.068,229.007,459.021,226.961,457.122,225.438z"
+                    ></path>
+                  </g>
+                </g>
+              </svg>
+            </span>
+            <span class="main-nav__link-text">Inicio</span>
+          </a>
+        </li>
+        <li class="main-nav__item">
+          <a href="#/alta" class="main-nav__link">
+            <span class="main-nav__link-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                data-name="Layer 1"
+                viewBox="0 0 128 128"
+              ><defs><style
+                  >.cls-1{fill:#2e79bd;}.cls-2{fill:#2d3e50;}</style></defs><title
+                >b</title><path
+                  class="cls-1"
+                  d="M46.28325,57.0136H25.581a2.30233,2.30233,0,1,0,0,4.60466H46.28325a2.30233,2.30233,0,1,0,0-4.60466Z"
+                ></path><path
+                  class="cls-1"
+                  d="M79.11954,61.61826a2.30233,2.30233,0,0,0,0-4.60466H57.457a2.30233,2.30233,0,0,0-.00033,4.60466Z"
+                ></path><path
+                  class="cls-1"
+                  d="M46.28325,92.84847H25.581a2.30224,2.30224,0,1,0,0,4.60448H46.28325a2.30224,2.30224,0,1,0,0-4.60448Z"
+                ></path><path
+                  class="cls-1"
+                  d="M55.154,95.1524a2.3011,2.3011,0,0,0,2.30378,2.29887H77.28l-.07844-4.60262H57.45777A2.30737,2.30737,0,0,0,55.154,95.1524Z"
+                ></path><path
+                  class="cls-1"
+                  d="M46.28325,74.931H25.581a2.30239,2.30239,0,1,0,0,4.60478H46.28325a2.30239,2.30239,0,0,0,0-4.60478Z"
+                ></path><path
+                  class="cls-1"
+                  d="M81.4218,77.23337a2.305,2.305,0,0,0-2.30225-2.3024H57.457a2.30239,2.30239,0,0,0-.00033,4.60478H79.11954A2.30493,2.30493,0,0,0,81.4218,77.23337Z"
+                ></path><path
+                  class="cls-2"
+                  d="M95.58765,98.85317v12.19039a3.55521,3.55521,0,0,1-3.55369,3.54879H13.00474a3.55521,3.55521,0,0,1-3.55369-3.54879V39.74912H24.29322A11.5181,11.5181,0,0,0,35.79739,28.24494V13.40278H92.034a3.55625,3.55625,0,0,1,3.55369,3.55369V59.9586l7.95048-12.36194V16.95647A11.5118,11.5118,0,0,0,92.034,5.45229H31.82217a4.00894,4.00894,0,0,0-2.81845,1.16659l-6.75448,6.78389L9.45105,26.25978,3.28968,32.45056a3.97661,3.97661,0,0,0-1.78911,3.32333v75.26966a11.51807,11.51807,0,0,0,11.50418,11.50415H92.034a11.51492,11.51492,0,0,0,11.50418-11.50415V86.80982L96.78856,97.30423A11.26152,11.26152,0,0,1,95.58765,98.85317Z"
+                ></path><path
+                  class="cls-1"
+                  d="M81.59843,91.93l.12368,7.28135L80.746,100.729a1.0326,1.0326,0,1,0,1.73688,1.11729l.97623-1.51755,6.67706-2.907a6.65935,6.65935,0,0,0,2.9426-2.50333l28.497-44.30353a6.1963,6.1963,0,0,0-10.42264-6.7041l-28.497,44.30353A6.65958,6.65958,0,0,0,81.59843,91.93Z"
+                ></path><path
+                  class="cls-1"
+                  d="M125.78824,52.65782a1.54893,1.54893,0,0,0-2.14064.46476L109.67973,74.838a1.54894,1.54894,0,0,0,2.60544,1.67588L126.253,54.79847A1.54894,1.54894,0,0,0,125.78824,52.65782Z"
+                ></path></svg>
+            </span>
+            <span class="main-nav__link-text">Alta</span>
+          </a>
+        </li>
+        <li class="main-nav__item">
+          <a href="#/contacto" class="main-nav__link">
+            <span class="main-nav__link-icon main-nav__link-icon--contacto">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 47.25 32"
+              ><defs><style
+                  >.cls-1{fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}</style></defs><title
+                >Asset 16</title><g data-name="Layer 2"><g
+                    data-name="Layer 2"
+                  ><rect
+                      class="cls-1"
+                      x="1"
+                      y="1"
+                      width="45.25"
+                      height="30"
+                      rx="1"
+                    ></rect><path
+                      class="cls-1"
+                      d="M46.25,2l-22,17.78a1,1,0,0,1-1.29,0L1,2"
+                    ></path><line
+                      class="cls-1"
+                      x1="45.5"
+                      y1="31"
+                      x2="28.95"
+                      y2="16"
+                    ></line><line
+                      class="cls-1"
+                      x1="2"
+                      y1="31"
+                      x2="18"
+                      y2="16.5"
+                    ></line></g></g></svg>
+            </span>
+            <span class="main-nav__link-text">Contacto</span>
+          </a>
+        </li>
+        <li class="main-nav__item">
+          <a href="#/nosotros" class="main-nav__link">
+            <span class="main-nav__link-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                data-name="Layer 1"
+                viewBox="0 0 25 25"
+              ><title>Group People</title><path
+                  id="Group_People"
+                  data-name="Group People"
+                  d="M16.75,19H16v5.5a.5.5,0,0,1-.5.5h-6a.5.5,0,0,1-.5-.5V19H8.25A1.25,1.25,0,0,1,7,17.75v-3.5a4.25,4.25,0,0,1,3.23-4.11,3.5,3.5,0,1,1,4.55,0A4.25,4.25,0,0,1,18,14.25v3.5A1.25,1.25,0,0,1,16.75,19ZM6,17.75v-3.5A5.23,5.23,0,0,1,8.6,9.73a4.27,4.27,0,0,1-.41-3.45,4.39,4.39,0,0,0-.43-.14,3.5,3.5,0,1,0-4.55,0A4.25,4.25,0,0,0,0,10.25v3.5A1.25,1.25,0,0,0,1.24,15H2v5.5a.5.5,0,0,0,.5.5h5a.5.5,0,0,0,.5-.5V20A2.25,2.25,0,0,1,6,17.75ZM21.77,6.14a3.5,3.5,0,1,0-4.54,0,4.32,4.32,0,0,0-.42.14,4.27,4.27,0,0,1-.41,3.45A5.23,5.23,0,0,1,19,14.25v3.5A2.25,2.25,0,0,1,17,20v.51a.5.5,0,0,0,.5.5h5a.5.5,0,0,0,.5-.5V15h.75A1.25,1.25,0,0,0,25,13.75v-3.5A4.25,4.25,0,0,0,21.77,6.14Z"
+                  fill="#0e1d25"
+                ></path></svg>
+            </span>
+            <span class="main-nav__link-text">Nosotros</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<script src="js/header.js" type="module"></script>

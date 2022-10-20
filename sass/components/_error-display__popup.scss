@@ -6,8 +6,19 @@
     position: absolute;
     bottom: -15px;
     right: 0;
+    // z-index: 99;
     
     padding: 0.5em;
+    &-input-error {
+        background-color: #f1c3c4;
+    }
+    &-input-check {
+        background: url(/img/check.svg) no-repeat right;
+        background-size: 1.5rem;
+        background-color: white;
+        background-position-x: calc(100% - 1rem);
+        background-position-y: center;
+    }
     @media (min-width: 425px) {
         bottom: -15px;
     }

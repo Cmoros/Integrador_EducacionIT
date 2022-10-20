@@ -40,4 +40,18 @@ $footer-link-height: 75px;
             }
         }
     }
+
+    &--info {
+        background-color: rgba(palette.$baby-blue-eyes, 0.9);
+        max-width: 1400px;
+        padding-top: 1em;
+        margin-left: 5px;
+        margin-right: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        @media (min-width: 768px) {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
 }

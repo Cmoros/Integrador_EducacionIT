@@ -34,3 +34,9 @@
   }
 }
 
+@mixin display-flex($f-direction: row, $j-content: center, $a-items: center) {
+  display: flex;
+  flex-direction: $f-direction;
+  justify-content: $j-content;
+  align-items: $a-items;
+}

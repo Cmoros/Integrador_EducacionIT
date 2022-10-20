@@ -65,7 +65,7 @@
         background-color: transparent;
         outline: none;
         border: none;
-
+        
         color: palette.$oxford-blue;
         border-width: 2px;
         border-style: solid;
@@ -82,6 +82,7 @@
         }
         &-container {
             flex-basis: 75%;
+            position: relative;
             @media (min-width: 768px) {
                 flex-basis: 45%;
                 flex-shrink: 0;

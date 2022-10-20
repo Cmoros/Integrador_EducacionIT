@@ -1,0 +1,25 @@
+@use '../abstracts/palette';
+
+
+.popup {
+  opacity: 0;
+  left: 50%;
+  font-size: calc(1rem + 0.5vw);
+  padding: 0.5em 1em;
+  top: 35px;
+  pointer-events: none;
+  transform: translateY(0) translateX(-50%);
+  position: fixed;
+  
+  z-index: 8;
+  // color: white;
+  // background-color: palette.$ultramarine-blue;
+  color: palette.$ultramarine-blue;
+  background-color: white;
+  border: 0.2em solid;
+  border-radius: 0.5em;
+}
+
+.showhide {
+  animation: show-and-hide 3s forwards;
+}

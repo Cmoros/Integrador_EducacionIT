@@ -1,32 +1,39 @@
-@use'../abstracts/palette';
+@use "../abstracts/palette";
 
 .cart-button {
-    height: 100%;
-    width: 100%;
-    // background-color: rgba(#FFF,0.21);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    &:hover {
-        .cart-button__icon {
-            &-black {
-                display: block;
-            }
-            &-white {
-                display: none;
-            }
-            
-        }
+  height: 100%;
+  width: 100%;
+  // background-color: rgba(#FFF,0.21);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    .cart-button__icon {
+      &-black {
+        display: block;
+      }
+      &-white {
+        display: none;
+      }
     }
-    &__icon{
-        &-black {
-            display: none;
-        }
-        &-black path,
-        &-white path {
-            // fill: palette.$oxford-blue;
-            fill: white;
-        }
+    @media (min-width: 992px) {
+      // & ~ .cart-window {
+      //   opacity: 0.75;
+      //   pointer-events: all;
+      // }
     }
+  }
+
+  &__icon {
+    &-black {
+      display: none;
+    }
+    &-black path,
+    &-white path {
+      // fill: palette.$oxford-blue;
+      fill: white;
+    }
+  }
 }

@@ -1,0 +1,325 @@
+@use "../abstracts/palette";
+@use "../abstracts/mixins";
+
+.solo-product {
+  // border-bottom: 30px solid #e9ecef;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: #fff;
+  box-shadow: 0 0.05rem 0.2rem rgb(0 0 0 / 3%);
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: calc(1.25rem / -2);
+    margin-left: calc(1.25rem / -2);
+
+    &-container {
+      width: 90%;
+      max-width: 1320px;
+      padding-right: 0.5rem;
+      padding-left: 0.5rem;
+      margin: auto;
+    }
+  }
+
+  &__gallery {
+    @media (min-width: 992px) {
+      display: flex;
+    }
+    &-container {
+      flex-shrink: 0;
+      width: 100%;
+      max-width: 100%;
+      padding-right: calc(1.25rem / 2);
+      padding-left: calc(1.25rem / 2);
+      @media (min-width: 992px) {
+        flex: 0 0 auto;
+        width: 50%;
+      }
+    }
+  }
+
+  &__ppal-image {
+    text-align: center;
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    object-fit: contain;
+    cursor: zoom-in;
+    mix-blend-mode: multiply;
+    vertical-align: middle;
+
+    &-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      background-color: #f8f9fa;
+      padding: 0.25rem;
+      border: 1px solid #dee2e6;
+      border-radius: 0.35rem;
+      max-width: 100%;
+      color: #0d6efd;
+      text-decoration: none;
+      height: 350px;
+
+      @media (min-width: 768px) {
+        height: 400px;
+      }
+      @media (min-width: 992px) {
+        order: 2;
+        height: 450px;
+      }
+    }
+  }
+
+  &__image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    cursor: zoom-in;
+    vertical-align: middle;
+
+    &s-container {
+      white-space: nowrap;
+      text-align: center;
+      margin-bottom: 1rem;
+      @media (min-width: 992px) {
+        display: flex;
+        flex-direction: column;
+        order: 1;
+        width: 70px;
+        margin-right: 1rem;
+      }
+    }
+
+    &-link {
+      width: 60px;
+      height: 60px;
+      border: 1px solid #dee2e6;
+      border-radius: 0.35rem;
+      margin: 3px;
+      display: inline-block;
+      overflow: hidden;
+      color: #0d6efd;
+      text-decoration: none;
+      white-space: nowrap;
+      text-align: center;
+    }
+  }
+
+  &__description {
+    @media (min-width: 992px) {
+      padding-left: 1rem;
+    }
+
+    &-container {
+      flex-shrink: 0;
+      width: 100%;
+      max-width: 100%;
+      padding-right: calc(1.25rem / 2);
+      padding-left: calc(1.25rem / 2);
+      @media (min-width: 992px) {
+        flex: 0 0 auto;
+        width: 50%;
+      }
+    }
+
+    &-header {
+      color: #212529;
+      font-size: calc(1.275rem + 0.3vw);
+      margin-top: 0;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      line-height: 1.25;
+      @media (min-width: 1200px) {
+        font-size: 1.5rem;
+      }
+    }
+
+    &-content {
+      padding: 1.5rem 0;
+    }
+  }
+
+  &__rating {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    &-stars {
+      display: inline-block;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      white-space: nowrap;
+      clear: both;
+    }
+    &-points {
+      margin-left: 5px;
+      margin-right: 5px;
+      display: inline-block;
+      vertical-align: middle;
+      color: #ff8100;
+      font-weight: 600;
+    }
+  }
+
+  &__star {
+    height: 16px;
+    max-width: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    &-item {
+    }
+
+    &--active {
+      width: 80%;
+      display: block;
+      text-overflow: clip;
+      white-space: nowrap;
+
+      z-index: 2;
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+    }
+
+    &--disabled {
+      display: block;
+      text-overflow: clip;
+      white-space: nowrap;
+      z-index: 1;
+    }
+  }
+
+  &__dot {
+    font-style: normal;
+    opacity: 0.5;
+    &::after {
+      content: "•";
+      display: inline-block;
+    }
+  }
+
+  &__reviews {
+    font-weight: 900;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    font-family: "Font Awesome 5 Free";
+    &--reviews {
+      &::before {
+        content: "\f075";
+      }
+    }
+
+    &--orders {
+      content: "\f291";
+    }
+    &-container {
+      margin-left: 5px;
+      margin-right: 5px;
+      display: inline-block;
+      vertical-align: middle;
+      color: #9da1a7;
+    }
+  }
+
+  &__price {
+    font-size: 1.25rem;
+    margin-top: 0;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #212529;
+    font-style: normal;
+    &-container {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__form {
+    &-wrapper {
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: calc(0.5rem / -2);
+      margin-left: calc(0.5rem / -2);
+    }
+  }
+
+  &__datalist {
+    &-container {
+      flex: 0 0 auto;
+      width: 16.6666666667%;
+      max-width: 100%;
+      padding-right: calc(0.5rem / 2);
+      padding-left: calc(0.5rem / 2);
+    }
+    &-input {
+      display: block;
+      width: 100%;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #51585e;
+      vertical-align: middle;
+      border: 1px solid #dee2e6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.35rem;
+      appearance: none;
+      word-wrap: normal;
+      text-transform: none;
+      transition: 0.2s border;
+      &:hover,
+      &:focus {
+        border-color: palette.$ultramarine-blue;
+      }
+    }
+  }
+
+  &__form-link {
+    &-container {
+      flex: 0 0 auto;
+      width: auto;
+      max-width: 100%;
+      padding-right: calc(0.5rem / 2);
+      padding-left: calc(0.5rem / 2);
+    }
+    &-icon {
+      font-size: 1rem;
+      user-select: none;
+      cursor: pointer;
+      text-align: center;
+      margin-right: 0.5rem;
+      display: inline-block;
+      font-style: normal;
+      font-variant: normal;
+      text-rendering: auto;
+      line-height: 1;
+      font-weight: 900;
+      font-family: "Font Awesome 5 Free";
+      min-width: 16px;
+    }
+    &--add {
+      &--selected {
+      }
+    }
+
+    &--fav {
+      &--selected {
+      }
+    }
+  }
+}
