@@ -8,7 +8,13 @@ class Main {
 
   async loadTemplates() {
     await this.loadTemplate();
-    window.addEventListener("hashchange", () => this.loadTemplate());
+    window.addEventListener("hashchange", () => {
+      window.scroll({
+        top: 0,
+        behavior: "smooth",
+      });
+      this.loadTemplate()
+    });
   }
 
   async loadTemplate() {
@@ -87,6 +93,7 @@ class Main {
   }
 
   getPageUrlFromId(id) {
+    if (id.includes('products/')) id = 'product';
     return `/pages/${id}.js`;
   }
 }

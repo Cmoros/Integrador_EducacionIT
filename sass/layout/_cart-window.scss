@@ -44,7 +44,7 @@
     height: fit-content;
     min-height: 400px;
     width: 95%;
-    max-width: 1200px;
+    max-width: 1300px;
     @include mixins.display-flex(column, space-between, stretch);
     
   }

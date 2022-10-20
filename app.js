@@ -83,7 +83,7 @@ app.get("/*", function getMain(req, res) {
   res.redirect("/#/404");
 });
 
-const PORT = 1234;
+const PORT = process.env.PORT || 1234;
 
 const server = app.listen(PORT, function appListen() {
   console.log(

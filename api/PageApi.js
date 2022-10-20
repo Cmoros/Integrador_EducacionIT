@@ -25,6 +25,6 @@ export default class PageApi {
   async getProduct(id) {
     const product = await this.productApi.getProduct(id);
     console.log('🚀 ~ PageApi ~ getProduct ~ product', product);
-    return {layout: false, product}
+    return product;
   }
 }

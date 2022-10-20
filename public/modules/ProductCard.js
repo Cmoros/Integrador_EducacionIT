@@ -12,7 +12,9 @@ export default class ProductCard {
     });
     // document.addEventListener('click', e => console.log(e.currentTarget))
   } 
-  
+  originalContent = '<i class="fa fa-shopping-basket card__link-add-icon" aria-hidden="true"></i>Agregar'
+  progressContent = '<i class="fa-regular fa-hourglass-clock card__link-add-icon"></i>Agregando'
+  successContent = '<i class="fa-solid fa-box-check card__link-add-icon"></i>Agregado'
   createProductCard() {
     this.productCardHTML = document.createElement("div");
     this.productCardHTML.classList.add("card");
@@ -22,11 +24,6 @@ export default class ProductCard {
     } else {
       imageFilePath = this.product.profileImageUrl;
     }
-
-    // const textToCompile = fetch('./templates/card').then(res => res.text());
-    // const template = Handlebars.compile(textToCompile);
-    // const resultText = template({...this.product, imageFilePath});
-    // this.productCardHTML.innerHTML = resultText;
 
     this.productCardHTML.innerHTML = `
     <a href="#" class="card__link-add" data-id="${this.product.id}">Agregar</a>

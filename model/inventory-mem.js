@@ -5,7 +5,7 @@ export default new Inventory([
   new Product({
     name: "Pelota Nro 2 Infantil",
     price: 1580,
-    stock: 10,
+    stock: 0,
     brand: "Nike",
     category: "JUEGOS DE PLAZA Y AIRE LIBRE",
     minAge: "3-6 Años",
@@ -120,7 +120,7 @@ export default new Inventory([
   new Product({
     name: "Cactus Juguete Bailarin",
     price: 5604,
-    stock: 10,
+    stock: 0,
     brand: "Lyon Toys",
     category: "MUÑECOS Y MUÑECAS",
     minAge: "6-12 Meses",

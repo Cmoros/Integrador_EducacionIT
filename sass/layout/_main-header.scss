@@ -10,7 +10,7 @@ $svg-padding: 0.2em;
     // background-color: palette.$blue-crayola;
     background-color: palette.$ultramarine-blue;
     display: flex;
-    position: fixed;
+    position: sticky;
     z-index: 10;
     top: 40px;
     width: 100%;
@@ -29,12 +29,12 @@ $svg-padding: 0.2em;
     @media (min-width: 768px) {
         padding: 0 16px 0 10px;
         gap: 12px;
-        height: 80px;
+        max-height: 90px;
         top: 45px;
     }
     @media (min-width: 992px) {
         gap: 20px;
-        height: 90px;
+        max-height: 100px;
         top: 50px;
     }
     &__logo {
@@ -208,7 +208,8 @@ $svg-padding: 0.2em;
             top: initial;
             right: initial;
             flex: 1 1 45%;
-            height: 100%;
+            align-self: center;
+            height: 80px;
             order: 4;
             max-width: 1000px;
             

@@ -1,5 +1,3 @@
-
-
 export default class PageContacto {
   constructor() {
     this.errors = {

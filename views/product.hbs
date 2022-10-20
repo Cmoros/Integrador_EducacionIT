@@ -1,0 +1,109 @@
+<section class="solo-product" data-id="{{id}}">
+  <div class="solo-product__wrapper-container">
+    <div class="solo-product__wrapper">
+      <div class="solo-product__gallery-container">
+        <article class="solo-product__gallery">
+          <div class="solo-product__ppal-image-link">
+            <img
+              {{!-- height="520" --}}
+              src="{{profileImageUrl}}"
+              alt="{{name}}"
+              class="solo-product__ppal-image"
+            />
+          </div>
+          <div class="solo-product__images-container">
+            {{#each imagesUrls}}
+              <div class="solo-product__image-link">
+                <img
+                  width="60"
+                  height="60"
+                  src="{{imageUrl}}"
+                  class="solo-product__image"
+                />
+              </div>
+            {{/each}}
+
+          </div>
+        </article>
+      </div>
+      <div class="solo-product__description-container">
+        <article class="solo-product__description">
+          <h4 class="solo-product__description-header">{{name}}</h4>
+          <div class="solo-product__rating">
+            <ul class="solo-product__rating-stars">
+              <li class="solo-product__star-item">
+                <img
+                  src="bootstrap5-ecommerce/images/misc/stars-active.svg"
+                  alt=""
+                  class="solo-product__star--active solo-product__star"
+                />
+              </li>
+              <li class="solo-product__star-item">
+                <img
+                  src="bootstrap5-ecommerce/images/misc/starts-disable.svg"
+                  alt=""
+                  class="solo-product__star--disabled solo-product__star"
+                />
+              </li>
+            </ul>
+            <b class="solo-product__rating-points"> 4.5</b>
+            <i class="solo-product__dot"></i>
+            <span class="solo-product__reviews-container">
+              <i
+                class="fa fa-comment solo-product__reviews solo-product__reviews--reviews"
+              ></i>
+              32 opiniones
+            </span>
+            <i class="solo-product__dot"></i>
+            <span class="solo-product__reviews-container">
+              <i
+                class="fa fa-shopping-basket solo-product__reviews solo-product__reviews--orders"
+              ></i>
+              154 vendidos
+            </span>
+          </div>
+          <hr />
+          <p class="solo-product__description-content">
+            {{shortDescription}}
+
+          </p>
+          <div class="solo-product__price-container">
+            <var class="solo-product__price">${{price}}</var>
+            <span>/ 1 unidad, incl IVA </span>
+          </div>
+          <form action="" class="solo-product__form">
+            <div class="solo-product__form-wrapper">
+              <div class="solo-product__datalist-container">
+                <input list="solo-product__datalist" class="solo-product__datalist-input" type="number" step="1" min="1" value="1">
+                <datalist class="solo-product__datalist" id="solo-product__datalist">
+                  <option value="1" selected>1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </datalist>
+              </div>
+              <div class="solo-product__form-link-container">
+                <a href="#" class="solo-product__form-link solo-product__form-link--add btn" data-id="{{id}}">
+                  <i
+                    class="fa fa-shopping-basket solo-product__form-link-icon"
+                  ></i>
+                  Agregar al carrito
+                </a>
+              </div>
+              <div class="solo-product__form-link-container">
+                <a href="#" class="solo-product__form-link solo-product__form-link--fav btn btn--light" data-id="{{id}}">
+                  <i
+                    class="fas fa-heart solo-product__form-link-icon solo-product__form-link-icon--light"
+                  ></i>
+                </a>
+              </div>
+            </div>
+            {{! <label class="form-check">
+              <input class="form-check-input" type="checkbox" value="" />
+              <span class="form-check-label"> Agregar para comparar </span>
+            </label> }}
+          </form>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

@@ -32,13 +32,12 @@ export default class PageController {
 
   async getProductPage(req, res, next) {
     const {id} = req.params
-    console.log('🚀 ~ PageController ~ getProductPage ~ id', id);
-    const config = await this.api.getProduct(id)
-    console.log('🚀 ~ PageController ~ getProductPage ~ config', config);
-    if (Object.keys(config.product).length == 0) {
+    const product = await this.api.getProduct(id)
+    console.log('🚀 ~ PageController ~ getProductPage ~ config', product);
+    if (Object.keys(product).length == 0) {
       next();
       return;
     }
-    res.render("product", config)
+    res.render("product", {layout:false, ...product})
   }
 }

@@ -1,7 +1,7 @@
 @use '../abstracts/palette';
 
 
-$card-height: 390px;
+$card-height: 415px;
 $img-container-height:200px;
 
 .card {
@@ -35,12 +35,14 @@ $img-container-height:200px;
     }
     @media (min-width: 1024px) {
         flex: 1 1 23%;
-        $actual-height: calc($card-height - 32px);
+        $actual-height: calc($card-height - 57px);
         height: $actual-height;
         transition: height 0.5s;
         overflow: hidden;
-        &:hover {
-            height:calc($actual-height + 43px);
+        &:hover,
+        &:focus
+        &:active {
+            height:calc($actual-height + 50px);
             box-shadow: 
             0 2px 7px rgba(palette.$ultramarine-blue, .4),
             0 0px 5px rgba(palette.$ultramarine-blue, .8);
@@ -60,9 +62,11 @@ $img-container-height:200px;
             height: calc($card-height - 65px);
         }
         @media (min-width: 1024px) {
-            $actual-height: calc($card-height - 10px);
+            $actual-height: calc($card-height - 35px);
             height: $actual-height;
-            &:hover {
+            &:hover,
+            &:focus,
+            &:active {
                 height:calc($actual-height + 45px);
             }
         }
@@ -79,27 +83,10 @@ $img-container-height:200px;
     }
     
     &__link-add {
-        padding: 0.4em 0.2em;
-        border-radius: 10px;
-        // background-color: palette.$blue-crayola;
-        background-color: palette.$ultramarine-blue;
-        // color: palette.$oxford-blue;
-        font-size: 16px;
-        font-weight: 400;
-        cursor: pointer;
-        color: white;
-        width: 70%;
-        border: 1px solid transparent;
         order: 4;
-        text-align: center;
         text-decoration: none;
-        transition: filter 0.1s;
-
-        &:hover {
-            filter: brightness(1.2);
-        }
-        @media (min-width:1024px) {
-            font-size: 18px;
+        &-icon {
+            margin-right: 0.5rem;
         }
     }
 
@@ -166,11 +153,13 @@ $img-container-height:200px;
                 top: 7px;
                 right: 7px;
                 stroke: transparent;
-                &:hover {
+                &:hover,
+                &:focus {
                     fill: #e74c3c;
                 }
             }
-            &:hover {
+            &:hover,
+            &:focus {
                 fill: #e74c3c;
             }
         }

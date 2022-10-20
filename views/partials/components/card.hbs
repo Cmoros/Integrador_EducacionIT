@@ -1,5 +1,7 @@
 <div class="card">
-  <a href="#" class="card__link-add" data-id="{{id}}">Agregar</a>
+  <a href="#" class="card__link-add btn" data-id="{{id}}"><i
+                    class="fa fa-shopping-basket card__link-add-icon"
+                  ></i>Agregar</a>
   <article class="card__article">
     <div class="card__image-container">
       <button class="card__favorite" data-id="{{id}}">
@@ -12,7 +14,7 @@
           </g>
         </svg>
       </button>
-      <a class="card__image-link" href="#">
+      <a class="card__image-link" href="#/products/{{id}}">
         <img class="card__image" src="{{profileImageUrl}}" alt="{{name}}" />
       </a>
     </div>

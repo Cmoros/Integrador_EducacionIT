@@ -7,10 +7,14 @@ $textAlignValues:("left", "right", "center", "justify" );
 }
 
 .flex {
+    display: flex !important;
+    &-row {
+        display: flex;
+        flex-direction: row !important;
+    }
     &-column {
         display: flex;
         flex-direction: column !important;
-        align-items: flex-start !important;
     }
     &-justify-center {
         display: flex;
@@ -34,4 +38,8 @@ $textAlignValues:("left", "right", "center", "justify" );
 
 .open-modal {
     overflow: hidden;
+}
+
+.mr-2 {
+    margin-right: 0.5rem;
 }

@@ -14,9 +14,10 @@
     }
     &-input-check {
         background: url(/img/check.svg) no-repeat right;
-        background-size: 1.2rem;
+        background-size: 1.5rem;
         background-color: white;
-        background-position: 98% center;
+        background-position-x: calc(100% - 1rem);
+        background-position-y: center;
     }
     @media (min-width: 425px) {
         bottom: -15px;

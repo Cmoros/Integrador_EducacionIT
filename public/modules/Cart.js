@@ -1,3 +1,5 @@
+import popup from "./popup.js";
+
 export default class Cart {
   constructor(cartCheckboxToggle, cartButton, cartWindow) {
     this.cartCheckboxToggle = cartCheckboxToggle;
@@ -17,7 +19,7 @@ export default class Cart {
     document.addEventListener("click", (e) => {
       if (
         e.target.classList.contains("cart-window") ||
-        e.target.classList.contains("cart-window__close-button-icon")
+        e.target.classList.contains("cart-window__close-button")
       ) {
         this.toggleCartModal();
         return;
@@ -81,6 +83,10 @@ export default class Cart {
     localStorage.setItem("cartProducts", JSON.stringify(compactedProducts));
   }
 
+  checkProductInCart(id) {
+    return Boolean(this.products[id])
+  }
+
   async createProductElement(product) {
     const productHTMLText = await fetch(
       `./api/products/${product.id}/cart/text`
@@ -93,6 +99,8 @@ export default class Cart {
 
   async addNewCartProduct(id, quantity = 1) {
     // En caso de existir el producto pero no el id, es que está agregandose
+    let added = false;
+
     if (this.loading[id] != null) {
       this.loading[id] += 1;
       return;
@@ -104,11 +112,12 @@ export default class Cart {
       this.loading[id] = 0;
       const res = await fetch(`./api/products/${id}/cart/json`);
       const product = await res.json();
-      if (product.error || product.stock == 0) {
+      if (product.error /*|| product.stock == 0*/) {
+        popup.init('<i class="fa-solid fa-ban"></i>Ups! Nos quedamos sin stock');
         delete this.loading[id];
-        return;
+        return 'error';
       }
-
+      added = true;
       product.quantity = this.loading[id] + quantity;
       this.loading[id] = product.quantity;
       const productElement = await this.createProductElement(product);
@@ -119,10 +128,15 @@ export default class Cart {
         quantity: this.loading[id],
       };
       delete this.loading[id];
+      
       this.checkQuantityvsStock(id);
       this.updateSubtotal();
     }
     this.updateLocalStorage();
+    if (this.products[id].stock == 0) {
+      added = 'nostock';
+    }
+    return added;
   }
 
   checkQuantityvsStock(id) {
@@ -133,6 +147,7 @@ export default class Cart {
     const quantityHTML = product.productElement.querySelector(
       ".cart-product__quantity"
     );
+    console.log()
     this.updateSubtotalProduct(id);
     if (product.quantity >= product.stock) {
       if (product.quantity > product.stock) {
@@ -141,7 +156,11 @@ export default class Cart {
         this.updateSubtotal();
         this.updateSubtotalProduct(id);
       }
-      quantityHTML.innerText = product.stock;
+      // if (product.stock == 0) {
+      //   
+      // } else {
+        quantityHTML.innerText = product.stock;
+      // }
     }
     plusButton.disabled = product.quantity >= product.stock;
 
@@ -151,12 +170,15 @@ export default class Cart {
     minusButton.disabled = product.quantity <= 1;
     if (product.quantity <= 1) {
       if (product.quantity < 1) {
-        product.quantity = 1;
+        product.quantity = 0;
         this.updateLocalStorage();
         this.updateSubtotal();
         this.updateSubtotalProduct(id);
+        quantityHTML.innerText = 's/n'
+        popup.init('<i class="fa-solid fa-ban"></i>Ups! Nos quedamos sin stock');
+      } else {
+        quantityHTML.innerText = product.quantity;
       }
-      quantityHTML.innerText = 1;
     }
     minusButton.disabled = product.quantity <= 1;
   }
@@ -208,3 +230,6 @@ export default class Cart {
     this.subtotal = 0;
   }
 }
+
+
+

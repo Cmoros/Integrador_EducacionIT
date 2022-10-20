@@ -14,6 +14,8 @@
 @use 'base/utilities';
 @use 'base/base';
 @use 'base/fonts';
+@use 'base/animations';
+
 
 
 // 4. Layout-related sections
@@ -34,9 +36,10 @@
 @use 'layout/intro-header';
 @use 'layout/cart-window';
 @use 'layout/cart-modal-toggle';
-
+@use 'layout/solo-product';
 
 // 5. Components
+@use 'components/btn';
 @use 'components/cards';
 @use 'components/big-cards';
 @use 'components/linkedin-link';
@@ -50,6 +53,8 @@
 @use 'components/google-map';
 @use 'components/cards-container';
 @use 'components/cart-product';
+@use 'components/popup';
+
 
 // 6. Page-specific styles
 // @use 'pages/index';

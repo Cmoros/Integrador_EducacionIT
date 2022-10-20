@@ -29,7 +29,7 @@
                                 <label for="product-stock" class="input-group__label">
                                     Stock:<sup class="required">*</sup>
                                 </label>
-                                <input id="product-stock" class="input-group__input" type="number" required min="1" max="100000" name="product[number]">
+                                <input id="product-stock" class="input-group__input" type="number" required min="0" max="100000" name="product[number]" step="1">
                             </div>
                         </div>
                     </div>
@@ -89,40 +89,38 @@
                     </div>
                     <div class="main-form__group">
                         <div class="input-group-pair">
+                            <div class="input-group input-group--small flex-row">
+                                
+                                <label for="product-age-month" class="input-group__label">
+                                    Edad en Meses<sup class="required">*</sup>
+                                </label>
+                                <input type="radio" id="product-age-month" class="input-group__input" name="product[ageType]" value="M">
+                            </div>
+                            <div class="input-group input-group--small flex-row">
+                                <label for="product-age-year" class="input-group__label">
+                                    Edad en Años<sup class="required">*</sup>
+                                </label>
+                                <input type="radio" id="product-age-year" class="input-group__input" name="product[ageType]" checked value="Y">
+                                </inp>
+                            </div>
+                            
+                        </div>
+                        <div class="input-group-pair">
                             <div class="input-group input-group--small flex-column">
+                                
                                 <label for="product-age-min" class="input-group__label">
                                     Edad desde:<sup class="required">*</sup>
                                 </label>
-                                <select id="product-age-min" class="input-group__input" name="product[ageMin]" required>
-                                    <option value="" selected disabled>Edad mínima</option>
-                                    <option value="0-3M">0-3 Meses</option>
-                                    <option value="3-6M">3-6 Meses</option>
-                                    <option value="6-12M">6-12 Meses</option>
-                                    <option value="1-3Y">1-3 Años</option>
-                                    <option value="3-6Y">3-6 Años</option>
-                                    <option value="6-9Y">6-9 Años</option>
-                                    <option value="9-12Y">9-12 Años</option>
-                                    <option value="TEEN">Adolescentes</option>
-                                    <option value="ALL">Adultos</option>
-                                </select>
+                                <input type="number" id="product-age-min" class="input-group__input" name="product[ageMin]" required>
                             </div>
                             <div class="input-group input-group--small flex-column">
                                 <label for="product-age-max" class="input-group__label">
                                     Edad hasta:<sup class="required">*</sup>
                                 </label>
-                                <select id="product-age-max" class="input-group__input" name="product[ageMax]" required>
-                                    <option value="" selected disabled>Edad máxima</option>
-                                    <option value="0-3M">0-3 Meses</option>
-                                    <option value="3-6M">3-6 Meses</option>
-                                    <option value="6-12M">6-12 Meses</option>
-                                    <option value="1-3Y">1-3 Años</option>
-                                    <option value="3-6Y">3-6 Años</option>
-                                    <option value="6-9Y">6-9 Años</option>
-                                    <option value="9-12Y">9-12 Años</option>
-                                    <option value="TEEN">Adolescentes</option>
-                                    <option value="ALL">Adultos</option>
-                                </select>
+                                <input type="number" id="product-age-max" class="input-group__input" name="product[ageMax]" required>
+                                </inp>
                             </div>
+
                         </div>
                         
                     </div>
