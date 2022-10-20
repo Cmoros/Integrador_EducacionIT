@@ -9,8 +9,8 @@
     "sass":"sass --watch ./sass/main.scss ./public/css/main.css",
     "format:check": "prettier --check \"src/**/*.{js,jsx}\"",
     "debug": "node --inspect app.js",
-    "start": "nodemon .",
-    "deploy": "gh-pages -d build"
+    "start": "node app.js",
+    "start:watch": "nodemon ."
   },
   "repository": {
     "type": "git",
