@@ -9,7 +9,7 @@ import { fileURLToPath } from "url";
 import fs from "fs";
 import MainRouter from "./routers/MainRouter.js";
 import PageRouter from "./routers/PageRouter.js";
-import ProductRouter from "./routers/productRouter.js";
+import ProductRouter from "./routers/ProductRouter.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dir = "./views";
