@@ -18,27 +18,4 @@ export default class Product {
     this.date = obj.date || new Date();
     this.sponsored = obj.sponsored
   }
-
-  getInfoCart() {
-    return {
-      id: this.id,
-      price: this.price,
-      // imageFileName: this.profileImageUrl.split("/").slice(-1).join()
-      profileImageUrl: this.profileImageUrl,
-      name: this.name,
-      stock: this.stock,
-      // quantity: 0
-    };
-  }
-
-  getInfoCard() {
-    return {
-      id: this.id,
-      price: this.price,
-      // imageFileName: this.profileImageUrl.split("/").slice(-1).join(''),
-      profileImageUrl: this.profileImageUrl,
-      name: this.name,
-      shortDescription: this.shortDescription,
-    };
-  }
 }

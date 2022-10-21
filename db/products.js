@@ -1,7 +1,6 @@
-import Product from "../src/Product.js";
-import Inventory from "../src/Inventory.js";
+import Product from "../src/Product.js"
 
-export default new Inventory([
+export default [
   new Product({
     name: "Pelota Nro 2 Infantil",
     price: 1580,
@@ -177,4 +176,3 @@ export default new Inventory([
     date: new Date("2023-08-04"),
   }),
   ]
-)

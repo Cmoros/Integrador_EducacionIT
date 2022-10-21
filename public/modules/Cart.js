@@ -103,7 +103,7 @@ export default class Cart {
 
     if (this.loading[id] != null) {
       this.loading[id] += 1;
-      return;
+      return added;
     }
 
     if (id in this.products || id in this.loading) {

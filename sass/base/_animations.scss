@@ -4,11 +4,11 @@
     transform: translateY(0) translateX(-50%);
   }
   25% {
-    transform: translateY(175%) translateX(-50%);
+    transform: translateY(250%) translateX(-50%);
     opacity: 1;
   }
   74% {
-    transform: translateY(175%) translateX(-50%);
+    transform: translateY(250%) translateX(-50%);
     opacity: 1;
   }
   100% {
@@ -16,3 +16,6 @@
   }
 }
 
+.showhide {
+  animation: show-and-hide 3s forwards;
+}

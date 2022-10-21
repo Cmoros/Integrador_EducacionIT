@@ -1,14 +1,9 @@
-// import {modelMem} from'../model/inventory-mem.js'
-import modelMem from'../model/inventory-mem.js'
-// import model from'../model/inventory-fs.js'
-// import model from'../model/inventory-mongodb.js'
+import Model from'../model/ModelMem.js'
+// import Model from'../model/ModelMongo.js'
 
 export default class ProductApi {
-  constructor(opt = "mem") {
-    if (opt == "mem") {
-      this.model = modelMem;
-    }
-    this.model = modelMem;
+  constructor() {
+    this.model = new Model
   }
   async getProduct(id) {
     return await this.model.getProduct(id);
@@ -31,8 +26,11 @@ export default class ProductApi {
   }
 
   async getCartProduct(id) {
-    return await this.model.getCartProduct(id)
+    const product = await this.getProduct(id);
+    const {price, profileImageUrl, name, stock} = product;
+    return {id, price, profileImageUrl, name, stock}
   }
+
   async getHTMLCartProduct(id) {
     const products = [await this.getCartProduct(id)];
     return {layout: false, products}
@@ -42,24 +40,11 @@ export default class ProductApi {
     return await this.model.createProduct(product)
   }
 
-  // async postManyProducts() {
-
-  // }
-
   async updateProduct(id, product) {
-    return await model.updateProduct(id, product)
-  }
-
-  async updateAllProducts(cb) {
-
-    return await model.updateAllProducts(cb)
+    return await this.model.updateProduct(id, product)
   }
 
   async deleteProduct(id) {
-    return await model.deleteProduct(id)
+    return await this.model.deleteProduct(id)
   }
-
-  // async deleteManyProducts() {
-
-  // }
 }

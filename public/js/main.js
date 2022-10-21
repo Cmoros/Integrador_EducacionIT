@@ -53,7 +53,8 @@ class Main {
     this.error404 = false;
     console.log('url', url)
     return await fetch(url, { method: method }).then((r) => {
-      this.error404 = r.status != 200;
+      this.error404 = r.status > 400;
+      // this.error404 = r.status != 200;
       return r.text();
     });
   }

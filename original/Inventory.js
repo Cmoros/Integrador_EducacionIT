@@ -1,10 +1,20 @@
 import Product from "./Product.js";
+import products from "../db/products.js";
+export default class ModelMem {
 
-export default class Inventory {
-  constructor(productArray) {
-    this.products = {};
-    this.createFromArray(productArray);
+  async createFromArray(products, cb) {
+    products.forEach((product, index, array) => {
+      this.products[product.id] = product;
+      if (typeof cb == 'function') {
+        cb(product,index,array);
+      }
+    })
   }
+
+  constructor() {
+    this.createFromArray(products);
+  }
+
   async getAllProducts() {
     const productsArray = [];
     for (const id in this.products) {
@@ -17,10 +27,6 @@ export default class Inventory {
     return this.products[id] || {};
   }
 
-  async getCartProduct(id) {
-    return await this.products[id].getInfoCart();
-  }
-
 
   async createProduct(product) {
     const newProduct = new Product(product);
@@ -28,14 +34,7 @@ export default class Inventory {
     return this.products[newProduct.id];
   }
 
-  async createFromArray(products, cb) {
-    products.forEach((product, index, array) => {
-      this.products[product.id] = product;
-      if (typeof cb == 'function') {
-        cb(product,index,array);
-      }
-    })
-  }
+  
   
   async updateProduct(id, product) {
     this.products[id] &&= product;

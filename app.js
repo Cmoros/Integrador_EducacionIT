@@ -3,10 +3,11 @@
 import express from "express";
 // import { engine } from "express-handlebars";
 import { create } from "express-handlebars";
-
 import * as path from "path";
 import { fileURLToPath } from "url";
 import fs from "fs";
+import config from "./config.js";
+
 import MainRouter from "./routers/MainRouter.js";
 import PageRouter from "./routers/PageRouter.js";
 import ProductRouter from "./routers/ProductRouter.js";
@@ -83,7 +84,7 @@ app.get("/*", function getMain(req, res) {
   res.redirect("/#/404");
 });
 
-const PORT = process.env.PORT || 1234;
+const PORT = process.env.PORT || config.PORT;
 
 const server = app.listen(PORT, function appListen() {
   console.log(

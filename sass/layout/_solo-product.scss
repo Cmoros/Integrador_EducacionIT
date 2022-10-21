@@ -265,9 +265,9 @@
       padding-left: calc(0.5rem / 2);
     }
     &-input {
-      display: block;
+      text-align: center;
       width: 100%;
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 0 0.5rem 0.5rem;
       font-size: 1rem;
       font-weight: 400;
       line-height: 1.5;
@@ -313,6 +313,7 @@
       min-width: 16px;
     }
     &--add {
+      text-align: center;
       &--selected {
       }
     }

@@ -9,9 +9,10 @@ export default class PageHome {
     this.containerNew = this.sections[2];
     this.addBtns = {};
     this.favoriteClassName = "card__favorite";
-    this.addEventCardSection(this.containerSponsored);
-    this.addEventCardSection(this.containerPopular);
-    this.addEventCardSection(this.containerNew);
+    this.addBtnClassName = "card__link-add"
+    this.addEventCardSection(this.containerSponsored, this.addBtnClassName);
+    this.addEventCardSection(this.containerPopular, this.addBtnClassName);
+    this.addEventCardSection(this.containerNew, this.addBtnClassName);
     this.checkLocalStorage();
   }
 
@@ -19,13 +20,13 @@ export default class PageHome {
     this.addFavoriteButtonEvent();
   }
 
-  addEventCardSection(container) {
+  addEventCardSection(container, className) {
     container.addEventListener("click", async (e) => {
-      if (e.target.classList.contains("card__link-add")) {
+      if (e.target.classList.contains(className)) {
         e.preventDefault();
         const id = e.target.dataset.id;
         
-        this.addBtns[id] ||= new Btn(e.target)
+        this.addBtns[id] ||= new Btn(e.target, className)
         let btn = this.addBtns[id]
         e.target.innerHTML = btn.progressContent;
         e.target.classList.add('btn--process')
@@ -40,6 +41,7 @@ export default class PageHome {
         }
         e.target.innerHTML = btn.successContent;
         e.target.classList.add('btn--success')
+        e.target.classList.remove('btn--process')
         clearTimeout(btn.timeoutId);
         btn.timeoutId = setTimeout(() => {
           e.target.classList.remove('btn--success')
