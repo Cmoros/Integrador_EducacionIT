@@ -1,10 +1,12 @@
 @use "../abstracts/palette";
+@use '../abstracts/mixins';
 
 .cart-button {
   height: 100%;
   width: 100%;
   // background-color: rgba(#FFF,0.21);
   border-radius: 10px;
+  position: relative;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -35,5 +37,20 @@
       // fill: palette.$oxford-blue;
       fill: white;
     }
+  }
+
+  &__bubble {
+    position: absolute;
+    @include mixins.display-flex();
+
+    width: 1.2rem;
+    height: 1.2rem;
+    // padding: 0.25rem;
+    font-size: 0.6rem;
+    top: -0.6rem;
+    right: -0.6rem;
+    border-radius: 50%;
+    background-color: white;
+    color: palette.$ultramarine-blue;
   }
 }

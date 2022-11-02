@@ -1,10 +1,24 @@
-<input type="checkbox" class="main-nav-toggle" id="main-nav-toggle" aria-hidden="true" tabindex="-1"/>
+<input
+  type="checkbox"
+  class="main-nav-toggle"
+  id="main-nav-toggle"
+  aria-hidden="true"
+  tabindex="-1"
+>
 <input
   type="checkbox"
   class="main-nav-search-form-toggle"
   id="main-nav-search-form-toggle"
-aria-hidden="true" tabindex="-1"/>
-<input type="checkbox" class="cart-modal-toggle" id="cart-modal-toggle"aria-hidden="true" tabindex="-1">
+  aria-hidden="true"
+  tabindex="-1"
+>
+<input
+  type="checkbox"
+  class="cart-modal-toggle"
+  id="cart-modal-toggle"
+  aria-hidden="true"
+  tabindex="-1"
+>
 <div class="message-container">
   <div class="message">
     <div class="message__alerts-container"></div>
@@ -21,12 +35,12 @@ aria-hidden="true" tabindex="-1"/>
       src="./img/logo-rocket.png"
       alt="juguetería cósmica logo"
       class="main-header__logo"
-    />
+    >
     <img
       src="./img/logo-txt.png"
       alt="juguetería cósmica título"
       class="main-header__logo-text"
-    />
+    >
   </a>
   <div class="main-header__search-form-container">
     <form action="get" class="search-form">
@@ -36,7 +50,7 @@ aria-hidden="true" tabindex="-1"/>
           class="search-form__input"
           placeholder="Encuentra tu juguete"
           id="search-form__input"
-        />
+        >
       </div>
       <label for="search-form__input" class="search-form__label">
         <svg
@@ -59,11 +73,16 @@ aria-hidden="true" tabindex="-1"/>
           </g>
         </svg>
       </label>
-      <input type="submit" value="" class="search-form__submit" />
+      <input type="submit" value="" class="search-form__submit" >
     </form>
   </div>
   <div class="main-header__cart-button-container">
-    <label class="cart-button" for="cart-modal-toggle" role="button" tabindex="0">
+    <label
+      class="cart-button"
+      for="cart-modal-toggle"
+      tabindex="0"
+    >
+    <span class="cart-button__bubble">0</span>
       <svg
         class="cart-button__icon-white"
         xmlns="http://www.w3.org/2000/svg"
@@ -99,21 +118,26 @@ aria-hidden="true" tabindex="-1"/>
     <div class="cart-window">
       <div class="cart-window__wrapper">
         <h2 class="cart-window__title">Tus Productos</h2>
-          <button class="cart-window__close-button"><i class="fa-solid fa-xmark cart-window__close-button-icon"></i></button>
+        <button class="cart-window__close-button"><i
+            class="fa-solid fa-xmark cart-window__close-button-icon"
+          ></i></button>
         <div class="cart-window__products">
-          
+
         </div>
         <div class="cart-window__subtotal">
           <p class="cart-window__subtotal-title">Subtotal:</p>
           <p class="cart-window__subtotal-price"></p>
         </div>
-          <div class="cart-window__link-container"><a href="" class="cart-window__submit btn"><i class="fa-solid fa-receipt mr-2"></i>Ir a pagar</a></div>
+        <div class="cart-window__link-container">
+          <a href="" class="cart-window__submit btn"><i
+              class="fa-solid fa-receipt mr-2"
+            ></i>Ir a pagar</a></div>
       </div>
 
     </div>
-    {{!-- <div class="cart-modal">
+    {{! <div class="cart-modal">
 
-    </div> --}}
+    </div> }}
   </div>
   <div class="main-header__hamburger-button-container">
     <label

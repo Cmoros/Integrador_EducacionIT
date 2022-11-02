@@ -1,10 +1,10 @@
-import Product from "../src/Product.js"
+import Product from "../src/Product.js";
 
 export default [
   new Product({
     name: "Pelota Nro 2 Infantil",
     price: 1580,
-    stock: 0,
+    stock: 10,
     brand: "Nike",
     category: "JUEGOS DE PLAZA Y AIRE LIBRE",
     minAge: "3-6 Años",
@@ -38,7 +38,8 @@ export default [
     maxAge: "9-12 Años",
     profileImageUrl: "/img/productos/reloj_spiderman.webp",
     shipping: false,
-    shortDescription: "Correa ajustable. Proyecta 24 imágenes diferente. Hora digital",
+    shortDescription:
+      "Correa ajustable. Proyecta 24 imágenes diferente. Hora digital",
     sponsored: true,
   }),
   //
@@ -52,7 +53,8 @@ export default [
     maxAge: "9-12 Años",
     profileImageUrl: "/img/productos/crocky_attack.webp",
     shipping: false,
-    shortDescription: "Marca Ditoys. Edad recomendada: 6 años. Estimula el ingenio.",
+    shortDescription:
+      "Marca Ditoys. Edad recomendada: 6 años. Estimula el ingenio.",
     sponsored: true,
   }),
 
@@ -67,9 +69,10 @@ export default [
     maxAge: "9-12 Años",
     profileImageUrl: "/img/productos/teclado_musical.webp",
     shipping: false,
-    shortDescription: "Marca NEWVISION. Dispone de 37 teclas, 8 tonos, 8 ritmos y más",
+    shortDescription:
+      "Marca NEWVISION. Dispone de 37 teclas, 8 tonos, 8 ritmos y más",
     sponsored: false,
-    visits: 25
+    visits: 25,
   }),
 
   new Product({
@@ -82,9 +85,10 @@ export default [
     maxAge: "Adolescentes",
     profileImageUrl: "/img/productos/ukelele_infantil.webp",
     shipping: false,
-    shortDescription: "Ukelele madera soprano infantil, importado de primera calidad",
+    shortDescription:
+      "Ukelele madera soprano infantil, importado de primera calidad",
     sponsored: false,
-    visits: 10
+    visits: 10,
   }),
 
   new Product({
@@ -97,9 +101,10 @@ export default [
     maxAge: "9-12 Años",
     profileImageUrl: "/img/productos/dinosaurio_pone_huevos.webp",
     shipping: false,
-    shortDescription: "Dinosaurio camina ,emite sonido,luces y pone huevos. Lyon Toys",
+    shortDescription:
+      "Dinosaurio camina ,emite sonido,luces y pone huevos. Lyon Toys",
     sponsored: false,
-    visits: 15
+    visits: 15,
   }),
 
   new Product({
@@ -112,9 +117,10 @@ export default [
     maxAge: "9-12 Años",
     profileImageUrl: "/img/productos/walkie_talkie_baofang.webp",
     shipping: false,
-    shortDescription: "Kit x 2 handies Baofeng. 16 Canales. Frecuencia 400 - 470 Mhz",
+    shortDescription:
+      "Kit x 2 handies Baofeng. 16 Canales. Frecuencia 400 - 470 Mhz",
     sponsored: false,
-    visits: 20
+    visits: 20,
   }),
   new Product({
     name: "Cactus Juguete Bailarin",
@@ -126,7 +132,8 @@ export default [
     maxAge: "1-3 Años",
     profileImageUrl: "/img/productos/pato_bailarin.webp",
     shipping: false,
-    shortDescription: "Cactus de juguete peluche bailarín electronico interactivo",
+    shortDescription:
+      "Cactus de juguete peluche bailarín electronico interactivo",
     sponsored: false,
     date: new Date("2023-05-01"),
   }),
@@ -140,10 +147,12 @@ export default [
     maxAge: "3-6 Años",
     profileImageUrl: "/img/productos/robot_bailarin.webp",
     shipping: false,
-    shortDescription: "Robot bailarin “Naughty” Con luces y música, movimientos continuos",
+    shortDescription:
+      "Robot bailarin “Naughty” Con luces y música, movimientos continuos",
     sponsored: false,
     date: new Date("2023-06-02"),
-  }),new Product({
+  }),
+  new Product({
     name: "Juguete Fidget Spiner",
     price: 299,
     stock: 30,
@@ -153,13 +162,11 @@ export default [
     maxAge: "Adultos",
     profileImageUrl: "/img/productos/fidget_spiner.webp",
     shipping: false,
-    shortDescription: "Fidget Spiner Anti-estrés. Marca Spinner. Para niños y adultos",
+    shortDescription:
+      "Fidget Spiner Anti-estrés. Marca Spinner. Para niños y adultos",
     sponsored: false,
     date: new Date("2023-07-03"),
   }),
-
-
-
 
   new Product({
     name: "Pista De Carreras Chicco",
@@ -171,8 +178,9 @@ export default [
     maxAge: "3-6 Años",
     profileImageUrl: "/img/productos/pista_carrera_bunny_toys.webp",
     shipping: false,
-    shortDescription: "Pista De Carreras Para Niños De 2 Años Chicco Bunny Toys",
+    shortDescription:
+      "Pista De Carreras Para Niños De 2 Años Chicco Bunny Toys",
     sponsored: false,
     date: new Date("2023-08-04"),
   }),
-  ]
+];

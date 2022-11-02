@@ -1,7 +1,6 @@
 import { Router } from "express";
 import PageController from "../controllers/PageController.js";
 
-
 export default class PageRouter {
   constructor(app) {
     this.router = Router();

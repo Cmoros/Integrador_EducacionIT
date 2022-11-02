@@ -9,7 +9,7 @@ export default class PageHome {
     this.containerNew = this.sections[2];
     this.addBtns = {};
     this.favoriteClassName = "card__favorite";
-    this.addBtnClassName = "card__link-add"
+    this.addBtnClassName = "card__link-add";
     this.addEventCardSection(this.containerSponsored, this.addBtnClassName);
     this.addEventCardSection(this.containerPopular, this.addBtnClassName);
     this.addEventCardSection(this.containerNew, this.addBtnClassName);
@@ -20,31 +20,32 @@ export default class PageHome {
     this.addFavoriteButtonEvent();
   }
 
-  addEventCardSection(container, className) {
+  addEventCardSection(container, className, quantity = 1) {
     container.addEventListener("click", async (e) => {
       if (e.target.classList.contains(className)) {
         e.preventDefault();
         const id = e.target.dataset.id;
-        
-        this.addBtns[id] ||= new Btn(e.target, className)
-        let btn = this.addBtns[id]
+
+        this.addBtns[id] ||= new Btn(e.target, className);
+        let btn = this.addBtns[id];
         e.target.innerHTML = btn.progressContent;
-        e.target.classList.add('btn--process')
-        const added = await cart.addNewCartProduct(id);
-        if (added===false && !cart.checkProductInCart(id)) {
+        e.target.classList.add("btn--process");
+        quantity = this.quantityToAdd || quantity;
+        const added = await cart.addNewCartProduct(id, quantity);
+        if (added === false && !cart.checkProductInCart(id)) {
           return;
         }
-        if (added == 'nostock') {
-          e.target.classList.remove('btn--process')
+        if (added == "nostock") {
+          e.target.classList.remove("btn--process");
           e.target.innerHTML = btn.originalContent;
           return;
         }
         e.target.innerHTML = btn.successContent;
-        e.target.classList.add('btn--success')
-        e.target.classList.remove('btn--process')
+        e.target.classList.add("btn--success");
+        e.target.classList.remove("btn--process");
         clearTimeout(btn.timeoutId);
         btn.timeoutId = setTimeout(() => {
-          e.target.classList.remove('btn--success')
+          e.target.classList.remove("btn--success");
           e.target.innerHTML = btn.originalContent;
         }, 3000);
       }
@@ -52,12 +53,10 @@ export default class PageHome {
   }
 
   checkLocalStorage() {
-    console.log(this);
     const favorites = JSON.parse(localStorage.getItem("favorites"));
     if (!favorites) {
       this.favorites = {};
     } else {
-      console.log("favorites", favorites);
       this.favorites = favorites;
       for (const id in this.favorites) {
         document

@@ -1,20 +1,19 @@
-
-
 export default class ProductCard {
   constructor(productObj) {
     this.product = productObj;
     this.createProductCard();
     this.favoriteButton = this.productCardHTML.querySelector(".card__favorite");
     this.favoriteButton.addEventListener("click", (e) => {
-      console.log(e.currentTarget);
       this.favoriteButton.classList.toggle("card__favorite--selected");
       e.preventDefault();
     });
-    // document.addEventListener('click', e => console.log(e.currentTarget))
-  } 
-  originalContent = '<i class="fa fa-shopping-basket card__link-add-icon" aria-hidden="true"></i>Agregar'
-  progressContent = '<i class="fa-regular fa-hourglass-clock card__link-add-icon"></i>Agregando'
-  successContent = '<i class="fa-solid fa-box-check card__link-add-icon"></i>Agregado'
+  }
+  originalContent =
+    '<i class="fa fa-shopping-basket card__link-add-icon" aria-hidden="true"></i>Agregar';
+  progressContent =
+    '<i class="fa-regular fa-hourglass-clock card__link-add-icon"></i>Agregando';
+  successContent =
+    '<i class="fa-solid fa-box-check card__link-add-icon"></i>Agregado';
   createProductCard() {
     this.productCardHTML = document.createElement("div");
     this.productCardHTML.classList.add("card");

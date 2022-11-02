@@ -14,7 +14,7 @@ class Footer {
     };
     this.form = new Form(this.invitationForm, this.formErrors);
   }
-  init(){}
+  init() {}
 }
 
 const footer = new Footer();

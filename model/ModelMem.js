@@ -1,13 +1,12 @@
 import Product from "../src/Product.js";
 import products from "../db/products.js";
 
-
 export default class ModelMem {
   constructor() {
     this.products = products.reduce((acc, product) => {
       acc[product.id] = product;
       return acc;
-    }, {})
+    }, {});
   }
 
   async getAllProducts() {
@@ -22,18 +21,15 @@ export default class ModelMem {
     return this.products[id] || {};
   }
 
-
   async createProduct(product) {
     const newProduct = new Product(product);
     this.products[newProduct.id] = newProduct;
     return this.products[newProduct.id];
   }
 
-  
-  
   async updateProduct(id, product) {
-    // FIXME 
-    this.products[id] = {...this.products[id], ...product}
+    // FIXME
+    this.products[id] = { ...this.products[id], ...product };
     return this.products[id] || {};
   }
 

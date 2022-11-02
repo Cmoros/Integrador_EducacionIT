@@ -1,4 +1,5 @@
 @use '../abstracts/palette';
+// @import url(../abstracts/_palette.scss);
 
 
 .popup {
@@ -16,6 +17,7 @@
   // color: white;
   // background-color: palette.$ultramarine-blue;
   color: palette.$ultramarine-blue;
+  // color: $ultramarine-blue;
   background-color: white;
   border: 0.2em solid;
   border-radius: 0.5em;

@@ -14,6 +14,7 @@ export default class Cart {
     this.subtotalContainer = cartWindow.querySelector(
       ".cart-window__subtotal-price"
     );
+    this.bubble = document.querySelector(".cart-button__bubble");
     this.subtotal = 0;
 
     document.addEventListener("click", (e) => {
@@ -24,7 +25,6 @@ export default class Cart {
         this.toggleCartModal();
         return;
       }
-
       if (e.target.classList.contains("cart-product__button")) {
         const productElement = e.target.closest(".cart-product");
         const productId = productElement.dataset.id;
@@ -73,6 +73,7 @@ export default class Cart {
       this.updateLocalStorage();
     }
     this.updateSubtotal();
+    this.updateBubble();
   }
 
   updateLocalStorage() {
@@ -84,7 +85,7 @@ export default class Cart {
   }
 
   checkProductInCart(id) {
-    return Boolean(this.products[id])
+    return Boolean(this.products[id]);
   }
 
   async createProductElement(product) {
@@ -100,12 +101,10 @@ export default class Cart {
   async addNewCartProduct(id, quantity = 1) {
     // En caso de existir el producto pero no el id, es que está agregandose
     let added = false;
-
     if (this.loading[id] != null) {
       this.loading[id] += 1;
       return added;
     }
-
     if (id in this.products || id in this.loading) {
       this.addQuantityToProduct(id, quantity);
     } else {
@@ -113,13 +112,16 @@ export default class Cart {
       const res = await fetch(`./api/products/${id}/cart/json`);
       const product = await res.json();
       if (product.error /*|| product.stock == 0*/) {
-        popup.init('<i class="fa-solid fa-ban"></i>Ups! Nos quedamos sin stock');
+        popup.init(
+          '<i class="fa-solid fa-ban"></i>Ups! Nos quedamos sin stock'
+        );
         delete this.loading[id];
-        return 'error';
+        return "error";
       }
       added = true;
       product.quantity = this.loading[id] + quantity;
       this.loading[id] = product.quantity;
+
       const productElement = await this.createProductElement(product);
       this.cartProductsContainer.append(productElement);
       this.products[id] = {
@@ -128,13 +130,14 @@ export default class Cart {
         quantity: this.loading[id],
       };
       delete this.loading[id];
-      
+
       this.checkQuantityvsStock(id);
       this.updateSubtotal();
+      this.updateBubble();
     }
     this.updateLocalStorage();
     if (this.products[id].stock == 0) {
-      added = 'nostock';
+      added = "nostock";
     }
     return added;
   }
@@ -147,7 +150,6 @@ export default class Cart {
     const quantityHTML = product.productElement.querySelector(
       ".cart-product__quantity"
     );
-    console.log()
     this.updateSubtotalProduct(id);
     if (product.quantity >= product.stock) {
       if (product.quantity > product.stock) {
@@ -155,12 +157,9 @@ export default class Cart {
         this.updateLocalStorage();
         this.updateSubtotal();
         this.updateSubtotalProduct(id);
+        this.updateBubble();
       }
-      // if (product.stock == 0) {
-      //   
-      // } else {
-        quantityHTML.innerText = product.stock;
-      // }
+      quantityHTML.innerText = product.stock;
     }
     plusButton.disabled = product.quantity >= product.stock;
 
@@ -174,8 +173,11 @@ export default class Cart {
         this.updateLocalStorage();
         this.updateSubtotal();
         this.updateSubtotalProduct(id);
-        quantityHTML.innerText = 's/n'
-        popup.init('<i class="fa-solid fa-ban"></i>Ups! Nos quedamos sin stock');
+        this.updateBubble();
+        quantityHTML.innerText = "s/n";
+        popup.init(
+          '<i class="fa-solid fa-ban"></i>Ups! Nos quedamos sin stock'
+        );
       } else {
         quantityHTML.innerText = product.quantity;
       }
@@ -189,6 +191,7 @@ export default class Cart {
     if (product.quantity > product.stock) product.quantity = product.stock;
 
     this.updateSubtotal();
+    this.updateBubble();
     this.updateSubtotalProduct(id);
     this.checkQuantityvsStock(id);
   }
@@ -197,13 +200,14 @@ export default class Cart {
     this.products[id].productElement.remove();
     delete this.products[id];
     this.updateSubtotal();
+    this.updateBubble();
   }
 
   updateSubtotal() {
     this.subtotal = 0;
     for (const id in this.products) {
-      const product = this.products[id];
-      this.subtotal += product.price * product.quantity;
+      const { price, quantity } = this.products[id];
+      this.subtotal += price * quantity;
     }
     if (isNaN(this.subtotal)) this.restart();
     this.subtotalContainer.innerHTML = `$${this.subtotal}`;
@@ -228,8 +232,15 @@ export default class Cart {
     this.updateLocalStorage();
     this.cartProductsContainer.innerHTML = "";
     this.subtotal = 0;
+    this.numberOfProducts = 0;
+    this.updateBubble();
+  }
+
+  updateBubble() {
+    let numberOfProducts = 0;
+    for (const id in this.products) {
+      numberOfProducts += this.products[id].quantity;
+    }
+    this.bubble.innerHTML = numberOfProducts;
   }
 }
-
-
-

@@ -40,14 +40,14 @@ export default class ProductPage {
       if (e.target.classList.contains("solo-product__datalist-input")) {
         const quantity = Number(e.target.value);
         if (isNaN(quantity)) {
-          console.log("Quantity is NaN");
           e.target.value = this.quantityToAdd;
           return;
         }
         this.quantityToAdd = quantity;
       }
     });
-    PageHome.prototype.addEventCardSection.bind(this)(
+    PageHome.prototype.addEventCardSection.call(
+      this,
       this.productElement,
       this.btnAddClassName
     );

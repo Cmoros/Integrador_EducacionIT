@@ -93,4 +93,8 @@
       @include mixins.display-flex;
     }
   }
+
+  &__submit {
+    font-size: calc(0.8rem + 0.8vw);
+  }
 }

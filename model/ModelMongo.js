@@ -51,7 +51,6 @@ export default class ModelMongo {
     try {
       const newProduct = new ProductsModel(product);
       const save = await newProduct.save();
-      console.log("Lo que devolvió save", save);
       return newProduct;
     } catch (error) {
       console.error("Error al intentar de CREAR un product:", error);

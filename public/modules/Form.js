@@ -22,7 +22,7 @@ export default class Form {
       }
       this.trimValue(currentTarget);
       let test = error.test?.bind(this) || this.validation;
-      
+
       if (test(currentTarget.value, error)) {
         this.displayCheckOnInput(currentTarget);
         currentTarget.required && this.inputsCurrentlyValid.add(currentTarget);

@@ -64,11 +64,9 @@ document.addEventListener("click", function delegateClickEvents(e) {
       behavior: "smooth",
     });
     mainNavToggle.checked = false;
-    cart.toggleCartModal('hide');
+    cart.toggleCartModal("hide");
   }
 });
-
-
 
 const cartCheckboxToggle = document.querySelector(".cart-modal-toggle");
 const cartButton = document.querySelector(".cart-button");

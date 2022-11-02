@@ -8,7 +8,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-    // padding: 0.2em;
 
     &:focus-within {
         & .search-form__icon-container {
@@ -18,8 +17,6 @@
 
     &__input {
         color: palette.$oxford-blue;
-        // border-top-left-radius: 10px;
-        // border-bottom-left-radius: 10px;
         border-radius: 10px;
         outline: none;
         border: 2px solid;
@@ -62,7 +59,6 @@
         transform: rotateZ(0deg);
         transition: transform 0.5s;
         path {
-            // fill: palette.$oxford-blue;
             fill: white;
             transition: fill 0.5s;
             

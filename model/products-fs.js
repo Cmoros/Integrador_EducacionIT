@@ -29,7 +29,6 @@ async function saveFileProducts(products) {
 }
 
 export default class ModelFS {
-  
   ////////////////////////////////////////////////////////////////////////////////
   //                                   CRUD                                     //
   ////////////////////////////////////////////////////////////////////////////////`
@@ -68,7 +67,7 @@ export default class ModelFS {
     const products = await readFileProducts();
 
     const index = products.findIndex((product) => product.id === id);
-    if (index == -1) return {}
+    if (index == -1) return {};
     product.id = id;
     products[index] = product;
 
@@ -84,7 +83,7 @@ export default class ModelFS {
     const products = await readFileProducts();
 
     const index = products.findIndex((product) => product.id === id);
-    if (index == -1) return {}
+    if (index == -1) return {};
     const removedProduct = products.splice(index, 1)[0];
 
     await saveFileProducts(products);

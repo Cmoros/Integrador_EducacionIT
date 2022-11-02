@@ -13,7 +13,7 @@ class Main {
         top: 0,
         behavior: "smooth",
       });
-      this.loadTemplate()
+      this.loadTemplate();
     });
   }
 
@@ -45,16 +45,13 @@ class Main {
   }
 
   getApiUrlFromId(id) {
-    console.log(`${location.origin}/api/page/${id}`);
     return `${location.origin}/api/page/${id}`;
   }
 
   async ajax(url, method = "get") {
     this.error404 = false;
-    console.log('url', url)
     return await fetch(url, { method: method }).then((r) => {
       this.error404 = r.status > 400;
-      // this.error404 = r.status != 200;
       return r.text();
     });
   }
@@ -79,7 +76,6 @@ class Main {
   async initJS(id) {
     const moduleUrl = this.getPageUrlFromId(id);
     try {
-      console.log('Trying to import', moduleUrl)
       const { default: page } = await import(moduleUrl);
       const pageInstance = new page();
       if (typeof pageInstance.init !== "function") {
@@ -88,13 +84,13 @@ class Main {
       }
       pageInstance.init();
     } catch (error) {
-      console.log('Detalles del error:',error);
+      console.log("Detalles del error:", error);
       console.error(`No se pudo importar el módulo ${moduleUrl}.`);
     }
   }
 
   getPageUrlFromId(id) {
-    if (id.includes('products/')) id = 'product';
+    if (id.includes("products/")) id = "product";
     return `/pages/${id}.js`;
   }
 }

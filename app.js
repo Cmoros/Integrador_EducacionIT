@@ -3,49 +3,22 @@
 import express from "express";
 // import { engine } from "express-handlebars";
 import { create } from "express-handlebars";
+import morgan from "morgan";
+
 import * as path from "path";
 import { fileURLToPath } from "url";
-import fs from "fs";
-import config from "./config.js";
 
+import hbsConfig from "./hbsConfig.js";
+import config from "./config.js";
 import MainRouter from "./routers/MainRouter.js";
 import PageRouter from "./routers/PageRouter.js";
 import ProductRouter from "./routers/ProductRouter.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const dir = "./views";
-async function getFilesNames(dir, ext = "", exceptions = new Set()) {
-  const files = await fs.promises.readdir(dir);
-  return files.filter((file) => file.includes(ext) && !exceptions.has(file));
-}
-const exceptionsHbsFiles = new Set(["main.hbs", "404.hbs"]);
-export const hbsFiles = await getFilesNames(
-  dir,
-  ".hbs",
-  exceptionsHbsFiles
-).then((files) => {
-  return new Set(files.map((file) => file.split(".hbs")[0]));
-});
 
 const app = express();
-const hbs = create({
-  partialsDir: ["views/partials/"],
-  extname: ".hbs",
-  helpers: {
-    // Function to do basic mathematical operation in handlebar
-    math: function (lvalue, operator, rvalue) {
-      lvalue = parseFloat(lvalue);
-      rvalue = parseFloat(rvalue);
-      return {
-        "+": lvalue + rvalue,
-        "-": lvalue - rvalue,
-        "*": lvalue * rvalue,
-        "/": lvalue / rvalue,
-        "%": lvalue % rvalue,
-      }[operator];
-    },
-  },
-});
+
+const hbs = create(hbsConfig);
 
 app.enable("view cache");
 // app.engine(".hbs", engine({ extname: ".hbs" }));
@@ -57,16 +30,7 @@ app.set("views", path.resolve(__dirname, "./views"));
 app.use(express.json());
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
-
-app.get("*", (req, res, next) => {
-  console.log("req.url get", req.url);
-  next();
-});
-
-app.post("*", (req, res, next) => {
-  console.log("req.url post", req.url);
-  next();
-});
+app.use(morgan("dev"));
 
 const mainRouter = new MainRouter(app);
 
@@ -75,8 +39,7 @@ app.get("/api", (req, res) => {
 });
 
 const productRouter = new ProductRouter(app);
-
-export {productRouter}
+export { productRouter };
 
 const pageRouter = new PageRouter(app);
 
@@ -84,9 +47,7 @@ app.get("/*", function getMain(req, res) {
   res.redirect("/#/404");
 });
 
-const PORT = process.env.PORT || config.PORT;
-
-const server = app.listen(PORT, function appListen() {
+const server = app.listen(config.PORT, function appListen() {
   console.log(
     `Servidor iniciado en el http://localhost:${this.address().port}`
   );

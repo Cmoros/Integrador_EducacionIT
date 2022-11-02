@@ -1,4 +1,3 @@
-{{!-- <main> --}}
             <div class="intro-header-container">
                 <div class="intro-header">
                     <div class="intro-header__title-container">
@@ -16,34 +15,34 @@
                             <label for="product-name" class="input-group__label">
                                 Nombre:<sup class="required">*</sup>
                             </label>
-                            <input id="product-name" class="input-group__input" type="text" required placeholder="" autofocus name="product[name]">
+                            <input id="product-name" class="input-group__input" type="text" required placeholder="Pelota Adidas All star" autofocus name="product[name]">
                         </div>
                         <div class="input-group-pair">
                             <div class="input-group input-group--small">
                                 <label for="product-price" class="input-group__label">
                                     Precio:<sup class="required">*</sup>
                                 </label>
-                                <input id="product-price" class="input-group__input" type="number" required min="1" max="10000000" step=".01" name="product[price]">
+                                <input id="product-price" class="input-group__input" type="number" required min="1" max="10000000" placeholder="10000" step=".01" name="product[price]">
                             </div>
                             <div class="input-group input-group--small">
                                 <label for="product-stock" class="input-group__label">
                                     Stock:<sup class="required">*</sup>
                                 </label>
-                                <input id="product-stock" class="input-group__input" type="number" required min="0" max="100000" name="product[number]" step="1">
+                                <input id="product-stock" class="input-group__input" type="number" required min="0" max="100000" placeholder="10" name="product[number]" step="1">
                             </div>
                         </div>
                     </div>
                     <div class="main-form__group">
                         <div class="input-group">
                             <label class="input-group__label" for="product-brand">Marca:<sup class="required">*</sup></label>
-                            <input class="input-group__input" type="text" name="product[brand]" id="product-brand" required>
+                            <input class="input-group__input" type="text" name="product[brand]" id="product-brand" required placeholder="Adidas">
                         </div>
                         
                         <div class="input-group">
                             <label for="product-category" class="input-group__label" >
                                 Categoría:<sup class="required">*</sup>
                             </label>
-                            <input list="product-category-list" id="product-category" name="product[category]" class="input-group__input"/>
+                            <input list="product-category-list" id="product-category" name="product[category]" class="input-group__input" placeholder="JUEGOS DE PLAZA Y AIRE LIBRE">
                             <datalist id="product-category-list">
                                 <option value="MUÑECOS Y MUÑECAS"></option>
                                 <option value="JUEGOS DE MESA"></option>
@@ -76,7 +75,7 @@
                             <label for="product-description-short" class="input-group__label">
                                 Descripción corta:<sup class="required">*</sup>
                             </label>
-                            <input id="product-description-short" class="input-group__input" type="text" required name="product[descriptionShort]">
+                            <input id="product-description-short" class="input-group__input" type="text" required name="product[descriptionShort]" placeholder="Pelota Adidas ideal para niños...">
                         </div>
                     </div>
                     <div class="main-form__group">
@@ -84,7 +83,7 @@
                             <label for="product-description-long" class="input-group__label">
                                 Descripción completa:
                             </label>
-                            <textarea id="product-description-long" rows="6" class="input-group__input input-group__input--textarea" name="product[descriptionLong]"></textarea>
+                            <textarea id="product-description-long" rows="6" class="input-group__input input-group__input--textarea" name="product[descriptionLong]" required></textarea>
                         </div>
                     </div>
                     <div class="main-form__group">
@@ -101,7 +100,7 @@
                                     Edad en Años<sup class="required">*</sup>
                                 </label>
                                 <input type="radio" id="product-age-year" class="input-group__input" name="product[ageType]" checked value="Y">
-                                </inp>
+                                
                             </div>
                             
                         </div>
@@ -118,7 +117,7 @@
                                     Edad hasta:<sup class="required">*</sup>
                                 </label>
                                 <input type="number" id="product-age-max" class="input-group__input" name="product[ageMax]" required>
-                                </inp>
+                                
                             </div>
 
                         </div>
@@ -157,6 +156,5 @@
                     </div>
                 </form>
             </div>
-        {{!-- </main> --}}
         <script src="./js/Form.js"></script>
         <script src="./js/alta.js"></script>

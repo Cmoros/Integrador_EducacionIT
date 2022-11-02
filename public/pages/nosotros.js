@@ -1,8 +1,7 @@
 export default class PageNosotros {
-  constructor() {
-  }
+  constructor() {}
 
-  async init(){
+  async init() {
     // const {default: Card} = await import('/modules/Card.js');
     // this.card = new Card();
     // this.card.init();
