@@ -1,5 +1,9 @@
+{{#if products.length }}
 {{#each products}}
 {{!-- {{#if available}} --}}
 {{> components/productCart}}
 {{!-- {{/if}} --}}
 {{/each}}
+{{else}}
+<p>Tu carrito esta vacío</p>
+{{/if}}

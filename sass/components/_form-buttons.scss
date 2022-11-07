@@ -4,8 +4,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-flow: row wrap;
+    gap: 2rem;
 
-    &__submit {
+    &__submit,
+    &__cancel,
+    &__update,
+    &__search {
         width: 100%;
         max-width: 250px;
         background: palette.$ultramarine-blue;

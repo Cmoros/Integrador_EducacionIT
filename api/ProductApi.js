@@ -1,5 +1,5 @@
-import Model from "../model/ModelMem.js";
-// import Model from'../model/ModelMongo.js'
+// import Model from "../models/ModelMem.js";
+import Model from'../models/ModelMongo.js'
 
 export default class ProductApi {
   constructor() {
@@ -7,6 +7,10 @@ export default class ProductApi {
   }
   async getProduct(id) {
     return await this.model.getProduct(id);
+  }
+
+  async getManyProducts(skip, limit) {
+    return await this.model.getManyProducts(skip, limit);
   }
 
   async getAllProducts() {
@@ -34,6 +38,16 @@ export default class ProductApi {
   async getHTMLCartProduct(id) {
     const products = [await this.getCartProduct(id)];
     return { layout: false, products };
+  }
+
+  async getHTMLTableProducts(skip, limit) {
+    const products = await this.getManyProducts({skip, limit});
+    const pages = [];
+    const len = await this.model.getProductsQuantity();
+    for (let i = 0; i < len / limit; i++) {
+      pages.push({ page: i + 1, current: i == skip / limit });
+    }
+    return { layout: false, products, pages, len };
   }
 
   async postProduct(product) {

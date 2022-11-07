@@ -85,6 +85,10 @@ document.addEventListener("input", (e) => {
   }
 });
 
+window.addEventListener("hashchange", (e) => {
+  cart.toggleCartModal("hide");
+});
+
 // const mainNavList = document.querySelector(".main-nav__list");
 // const mainNavLinks = mainNavList.querySelectorAll(".main-nav__link");
 

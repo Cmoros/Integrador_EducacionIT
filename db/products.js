@@ -23,7 +23,7 @@ export default [
     minAge: "3-6 Años",
     maxAge: "9-12 Años",
     profileImageUrl: "/img/productos/autodepolicia.webp",
-    shipping: false,
+    shipping: true,
     shortDescription: "Marca: Yifeng. Edad mínima recomendada: 3 años",
     sponsored: true,
   }),

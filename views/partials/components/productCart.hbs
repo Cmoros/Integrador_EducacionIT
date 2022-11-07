@@ -7,7 +7,7 @@
   <div class="cart-product__img-container">
     <img class="cart-product__img" src="{{profileImageUrl}}" alt="{{name}}">
   </div>
-  <p class="cart-product__title">{{name}}</p>
+  <a href="#/products/{{id}}" class="cart-product__title">{{name}}</a>
   <div class="cart-product__subtotal">
     <p class="cart-product__subtotal-price">${{price}} X {{quantity}}</p>
     <p class="cart-product__subtotal-total">${{math price "*" quantity}}</p>

@@ -1,0 +1,50 @@
+
+{{#if products.length }}
+<div class="table-products__container">
+  <table class="table-products">
+    <caption>Productos</caption>
+    <thead>
+      <tr>
+        <th scope="column" class="table-products__th table-products__th--id">Id</th>
+        <th scope="column" class="table-products__th table-products__th--image">Imagen</th>
+        <th scope="column" class="table-products__th table-products__th--name">Nombre</th>
+        <th scope="column" class="table-products__th table-products__th--price">Precio</th>
+        <th scope="column" class="table-products__th table-products__th--description">Descripción</th>
+        <th scope="column" class="table-products__th table-products__th--actions">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each products}}
+      <tr class="table-products__tr">
+        <td data-product-property="id" class="table-products__td table-products__td--id">{{id}}</td>
+        <td data-product-property="profileImageUrl" class="table-products__td table-products__td--image"><img
+            class="table-products__image" src="{{profileImageUrl}}" alt="{{name}}"></td>
+        <td data-product-property="name" class="table-products__td table-products__td--name">{{name}}</td>
+        <td data-product-property="price" class="table-products__td table-products__td--price">{{price}}</td>
+        <td data-product-property="shortDescription" class="table-products__td table-products__td--description">
+          {{shortDescription}}</td>
+        <td class="table-products__td table-products__td--actions">
+          <button title="Editar producto"
+            class="table-products__btn table-products__btn--edit fa-solid fa-pen" data-id="{{id}}"></button>
+          <button title="Eliminar producto"
+            class="table-products__btn table-products__btn--delete fa-solid fa-trash" data-id="{{id}}"></button>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="5" class="table-products__footer-td">Se encontraron {{len}} productos</td>
+      </tr>
+    </tfoot>
+  </table>
+  <ul class="table-products__page-list">
+    {{#each pages}}
+    <li class="table-products__page-item {{#if current}}table-products__page-item--active{{/if}}"><a href=""
+        class="table-products__page-link" data-page="{{page}}">{{page}}</a></li>
+    {{/each}}
+  </ul>
+</div>
+{{else}}
+<p>No se encontraron productos</p>
+{{/if}}

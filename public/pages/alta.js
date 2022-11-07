@@ -1,84 +1,299 @@
-export default class PageAlta {
-  constructor() {
-    this.errors = {
-      "product-name": {
-        message: "Campo hasta 30 caracteres del español",
-        regExp:
-          /^(?!\s)(?!.\s$)(?=.[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç])[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç :°='\.\\¡$#"_@¿*&%\/,+\-\(\)~?!]{2,30}$/,
-      },
-      "product-price": {
-        message: "Campo numérico positivo con o sin decimales",
-        regExp: /^(?!0)\d{1,7}(\.\d{1,2})?$/,
-      },
-      "product-category": {
-        message: "Campo de 10 a 50 caracteres del español",
-        regExp:
-          /^(?!\s)(?!.\s$)(?=.[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç])[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç :°='\.\\¡$#"_@¿*&%\/,+\-\(\)~?!]{10,50}$/,
-      },
-      "product-stock": {
-        message: "Campo numérico positivo sin decimales",
-        regExp: /^\d{1,5}$/,
-      },
-      "product-brand": {
-        message: "Campo de 3 a 40 caracteres del español",
-        regExp:
-          /^[A-Za-z\dÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇ!ç&\s\.\,\-\(\)\'\"\°\/]{3,40}$/,
-      },
-      "product-description-short": {
-        message: "Campo de hasta 80 caracteres libres",
-        regExp: /^.{10,80}$/
-          // /^(?!\s)(?!.\s$)(?=.[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç])[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç :°='\.\\¡$#"@¿*&%\/,+\-\(\)~?!]{10,80}$/,
-      },
-      "product-description-long": {
-        message: "Campo de hasta 80 caracteres libres",
-        regExp: /^.{10,80}$/
-          // /^(?!\s)(?!.\s$)(?=.[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç])[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç :°='\.\\¡$#"@¿*&%\/,+\-\(\)~?!]{20,2000}$/,
-      },
-      "product-age-max": {
-        message: "Error en la edad máxima",
-        test(toTest, mySelf) {
-          const inputMin = this.formTarget.querySelector("#product-age-min");
-          if (inputMin.value > toTest) {
-            mySelf.message = "El mínimo es mayor que el máximo";
-            return false;
-          }
-          const radio = this.formTarget.querySelector(
-            '[name="product[ageType]"][checked]'
-          );
-          let regExp;
-          if (radio.value === "M") {
-            regExp = /^(\d|1[0-2])$/;
-            mySelf.message = "Los meses deben estar entre 0 y 12";
-          } else {
-            regExp = /^[1-9]\d?$/;
-            mySelf.message = "Los años deben estar entre 1 y 99";
-          }
-          return regExp.test(toTest);
-        },
-      },
-      "product-age-min": {
-        message: "Error en la edad mínima",
-        test(toTest, mySelf) {
-          const radio = this.formTarget.querySelector(
-            '[name="product[ageType]"]:checked'
-          );
-          let regExp;
-          if (radio.value === "M") {
-            regExp = /^(\d|1[0-2])$/;
-            mySelf.message = "Meses en intervalo de 0 a 12";
-          } else {
-            regExp = /^[1-9]\d?$/;
-            mySelf.message = "Años en intervalo de 1 y 99";
-          }
-          return regExp.test(toTest);
-        },
-      },
-    };
-    this.altaFormHTML = document.querySelector(".main-form");
-  }
+import ProductsTable from "../modules/ProductsTable.js";
+import popup from "../modules/popup.js";
 
-  async init() {
-    const { default: Form } = await import("/modules/Form.js");
-    this.altaForm = new Form(this.altaFormHTML, this.errors);
+const maxImageSize = 1048576 / 2;
+
+const errors = {
+  "product-name": {
+    message: "Campo hasta 30 caracteres del español",
+    regExp:
+      /^(?!\s)(?!.\s$)(?=.[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç])[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç :°='\.\\¡$#"_@¿*&%\/,+\-\(\)~?!]{2,30}$/,
+  },
+  "product-id": {
+    message: "Esto no debería estar incorrecto. Algo ocurrió",
+    regExp: /^|[\dabcdef]{24}$/,
+  },
+  "product-price": {
+    message: "Campo numérico positivo con o sin decimales",
+    regExp: /^(?!0)\d{1,7}(\.\d{1,2})?$/,
+  },
+  "product-category": {
+    message: "Campo de 10 a 50 caracteres del español",
+    regExp:
+      /^(?!\s)(?!.\s$)(?=.[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç])[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç :°='\.\\¡$#"_@¿*&%\/,+\-\(\)~?!]{10,50}$/,
+  },
+  "product-stock": {
+    message: "Campo numérico positivo sin decimales",
+    regExp: /^\d{1,5}$/,
+  },
+  "product-brand": {
+    message: "Campo de 3 a 40 caracteres del español",
+    regExp:
+      /^[A-Za-z\dÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇ!ç&\s\.\,\-\(\)\'\"\°\/]{3,40}$/,
+  },
+  "product-description-short": {
+    message: "Campo de hasta 80 caracteres libres",
+    regExp: /^.{10,80}$/,
+    // /^(?!\s)(?!.\s$)(?=.[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç])[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç :°='\.\\¡$#"@¿*&%\/,+\-\(\)~?!]{10,80}$/,
+  },
+  "product-description-long": {
+    message: "Campo de hasta 80 caracteres libres",
+    regExp: /^.{10,80}$/,
+    // /^(?!\s)(?!.\s$)(?=.[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç])[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç :°='\.\\¡$#"@¿*&%\/,+\-\(\)~?!]{20,2000}$/,
+  },
+  "product-age-max": {
+    message: "Error en la edad máxima",
+    test(input, mySelf) {
+      const inputMin = this.formTarget.querySelector("#product-age-min");
+      if (inputMin.value > input.value) {
+        mySelf.message = "El mínimo es mayor que el máximo";
+        return false;
+      }
+      const radio = this.formTarget.querySelector('[name="typeAge"][checked]');
+      let regExp;
+      if (radio.value === "M") {
+        regExp = /^(\d|1[0-2])$/;
+        mySelf.message = "Los meses deben estar entre 0 y 12";
+      } else {
+        regExp = /^[1-9]\d?$/;
+        mySelf.message = "Los años deben estar entre 1 y 99";
+      }
+      return regExp.test(input.value);
+    },
+  },
+  "product-age-min": {
+    message: "Error en la edad mínima",
+    test(input, mySelf) {
+      const radio = this.formTarget.querySelector('[name="typeAge"]:checked');
+      let regExp;
+      if (radio.value === "M") {
+        regExp = /^(\d|1[0-2])$/;
+        mySelf.message = "Meses en intervalo de 0 a 12";
+      } else {
+        regExp = /^[1-9]\d?$/;
+        mySelf.message = "Años en intervalo de 1 y 99";
+      }
+      return regExp.test(input.value);
+    },
+  },
+  "product-profile-image": {
+    message: "Error en el campo de imagen de portada",
+    maxImageSize,
+    test(input, mySelf) {
+      if (input.files.length > 1) {
+        mySelf.message = "Se admite solo 1 imagen como imagen de portada";
+        return false;
+      }
+      mySelf.message = `Máximo ${maxImageSize / 1024}KB de tamaño tolerado`;
+      return input.files[0].size < maxImageSize;
+    },
+  },
+  "product-images": {
+    message: "Error en el campo de imagenes",
+    maxImages: 5,
+    maxImageSize,
+    test(input, mySelf) {
+      if (input.files.length > mySelf.maxImages) {
+        mySelf.message = `Se admiten hasta un máximo de ${mySelf.maxImages} imágenes`;
+        return false;
+      }
+      mySelf.message = `Máximo ${maxImageSize / 1024}KB de tamaño tolerado`;
+      for (let i = 0; i < input.files.length; i++) {
+        if (input.files[i].size > maxImageSize) return false;
+      }
+      return true;
+    },
+  },
+};
+
+const { default: Form } = await import("/modules/Form.js");
+const altaFormHTML = document.querySelector(".main-form");
+
+function normalizeFileInputs(dataForm) {
+  if (dataForm.get("profileImageUrl").size == 0) {
+    dataForm.append("profileImageUrlMissing", "true");
+  }
+  if (dataForm.get("imagesUrls").size == 0) {
+    dataForm.append("imagesUrlsMissing", "true");
+  } else {
+    const images = document.querySelector('[name="imagesUrls"]').files;
+    dataForm.delete("imagesUrls");
+    for (let i = 0; i < images.length; i++) {
+      dataForm.append("imagesUrls", images[i]);
+    }
   }
 }
+
+async function altaCbPost(e) {
+  e.preventDefault();
+  const data = altaForm.getFormData();
+  normalizeFileInputs(data);
+  try {
+    const result = await fetch("./api/products/", {
+      method: "post",
+      // headers: {
+      //   // Accept: "application/json",
+      //   "content-type": "application/json",
+      // },
+      body: data,
+    }).then((res) => res.json());
+    console.log(result);
+    if (checkResultFromFetch(result, "dar de alta", "dio de alta")) {
+      currentTable.updateTable();
+    }
+  } catch (e) {
+    console.log("Error tratando de actualizar un producto: ", e);
+    checkResultFromFetch({}, "dar de alta", "dio de alta");
+  }
+}
+
+async function altaCbPut(e) {
+  e.preventDefault();
+  const data = altaForm.getFormData();
+  normalizeFileInputs(data)
+  data.append("_method", "PUT");
+  try {
+    const result = await fetch("./api/products/" + altaForm.state[1], {
+      method: "post",
+      // _method: "put",
+      // headers: {
+      //   // Accept: "application/json",
+      //   // "content-type": "application/json",
+      // "Content-Type": "multipart/form-data"
+      // },
+      body: data,
+    }).then((res) => res.json());
+    console.log(result);
+    if (checkResultFromFetch(result, "actualizar", "actualizó")) {
+      currentTable.updateTable();
+    }
+  } catch (e) {
+    console.log("Error tratando de actualizar un producto: ", e);
+    checkResultFromFetch({}, "actualizar", "actualizó");
+  }
+}
+
+const altaForm = new Form(altaFormHTML, errors, altaCbPost);
+altaForm.idInput = altaFormHTML.querySelector("#product-id");
+
+const idCheckbox = document.querySelector("#id-form__toggle-checkbox");
+
+altaForm.state = ["adding"];
+altaForm.updateButton = altaFormHTML.querySelector(".form-buttons__update");
+console.log("🚀 ~ updateButton", altaForm.updateButton);
+altaForm.cancelButton = altaFormHTML.querySelector(".form-buttons__cancel");
+console.log("🚀 ~ cancelButton", altaForm.cancelButton);
+
+altaForm.setButtons = function () {
+  const adding = altaForm.state[0] == "adding";
+  altaForm.submitButton.disabled = !adding;
+  altaForm.submitButton.classList.toggle("hidden", !adding);
+  altaForm.updateButton.disabled = adding;
+  altaForm.updateButton.classList.toggle("hidden", adding);
+  altaForm.cancelButton.disabled = adding;
+  altaForm.cancelButton.classList.toggle("hidden", adding);
+  idCheckbox.checked = !adding;
+  altaFormHTML.querySelector("#product-profile-image").required = adding;
+  altaFormHTML.querySelector(
+    "[for='product-profile-image'] .required"
+  ).innerHTML = adding ? "*" : "";
+  altaForm.submitCb = adding ? altaCbPost : altaCbPut;
+};
+
+altaForm.selectProduct = function (product) {
+  altaForm.state[0] = "updating";
+  altaForm.state[1] = product.id;
+  altaForm.setButtons();
+  altaForm.restartForm();
+
+  scrollTo({ top: altaFormHTML.offsetTop - 100, behavior: "smooth" });
+
+  altaFormHTML.querySelectorAll("[data-input]").forEach((input) => {
+    input.required && altaForm.inputsCurrentlyValid.add(input);
+    const value = product[input.dataset.input];
+    if (value) {
+      input.value = value;
+    }
+  });
+  altaFormHTML.querySelectorAll("[data-radio]").forEach((input) => {
+    const value = product[input.dataset.radio];
+    if (value == input.value) {
+      input.checked = true;
+    }
+  });
+  altaFormHTML.querySelectorAll("[data-checkbox]").forEach((input) => {
+    const value = product[input.dataset.checkbox];
+    input.checked = value;
+  });
+  altaForm.idInput.value = product.id;
+};
+
+function checkResultFromFetch(result, text1, text2) {
+  if (!Object.keys(result).length) {
+    popup.init(
+      `<i class="fa-solid fa-ban"></i>Ups! No se pudo ${text1} el producto`
+    );
+    return false;
+  }
+  popup.init(
+    `<i class="fa-solid fa-check"></i>Se ${text2} el producto correctamente`
+  );
+  return true;
+}
+
+const searchSubmitCb = async function (e) {
+  e.preventDefault();
+  const id = this.formTarget.querySelector("#search-id").value;
+  const product = await fetch("./api/products/" + id).then((res) => res.json());
+
+  if (checkResultFromFetch(product, "pudo encontrar", "encontró")) {
+    altaForm.selectProduct(product);
+  }
+};
+
+let currentTable;
+
+export default class PageAlta {
+  constructor() {
+    this.tableContainer = document.querySelector(".table-products__wrapper");
+    this.errors = errors;
+    this.altaFormHTML = document.querySelector(".main-form");
+    this.table = new ProductsTable(this.tableContainer, this.altaFormHTML);
+    currentTable = this.table;
+
+    this.searchIdForm = new Form(
+      document.querySelector(".id-form"),
+      {
+        "search-id": {
+          message: "El id ingresado no es válido",
+          regExp: /^[\dabcdef]{24}$/,
+        },
+      },
+      searchSubmitCb
+    );
+    this.altaForm = altaForm;
+    if (altaForm.formTarget != this.altaFormHTML) {
+      altaForm.formTarget = this.altaFormHTML;
+      altaForm.updateButton = this.altaFormHTML.querySelector(
+        ".form-buttons__update"
+      );
+      altaForm.cancelButton = this.altaFormHTML.querySelector(
+        ".form-buttons__cancel"
+      );
+      altaForm.init();
+      altaForm.restartForm();
+    }
+    console.log(altaForm.formTarget);
+    this.altaFormHTML.addEventListener("click", async (e) => {
+      if (e.target.classList.contains("form-buttons__cancel")) {
+        altaForm.restartForm();
+        altaForm.state[0] = "adding";
+        altaForm.setButtons();
+      }
+    });
+  }
+
+  async init() {}
+}
+
+export { altaForm, idCheckbox };

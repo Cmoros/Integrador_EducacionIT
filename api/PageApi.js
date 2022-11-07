@@ -1,6 +1,6 @@
 import { productRouter } from "../app.js";
 // import ProductApi from "./ProductApi.js";
-import ModelPage from "../model/ModelPage.js";
+import ModelPage from "../models/ModelPage.js";
 
 export default class PageApi {
   constructor() {
@@ -14,6 +14,11 @@ export default class PageApi {
     const popularCards = await this.productApi.getPopular(n);
     const newCards = await this.productApi.getNewest(n);
     return { layout: false, sponsoredCards, popularCards, newCards };
+  }
+
+  async getAltaPage() {
+    const products = await this.productApi.getAllProducts();
+    return { layout: false, products };
   }
 
   async getPage(page) {

@@ -7,22 +7,24 @@ export default class Product {
     this.stock = obj.stock;
     this.brand = obj.brand;
     this.category = obj.category;
+    this.typeAge = obj.typeAge || "Y";
     this.minAge = obj.minAge;
     this.maxAge = obj.maxAge;
     this.profileImageUrl = obj.profileImageUrl;
-    this.imagesUrls = obj.imagesUrls || [
+    this.imagesUrls = [
       { imageUrl: obj.profileImageUrl },
       { imageUrl: obj.profileImageUrl },
       {
         imageUrl:
           "https://http2.mlstatic.com/D_NQ_NP_811576-MLA46847351192_072021-O.webp",
       },
+      ...(obj.imagesUrls || []),
     ];
-    this.shipping = obj.shipping || false;
+    this.shipping = obj.shipping || "false";
     this.shortDescription = obj.shortDescription;
     this.longDescription = obj.longDescription || "";
     this.visits = obj.visits || 0;
     this.date = obj.date || new Date();
-    this.sponsored = obj.sponsored;
+    this.sponsored = obj.sponsored || false;
   }
 }

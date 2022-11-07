@@ -21,6 +21,13 @@
     @include mixins.display-flex(row, flex-start, center);
     font-size: calc(0.5rem + 1vw);
     flex: 1;
+    text-decoration: none;
+    color: inherit;
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: underline;
+    }
   }
   &__quantity {
     font-size: calc(0.75rem + 0.5vw);

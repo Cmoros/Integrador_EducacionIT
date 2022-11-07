@@ -37,4 +37,9 @@
     background-color: palette.$dark-pastel-green;
     border-color: palette.$dark-pastel-green;
   }
+
+  &--big {
+    font-size: 1.25rem;
+    padding: 0.75rem 1rem;
+  }
 }

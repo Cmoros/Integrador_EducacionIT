@@ -1,29 +1,35 @@
 export default class Form {
-  constructor(formTarget, errors = {}) {
+  constructor(formTarget, errors = {}, submitCb = async () => {}) {
     this.errors = errors;
     this.formTarget = formTarget;
     this.inputsToGo = 0;
-    formTarget.querySelectorAll("input").forEach((input) => {
-      if (this.errors[input.id] && input.required) {
+    this.submitCb = submitCb;
+    formTarget.querySelectorAll("[required]").forEach((input) => {
+      if (this.errors[input.id]) {
+        // console.log(input)
         this.inputsToGo++;
       }
     });
     this.inputsCurrentlyValid = new Set();
-    this.submitButton =
-      formTarget.querySelector("input[type=submit]") ||
-      formTarget.querySelector("button[type=submit]");
-    formTarget.addEventListener("change", (event) => {
+    this.init();
+    // }
+  }
+
+  init() {
+    this.submitButton = this.formTarget.querySelector(
+      '[data-input="submit"]:not(:disabled)'
+    );
+    this.formTarget.addEventListener("change", (event) => {
       const errorId = event.target.id;
-      if (!errors[errorId]) return;
-      let error = errors[errorId];
+      if (!this.errors[errorId]) return;
+      let error = this.errors[errorId];
       let currentTarget = event.target;
       if (this.clearInput(currentTarget)) {
         return;
       }
       this.trimValue(currentTarget);
       let test = error.test?.bind(this) || this.validation;
-
-      if (test(currentTarget.value, error)) {
+      if (test(currentTarget, error)) {
         this.displayCheckOnInput(currentTarget);
         currentTarget.required && this.inputsCurrentlyValid.add(currentTarget);
       } else {
@@ -32,27 +38,18 @@ export default class Form {
         this.inputsCurrentlyValid.delete(currentTarget);
       }
     });
-
-    this.submitButton.addEventListener("click", (e) => {
-      const inputsWithErrors = this.formTarget.querySelectorAll(
-        ".error-display__popup-input-error"
-      );
-      if (
-        this.inputsToGo !== this.inputsCurrentlyValid.size ||
-        inputsWithErrors.length > 0
-      ) {
-        if (inputsWithErrors.length == 0) return;
+    this.formTarget.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (this.checkForm(e)) {
+        await this.submitCb(e);
+      } else {
         e.preventDefault();
-        inputsWithErrors.forEach((input) => {
-          this.displayWarningError(input, this.errors[input.id]);
-        });
       }
     });
-    // }
   }
 
-  validation(value, error) {
-    return error.regExp.test(value);
+  validation(input, error) {
+    return error.regExp.test(input.value);
   }
 
   clearInput(target) {
@@ -65,7 +62,37 @@ export default class Form {
   }
 
   trimValue(target) {
+    if (target.type == "file") return;
     target.value = target.value.trim();
+  }
+
+  checkForm(e) {
+    const inputsWithErrors = this.formTarget.querySelectorAll(
+      ".error-display__popup-input-error"
+    );
+    console.log(this.inputsToGo);
+    console.log(this.inputsCurrentlyValid);
+    if (
+      this.inputsToGo !== this.inputsCurrentlyValid.size ||
+      inputsWithErrors.length > 0
+    ) {
+      if (inputsWithErrors.length == 0) return false;
+      e.preventDefault();
+      inputsWithErrors.forEach((input) => {
+        this.displayWarningError(input, this.errors[input.id]);
+      });
+      return false;
+    }
+    return true;
+  }
+
+  hardCheck() {
+    this.inputsToGo = 0;
+    formTarget.querySelectorAll("[required]").forEach((input) => {
+      if (this.errors[input.id]) {
+        this.inputsToGo++;
+      }
+    });
   }
 
   displayWarningError(target, err) {
@@ -86,4 +113,73 @@ export default class Form {
     target.classList.add("error-display__popup-input-error");
     target.classList.remove("error-display__popup-input-check");
   }
+
+  restartForm() {
+    this.inputsToGo = 0;
+    this.formTarget.querySelectorAll("[required]").forEach((input) => {
+      if (this.errors[input.id]) {
+        this.inputsToGo++;
+      }
+    });
+    this.inputsCurrentlyValid = new Set();
+    this.formTarget
+      .querySelectorAll(".error-display__popup-input-error")
+      .forEach((input) => {
+        input.classList.remove("error-display__popup-input-error");
+      });
+    this.formTarget
+      .querySelectorAll(".error-display__popup-input-check")
+      .forEach((input) => {
+        input.classList.remove("error-display__popup-input-check");
+      });
+    this.formTarget.reset();
+  }
+
+  getFormData() {
+    const data = new FormData(this.formTarget);
+    printDataInfo(data);
+    return data;
+  }
+}
+
+const styleArg1 = "color: teal; font-weight: bold; font-size: 1.1em;";
+const styleArg2 = "color: pink; background-color: #111; padding: 3px;";
+
+function printDataInfo(data) {
+  //console.log(data)
+
+  let keys = data.keys();
+  let values = data.values();
+  // console.log(keys);
+  // console.log(values);
+
+  //    let key = keys.next();
+  //    let value = values.next();
+  //
+  //    key = keys.next();
+  //    value = values.next();
+  //    // console.log('key:', key);
+  //    // console.log('value:', value);
+  //    console.log(`${key.value}: ${value.value}`);
+  //
+  //    key = keys.next();
+  //    value = values.next();
+  //    // console.log('key:', key);
+  //    // console.log('value:', value);
+  //    console.log(`${key.value}: ${value.value}`);
+
+  do {
+    let key = keys.next();
+    let value = values.next();
+    // console.log('key:', key);
+    // console.log('value:', value);
+
+    if (key.done || value.done) {
+      // console.error('No hay más contenido');
+      break;
+    }
+
+    // console.log(`${key.value}: ${value.value}`);
+    console.log(`%c${key.value}: %c${value.value.toString() || value.value}`, styleArg1, styleArg2);
+  } while (true);
 }

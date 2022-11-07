@@ -17,6 +17,15 @@ export default class ModelMem {
     return productsArray;
   }
 
+  async getProductsQuantity() {
+    return Object.keys(this.products).length;
+  }
+
+  async getManyProducts(skip, limit) {
+    const products = await this.getAllProducts();
+    return products.slice(skip,+skip + +limit);
+  }
+
   async getProduct(id) {
     return this.products[id] || {};
   }

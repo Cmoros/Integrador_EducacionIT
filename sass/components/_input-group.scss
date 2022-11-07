@@ -148,4 +148,11 @@
         justify-content: center;
     }
 
+    &--id {
+        overflow: hidden;
+        max-height: 0;
+        padding: 0;
+        transition: padding 0.5s, max-height 0.5s;
+    }
+
 }

@@ -1,49 +1,62 @@
-            <div class="intro-header-container">
-                <div class="intro-header">
-                    <div class="intro-header__title-container">
-                        <h1 class="intro-header__title">
-                            ¡Bienvenido a la Juguetería Cósmica!
-                        </h1>
-                    </div>
-                </div>
-            </div>
-            <section class="section-cards">
-                <header class="section-cards__header">
-                    <h2>Juegos y Juguetes</h2>
-                </header>
-                <div class="cards-container">
-                    {{#each sponsoredCards}}
-                    {{> components/card}}
-                    {{/each}}
-                </div>
-                <footer class="section-cards__footer">
-                    <p><a href="#" class="section-cards__footer-link">Ver más...</a></p>
-                    
-                </footer>
-            </section>
-            <section class="section-cards">
-                <header class="section-cards__header">
-                    <h2>Más populares</h2>
-                </header>
-                <div class="cards-container">
-                    {{#each popularCards}}
-                    {{> components/card}}
-                    {{/each}}
-                </div>
-                <footer class="section-cards__footer">
-                    <p><a href="#" class="section-cards__footer-link">Ver más...</a></p>
-                </footer>
-            </section>
-            <section class="section-cards">
-                <header class="section-cards__header">
-                    <h2>Más recientes</h2>
-                </header>
-                <div class="cards-container">
-                    {{#each newCards}}
-                    {{> components/card}}
-                    {{/each}}
-                </div>
-                <footer class="section-cards__footer">
-                    <p><a href="#" class="section-cards__footer-link">Ver más...</a></p>
-                </footer>
-            </section>
+<div class="intro-header-container">
+  <div class="intro-header">
+    <div class="intro-header__title-container">
+      <h1 class="intro-header__title">
+        ¡Bienvenido a la Juguetería Cósmica!
+      </h1>
+    </div>
+  </div>
+</div>
+<section class="section-cards">
+  <header class="section-cards__header">
+    <h2>Juegos y Juguetes</h2>
+  </header>
+
+  {{#if sponsoredCards.length }}
+  <div class="cards-container">
+    {{#each sponsoredCards}}
+    {{> components/card}}
+    {{/each}}
+  </div>
+  <footer class="section-cards__footer">
+    <p><a href="#" class="section-cards__footer-link">Ver más...</a></p>
+
+  </footer>
+  {{else}}
+  <p>No se encontraron productos</p>
+  {{/if}}
+</section>
+<section class="section-cards">
+  <header class="section-cards__header">
+    <h2>Más populares</h2>
+  </header>
+  {{#if popularCards.length }}
+  <div class="cards-container">
+    {{#each popularCards}}
+    {{> components/card}}
+    {{/each}}
+  </div>
+  <footer class="section-cards__footer">
+    <p><a href="#" class="section-cards__footer-link">Ver más...</a></p>
+  </footer>
+  {{else}}
+  <p>No se encontraron productos</p>
+  {{/if}}
+</section>
+<section class="section-cards">
+  <header class="section-cards__header">
+    <h2>Más recientes</h2>
+  </header>
+  {{#if newCards.length }}
+  <div class="cards-container">
+    {{#each newCards}}
+    {{> components/card}}
+    {{/each}}
+  </div>
+  <footer class="section-cards__footer">
+    <p><a href="#" class="section-cards__footer-link">Ver más...</a></p>
+  </footer>
+  {{else}}
+  <p>No se encontraron productos</p>
+  {{/if}}
+</section>

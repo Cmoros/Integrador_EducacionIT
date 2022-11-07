@@ -30,7 +30,7 @@
         <article class="solo-product__description">
           <h4 class="solo-product__description-header">{{name}}</h4>
           <div class="solo-product__rating">
-            <ul class="solo-product__rating-stars">
+            {{!-- <ul class="solo-product__rating-stars">
               <li class="solo-product__star-item">
                 <img
                   src="bootstrap5-ecommerce/images/misc/stars-active.svg"
@@ -45,7 +45,7 @@
                   class="solo-product__star--disabled solo-product__star"
                 >
               </li>
-            </ul>
+            </ul> --}}
             <b class="solo-product__rating-points"> 4.5</b>
             <i class="solo-product__dot"></i>
             <span class="solo-product__reviews-container">
@@ -65,7 +65,9 @@
           <hr >
           <p class="solo-product__description-content">
             {{shortDescription}}
-
+          </p>
+          <p class="solo-product__description-content">
+            {{longDescription}}
           </p>
           <div class="solo-product__price-container">
             <var class="solo-product__price">${{price}}</var>

@@ -1,13 +1,18 @@
 import PageApi from "../api/PageApi.js";
 
 export default class PageController {
+
   constructor() {
     this.api = new PageApi();
   }
+
   getHomePage = async (req, res) => {
     const { n } = req.params;
-
     res.status(200).render("home", await this.api.getHomePage(n));
+  };
+
+  getAltaPage = async (req, res) => {
+    res.status(200).render("alta", await this.api.getAltaPage());
   };
 
   getPage = async (req, res, next) => {

@@ -1,9 +1,9 @@
 "use strict";
 
 import express from "express";
-// import { engine } from "express-handlebars";
 import { create } from "express-handlebars";
 import morgan from "morgan";
+import cors from "cors";
 
 import * as path from "path";
 import { fileURLToPath } from "url";
@@ -13,15 +13,17 @@ import config from "./config.js";
 import MainRouter from "./routers/MainRouter.js";
 import PageRouter from "./routers/PageRouter.js";
 import ProductRouter from "./routers/ProductRouter.js";
+import DBMongoDB from "./models/DB/MongoDB.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 
+DBMongoDB.connectDB();
+
 const hbs = create(hbsConfig);
 
 app.enable("view cache");
-// app.engine(".hbs", engine({ extname: ".hbs" }));
 
 app.engine(".hbs", hbs.engine);
 app.set("view engine", ".hbs");
@@ -31,6 +33,7 @@ app.use(express.json());
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
+app.use(cors());
 
 const mainRouter = new MainRouter(app);
 
