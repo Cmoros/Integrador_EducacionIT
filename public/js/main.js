@@ -1,3 +1,5 @@
+let currentPage = [];
+
 class Main {
   constructor() {
     this.links = document.querySelectorAll(".main-nav__link");
@@ -78,11 +80,12 @@ class Main {
     try {
       const { default: page } = await import(moduleUrl);
       const pageInstance = new page();
+      currentPage[0] = pageInstance;
       if (typeof pageInstance.init !== "function") {
         console.error(`El módulo ${id} no posee un método init().`);
         return;
       }
-      pageInstance.init();
+      await pageInstance.init();
     } catch (error) {
       console.log("Detalles del error:", error);
       console.error(`No se pudo importar el módulo ${moduleUrl}.`);
@@ -97,3 +100,5 @@ class Main {
 
 const main = new Main();
 main.start();
+
+export {currentPage};

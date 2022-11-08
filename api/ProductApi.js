@@ -1,5 +1,5 @@
 // import Model from "../models/ModelMem.js";
-import Model from'../models/ModelMongo.js'
+import Model from "../models/ModelMongo.js";
 
 export default class ProductApi {
   constructor() {
@@ -9,8 +9,8 @@ export default class ProductApi {
     return await this.model.getProduct(id);
   }
 
-  async getManyProducts(skip, limit) {
-    return await this.model.getManyProducts(skip, limit);
+  async getManyProducts(query) {
+    return await this.model.getManyProducts(query);
   }
 
   async getAllProducts() {
@@ -40,14 +40,35 @@ export default class ProductApi {
     return { layout: false, products };
   }
 
-  async getHTMLTableProducts(skip, limit) {
-    const products = await this.getManyProducts({skip, limit});
-    const pages = [];
-    const len = await this.model.getProductsQuantity();
-    for (let i = 0; i < len / limit; i++) {
-      pages.push({ page: i + 1, current: i == skip / limit });
-    }
-    return { layout: false, products, pages, len };
+  // async getHTMLTableProducts(skip, limit) {
+  //   [skip, limit] = [+skip, +limit];
+  //   const len = await this.model.getProductsQuantity();
+  //   const products = await this.getManyProducts({ skip, limit });
+
+  //   return {
+  //     layout: false,
+  //     products,
+  //     ...getPaginationHbsObj(skip, limit, len),
+  //   };
+  // }
+
+  async getHTMLManyProducts(reqQuery) {
+    let { skip, limit, query } = reqQuery;
+    [skip, limit] = [+skip, +limit];
+    query = getQueryObjectFromSearch(query);
+    const len = await this.model.getProductsQuantity(query);
+    const products = await this.getManyProducts({
+      ...reqQuery,
+      skip,
+      limit,
+      query,
+    });
+
+    return {
+      layout: false,
+      products,
+      ...getPaginationHbsObj(skip, limit, len),
+    };
   }
 
   async postProduct(product) {
@@ -61,4 +82,35 @@ export default class ProductApi {
   async deleteProduct(id) {
     return await this.model.deleteProduct(id);
   }
+}
+
+function getPaginationHbsObj(skip, limit, len) {
+  const pages = [];
+  let nextPage = 0;
+  let prevPage = 0;
+  for (let i = 0; i < len / limit; i++) {
+    let current = false;
+    if (i == skip / limit) {
+      current = true;
+      nextPage = i + 2;
+      prevPage = i;
+    }
+    pages.push({ page: i + 1, current });
+  }
+  const first = skip == 0;
+  const last = skip + limit >= len;
+  return { pages, nextPage, prevPage, first, last, len };
+}
+
+function getQueryObjectFromSearch(query) {
+  if (!query) return {};
+  const regExpName = RegExp(query, "i");
+  return {
+    $or: [
+      { name: regExpName },
+      { brand: regExpName },
+      { category: regExpName },
+      { shortDescription: regExpName },
+    ],
+  };
 }

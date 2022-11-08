@@ -206,22 +206,22 @@ altaForm.selectProduct = function (product) {
   altaForm.setButtons();
   altaForm.restartForm();
 
-  scrollTo({ top: altaFormHTML.offsetTop - 100, behavior: "smooth" });
+  scrollTo({ top: altaForm.formTarget.offsetTop - 100, behavior: "smooth" });
 
-  altaFormHTML.querySelectorAll("[data-input]").forEach((input) => {
+  altaForm.formTarget.querySelectorAll("[data-input]").forEach((input) => {
     input.required && altaForm.inputsCurrentlyValid.add(input);
     const value = product[input.dataset.input];
     if (value) {
       input.value = value;
     }
   });
-  altaFormHTML.querySelectorAll("[data-radio]").forEach((input) => {
+  altaForm.formTarget.querySelectorAll("[data-radio]").forEach((input) => {
     const value = product[input.dataset.radio];
     if (value == input.value) {
       input.checked = true;
     }
   });
-  altaFormHTML.querySelectorAll("[data-checkbox]").forEach((input) => {
+  altaForm.formTarget.querySelectorAll("[data-checkbox]").forEach((input) => {
     const value = product[input.dataset.checkbox];
     input.checked = value;
   });
@@ -261,16 +261,6 @@ export default class PageAlta {
     this.table = new ProductsTable(this.tableContainer, this.altaFormHTML);
     currentTable = this.table;
 
-    this.searchIdForm = new Form(
-      document.querySelector(".id-form"),
-      {
-        "search-id": {
-          message: "El id ingresado no es válido",
-          regExp: /^[\dabcdef]{24}$/,
-        },
-      },
-      searchSubmitCb
-    );
     this.altaForm = altaForm;
     if (altaForm.formTarget != this.altaFormHTML) {
       altaForm.formTarget = this.altaFormHTML;
@@ -283,7 +273,17 @@ export default class PageAlta {
       altaForm.init();
       altaForm.restartForm();
     }
-    console.log(altaForm.formTarget);
+    this.searchIdForm = new Form(
+      document.querySelector(".id-form"),
+      {
+        "search-id": {
+          message: "El id ingresado no es válido",
+          regExp: /^[\dabcdef]{24}$/,
+        },
+      },
+      searchSubmitCb
+    );
+    // console.log(altaForm.formTarget);
     this.altaFormHTML.addEventListener("click", async (e) => {
       if (e.target.classList.contains("form-buttons__cancel")) {
         altaForm.restartForm();

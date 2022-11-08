@@ -1,0 +1,23 @@
+@use '../abstracts/variables';
+
+.listing {
+  padding: 2rem 0;
+  &__wrapper {
+    max-width: variables.$max-width;
+    width: 100%;
+    margin: auto;
+    padding: 0 calc(0.75rem + 1vw);
+    display: flex;
+  }
+
+  &__products {
+    &-container {
+      position: relative;
+      padding: 0 0.75rem;
+      flex: 1 0 83%;
+    }
+    &-header {
+      margin-bottom: 1rem;
+    }
+  }
+}

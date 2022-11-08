@@ -1,0 +1,61 @@
+{{#if products.length }}
+<aside></aside>
+<div class="listing__products-container">
+  <header class="listing__products-header">
+    <div class="products-header">
+      <strong class="products-header__title">{{len}} productos encontrados
+      </strong>
+      <select class="products-header__select">
+        <option class="products-header__option" selected>Más nuevo</option>
+        <option class="products-header__option">Más popular</option>
+        <option class="products-header__option">Más recomendado</option>
+        <option class="products-header__option">Más barato</option>
+      </select>
+    </div>
+  </header>
+  {{#each products}}
+  <article class="card-product-list">
+    <div class="card-product-list__wrapper">
+      <aside class="card-product-list__profile">
+        <a href="#/products/{{id}}" class="card-product-list__link">
+          {{! <span class="badge card-product-list__badge">
+                  NEW
+                </span> }}
+          <img src="{{profileImageUrl}}" class="card-product-list__image" />
+        </a>
+      </aside>
+      <div class="card-product-list__content">
+        <div class="card-product-list__content-info">
+          <a href="#/products/{{id}}" class="card-product-list__title">
+            {{name}}</a>
+
+          <p class="card-product-list__price">{{price}}</p>
+
+          <p class="card-product-list__tags-container">
+            <span class="tag"> <i class="fa fa-check"></i> Verified</span>
+            <span class="tag"> 5 Years </span>
+            <span class="tag"> 80 reviews </span>
+            <span class="tag"> Russia </span>
+          </p>
+
+          <p class="card-product-list__description">
+            {{shortDescription}}
+          </p>
+          <p class="card-product-list__description">
+            {{longDescription}}
+          </p>
+
+        </div>
+        <!-- info-main.// -->
+      </div>
+      <!-- col.// -->
+    </div>
+    <!-- row.// -->
+  </article>
+  {{/each}}
+  {{> components/pagination}}
+
+</div>
+{{else}}
+<p>No se encontraron productos</p>
+{{/if}}

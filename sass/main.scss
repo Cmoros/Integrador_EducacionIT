@@ -39,6 +39,8 @@
 @use 'layout/solo-product';
 @use 'layout/id-form';
 @use 'layout/table-products';
+@use 'layout/listing';
+@use 'layout/products-header';
 
 // 5. Components
 @use 'components/btn';
@@ -56,6 +58,8 @@
 @use 'components/cards-container';
 @use 'components/cart-product';
 @use 'components/popup';
+@use 'components/pagination';
+@use 'components/card-product-list';
 
 
 // 6. Page-specific styles

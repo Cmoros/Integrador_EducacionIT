@@ -38,12 +38,7 @@
       </tr>
     </tfoot>
   </table>
-  <ul class="table-products__page-list">
-    {{#each pages}}
-    <li class="table-products__page-item {{#if current}}table-products__page-item--active{{/if}}"><a href=""
-        class="table-products__page-link" data-page="{{page}}">{{page}}</a></li>
-    {{/each}}
-  </ul>
+  {{> components/pagination}}
 </div>
 {{else}}
 <p>No se encontraron productos</p>

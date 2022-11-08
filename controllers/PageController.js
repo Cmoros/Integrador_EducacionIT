@@ -1,7 +1,6 @@
 import PageApi from "../api/PageApi.js";
 
 export default class PageController {
-
   constructor() {
     this.api = new PageApi();
   }
@@ -41,5 +40,9 @@ export default class PageController {
       return;
     }
     res.status(200).render("product", { layout: false, ...product });
+  }
+
+  async getListadoPage(req, res) {
+    res.status(200).render("listado", { layout: false });
   }
 }

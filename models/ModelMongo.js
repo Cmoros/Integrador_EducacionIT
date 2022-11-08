@@ -50,12 +50,12 @@ export default class ModelMongo {
     return {};
   }
 
-  async getProductsQuantity() {
+  async getProductsQuantity(query) {
     if (!(await DBMongoDB.connectDB())) {
       return -1;
     }
     try {
-      const quantity = await ProductModel.countDocuments({});
+      const quantity = await ProductModel.countDocuments(query || {});
       return quantity;
     } catch (error) {
       console.error("Error al intentar de LEER un product:", error);
@@ -64,10 +64,10 @@ export default class ModelMongo {
   }
 
   async getManyProducts(params) {
-    const {query, order, skip, limit} = params;
     if (!(await DBMongoDB.connectDB())) {
       return [];
     }
+    const {query, order, skip, limit} = params;
     try {
       const products = await ProductModel.find(query || {})
         .sort(order || {})

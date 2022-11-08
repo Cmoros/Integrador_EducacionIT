@@ -1,9 +1,12 @@
 import Cart from "/modules/Cart.js";
 
-const searchFormLabel = document.querySelector(".search-form__label");
-const searchFormInput = document.querySelector(".search-form__input");
-const searchFormSubmit = document.querySelector(".search-form__submit");
-const searchFormToggle = document.querySelector(".main-nav-search-form-toggle");
+const searchForm = document.querySelector(".search-form");
+const searchFormLabel = searchForm.querySelector(".search-form__label");
+const searchFormInput = searchForm.querySelector(".search-form__input");
+const searchFormSubmit = searchForm.querySelector(".search-form__submit");
+const searchFormToggle = document.querySelector(
+  ".main-nav-search-form-toggle"
+);
 
 function disableEmptyForm(input, submit) {
   if (input.value === "") {
@@ -88,6 +91,21 @@ document.addEventListener("input", (e) => {
 window.addEventListener("hashchange", (e) => {
   cart.toggleCartModal("hide");
 });
+
+let query = "";
+
+searchForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  query = searchFormInput.value;
+  if (location.hash != "#/listado") {
+    location.hash = "/listado";
+  } else {
+    const { currentPage } = await import("./main.js");
+    currentPage[0].init();
+  }
+});
+
+export { query };
 
 // const mainNavList = document.querySelector(".main-nav__list");
 // const mainNavLinks = mainNavList.querySelectorAll(".main-nav__link");

@@ -1,0 +1,40 @@
+.products-header {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  &__title {
+    font-weight: 600;
+    @media (min-width: 768px) {
+      margin-right: auto;
+    }
+  }
+  &__select {
+    word-wrap: normal;
+    text-transform: none;
+    height: 2rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.4rem;
+    display: block;
+    width: 100%;
+    margin-right: 0.5rem;
+    @media (min-width: 576px) {
+      display: inline-block;
+      width: auto;
+      vertical-align: middle;
+    }
+  }
+  &__option {
+    font-weight: normal;
+    display: block;
+    white-space: nowrap;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+  }
+}

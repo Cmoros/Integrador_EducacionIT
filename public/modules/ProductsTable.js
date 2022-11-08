@@ -9,9 +9,10 @@ export default class ProductsTable {
     this.limit = 5;
     this.restartTable();
     this.container.addEventListener("click", async (e) => {
-      if (e.target.classList.contains("table-products__page-link")) {
+      if (e.target.dataset.page) {
         e.preventDefault();
-        this.currentPage = e.target.dataset.page;
+        const page = e.target.dataset.page;
+        this.currentPage = page >= 1? page : 1;
         this.updateTable(this.calculateSkip(), this.limit);
       } else if (e.target.classList.contains("table-products__btn--edit")) {
         this.form.selectProduct(this.currentProducts[e.target.dataset.id]);

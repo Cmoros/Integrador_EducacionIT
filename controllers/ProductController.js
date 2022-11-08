@@ -36,18 +36,26 @@ export default class ProductController {
   getTableProducts = async (req, res, next) => {
     const { skip, limit } = req.query;
     const { format } = req.params;
-    if (!format || format == "json") {
+    if (format == "json") {
       res.status(200).json(await this.api.getManyProducts(skip, limit));
     } else if (format == "text") {
       res
         .status(200)
         .render(
           "productsTable",
-          await this.api.getHTMLTableProducts(skip, limit)
+          await this.api.getHTMLManyProducts({ skip, limit })
         );
     } else {
       next();
     }
+  };
+
+  getListadoProducts = async (req, res, next) => {
+    const { query } = req;
+    console.log(query);
+    res
+      .status(200)
+      .render("listingContainer", await this.api.getHTMLManyProducts(query));
   };
 
   async get404(req, res) {
@@ -69,7 +77,9 @@ export default class ProductController {
 
     console.log("req.files", req.files);
     if (imagesUrls) {
-      product.imagesUrls = [{imageUrl: config.IMAGE_ROUTE + profileImageUrl[0].filename}];
+      product.imagesUrls = [
+        { imageUrl: config.IMAGE_ROUTE + profileImageUrl[0].filename },
+      ];
       for (const file of imagesUrls) {
         product.imagesUrls.push({
           imageUrl: config.IMAGE_ROUTE + file.filename,

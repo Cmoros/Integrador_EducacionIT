@@ -1,0 +1,56 @@
+@use "../abstracts/palette";
+
+.pagination {
+  margin-bottom: 1.5rem;
+  &__list {
+    display: flex;
+    list-style: none;
+    border-radius: 0.4rem;
+    list-style: none;
+  }
+
+  &__item {
+    display: block;
+
+    border: 1px solid rgba(palette.$ultramarine-blue, 0.25);
+    overflow: hidden;
+    &:first-child {
+      margin-left: 0;
+      border-top-left-radius: 0.37rem;
+      border-bottom-left-radius: 0.37rem;
+    }
+    &:last-child {
+      border-top-right-radius: 0.37rem;
+      border-bottom-right-radius: 0.37rem;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: palette.$oxford-blue;
+    background-color: #fff;
+    text-decoration: none;
+
+    &:hover {
+      background-color: rgba(palette.$ultramarine-blue, 0.85);
+      color: #fff;
+    }
+    &--disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    &--active {
+      z-index: 1;
+      color: #fff;
+      background-color: palette.$ultramarine-blue;
+      border-color: palette.$ultramarine-blue;
+      &:hover {
+        background-color: palette.$ultramarine-blue;
+      }
+    }
+  }
+}

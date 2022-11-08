@@ -1,0 +1,21 @@
+<nav class="pagination" aria-label="Page navigation sample">
+
+<ul class="pagination__list">
+  <li class="pagination__item"><a
+              class="pagination__link {{#if first}}pagination__link--disabled{{/if}}"
+              {{#if first}}disabled{{/if}}
+              href="#"
+              data-page="{{prevPage}}"
+            >Anterior</a></li>
+    {{#each pages}}
+    <li class="pagination__item"><a href=""
+        class="pagination__link {{#if current}}pagination__link--active{{/if}}" data-page="{{page}}">{{page}}</a></li>
+    {{/each}}
+    <li class="pagination__item"><a
+              class="pagination__link {{#if last}}pagination__link--disabled{{/if}}"
+              data-page="{{nextPage}}"
+              {{#if last}}disabled{{/if}}
+              href="#"
+            >Siguiente</a></li>
+</ul>
+</nav>
