@@ -45,7 +45,8 @@ class DBMongoDB {
             return false;
         }
     }
-
 }
+
+DBMongoDB.connectDB();
 
 export default DBMongoDB;

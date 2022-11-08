@@ -71,8 +71,6 @@ const productSquema = mongoose.Schema({
 });
 
 productSquema.pre("save", function () {
-  // console.log("Document pre-save", this);
-  console.log('pre-save')
   if (
     !this.imagesUrls ||
     !Array.isArray(this.imagesUrls) ||

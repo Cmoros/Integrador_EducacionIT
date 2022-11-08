@@ -65,7 +65,7 @@ const imagesFields = [
 ]
 
 async function handleImagesFields(req, res, next) {
-  const fields = getCurrentFields(imagesFields)
+  const fields = getCurrentFields(req, imagesFields)
   upload.fields(fields)(req, res, next);
 }
 

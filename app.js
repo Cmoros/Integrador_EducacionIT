@@ -13,13 +13,11 @@ import config from "./config.js";
 import MainRouter from "./routers/MainRouter.js";
 import PageRouter from "./routers/PageRouter.js";
 import ProductRouter from "./routers/ProductRouter.js";
-import DBMongoDB from "./models/DB/MongoDB.js";
+// import {} from "./models/DB/MongoDB.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = express();
-
-DBMongoDB.connectDB();
 
 const hbs = create(hbsConfig);
 

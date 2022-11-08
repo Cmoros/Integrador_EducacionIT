@@ -68,14 +68,10 @@ export default class ProductController {
       res.status(400).json({});
       return;
     }
-    // const { product } = req.body; // <---------- Propenso a ser cambiado ya que actualmente se manda por post un objeto {product:product} en vez de product directamente (esto debido a como envia los datos el formulario)
-    // console.log(req.file);
-    // console.log(req.files)
     const product = req.body;
     const { profileImageUrl, imagesUrls } = req.files;
     product.profileImageUrl = config.IMAGE_ROUTE + profileImageUrl[0].filename;
 
-    console.log("req.files", req.files);
     if (imagesUrls) {
       product.imagesUrls = [
         { imageUrl: config.IMAGE_ROUTE + profileImageUrl[0].filename },
