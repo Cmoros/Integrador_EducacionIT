@@ -35,5 +35,8 @@
   },
   "devDependencies": {
     "prettier": "^2.7.1"
+  },
+  "engines": {
+    "node": "16.1"
   }
 }
