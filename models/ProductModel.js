@@ -45,8 +45,8 @@ const productSquema = mongoose.Schema({
     },
   ],
   shipping: {
-    type: String,
-    default: "false",
+    type: Boolean,
+    default: false,
   },
   shortDescription: {
     type: String,
@@ -54,7 +54,7 @@ const productSquema = mongoose.Schema({
   },
   longDescription: {
     type: String,
-    // required: true
+    required: true,
   },
   visits: {
     type: Number,
@@ -62,7 +62,7 @@ const productSquema = mongoose.Schema({
   },
   date: {
     type: Date,
-    default: new Date,
+    default: Date.now,
   },
   sponsored: {
     type: Boolean,
@@ -71,27 +71,19 @@ const productSquema = mongoose.Schema({
 });
 
 productSquema.pre("save", function () {
-  if (
-    !this.imagesUrls ||
-    !Array.isArray(this.imagesUrls) ||
-    this.imagesUrls.length == 0
-  )
+  console.log("pre-save");
+  if (!this.imagesUrls || !Array.isArray(this.imagesUrls)) {
     this.imagesUrls = [
-      { imageUrl: this.profileImageUrl },
+      /*{ imageUrl: this.profileImageUrl }*/
     ];
+    return;
+  }
+  this.shipping &&= true;
 });
 
-// productSquema.pre("updateOne", function () {
-//   // console.log("Document pre-save", this);
-//   console.log('pre-save')
-//   if (
-//     !this.imagesUrls ||
-//     !Array.isArray(this.imagesUrls) ||
-//     this.imagesUrls.length == 0
-//   )
-//     this.imagesUrls = [
-//       { imageUrl: this.profileImageUrl },
-//     ];
-// });
+productSquema.pre("findOneAndUpdate", function () {
+  console.log("pre-findOneAndUpdate");
+  this._update.$set.shipping &&= true;
+});
 
 export default mongoose.model("product", productSquema);

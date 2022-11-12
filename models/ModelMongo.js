@@ -67,7 +67,7 @@ export default class ModelMongo {
     if (!(await DBMongoDB.connectDB())) {
       return [];
     }
-    const {query, order, skip, limit} = params;
+    const { query, order, skip, limit } = params;
     try {
       const products = await ProductModel.find(query || {})
         .sort(order || {})

@@ -33,4 +33,14 @@ export default class PageApi {
     const product = await this.productApi.getProduct(id);
     return product;
   }
+
+  async getRemoveModal(id) {
+    const product = await this.productApi.getProduct(id);
+    return {
+      layout: false,
+      confirm: true,
+      product,
+      text: "¿Seguro de eliminar el siguiente producto?",
+    };
+  }
 }

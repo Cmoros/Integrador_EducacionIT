@@ -1,0 +1,67 @@
+@use "../abstracts/mixins";
+@use "../abstracts/palette";
+
+.modal {
+  text-align: center;
+  position: relative;
+  border-radius: 1rem;
+  background-color: white;
+  border: calc(0.1rem + 0.1vw) double palette.$ultramarine-blue;
+  &__bg {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(white, 0.5);
+    padding: 0.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    @include mixins.display-flex;
+    z-index: 30;
+  }
+
+  &__close-btn {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.5rem;
+    color: #ff0000;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    transition: background 0.15s, color 0.15s;
+    border-radius: 50%;
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: #ff0000;
+      color: white;
+    }
+  }
+
+  &__content {
+    @include mixins.display-flex(column);
+    gap: calc(0.5rem + 1vw);
+    padding: 1em 0.5em;
+  }
+
+  &__text {
+    font-size: 1.5rem;
+    padding: 0 1.5rem;
+  }
+
+  &__img {
+    max-width: 100%;
+    object-fit: contain;
+    &-container {
+      width: 50%;
+    }
+  }
+
+  &__btn {
+    &s-container {
+    }
+  }
+}

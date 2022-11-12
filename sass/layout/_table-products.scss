@@ -9,12 +9,12 @@
   width: 100%;
   min-height: 400px;
   // color: white;
-  padding: 0.5rem;
+  padding: 0.5rem 0;
   &__wrapper {
     width: 100%;
     @include mixins.display-flex(column);
     gap: calc(1rem + 1vw);
-    padding: 1rem;
+    padding: 1rem 0;
     &-wrapper {
       // width: 100vw;
       max-width: variables.$max-width;

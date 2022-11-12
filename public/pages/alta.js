@@ -1,7 +1,7 @@
 import ProductsTable from "../modules/ProductsTable.js";
 import popup from "../modules/popup.js";
 
-const maxImageSize = 1048576 / 2;
+const MAX_IMAGE_SIZE = 1048576 / 2;
 
 const errors = {
   "product-name": {
@@ -33,12 +33,12 @@ const errors = {
   },
   "product-description-short": {
     message: "Campo de hasta 80 caracteres libres",
-    regExp: /^.{10,80}$/,
+    regExp: /^.{10,80}$/m,
     // /^(?!\s)(?!.\s$)(?=.[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç])[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç :°='\.\\¡$#"@¿*&%\/,+\-\(\)~?!]{10,80}$/,
   },
   "product-description-long": {
-    message: "Campo de hasta 80 caracteres libres",
-    regExp: /^.{10,80}$/,
+    message: "Campo de hasta 300 caracteres libres",
+    regExp: /^.{10,450}$/m,
     // /^(?!\s)(?!.\s$)(?=.[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç])[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç :°='\.\\¡$#"@¿*&%\/,+\-\(\)~?!]{20,2000}$/,
   },
   "product-age-max": {
@@ -78,28 +78,28 @@ const errors = {
   },
   "product-profile-image": {
     message: "Error en el campo de imagen de portada",
-    maxImageSize,
+    maxImageSize: MAX_IMAGE_SIZE,
     test(input, mySelf) {
       if (input.files.length > 1) {
         mySelf.message = "Se admite solo 1 imagen como imagen de portada";
         return false;
       }
-      mySelf.message = `Máximo ${maxImageSize / 1024}KB de tamaño tolerado`;
-      return input.files[0].size < maxImageSize;
+      mySelf.message = `Máximo ${MAX_IMAGE_SIZE / 1024}KB de tamaño tolerado`;
+      return input.files[0].size < MAX_IMAGE_SIZE;
     },
   },
   "product-images": {
     message: "Error en el campo de imagenes",
     maxImages: 5,
-    maxImageSize,
+    maxImageSize: MAX_IMAGE_SIZE,
     test(input, mySelf) {
       if (input.files.length > mySelf.maxImages) {
         mySelf.message = `Se admiten hasta un máximo de ${mySelf.maxImages} imágenes`;
         return false;
       }
-      mySelf.message = `Máximo ${maxImageSize / 1024}KB de tamaño tolerado`;
+      mySelf.message = `Máximo ${MAX_IMAGE_SIZE / 1024}KB de tamaño tolerado`;
       for (let i = 0; i < input.files.length; i++) {
-        if (input.files[i].size > maxImageSize) return false;
+        if (input.files[i].size > MAX_IMAGE_SIZE) return false;
       }
       return true;
     },
@@ -107,7 +107,7 @@ const errors = {
 };
 
 const { default: Form } = await import("/modules/Form.js");
-const altaFormHTML = document.querySelector(".main-form");
+let altaFormHTML = document.querySelector(".main-form");
 
 function normalizeFileInputs(dataForm) {
   if (dataForm.get("profileImageUrl").size == 0) {
@@ -137,7 +137,6 @@ async function altaCbPost(e) {
       // },
       body: data,
     }).then((res) => res.json());
-    console.log(result);
     if (checkResultFromFetch(result, "dar de alta", "dio de alta")) {
       currentTable.updateTable();
     }
@@ -150,20 +149,25 @@ async function altaCbPost(e) {
 async function altaCbPut(e) {
   e.preventDefault();
   const data = altaForm.getFormData();
-  normalizeFileInputs(data)
-  data.append("_method", "PUT");
+  normalizeFileInputs(data);
+  // data.append("_method", "PUT");
   try {
-    const result = await fetch("./api/products/" + altaForm.state[1], {
-      method: "post",
-      // _method: "put",
-      // headers: {
-      //   // Accept: "application/json",
-      //   // "content-type": "application/json",
-      // "Content-Type": "multipart/form-data"
-      // },
-      body: data,
-    }).then((res) => res.json());
-    console.log(result);
+    const result = await fetch(
+      "./api/products/" +
+        altaForm.state[1] +
+        "?" +
+        new URLSearchParams({ _method: "PUT", method: "PUT" }),
+      {
+        method: "post",
+        // _method: "put",
+        // headers: {
+        //   // Accept: "application/json",
+        //   // "content-type": "application/json",
+        // "Content-Type": "multipart/form-data"
+        // },
+        body: data,
+      }
+    ).then((res) => res.json());
     if (checkResultFromFetch(result, "actualizar", "actualizó")) {
       currentTable.updateTable();
     }
@@ -180,9 +184,7 @@ const idCheckbox = document.querySelector("#id-form__toggle-checkbox");
 
 altaForm.state = ["adding"];
 altaForm.updateButton = altaFormHTML.querySelector(".form-buttons__update");
-console.log("🚀 ~ updateButton", altaForm.updateButton);
 altaForm.cancelButton = altaFormHTML.querySelector(".form-buttons__cancel");
-console.log("🚀 ~ cancelButton", altaForm.cancelButton);
 
 altaForm.setButtons = function () {
   const adding = altaForm.state[0] == "adding";
@@ -229,7 +231,7 @@ altaForm.selectProduct = function (product) {
 };
 
 function checkResultFromFetch(result, text1, text2) {
-  if (!Object.keys(result).length) {
+  if (!Object.keys(result).length || result.error) {
     popup.init(
       `<i class="fa-solid fa-ban"></i>Ups! No se pudo ${text1} el producto`
     );
@@ -264,6 +266,7 @@ export default class PageAlta {
     this.altaForm = altaForm;
     if (altaForm.formTarget != this.altaFormHTML) {
       altaForm.formTarget = this.altaFormHTML;
+      altaFormHTML = this.altaFormHTML;
       altaForm.updateButton = this.altaFormHTML.querySelector(
         ".form-buttons__update"
       );
@@ -283,7 +286,6 @@ export default class PageAlta {
       },
       searchSubmitCb
     );
-    // console.log(altaForm.formTarget);
     this.altaFormHTML.addEventListener("click", async (e) => {
       if (e.target.classList.contains("form-buttons__cancel")) {
         altaForm.restartForm();

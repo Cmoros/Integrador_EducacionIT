@@ -54,6 +54,7 @@ export default class ProductApi {
 
   async getHTMLManyProducts(reqQuery) {
     let { skip, limit, query } = reqQuery;
+    const queryFromReq = query;
     [skip, limit] = [+skip, +limit];
     query = getQueryObjectFromSearch(query);
     const len = await this.model.getProductsQuantity(query);
@@ -65,6 +66,7 @@ export default class ProductApi {
     });
 
     return {
+      query: queryFromReq,
       layout: false,
       products,
       ...getPaginationHbsObj(skip, limit, len),

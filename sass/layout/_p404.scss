@@ -1,0 +1,39 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins';
+
+.p404 {
+  max-width: variables.$max-width;
+  margin: auto;
+  position: relative;
+  @include mixins.display-flex;
+  &__content {
+    padding: calc(1rem + 1vw);
+    background-color: rgba(white, 0.85);
+    @include mixins.display-flex(column);
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    @media(min-width: 425px) {
+      // position: initial;
+      // transform: none;
+      // background-color: transparent;
+      max-width: 75%;
+    }
+    @media(min-width: 768px) {
+        max-width: 50%;
+    }
+  }
+  &__img {
+    max-width: 100%;
+    
+    &-container {
+      @media(min-width: 425px) {
+        flex: 0 0 75%;
+      }
+      @media(min-width: 768px) {
+        flex: 0 0 50%;
+      }
+    }
+  }
+}

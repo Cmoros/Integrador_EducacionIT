@@ -16,16 +16,22 @@ export default class ProductRouter {
     // this.router.get("/popular/:n?", this.controller.getPopular)
     // this.router.get("/newest/:n?", this.controller.getNewest)
     this.router.get("*", this.controller.get404.bind(this.controller));
-
+    this.router.post(
+      "/:id",
+      handleImagesFields,
+      this.controller.putProduct.bind(this.controller)
+    );
     this.router.post(
       "/",
-      // handleProfileImage,
-      // handleImages,
       handleImagesFields,
       this.controller.postProduct.bind(this.controller)
     );
     this.router.post("*", this.controller.get404.bind(this.controller));
-    this.router.put("/:id", this.controller.putProduct.bind(this.controller));
+    this.router.put(
+      "/:id",
+      handleImagesFields,
+      this.controller.putProduct.bind(this.controller)
+    );
     this.router.put("*", this.controller.get404.bind(this.controller));
     this.router.delete(
       "/:id",
@@ -36,44 +42,25 @@ export default class ProductRouter {
   }
 }
 
-async function handleProfileImage(req, res, next) {
-  try {
-    await upload.single("profileImageUrl")(req, res, next);
-  } catch (e) {
-    console.log("Error cargando la imagen 'profileImageUrl': ", e);
-    next();
-  }
-}
-
-async function handleImages(req, res, next) {
-  try {
-    if (req.body.imagesUrlsMissing) {
-      delete req.body.imagesUrlsMissing;
-      next();
-      return;
-    }
-    upload.single("imagesUrls")(req, res, next);
-  } catch (e) {
-    console.log("Error cargando la imagen 'imagesUrls': ", e);
-    next();
-  }
-}
-
 const imagesFields = [
   { name: "profileImageUrl", maxCount: 1 },
-  { name: "imagesUrls", maxCount: 5 }
-]
+  { name: "imagesUrls", maxCount: 5 },
+];
 
 async function handleImagesFields(req, res, next) {
-  const fields = getCurrentFields(req, imagesFields)
+  const fields = getCurrentFields(req, imagesFields);
+  if (!fields.length) {
+    next();
+    return;
+  }
   upload.fields(fields)(req, res, next);
 }
 
 function getCurrentFields(req, filesArr) {
   return filesArr.reduce((acc, file) => {
-    if (!req.body[file.name+"Missing"]) {
-      acc.push(file)
+    if (!req.body[file.name + "Missing"]) {
+      acc.push(file);
     }
     return acc;
-  }, [])
+  }, []);
 }

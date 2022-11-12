@@ -4,9 +4,7 @@ const searchForm = document.querySelector(".search-form");
 const searchFormLabel = searchForm.querySelector(".search-form__label");
 const searchFormInput = searchForm.querySelector(".search-form__input");
 const searchFormSubmit = searchForm.querySelector(".search-form__submit");
-const searchFormToggle = document.querySelector(
-  ".main-nav-search-form-toggle"
-);
+const searchFormToggle = document.querySelector(".main-nav-search-form-toggle");
 
 function disableEmptyForm(input, submit) {
   if (input.value === "") {

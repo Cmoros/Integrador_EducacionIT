@@ -8,6 +8,7 @@ export default class PageRouter {
     this.router.get("/", this.controller.getDefault);
     this.router.get("/home/:n?", this.controller.getHomePage);
     this.router.get("/alta", this.controller.getAltaPage);
+    this.router.get("/modal/remove/:id", this.controller.getRemoveModal);
     this.router.get(
       "/products/:id",
       this.controller.getProductPage.bind(this.controller)

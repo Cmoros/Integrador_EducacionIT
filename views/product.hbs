@@ -29,43 +29,14 @@
       <div class="solo-product__description-container">
         <article class="solo-product__description">
           <h4 class="solo-product__description-header">{{name}}</h4>
-          <div class="solo-product__rating">
-            {{!-- <ul class="solo-product__rating-stars">
-              <li class="solo-product__star-item">
-                <img
-                  src="bootstrap5-ecommerce/images/misc/stars-active.svg"
-                  alt="{{name}}"
-                  class="solo-product__star--active solo-product__star"
-                >
-              </li>
-              <li class="solo-product__star-item">
-                <img
-                  src="bootstrap5-ecommerce/images/misc/starts-disable.svg"
-                  alt="{{name}}"
-                  class="solo-product__star--disabled solo-product__star"
-                >
-              </li>
-            </ul> --}}
-            <b class="solo-product__rating-points"> 4.5</b>
-            <i class="solo-product__dot"></i>
-            <span class="solo-product__reviews-container">
-              <i
-                class="fa fa-comment solo-product__reviews solo-product__reviews--reviews"
-              ></i>
-              32 opiniones
-            </span>
-            <i class="solo-product__dot"></i>
-            <span class="solo-product__reviews-container">
-              <i
-                class="fa fa-shopping-basket solo-product__reviews solo-product__reviews--orders"
-              ></i>
-              154 vendidos
-            </span>
+          <div class="solo-product__badges-container">
+            {{> components/badges}}
           </div>
-          <hr >
           <p class="solo-product__description-content">
             {{shortDescription}}
           </p>
+          <p class="solo-product__brand">Marca: {{brand}}</p>
+          <p>Descripción: </p>
           <p class="solo-product__description-content">
             {{longDescription}}
           </p>

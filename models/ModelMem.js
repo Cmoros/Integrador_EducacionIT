@@ -23,7 +23,7 @@ export default class ModelMem {
 
   async getManyProducts(skip, limit) {
     const products = await this.getAllProducts();
-    return products.slice(skip,+skip + +limit);
+    return products.slice(skip, +skip + +limit);
   }
 
   async getProduct(id) {

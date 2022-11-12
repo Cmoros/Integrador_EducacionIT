@@ -13,12 +13,12 @@ $svg-padding: 0.2em;
     top: 40px;
     width: 100%;
     flex-direction: row;
-    flex: 1;
+    flex: 0;
     height: 70px;
     gap: 6px;
     justify-content: space-between;
     align-items: center;
-    padding: 0 8px 0 2px;
+    padding: 0 0.5rem 0 0.25rem;
     color: white;
     transition: top 0.5s linear;
 
@@ -34,54 +34,26 @@ $svg-padding: 0.2em;
         top: 50px;
     }
     &__logo {
-        height: 95%;
-        width: auto;
+        // height: 95%;
+        width: calc(60px + 1vw);
         overflow: visible;
         position: relative;
         z-index: 12;
         pointer-events: none;
-        
-        &-title {
-            $font-size: 24px;
-            font-size: $font-size;
-            font-family: 'Shrikhand', sans-serif;
-            display: flex;
-            text-decoration: none;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-            font-variant: small-caps;
-            @media (min-width: 768px) {
-                font-size: 26px;
-            }
-            @media (min-width: 992px) {
-                font-size: 28px;
-                overflow-x: visible;
-            }
-            &--toystore {
-                font-size: 12px;
-                margin-bottom: -8px;
-                @media (min-width: 768px) {
-                    font-size: 13px;
-                }
-                @media (min-width: 992px) {
-                    font-size: 14px;
-                }
-            }
-
-        }
+        object-fit: contain;
 
         &-container {
             gap: 6px;
             order: 4;
             text-decoration: none;
-            flex-basis: 100%;
+            // flex-basis: 100%;
             text-align: center;
             flex: 1;
             overflow: hidden;
             justify-content: center;
             display: flex;
             align-items: center;
+            // align-items: stretch;
             height: 100%;
             color: white;
             padding: 4px 0;
@@ -100,19 +72,21 @@ $svg-padding: 0.2em;
         }
 
         &-text {
-            width: 110px;
+            // height: 70%;
+            // width: 50px;
+            width: calc(110px + 1vw);
             pointer-events: none;
             object-fit: contain;
             @media (min-width: 768px) {
-                width: 120px;
+                // width: 120px;
                 
             }
             @media (min-width: 1024px) {
-                width: 130px;
+                // width: 130px;
                 
             }
             @media (min-width: 1440px) {
-                width: 150px;
+                // width: 150px;
             }
         }
     }

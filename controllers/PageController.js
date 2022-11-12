@@ -24,6 +24,15 @@ export default class PageController {
     }
   };
 
+  getModal = async (req, res) => {
+    
+  }
+
+  getRemoveModal = async (req, res) => {
+    const {id} = req.params
+    res.status(200).render("modal", await this.api.getRemoveModal(id))
+  }
+
   get404 = async (req, res) => {
     res.status(404).render("404", await this.api.get404());
   };
@@ -39,6 +48,7 @@ export default class PageController {
       next();
       return;
     }
+    product.imagesUrls.unshift({ imageUrl: product.profileImageUrl });
     res.status(200).render("product", { layout: false, ...product });
   }
 

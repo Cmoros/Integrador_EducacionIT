@@ -1,283 +1,287 @@
-@use '../abstracts/palette';
+@use "../abstracts/palette";
 
 $card-height: 415px;
-$img-container-height:200px;
+$img-container-height: 200px;
 
 .card {
-    
-    // border: 2px solid #234;
-    
-    flex: 1 1 40%;
-    max-width: 300px;
-    
-    height: $card-height;
-    
-    box-shadow: 
-        0 1px 5px rgba(palette.$ultramarine-blue, .2),
-        0 0px 3px rgba(palette.$ultramarine-blue, .4)
-    ;
+  // border: 2px solid #234;
 
-    border-radius: 7px;
-    background-color: white;
-    transition: all .15s linear, box-shadow .2s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-bottom: 8px;
-    align-items: center;
-    * {
-        transition: inherit;
+  flex: 1 1 40%;
+  max-width: 300px;
+
+  height: $card-height;
+
+  box-shadow: 0 1px 5px rgba(palette.$ultramarine-blue, 0.2),
+    0 0px 3px rgba(palette.$ultramarine-blue, 0.4);
+
+  border-radius: 7px;
+  background-color: white;
+  transition: all 0.15s linear, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  align-items: center;
+  * {
+    transition: inherit;
+  }
+  @media (min-width: 768px) {
+    height: calc($card-height - 10px);
+  }
+  @media (min-width: 1024px) {
+    flex: 1 1 23%;
+    $actual-height: calc($card-height - 57px);
+    height: $actual-height;
+    transition: height 0.5s;
+    overflow: hidden;
+    &:hover,
+    &:focus &:active {
+      height: calc($actual-height + 50px);
+      box-shadow: 0 2px 7px rgba(palette.$ultramarine-blue, 0.4),
+        0 0px 5px rgba(palette.$ultramarine-blue, 0.8);
+      .card__favorite {
+        path {
+          stroke: #e74c3c;
+        }
+      }
     }
+  }
+
+  &--small {
+    // flex: 1 0 100%;
+    $card-height: calc($card-height - 30px);
+    height: $card-height;
     @media (min-width: 768px) {
-        height: calc($card-height - 10px);
-        
+      height: calc($card-height - 65px);
     }
     @media (min-width: 1024px) {
-        flex: 1 1 23%;
-        $actual-height: calc($card-height - 57px);
-        height: $actual-height;
-        transition: height 0.5s;
-        overflow: hidden;
-        &:hover,
-        &:focus
-        &:active {
-            height:calc($actual-height + 50px);
-            box-shadow: 
-            0 2px 7px rgba(palette.$ultramarine-blue, .4),
-            0 0px 5px rgba(palette.$ultramarine-blue, .8);
-            .card__favorite {
-                path {
-                    stroke: #e74c3c;
-                }
-            }
-        }
+      $actual-height: calc($card-height - 35px);
+      height: $actual-height;
+      &:hover,
+      &:focus,
+      &:active {
+        height: calc($actual-height + 45px);
+      }
     }
+  }
+
+  &--thin {
+    max-width: 250px;
+    @media (min-width: 768px) {
+      max-width: 300px;
+    }
+    @media (min-width: 1024px) {
+      max-width: 300px;
+    }
+  }
+
+  &__link-add {
+    order: 4;
+    text-decoration: none;
+    &-icon {
+      margin-right: 0.5rem;
+    }
+  }
+
+  &__article {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    @media (min-width: 1024px) {
+      padding: 0 5px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    max-height: calc($img-container-height - 20px);
+    max-width: 200px;
+    object-fit: contain;
 
     &--small {
-        // flex: 1 0 100%;
-        $card-height: calc($card-height - 30px);
-        height: $card-height;
-        @media (min-width: 768px) {
-            height: calc($card-height - 65px);
-        }
-        @media (min-width: 1024px) {
-            $actual-height: calc($card-height - 35px);
-            height: $actual-height;
-            &:hover,
-            &:focus,
-            &:active {
-                height:calc($actual-height + 45px);
-            }
-        }
+      max-height: calc($img-container-height - 110px);
     }
 
-    &--thin {
-        max-width: 250px;
-        @media (min-width: 768px) {
-            max-width: 300px;
-        }
-        @media (min-width: 1024px) {
-            max-width: 300px;
-        }
-    }
-    
-    &__link-add {
-        order: 4;
-        text-decoration: none;
-        &-icon {
-            margin-right: 0.5rem;
-        }
+    &-link {
+      position: relative;
     }
 
-    &__article {
-        order: 2;
-        display: flex;
-        flex-direction: column;
-        @media (min-width: 1024px) {
-            padding: 0 5px;
-        }
+    &-container {
+      cursor: pointer;
+      position: relative;
+      order: 2;
+      height: $img-container-height;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+      border-bottom: 1px solid rgba(palette.$oxford-blue, 0.4);
+
+      &--small {
+        height: calc($img-container-height - 100px);
+        max-width: 100%;
+      }
+    }
+  }
+
+  &__favorite {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    position: absolute;
+    top: 5px;
+    z-index: 5;
+    right: 5px;
+
+    &:active {
+      transform: scale(1.25);
     }
 
-    &__image {
-        width: 100%;
-        max-height: calc($img-container-height - 20px);
-        max-width: 200px;
-        object-fit: contain;
-
-        &--small {
-            max-height: calc($img-container-height - 110px);
+    @media (min-width: 1024px) {
+      top: 7px;
+      right: 7px;
+    }
+    path {
+      fill: transparent;
+      stroke: #e74c3c;
+      @media (min-width: 1024px) {
+        top: 7px;
+        right: 7px;
+        stroke: transparent;
+        &:hover,
+        &:focus {
+          fill: #e74c3c;
         }
-
-        &-container {
-            cursor: pointer;
-            position: relative;
-            order: 2;
-            height: $img-container-height;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8px;
-            border-bottom: 1px solid rgba(palette.$oxford-blue,0.4);
-
-            &--small {
-                height: calc($img-container-height - 100px);
-                max-width: 100%;
-            }
-            
-        }
+      }
+      &:hover,
+      &:focus {
+        fill: #e74c3c;
+      }
     }
 
-    &__favorite {
-        cursor: pointer;
-        background-color: transparent;
-        border: none;
-        outline: none;
-        position: absolute;
-        top: 5px;
-        z-index: 5;
-        right: 5px;
-
-        &:active {
-            transform: scale(1.25);
-        }
-
-        @media (min-width: 1024px) {
-            top: 7px;
-            right: 7px;
-        }
-        path {
-            fill: transparent;
-            stroke: #e74c3c;
-            @media (min-width: 1024px) {
-                top: 7px;
-                right: 7px;
-                stroke: transparent;
-                &:hover,
-                &:focus {
-                    fill: #e74c3c;
-                }
-            }
-            &:hover,
-            &:focus {
-                fill: #e74c3c;
-            }
-        }
-
-        &--selected {
-            path {
-                stroke: #e74c3c;
-                fill: #e74c3c;
-            }
-        }
+    &--selected {
+      path {
+        stroke: #e74c3c;
+        fill: #e74c3c;
+      }
     }
+  }
 
-    &__content{
-        padding: 8px;
-        order: 4;
-        gap: 4px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-content: center;
+  &__badges-container {
+    pointer-events: none;
+    position: absolute;
+    top: 90%;
+    font-size: 0.8rem;
+    left: 0;
+  }
+
+  &__content {
+    padding: 8px;
+    order: 4;
+    gap: 4px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+
+  &__heading {
+    order: 4;
+    font-size: 16px;
+    flex: 0 1 90%;
+    height: 56px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @media (min-width: 768px) {
+      font-size: 18px;
+      height: 40px;
     }
-
-    &__heading {
-        order: 4;
+    @media (min-width: 1024px) {
+      font-size: 20px;
+      height: 46px;
+    }
+    &--quality {
+      flex: 0 1 100%;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      text-decoration: underline;
+      flex-direction: column;
+    }
+  }
+  &__description {
+    $height: 46px;
+    order: 6;
+    padding: 4px 0;
+    font-size: 12px;
+    flex: 1 1 100%;
+    height: $height;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @media (min-width: 768px) {
+      font-size: 14px;
+      height: calc($height + 6px);
+    }
+    @media (min-width: 1024px) {
+      font-size: 16px;
+      height: calc($height + 14px);
+    }
+    &-long {
+      display: none;
+    }
+    &--large {
+      $height: calc($height + 99px);
+      height: $height;
+      padding: 10px 0 4px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      line-height: 1.4;
+      @media (min-width: 768px) {
+        font-size: 14px;
+        height: calc($height - 60px);
+      }
+      @media (min-width: 1024px) {
         font-size: 16px;
-        flex: 0 1 90%;
-        height: 56px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        @media (min-width: 768px) {
-            font-size: 18px;
-            height: 40px;
-        }
-        @media (min-width: 1024px) {
-            font-size: 20px;
-            height: 46px;
-        }
-        &--quality {
-            flex: 0 1 100%;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            text-decoration: underline;
-            flex-direction: column;
-        }
+        height: calc($height + 40px);
+      }
     }
-    &__description {
-        $height: 46px;
-        order: 6;
-        padding: 4px 0;
-        font-size: 12px;
-        flex: 1 1 100%;
-        height: $height;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        @media (min-width: 768px) {
-            font-size: 14px;
-            height: calc($height + 6px);
-        }
-        @media (min-width: 1024px) {
-            font-size: 16px;
-            height: calc($height + 14px);
-        }
-        &-long {
-            display: none;
-        }
-        &--large {
-            $height: calc($height + 99px);
-            height: $height;
-            padding: 10px 0 4px;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            line-height: 1.4;
-            @media (min-width: 768px) {
-                font-size: 14px;
-                height: calc($height - 60px);
-            }
-            @media (min-width: 1024px) {
-                font-size: 16px;
-                height: calc($height + 40px);
-            }
-        }
-    }
-    &__price {
-        color: palette.$ultramarine-blue;
-        order: 2;
-        align-self: flex-end;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 22px;
-        font-weight: bold;
-        letter-spacing: -1px;
-        flex: 0 1 50%;
-        
-        &::before {
-            content: '$';
-            display: inline-block;
-            padding-right: 4px;
-        }
-        &::after {
-            content: '.00';
-            height: 16px;
-            display: inline-block;
-            font-size: 10px;
-            display: flex;
-            align-items: flex-start;
-            padding-left: 2px;
-        }
+  }
+  &__price {
+    color: palette.$ultramarine-blue;
+    order: 2;
+    align-self: flex-end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    flex: 0 1 50%;
 
-        @media (min-width: 1024px) {
-            font-size: 26px;
-        }
-        &-container {
-            display: flex;
-            flex: 0 1 100%;
-            justify-content: flex-end;
-        }
+    &::before {
+      content: "$";
+      display: inline-block;
+      padding-right: 4px;
     }
-    
+    &::after {
+      content: ".00";
+      height: 16px;
+      display: inline-block;
+      font-size: 10px;
+      display: flex;
+      align-items: flex-start;
+      padding-left: 2px;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 26px;
+    }
+    &-container {
+      display: flex;
+      flex: 0 1 100%;
+      justify-content: flex-end;
+    }
+  }
 }

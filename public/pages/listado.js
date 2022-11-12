@@ -20,10 +20,6 @@ export default class PageListado {
     const params = { skip, limit };
     if (query) params.query = query;
     const searchParams = "?" + new URLSearchParams(params);
-    // let {search} = window.location;
-    // if (!search) {
-    // window.location.search = search;
-    // }
     try {
       const newHTML = await fetch(
         "./api/products/listado/text" + searchParams

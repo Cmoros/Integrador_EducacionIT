@@ -1,0 +1,23 @@
+@use '../abstracts/palette';
+
+.badge {
+  border-radius: 0.5em;
+  padding: 0.4em 0.6em;
+  font-size: 0.75em;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+  display: inline-block;
+  &--year {
+    color: white;
+    background-color: palette.$pacific-blue;
+  }
+  &--month {
+    background-color: palette.$baby-blue-eyes;
+  }
+
+  &--category {
+    color: white;
+    background-color: palette.$dark-pastel-green;
+  }
+}

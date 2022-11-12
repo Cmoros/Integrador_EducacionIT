@@ -1,4 +1,5 @@
 import { altaForm } from "../pages/alta.js";
+import Modal from "./Modal.js";
 import popup from "./popup.js";
 
 export default class ProductsTable {
@@ -12,14 +13,14 @@ export default class ProductsTable {
       if (e.target.dataset.page) {
         e.preventDefault();
         const page = e.target.dataset.page;
-        this.currentPage = page >= 1? page : 1;
+        this.currentPage = page >= 1 ? page : 1;
         this.updateTable(this.calculateSkip(), this.limit);
       } else if (e.target.classList.contains("table-products__btn--edit")) {
         this.form.selectProduct(this.currentProducts[e.target.dataset.id]);
       } else if (e.target.classList.contains("table-products__btn--delete")) {
-        if (confirm("Seguro de borrar el producto " + e.target.dataset.id)) {
+        if (await Modal.init("remove/" + e.target.dataset.id)) {
           const result = await this.deleteProduct(e.target.dataset.id);
-          if (this.checkResultFromFetch(result, 'borrar', 'borró')) {
+          if (this.checkResultFromFetch(result, "borrar", "borró")) {
             this.updateTable(this.calculateSkip(), this.limit);
           }
         }
@@ -40,7 +41,16 @@ export default class ProductsTable {
         (res) => res.text()
       );
       this.container.innerHTML = newHTML;
+      if (
+        this.container.querySelector(".table-products__empty") &&
+        this.currentPage > 1
+      ) {
+        this.currentPage -= 1;
+        this.updateTable();
+      }
     } catch (e) {
+      console.log(e);
+      this.currentProducts = {};
       this.restartTable();
     }
   }
@@ -50,12 +60,12 @@ export default class ProductsTable {
       popup.init(
         `<i class="fa-solid fa-ban"></i>Ups! No se pudo ${text1} el producto`
       );
-      return false
+      return false;
     }
     popup.init(
       `<i class="fa-solid fa-check"></i>Se ${text2} el producto correctamente`
     );
-    return true
+    return true;
   }
 
   calculateSkip() {
@@ -76,6 +86,8 @@ export default class ProductsTable {
       const deletedProduct = await fetch("./api/products/" + id, {
         method: "delete",
       }).then((res) => res.json());
+      delete this.currentProducts[id];
+      if (altaForm.state[1] == id) altaForm.restartForm();
       return deletedProduct;
     } catch (e) {
       console.log(`Hubo un error borrando el producto ${id}. Detalles: ${e}`);

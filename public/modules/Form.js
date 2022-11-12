@@ -70,8 +70,8 @@ export default class Form {
     const inputsWithErrors = this.formTarget.querySelectorAll(
       ".error-display__popup-input-error"
     );
-    console.log(this.inputsToGo);
-    console.log(this.inputsCurrentlyValid);
+    console.log('Validados:',this.inputsCurrentlyValid.size)
+    console.log('Total a Validar:',this.inputsToGo)
     if (
       this.inputsToGo !== this.inputsCurrentlyValid.size ||
       inputsWithErrors.length > 0
@@ -180,6 +180,10 @@ function printDataInfo(data) {
     }
 
     // console.log(`${key.value}: ${value.value}`);
-    console.log(`%c${key.value}: %c${value.value.toString() || value.value}`, styleArg1, styleArg2);
+    console.log(
+      `%c${key.value}: %c${value.value.toString() || value.value}`,
+      styleArg1,
+      styleArg2
+    );
   } while (true);
 }

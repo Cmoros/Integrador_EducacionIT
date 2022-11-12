@@ -1,0 +1,38 @@
+@use "../abstracts/mixins";
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+$spin-size: calc(50px + 1vw);
+
+.spin {
+  border: calc($spin-size / 3) solid #0042a4;
+  border-radius: 50%;
+  border-top: calc($spin-size / 3) solid #3775cf;
+  border-right: calc($spin-size / 3) solid #619bee;
+  border-bottom: calc($spin-size / 3) solid #96bff9;
+  border-left: calc($spin-size / 3) solid #c9e0ff;
+  width: $spin-size;
+  height: $spin-size;
+  animation: spin 1.5s linear infinite;
+  &__container {
+    width: 100%;
+    height: 50vh;
+    @include mixins.display-flex;
+    // background-color: blue;
+  }
+}

@@ -1,4 +1,4 @@
-@use '../abstracts/variables';
+@use "../abstracts/variables";
 
 .listing {
   padding: 2rem 0;
@@ -19,5 +19,11 @@
     &-header {
       margin-bottom: 1rem;
     }
+  }
+
+  &__empty {
+    font-size: calc(1rem + 1vw);
+    text-align: center;
+    width: 100%;
   }
 }

@@ -27,7 +27,7 @@
     // align-items: center;
     display: flex;
     flex-direction: column;
-    gap: 1.7em;
+    gap: 1rem;
     @media (min-width: 768px) {
       display: flex;
       flex-direction: row;
@@ -50,6 +50,10 @@
         .input-group--id {
           padding: 5px;
           max-height: 150px;
+          @media(min-width: 768px) {
+            max-height: 225px;
+
+          }
         }
       }
     }

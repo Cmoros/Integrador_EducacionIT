@@ -2,6 +2,7 @@ let currentPage = [];
 
 class Main {
   constructor() {
+    this.main = document.querySelector("main");
     this.links = document.querySelectorAll(".main-nav__link");
   }
   async start() {
@@ -23,8 +24,9 @@ class Main {
     this.id = this.getIdFromHash();
 
     const viewUrl = this.getApiUrlFromId(this.id);
+    this.main.innerHTML = `<div class="spin__container"><div class="spin"></div></div>"`;
     const viewContent = await this.ajax(viewUrl);
-    document.querySelector("main").innerHTML = viewContent;
+    this.main.innerHTML = viewContent;
     if (this.error404) {
       document.title = "404 - Juguetería Cósmica";
       this.deactiveActiveLink();
@@ -101,4 +103,4 @@ class Main {
 const main = new Main();
 main.start();
 
-export {currentPage};
+export { currentPage };

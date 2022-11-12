@@ -11,15 +11,14 @@ export default class Product {
     this.minAge = obj.minAge;
     this.maxAge = obj.maxAge;
     this.profileImageUrl = obj.profileImageUrl;
-    this.imagesUrls = [
-      { imageUrl: obj.profileImageUrl },
-      { imageUrl: obj.profileImageUrl },
-      {
-        imageUrl:
-          "https://http2.mlstatic.com/D_NQ_NP_811576-MLA46847351192_072021-O.webp",
-      },
-      ...(obj.imagesUrls || []),
-    ];
+    if (obj.imagesUrls) {
+      this.imagesUrls = obj.imagesUrls.reduce((acc, image) => {
+        acc.push({ imageUrl: image });
+        return acc;
+      }, []);
+    } else {
+      this.imagesUrls = initial;
+    }
     this.shipping = obj.shipping || "false";
     this.shortDescription = obj.shortDescription;
     this.longDescription = obj.longDescription || "";

@@ -3,7 +3,7 @@
 <div class="listing__products-container">
   <header class="listing__products-header">
     <div class="products-header">
-      <strong class="products-header__title">{{len}} productos encontrados
+      <strong class="products-header__title">{{len}} productos encontrados {{#if query}}para "{{query}}"{{/if}}
       </strong>
       <select class="products-header__select">
         <option class="products-header__option" selected>Más nuevo</option>
@@ -31,17 +31,14 @@
 
           <p class="card-product-list__price">{{price}}</p>
 
-          <p class="card-product-list__tags-container">
-            <span class="tag"> <i class="fa fa-check"></i> Verified</span>
-            <span class="tag"> 5 Years </span>
-            <span class="tag"> 80 reviews </span>
-            <span class="tag"> Russia </span>
+          <p class="card-product-list__badges-container">
+            {{> components/badges}}
           </p>
 
           <p class="card-product-list__description">
             {{shortDescription}}
           </p>
-          <p class="card-product-list__description">
+          <p class="card-product-list__description card-product-list__description--long">
             {{longDescription}}
           </p>
 
@@ -57,5 +54,5 @@
 
 </div>
 {{else}}
-<p>No se encontraron productos</p>
+<p class="listing__empty">No se encontraron productos {{#if query}}para "{{query}}"{{/if}}</p>
 {{/if}}

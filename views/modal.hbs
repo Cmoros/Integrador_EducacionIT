@@ -1,0 +1,16 @@
+<div class="modal">
+  <button class="modal__close-btn fa-solid fa-xmark"></button>
+  <div class="modal__content">
+    <h3 class="modal__text">{{text}}</h3>
+    <p>{{product.id}}</p>
+    <p>{{product.name}}</p>
+    <div class="modal__img-container">
+      <img class="modal__img" src="{{product.profileImageUrl}}" alt="{{product.name}}" />
+    </div>
+    <div class="modal__btns-container">
+      {{#if confirm}}
+      <button class="btn btn--success">Confirmar</button>
+      {{/if}}
+    </div>
+  </div>
+</div>

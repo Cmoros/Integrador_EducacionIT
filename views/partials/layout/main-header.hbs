@@ -4,21 +4,21 @@
   id="main-nav-toggle"
   aria-hidden="true"
   tabindex="-1"
->
+/>
 <input
   type="checkbox"
   class="main-nav-search-form-toggle"
   id="main-nav-search-form-toggle"
   aria-hidden="true"
   tabindex="-1"
->
+/>
 <input
   type="checkbox"
   class="cart-modal-toggle"
   id="cart-modal-toggle"
   aria-hidden="true"
   tabindex="-1"
->
+/>
 <div class="message-container">
   <div class="message">
     <div class="message__alerts-container"></div>
@@ -35,12 +35,16 @@
       src="./img/logo-rocket.png"
       alt="juguetería cósmica logo"
       class="main-header__logo"
-    >
+      height="60"
+      width="60"
+    />
     <img
       src="./img/logo-txt.png"
       alt="juguetería cósmica título"
       class="main-header__logo-text"
-    >
+      height="40"
+      width="110"
+    />
   </a>
   <div class="main-header__search-form-container">
     <form action="#/listado" class="search-form">
@@ -51,7 +55,7 @@
           class="search-form__input"
           placeholder="Encuentra tu juguete"
           id="search-form__input"
-        >
+        />
       </div>
       <label for="search-form__input" class="search-form__label">
         <svg
@@ -74,16 +78,17 @@
           </g>
         </svg>
       </label>
-      <input type="submit" value="" class="search-form__submit" data-input="submit">
+      <input
+        type="submit"
+        value=""
+        class="search-form__submit"
+        data-input="submit"
+      />
     </form>
   </div>
   <div class="main-header__cart-button-container">
-    <label
-      class="cart-button"
-      for="cart-modal-toggle"
-      tabindex="0"
-    >
-    <span class="cart-button__bubble">0</span>
+    <label class="cart-button" for="cart-modal-toggle" tabindex="0">
+      <span class="cart-button__bubble">0</span>
       <svg
         class="cart-button__icon-white"
         xmlns="http://www.w3.org/2000/svg"
@@ -119,9 +124,7 @@
     <div class="cart-window">
       <div class="cart-window__wrapper">
         <h2 class="cart-window__title">Tus Productos</h2>
-        <button class="cart-window__close-button"><i
-            class="fa-solid fa-xmark cart-window__close-button-icon"
-          ></i></button>
+        <button class="fa-solid fa-xmark cart-window__close-button"></button>
         <div class="cart-window__products">
 
         </div>
@@ -156,126 +159,27 @@
       <ul class="main-nav__list">
         <li class="main-nav__item">
           <a href="#/home" class="main-nav__link">
-            <span class="main-nav__link-icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                version="1.1"
-                x="0px"
-                y="0px"
-                width="460.298px"
-                height="460.297px"
-                viewBox="0 0 460.298 460.297"
-                style=" enable-background: new 0 0 460.298 460.297; "
-                xml:space="preserve"
-              >
-                <g>
-                  <g>
-                    <path
-                      d="M230.149,120.939L65.986,256.274c0,0.191-0.048,0.472-0.144,0.855c-0.094,0.38-0.144,0.656-0.144,0.852v137.041    c0,4.948,1.809,9.236,5.426,12.847c3.616,3.613,7.898,5.431,12.847,5.431h109.63V303.664h73.097v109.64h109.629    c4.948,0,9.236-1.814,12.847-5.435c3.617-3.607,5.432-7.898,5.432-12.847V257.981c0-0.76-0.104-1.334-0.288-1.707L230.149,120.939    z"
-                    ></path>
-                    <path
-                      d="M457.122,225.438L394.6,173.476V56.989c0-2.663-0.856-4.853-2.574-6.567c-1.704-1.712-3.894-2.568-6.563-2.568h-54.816    c-2.666,0-4.855,0.856-6.57,2.568c-1.711,1.714-2.566,3.905-2.566,6.567v55.673l-69.662-58.245    c-6.084-4.949-13.318-7.423-21.694-7.423c-8.375,0-15.608,2.474-21.698,7.423L3.172,225.438c-1.903,1.52-2.946,3.566-3.14,6.136    c-0.193,2.568,0.472,4.811,1.997,6.713l17.701,21.128c1.525,1.712,3.521,2.759,5.996,3.142c2.285,0.192,4.57-0.476,6.855-1.998    L230.149,95.817l197.57,164.741c1.526,1.328,3.521,1.991,5.996,1.991h0.858c2.471-0.376,4.463-1.43,5.996-3.138l17.703-21.125    c1.522-1.906,2.189-4.145,1.991-6.716C460.068,229.007,459.021,226.961,457.122,225.438z"
-                    ></path>
-                  </g>
-                </g>
-              </svg>
-            </span>
+            <i class="fa-solid fa-house main-nav__link-icon"></i>
             <span class="main-nav__link-text">Inicio</span>
           </a>
         </li>
         <li class="main-nav__item">
           <a href="#/alta" class="main-nav__link">
-            <span class="main-nav__link-icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                data-name="Layer 1"
-                viewBox="0 0 128 128"
-              ><defs><style
-                  >.cls-1{fill:#2e79bd;}.cls-2{fill:#2d3e50;}</style></defs><title
-                >b</title><path
-                  class="cls-1"
-                  d="M46.28325,57.0136H25.581a2.30233,2.30233,0,1,0,0,4.60466H46.28325a2.30233,2.30233,0,1,0,0-4.60466Z"
-                ></path><path
-                  class="cls-1"
-                  d="M79.11954,61.61826a2.30233,2.30233,0,0,0,0-4.60466H57.457a2.30233,2.30233,0,0,0-.00033,4.60466Z"
-                ></path><path
-                  class="cls-1"
-                  d="M46.28325,92.84847H25.581a2.30224,2.30224,0,1,0,0,4.60448H46.28325a2.30224,2.30224,0,1,0,0-4.60448Z"
-                ></path><path
-                  class="cls-1"
-                  d="M55.154,95.1524a2.3011,2.3011,0,0,0,2.30378,2.29887H77.28l-.07844-4.60262H57.45777A2.30737,2.30737,0,0,0,55.154,95.1524Z"
-                ></path><path
-                  class="cls-1"
-                  d="M46.28325,74.931H25.581a2.30239,2.30239,0,1,0,0,4.60478H46.28325a2.30239,2.30239,0,0,0,0-4.60478Z"
-                ></path><path
-                  class="cls-1"
-                  d="M81.4218,77.23337a2.305,2.305,0,0,0-2.30225-2.3024H57.457a2.30239,2.30239,0,0,0-.00033,4.60478H79.11954A2.30493,2.30493,0,0,0,81.4218,77.23337Z"
-                ></path><path
-                  class="cls-2"
-                  d="M95.58765,98.85317v12.19039a3.55521,3.55521,0,0,1-3.55369,3.54879H13.00474a3.55521,3.55521,0,0,1-3.55369-3.54879V39.74912H24.29322A11.5181,11.5181,0,0,0,35.79739,28.24494V13.40278H92.034a3.55625,3.55625,0,0,1,3.55369,3.55369V59.9586l7.95048-12.36194V16.95647A11.5118,11.5118,0,0,0,92.034,5.45229H31.82217a4.00894,4.00894,0,0,0-2.81845,1.16659l-6.75448,6.78389L9.45105,26.25978,3.28968,32.45056a3.97661,3.97661,0,0,0-1.78911,3.32333v75.26966a11.51807,11.51807,0,0,0,11.50418,11.50415H92.034a11.51492,11.51492,0,0,0,11.50418-11.50415V86.80982L96.78856,97.30423A11.26152,11.26152,0,0,1,95.58765,98.85317Z"
-                ></path><path
-                  class="cls-1"
-                  d="M81.59843,91.93l.12368,7.28135L80.746,100.729a1.0326,1.0326,0,1,0,1.73688,1.11729l.97623-1.51755,6.67706-2.907a6.65935,6.65935,0,0,0,2.9426-2.50333l28.497-44.30353a6.1963,6.1963,0,0,0-10.42264-6.7041l-28.497,44.30353A6.65958,6.65958,0,0,0,81.59843,91.93Z"
-                ></path><path
-                  class="cls-1"
-                  d="M125.78824,52.65782a1.54893,1.54893,0,0,0-2.14064.46476L109.67973,74.838a1.54894,1.54894,0,0,0,2.60544,1.67588L126.253,54.79847A1.54894,1.54894,0,0,0,125.78824,52.65782Z"
-                ></path></svg>
-            </span>
+            <i class="fa-solid fa-clipboard main-nav__link-icon"></i>
             <span class="main-nav__link-text">Alta</span>
           </a>
         </li>
         <li class="main-nav__item">
           <a href="#/contacto" class="main-nav__link">
-            <span class="main-nav__link-icon main-nav__link-icon--contacto">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 47.25 32"
-              ><defs><style
-                  >.cls-1{fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}</style></defs><title
-                >Asset 16</title><g data-name="Layer 2"><g
-                    data-name="Layer 2"
-                  ><rect
-                      class="cls-1"
-                      x="1"
-                      y="1"
-                      width="45.25"
-                      height="30"
-                      rx="1"
-                    ></rect><path
-                      class="cls-1"
-                      d="M46.25,2l-22,17.78a1,1,0,0,1-1.29,0L1,2"
-                    ></path><line
-                      class="cls-1"
-                      x1="45.5"
-                      y1="31"
-                      x2="28.95"
-                      y2="16"
-                    ></line><line
-                      class="cls-1"
-                      x1="2"
-                      y1="31"
-                      x2="18"
-                      y2="16.5"
-                    ></line></g></g></svg>
-            </span>
+            <i
+              class="fa-solid fa-envelope main-nav__link-icon main-nav__link-icon--contacto"
+            ></i>
             <span class="main-nav__link-text">Contacto</span>
           </a>
         </li>
         <li class="main-nav__item">
           <a href="#/nosotros" class="main-nav__link">
-            <span class="main-nav__link-icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                data-name="Layer 1"
-                viewBox="0 0 25 25"
-              ><title>Group People</title><path
-                  id="Group_People"
-                  data-name="Group People"
-                  d="M16.75,19H16v5.5a.5.5,0,0,1-.5.5h-6a.5.5,0,0,1-.5-.5V19H8.25A1.25,1.25,0,0,1,7,17.75v-3.5a4.25,4.25,0,0,1,3.23-4.11,3.5,3.5,0,1,1,4.55,0A4.25,4.25,0,0,1,18,14.25v3.5A1.25,1.25,0,0,1,16.75,19ZM6,17.75v-3.5A5.23,5.23,0,0,1,8.6,9.73a4.27,4.27,0,0,1-.41-3.45,4.39,4.39,0,0,0-.43-.14,3.5,3.5,0,1,0-4.55,0A4.25,4.25,0,0,0,0,10.25v3.5A1.25,1.25,0,0,0,1.24,15H2v5.5a.5.5,0,0,0,.5.5h5a.5.5,0,0,0,.5-.5V20A2.25,2.25,0,0,1,6,17.75ZM21.77,6.14a3.5,3.5,0,1,0-4.54,0,4.32,4.32,0,0,0-.42.14,4.27,4.27,0,0,1-.41,3.45A5.23,5.23,0,0,1,19,14.25v3.5A2.25,2.25,0,0,1,17,20v.51a.5.5,0,0,0,.5.5h5a.5.5,0,0,0,.5-.5V15h.75A1.25,1.25,0,0,0,25,13.75v-3.5A4.25,4.25,0,0,0,21.77,6.14Z"
-                  fill="#0e1d25"
-                ></path></svg>
-            </span>
+            <i class="fa-solid fa-users main-nav__link-icon"></i>
             <span class="main-nav__link-text">Nosotros</span>
           </a>
         </li>
