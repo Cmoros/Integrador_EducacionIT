@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { unlink } from "fs";
 
 const productSquema = mongoose.Schema({
   name: {
@@ -48,7 +49,6 @@ const productSquema = mongoose.Schema({
   ],
   shipping: {
     type: Boolean,
-    default: false,
   },
   shortDescription: {
     type: String,
@@ -72,8 +72,8 @@ const productSquema = mongoose.Schema({
   },
 });
 
-productSquema.pre("save", function () {
-  console.log("pre-save");
+productSquema.pre("validate", function () {
+  console.log("pre-validate");
   if (!this.imagesUrls || !Array.isArray(this.imagesUrls)) {
     this.imagesUrls = [
       // Para el caso de tener inicialmente algo en el imageUrls, que se arregló después en el controller
@@ -81,7 +81,9 @@ productSquema.pre("save", function () {
     ];
     return;
   }
+  console.log("this", this);
   this.shipping &&= true;
+  this.shipping ||= false;
 });
 
 productSquema.pre("findOneAndUpdate", function () {
@@ -96,6 +98,25 @@ productSquema.pre("findOneAndUpdate", function () {
   //     stock: -1,
   //   };
   // }
+});
+
+productSquema.post("findOneAndDelete", function (doc) {
+  console.log("Documento a eliminar:", doc);
+  if (doc.profileImageUrl.includes("uploads")) {
+    unlink("./public/" + doc.profileImageUrl, (err) => {
+      if (err) return console.log(err);
+      console.log("Eliminado", doc.profileImageUrl);
+    });
+  }
+
+  for (const image of doc.imagesUrls) {
+    const { imageUrl } = image;
+    if (!imageUrl.includes("uploads")) continue;
+    unlink("./public/" + doc.profileImageUrl, (err) => {
+      if (err) return console.log(err);
+      console.log("Eliminado", imageUrl);
+    });
+  }
 });
 
 export default mongoose.model("product", productSquema);

@@ -67,6 +67,7 @@ export default class ProductController {
       return;
     }
     const product = req.body;
+    console.log('🚀 ~ ProductController ~ postProduct= ~ product', product);
     handleReqFiles(req.files, product);
     res.status(201).json(await this.api.postProduct(product));
   };
@@ -102,7 +103,8 @@ function handleReqFiles(files, product) {
   if (!files) return;
   const { profileImageUrl, imagesUrls } = files;
   if (profileImageUrl) {
-    product.profileImageUrl = config.IMAGE_ROUTE + profileImageUrl[0].filename;
+    product.profileImageUrl =
+      config.IMAGE_ROUTE_UPLOADS + profileImageUrl[0].filename;
   }
   if (imagesUrls) {
     product.imagesUrls = [
@@ -110,7 +112,7 @@ function handleReqFiles(files, product) {
     ];
     for (const file of imagesUrls) {
       product.imagesUrls.push({
-        imageUrl: config.IMAGE_ROUTE + file.filename,
+        imageUrl: config.IMAGE_ROUTE_UPLOADS + file.filename,
       });
     }
   }

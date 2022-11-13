@@ -5,7 +5,7 @@ const lastImageName = ["idDefault"];
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     const error = null;
-    cb(error, "./public/img/productos");
+    cb(error, "./public/img/productos/uploads");
   },
   filename: function (req, file, cb) {
     const error = null;

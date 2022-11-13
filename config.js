@@ -13,5 +13,5 @@ export default {
   MONGODB_CONNECTION_STR:
     "mongodb+srv://cmoros:ecommerce123@jcosmicadb.zrjnr6g.mongodb.net/ecommerce?retryWrites=true&w=majority",
   MONGODB_TIMEOUT: 2000,
-  IMAGE_ROUTE: "./img/productos/",
+  IMAGE_ROUTE_UPLOADS: "./img/productos/uploads/",
 };
