@@ -19,7 +19,9 @@
         <td data-product-property="id" class="table-products__td table-products__td--id">{{id}}</td>
         <td data-product-property="profileImageUrl" class="table-products__td table-products__td--image"><img
             class="table-products__image" src="{{profileImageUrl}}" alt="{{name}}"></td>
-        <td data-product-property="name" class="table-products__td table-products__td--name">{{name}}</td>
+        <td data-product-property="name" class="table-products__td table-products__td--name">
+          <a href="/#/products/{{id}}" class="table-products__link">{{name}}</a>
+          </td>
         <td data-product-property="price" class="table-products__td table-products__td--price">{{price}}</td>
         <td data-product-property="shortDescription" class="table-products__td table-products__td--description">
           {{shortDescription}}</td>

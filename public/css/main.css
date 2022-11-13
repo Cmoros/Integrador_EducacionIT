@@ -437,11 +437,11 @@ body {
     opacity: 1;
     transform: translateY(0) translateX(-50%);
   }
-  25% {
+  20% {
     transform: translateY(250%) translateX(-50%);
     opacity: 1;
   }
-  74% {
+  80% {
     transform: translateY(250%) translateX(-50%);
     opacity: 1;
   }
@@ -1596,6 +1596,12 @@ body {
     width: 50%;
   }
 }
+.solo-product__shipping {
+  color: rgb(71, 194, 60);
+  justify-self: flex-start;
+  margin: auto;
+  align-self: center;
+}
 .solo-product__ppal-image {
   text-align: center;
   max-width: 100%;
@@ -1621,19 +1627,19 @@ body {
   max-width: 100%;
   color: #0d6efd;
   text-decoration: none;
-  min-height: 350px;
+  height: 350px;
   max-height: 350px;
 }
 @media (min-width: 768px) {
   .solo-product__ppal-image-link {
-    min-height: 400px;
+    height: 400px;
     max-height: 400px;
   }
 }
 @media (min-width: 992px) {
   .solo-product__ppal-image-link {
     order: 2;
-    min-height: 450px;
+    height: 450px;
     max-height: 450px;
   }
 }
@@ -1913,6 +1919,7 @@ body {
   align-items: center;
   gap: calc(1rem + 1vw);
   padding: 1rem 0;
+  position: relative;
 }
 .table-products__wrapper-wrapper {
   max-width: 1180px;
@@ -1929,6 +1936,13 @@ body {
   max-height: 0;
   width: 100%;
   overflow-y: hidden;
+}
+.table-products__link {
+  text-decoration: none;
+  color: inherit;
+}
+.table-products__link:hover {
+  text-decoration: underline;
 }
 .table-products__th {
   padding: 0.75rem;
@@ -2256,6 +2270,9 @@ body {
   font-size: 1.25rem;
   padding: 0.75rem 1rem;
 }
+.btn .fa-solid {
+  pointer-events: none;
+}
 
 .card {
   flex: 1 1 40%;
@@ -2494,6 +2511,16 @@ body {
     font-size: 16px;
     height: 185px;
   }
+}
+.card__shipping {
+  color: rgb(71, 194, 60);
+  justify-self: flex-start;
+  margin: 0 auto 0 0.5rem;
+  align-self: center;
+  font-size: 0.75em;
+}
+.card__shipping i {
+  font-size: 1rem;
 }
 .card__price {
   color: rgb(75, 93, 225);
@@ -3365,23 +3392,35 @@ body {
   }
 }
 .spin {
-  border: calc((50px + 1vw) / 3) solid #0042a4;
+  border: calc((50px + 1vw) / 3) solid #4b5de1;
   border-radius: 50%;
-  border-top: calc((50px + 1vw) / 3) solid #3775cf;
-  border-right: calc((50px + 1vw) / 3) solid #619bee;
-  border-bottom: calc((50px + 1vw) / 3) solid #96bff9;
-  border-left: calc((50px + 1vw) / 3) solid #c9e0ff;
+  border-top: calc((50px + 1vw) / 3) solid rgba(75, 93, 225, 0.9);
+  border-right: calc((50px + 1vw) / 3) solid rgba(75, 93, 225, 0.8);
+  border-bottom: calc((50px + 1vw) / 3) solid rgba(75, 93, 225, 0.7);
+  border-left: calc((50px + 1vw) / 3) solid rgba(75, 93, 225, 0.6);
   width: calc(50px + 1vw);
   height: calc(50px + 1vw);
   animation: spin 1.5s linear infinite;
 }
 .spin__container {
+  top: 0;
+  right: 0;
   width: 100%;
-  height: 50vh;
+  height: 100%;
+  position: absolute;
+  z-index: 25;
+  background-color: rgba(255, 255, 255, 0.2);
+  pointer-events: none;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+body > .spin__container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
 }
 
 /*# sourceMappingURL=main.css.map */

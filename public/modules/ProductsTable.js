@@ -1,6 +1,7 @@
 import { altaForm } from "../pages/alta.js";
 import Modal from "./Modal.js";
 import popup from "./popup.js";
+import Spin from "./Spin.js";
 
 export default class ProductsTable {
   constructor(tableProductsContainer) {
@@ -30,6 +31,7 @@ export default class ProductsTable {
 
   async updateTable(skip = this.calculateSkip(), limit = this.limit) {
     const query = new URLSearchParams({ skip, limit });
+    Spin.init(this.container);
     try {
       const newProducts = await fetch(
         "./api/products/table/json?" + query
@@ -53,6 +55,7 @@ export default class ProductsTable {
       this.currentProducts = {};
       this.restartTable();
     }
+    Spin.remove();
   }
 
   checkResultFromFetch(result, text1, text2) {
@@ -82,17 +85,20 @@ export default class ProductsTable {
   }
 
   async deleteProduct(id) {
+    Spin.init();
+    let deletedProduct;
     try {
-      const deletedProduct = await fetch("./api/products/" + id, {
+      deletedProduct = await fetch("./api/products/" + id, {
         method: "delete",
       }).then((res) => res.json());
       delete this.currentProducts[id];
       if (altaForm.state[1] == id) altaForm.restartForm();
-      return deletedProduct;
     } catch (e) {
       console.log(`Hubo un error borrando el producto ${id}. Detalles: ${e}`);
-      return {};
+      deletedProduct = {};
     }
+    Spin.remove();
+    return deletedProduct;
   }
 
   async modifyProduct(id) {}

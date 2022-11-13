@@ -1,4 +1,5 @@
 import popup from "./popup.js";
+import Spin from "./Spin.js";
 
 export default class Cart {
   constructor(cartCheckboxToggle, cartButton, cartWindow) {
@@ -17,7 +18,7 @@ export default class Cart {
     this.bubble = document.querySelector(".cart-button__bubble");
     this.subtotal = 0;
 
-    document.addEventListener("click", (e) => {
+    document.addEventListener("click", async (e) => {
       if (
         e.target.classList.contains("cart-window") ||
         e.target.classList.contains("cart-window__close-button")
@@ -36,6 +37,13 @@ export default class Cart {
           this.removeProduct(productId);
         }
         this.updateLocalStorage();
+      }
+      if (e.target.classList.contains("cart-window__submit")) {
+        e.preventDefault();
+        Spin.init();
+        const success = await this.completeSale();
+        Spin.remove();
+        success === true && this.restart();
       }
     });
     document.addEventListener("keydown", (e) => {
@@ -233,14 +241,59 @@ export default class Cart {
     this.cartProductsContainer.innerHTML = "";
     this.subtotal = 0;
     this.numberOfProducts = 0;
+    this.updateSubtotal();
     this.updateBubble();
   }
 
   updateBubble() {
+    this.numberOfProducts = this.countProducts();
+    this.bubble.innerHTML = this.numberOfProducts;
+  }
+
+  countProducts() {
     let numberOfProducts = 0;
     for (const id in this.products) {
       numberOfProducts += this.products[id].quantity;
     }
-    this.bubble.innerHTML = numberOfProducts;
+    return numberOfProducts;
+  }
+
+  async completeSale() {
+    if (this.countProducts() == 0) {
+      popup.init(
+        `<i class="fa-solid fa-cart-plus"></i>Ups! No hay productos en el carrito`
+      );
+      return false;
+    }
+    const finalProducts = { products: [] };
+    for (const id in this.products) {
+      const quantity = this.products[id].quantity;
+      if (isNaN(quantity) || quantity <= 0) continue;
+      finalProducts.products.push({
+        product: id,
+        quantity,
+      });
+    }
+    try {
+      const result = await fetch("/api/cart/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(finalProducts),
+      }).then((res) => res.json());
+      if (Object.keys(result).length == 0) throw new Error();
+      popup.init(
+        `<i class="fa-solid fa-truck"></i>Compra exitosa! Los productos ya van en camino!`,
+        5
+      );
+      return true;
+    } catch (e) {
+      console.log("Error realizando la compra:", e);
+      popup.init(
+        `<i class="fa-solid fa-ban"></i>Algo salio mal en la compra. Intente mas tarde`
+      );
+      return false;
+    }
   }
 }

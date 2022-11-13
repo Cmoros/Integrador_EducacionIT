@@ -8,10 +8,12 @@ const productSquema = mongoose.Schema({
   price: {
     type: Number,
     required: true,
+    min: 0,
   },
   stock: {
     type: Number,
     required: true,
+    min: 0,
   },
   brand: {
     type: String,
@@ -74,7 +76,8 @@ productSquema.pre("save", function () {
   console.log("pre-save");
   if (!this.imagesUrls || !Array.isArray(this.imagesUrls)) {
     this.imagesUrls = [
-      /*{ imageUrl: this.profileImageUrl }*/
+      // Para el caso de tener inicialmente algo en el imageUrls, que se arregló después en el controller
+      // { imageUrl: this.profileImageUrl }
     ];
     return;
   }
@@ -83,7 +86,16 @@ productSquema.pre("save", function () {
 
 productSquema.pre("findOneAndUpdate", function () {
   console.log("pre-findOneAndUpdate");
-  this._update.$set.shipping &&= true;
+  if (this._update.$set) {
+    this._update.$set.shipping &&= true;
+  }
+  // Solamente por las dudas
+  // if (this.stock == -1) {
+  //   delete this.stock;
+  //   this.$inc = {
+  //     stock: -1,
+  //   };
+  // }
 });
 
 export default mongoose.model("product", productSquema);

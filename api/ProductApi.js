@@ -53,7 +53,8 @@ export default class ProductApi {
   // }
 
   async getHTMLManyProducts(reqQuery) {
-    let { skip, limit, query } = reqQuery;
+    let { skip, limit, query, order } = reqQuery;
+    const orderFormatted = getOrderFormatted(order);
     const queryFromReq = query;
     [skip, limit] = [+skip, +limit];
     query = getQueryObjectFromSearch(query);
@@ -63,12 +64,14 @@ export default class ProductApi {
       skip,
       limit,
       query,
+      order: orderFormatted,
     });
 
     return {
       query: queryFromReq,
       layout: false,
       products,
+      order,
       ...getPaginationHbsObj(skip, limit, len),
     };
   }
@@ -115,4 +118,19 @@ function getQueryObjectFromSearch(query) {
       { shortDescription: regExpName },
     ],
   };
+}
+
+function getOrderFormatted(order) {
+  // console.log(order)
+  if (!order) {
+    console.log("order vacío");
+    return {};
+  }
+  const splitted = order.split(":");
+  const orderFormatted = {};
+  for (let i = 0; i < splitted.length; i += 2) {
+    const [name, value] = [splitted[i], splitted[i + 1]];
+    orderFormatted[name] = value;
+  }
+  return orderFormatted;
 }

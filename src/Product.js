@@ -17,7 +17,7 @@ export default class Product {
         return acc;
       }, []);
     } else {
-      this.imagesUrls = initial;
+      this.imagesUrls = [];
     }
     this.shipping = obj.shipping || "false";
     this.shortDescription = obj.shortDescription;

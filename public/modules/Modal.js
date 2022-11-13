@@ -1,3 +1,5 @@
+import Spin from "./Spin.js";
+
 let modalBG;
 const body = document.querySelector("body");
 
@@ -26,9 +28,11 @@ export default class Modal {
         resolve(true);
       }
     });
+    Spin.init();
     fetch("/api/page/modal/" + url)
       .then((res) => res.text())
       .then((text) => (modalBG.innerHTML = text));
+    Spin.remove();
     body.append(modalBG);
   }
 

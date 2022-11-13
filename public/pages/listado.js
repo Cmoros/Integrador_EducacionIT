@@ -14,10 +14,21 @@ export default class PageListado {
         this.init(this.calculateSkip(), this.limit);
       }
     });
+    this.container.addEventListener("change", (e) => {
+      if (e.target.classList.contains("products-header__select")) {
+        this.currentPage = 1;
+        const order = this.getOrder();
+        this.init(this.calculateSkip(), this.limit, order);
+      }
+    });
   }
 
-  async init(skip = this.initialSkip, limit = this.limit) {
-    const params = { skip, limit };
+  async init(
+    skip = this.initialSkip,
+    limit = this.limit,
+    order = "sponsored:-1"
+  ) {
+    const params = { skip, limit, order };
     if (query) params.query = query;
     const searchParams = "?" + new URLSearchParams(params);
     try {
@@ -28,6 +39,11 @@ export default class PageListado {
     } catch (e) {
       console.log(e);
     }
+  }
+
+  getOrder() {
+    const select = document.querySelector(".products-header__select");
+    return select?.value || "sponsored:-1";
   }
 
   calculateSkip() {

@@ -12,9 +12,6 @@ export default class ProductRouter {
     this.router.get("/:id/cart/:format?", this.controller.getCartProduct);
     this.router.get("/table/:format", this.controller.getTableProducts);
     this.router.get("/listado/:format", this.controller.getListadoProducts);
-    // this.router.get("/sponsored/:n?", this.controller.getSponsored)
-    // this.router.get("/popular/:n?", this.controller.getPopular)
-    // this.router.get("/newest/:n?", this.controller.getNewest)
     this.router.get("*", this.controller.get404.bind(this.controller));
     this.router.post(
       "/:id",
@@ -49,10 +46,10 @@ const imagesFields = [
 
 async function handleImagesFields(req, res, next) {
   const fields = getCurrentFields(req, imagesFields);
-  if (!fields.length) {
-    next();
-    return;
-  }
+  // if (!fields.length) {
+  //   next();
+  //   return;
+  // }
   upload.fields(fields)(req, res, next);
 }
 

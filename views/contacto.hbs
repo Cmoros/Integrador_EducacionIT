@@ -8,7 +8,7 @@
   </div>
 </div>
 <div class="main-form-container">
-  <form action="post" class="main-form" autocomplete="off">
+  <form action="/api/contact/" method="post" class="main-form" autocomplete="off">
     <h2 class="main-form__title">
       Contacto
     </h2>
@@ -19,7 +19,7 @@
         </label>
         <input
           type="text"
-          name="contact-name"
+          name="name"
           id="contact-name"
           class="input-group__input"
           placeholder="José"
@@ -33,7 +33,7 @@
         </label>
         <input
           type="text"
-          name="contact-last-name"
+          name="lastName"
           id="contact-last-name"
           class="input-group__input"
           placeholder="Patiño"
@@ -49,7 +49,7 @@
         </label>
         <input
           type="email"
-          name="contact-email"
+          name="email"
           id="contact-email"
           class="input-group__input"
           placeholder="miemail@gmail.com"
@@ -62,10 +62,10 @@
         </label>
         <input
           type="tel"
-          name="contact-phone-number"
+          name="phoneNumber"
           id="contact-phone-number"
           class="input-group__input"
-          placeholder="+5491112345678"
+          placeholder="5491112345678"
         >
       </div>
     </div>
@@ -75,7 +75,7 @@
           Comentarios:<sup class="required">*</sup>
         </label>
         <textarea
-          name="contact-message"
+          name="message"
           id="contact-message"
           cols="30"
           rows="8"

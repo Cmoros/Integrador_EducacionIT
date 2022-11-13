@@ -40,6 +40,17 @@
     }
   }
 
+  &__shipping {
+    color: palette.$dark-pastel-green;
+    justify-self: flex-start;
+    margin: auto;
+    align-self: center;
+    // font-size: 0.75em;
+    // i {
+    //   font-size: 1rem;
+    // }
+  }
+
   &__ppal-image {
     text-align: center;
     max-width: 100%;
@@ -65,16 +76,16 @@
       max-width: 100%;
       color: #0d6efd;
       text-decoration: none;
-      min-height: 350px;
+      height: 350px;
       max-height: 350px;
 
       @media (min-width: 768px) {
-        min-height: 400px;
+        height: 400px;
         max-height: 400px;
       }
       @media (min-width: 992px) {
         order: 2;
-        min-height: 450px;
+        height: 450px;
         max-height: 450px;
       }
     }
@@ -118,7 +129,7 @@
   }
 
   &__brand {
-    padding: 0 0 0.5rem 0 ;
+    padding: 0 0 0.5rem 0;
   }
 
   &__description {

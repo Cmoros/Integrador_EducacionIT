@@ -6,10 +6,12 @@
       <strong class="products-header__title">{{len}} productos encontrados {{#if query}}para "{{query}}"{{/if}}
       </strong>
       <select class="products-header__select">
-        <option class="products-header__option" selected>Más nuevo</option>
-        <option class="products-header__option">Más popular</option>
-        <option class="products-header__option">Más recomendado</option>
-        <option class="products-header__option">Más barato</option>
+        <option class="products-header__option" {{#ifCond order '==' "sponsored:-1"}} selected {{/ifCond}} value="sponsored:-1">Más recomendado</option>
+        <option class="products-header__option" {{#ifCond order '==' "date:-1"}} selected {{/ifCond}} value="date:-1">Más nuevo</option>
+        <option class="products-header__option" {{#ifCond order '==' "visits:-1"}} selected {{/ifCond}} value="visits:-1">Más popular</option>
+        <option class="products-header__option" {{#ifCond order '==' "price:1"}} selected {{/ifCond}} value="price:1">Más barato</option>
+        <option class="products-header__option" {{#ifCond order '==' "typeAge:1:minAge:1"}} selected {{/ifCond}} value="typeAge:1:minAge:1">Menor Edad</option>
+        <option class="products-header__option" {{#ifCond order '==' "typeAge:-1:minAge:-1"}} selected {{/ifCond}} value="typeAge:-1:minAge:-1">Mayor Edad</option>
       </select>
     </div>
   </header>

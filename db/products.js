@@ -335,4 +335,206 @@ export default [
     sponsored: false,
     date: new Date("2023-08-04"),
   }),
+  new Product({
+    name: "Muñeca Kiara Y Su Bicicleta",
+    price: 1928,
+    stock: 40,
+    brand: "Poppi",
+    category: "MUÑECOS Y MUÑECAS",
+    minAge: 3,
+    maxAge: 12,
+    profileImageUrl: "/img/productos/muñeca_kiara.webp",
+    imagesUrls: [
+      "/img/productos/muñeca_kiara_2.webp",
+      "/img/productos/muñeca_kiara_3.webp",
+      "/img/productos/muñeca_kiara_4.webp",
+      "/img/productos/muñeca_kiara_5.webp",
+      "/img/productos/muñeca_kiara_6.webp",
+    ],
+    shipping: true,
+    shortDescription: "Muñeca Kiara con bicicleta marca Poppi para niñas",
+    longDescription: `Una amistad fiel
+    Desde hoy, cada infante estará acompañado por alguien incondicional, capaz de transformar al mundo en un lugar encantador.
+    
+    Personajes inolvidables
+    Con Kiara, ¡las experiencias de los más pequeños serán increíbles! Su diseño favorece la creatividad y la imaginación.`,
+    sponsored: false,
+  }),
+
+  new Product({
+    name: "Juego de mesa Un bingo en mi casa Ruibal",
+    price: 4797,
+    stock: 12,
+    brand: "Ruibal",
+    category: "JUEGOS DE MESA",
+    minAge: 6,
+    maxAge: 18,
+    profileImageUrl: "/img/productos/bingo_casa.webp",
+    imagesUrls: [
+      "/img/productos/bingo_casa_2.webp",
+      "/img/productos/bingo_casa_3.webp",
+      "/img/productos/bingo_casa_4.webp",
+      "/img/productos/bingo_casa_5.webp",
+      "/img/productos/bingo_casa_6.webp",
+    ],
+    shipping: true,
+    shortDescription:
+      "Bingo en casa cuenta con bolillero. Edad minima 6 años marca Ruibal",
+    longDescription: `¿Qué mejor plan para una tarde de lluvia que un juego de mesa? Con el Un bingo en mi casa vas a crear divertidos recuerdos y pasar momentos inolvidables junto a tus amigos y amigas. Con este pasatiempo entretenido las risas están aseguradas.`,
+    sponsored: false,
+    date: new Date("2023-05-01"),
+  }),
+
+  new Product({
+    name: "Poppi Valen mis Primeras palabras",
+    price: 3465,
+    stock: 18,
+    brand: "Poppi",
+    category: "MUÑECOS Y MUÑECAS",
+    minAge: 3,
+    maxAge: 6,
+    profileImageUrl: "/img/productos/poppi_valen.webp",
+    imagesUrls: [
+      "/img/productos/poppi_valen_2.webp",
+      "/img/productos/poppi_valen_3.webp",
+    ],
+    shipping: true,
+    shortDescription: "Muñeca Kiara con bicicleta marca Poppi para niñas",
+    longDescription: `Una amistad fiel
+    Desde hoy, cada infante estará acompañado por alguien incondicional, capaz de transformar al mundo en un lugar encantador.
+    
+    Personajes inolvidables
+    Con Kiara, ¡las experiencias de los más pequeños serán increíbles! Su diseño favorece la creatividad y la imaginación.`,
+    sponsored: false,
+    date: new Date("2023-07-02"),
+  }),
+
+  new Product({
+    name: "Auto A Radio Control Remoto Luces Led",
+    price: 14999,
+    stock: 80,
+    brand: "LIBERCAM",
+    category: "VEHÍCULOS DE JUGUETE",
+    minAge: 6,
+    maxAge: 14,
+    profileImageUrl: "/img/productos/auto_radio_control.webp",
+    imagesUrls: [
+      "/img/productos/auto_radio_control_2.webp",
+      "/img/productos/auto_radio_control_3.webp",
+      "/img/productos/auto_radio_control_4.webp",
+      "/img/productos/auto_radio_control_5.webp",
+      "/img/productos/auto_radio_control_6.webp",
+    ],
+    shipping: true,
+    shortDescription:
+      "Auto con Control remoto de mano con sensor de movimiento LIBERCAM",
+    longDescription: `- Ruedas de goma texturizadas antideslizantes.
+    - El auto funciona con 1 baterías recargables (INCLUIDAS).
+    - Doble control remoto.
+    Control remoto tradicional que funciona con 2 baterías AA (NO INCLUIDAS), con alcance de 5 metros.`,
+    sponsored: false,
+    date: new Date("2023-07-01"),
+  }),
+
+  new Product({
+    name: "Bloques para armar Duravit Balde de 240 piezas",
+    price: 5995,
+    stock: 15,
+    brand: "Duravit",
+    category: "JUGUETES DE CONSTRUCCIÓN",
+    minAge: 3,
+    maxAge: 16,
+    profileImageUrl: "/img/productos/bloques_duravit.webp",
+    imagesUrls: [],
+    shipping: true,
+    shortDescription:
+      "Balde de bloques de excelente calidad, apuntando al sano entretenimiento de niños y niñas",
+    longDescription: `Fácil traslado y guardado
+    Su presentación en balde, permite que lleves tu set a todos lados de manera cómoda y práctica. Es útil no solo para transportarlo, sino además para guardarlo de forma sencilla en cualquier lugar de tu casa.
+    
+    Uso bajo supervisión
+    Se recomienda su uso a partir de los 3 años. Por favor supervisar a niños y niñas pequeñas para evitar accidentes.`,
+    sponsored: false,
+    date: new Date("2023-06-03"),
+  }),
+
+  new Product({
+    name: "Burbujero Súper Pistola Automática De Burbujas Gun",
+    price: 1668,
+    stock: 19,
+    brand: "Gatling",
+    category: "JUEGOS DE COMBATE",
+    minAge: 3,
+    maxAge: 16,
+    profileImageUrl: "/img/productos/burbujero_super.webp",
+    imagesUrls: [
+      "/img/productos/burbujero_super_2.webp",
+      "/img/productos/burbujero_super_3.webp",
+      "/img/productos/burbujero_super_4.webp",
+    ],
+    shipping: true,
+    shortDescription:
+      "Pistola juguete, máquina de burbujas, ideal para niños mayores a 3 años",
+    longDescription: `Burbujero Pistola Automica a pilas
+    - Burbujero automatico
+    - Apretas un boton y empieza a disparar burbujas
+    - Funciona con 3 pilas AA - no incluidas
+    - El color es aleatorio (negro o dorado) - no se puede elegir
+    - Medidas pistola: 20 cm`,
+    sponsored: true,
+  }),
+
+  new Product({
+    name: "Lol Muñeca Surprise Movie Magic Coleccionable Original",
+    price: 4199,
+    stock: 20,
+    brand: "LOL Surprise",
+    category: "MUÑECOS Y MUÑECAS",
+    minAge: 3,
+    maxAge: 9,
+    profileImageUrl: "/img/productos/lol_muneca.webp",
+    imagesUrls: [
+      "/img/productos/lol_muneca_2.webp",
+      "/img/productos/lol_muneca_3.webp",
+      "/img/productos/lol_muneca_4.webp",
+      "/img/productos/lol_muneca_5.webp",
+      "/img/productos/lol_muneca_6.webp",
+      "/img/productos/lol_muneca_7.webp",
+    ],
+    shipping: true,
+    shortDescription:
+      "Muñeca LOL con accesorios para completar el look y juegos",
+    longDescription: `Sigan las pistas y descubran qué personaje se esconde. Cada LOL Surprise será una nueva aventura para transitar y ¡dejarse llevar por la sorpresa! Además, viene con accesorios que permiten completar el look y juegos.
+
+    Personajes inolvidables
+    Con Movie Magic, ¡las experiencias de los más pequeños serán increíbles! Su diseño favorece la creatividad y la imaginación.`,
+    sponsored: true,
+  }),
+
+  new Product({
+    name: "Cocinita De Juguete Cocina De Madera",
+    price: 6299,
+    stock: 45,
+    brand: "Imback",
+    category: "JUGUETES DE OFICIO",
+    minAge: 6,
+    maxAge: 12,
+    profileImageUrl: "/img/productos/cocicina_madera.webp",
+    imagesUrls: [
+      "/img/productos/cocicina_madera_2.webp",
+      "/img/productos/cocicina_madera_3.webp",
+      "/img/productos/cocicina_madera_4.webp",
+      "/img/productos/cocicina_madera_5.webp",
+      "/img/productos/cocicina_madera_6.webp",
+      "/img/productos/cocicina_madera_7.webp",
+    ],
+    shipping: true,
+    shortDescription: "Cocinita infantil con apertura de puertas Marca Imback",
+    longDescription: `- Traba sujeta fondo (a diferencia de la competencia no se desarma con el uso!)
+    - Medidas del producto: 58,6 cm de ancho x 80,6 cm de alto x 29,5 cm de profundidad
+    - Medidas de la bacha: 17 cm de diámetro x 5 cm de profundidad
+    - Manual con instrucciones de armado en español
+    - Super facil de armar (El producto se entrega desarmado). Todas las piezas son encastrables y no se necesita pegamento.`,
+    sponsored: true,
+  }),
 ];

@@ -15,6 +15,7 @@
     @include mixins.display-flex(column);
     gap: calc(1rem + 1vw);
     padding: 1rem 0;
+    position: relative;
     &-wrapper {
       // width: 100vw;
       max-width: variables.$max-width;
@@ -31,6 +32,15 @@
     overflow-y: hidden;
     // background-color: palette.$oxford-blue;
   }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   &__th {
     padding: 0.75rem;
     background-color: palette.$ultramarine-blue;

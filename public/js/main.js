@@ -1,3 +1,4 @@
+import Spin from "/modules/Spin.js";
 let currentPage = [];
 
 class Main {
@@ -24,8 +25,10 @@ class Main {
     this.id = this.getIdFromHash();
 
     const viewUrl = this.getApiUrlFromId(this.id);
-    this.main.innerHTML = `<div class="spin__container"><div class="spin"></div></div>"`;
+    // this.main.innerHTML = `<div class="spin__container"><div class="spin"></div></div>"`;
+    Spin.init();
     const viewContent = await this.ajax(viewUrl);
+    Spin.remove();
     this.main.innerHTML = viewContent;
     if (this.error404) {
       document.title = "404 - Juguetería Cósmica";
