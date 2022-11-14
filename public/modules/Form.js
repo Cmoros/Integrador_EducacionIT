@@ -70,8 +70,8 @@ export default class Form {
     const inputsWithErrors = this.formTarget.querySelectorAll(
       ".error-display__popup-input-error"
     );
-    console.log('Validados:',this.inputsCurrentlyValid.size)
-    console.log('Total a Validar:',this.inputsToGo)
+    console.log("Validados:", this.inputsCurrentlyValid.size);
+    console.log("Total a Validar:", this.inputsToGo);
     if (
       this.inputsToGo !== this.inputsCurrentlyValid.size ||
       inputsWithErrors.length > 0

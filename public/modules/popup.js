@@ -6,13 +6,13 @@ export default {
 
   init(message, animationTime) {
     this.message = message;
-    
+
     if (this.inDom) {
       // this.resetPopup(message)
     } else {
       this.popupEl = this.createPopup();
       if (animationTime) {
-        this.popupEl.style.animationDuration = animationTime + "s" 
+        this.popupEl.style.animationDuration = animationTime + "s";
       }
       this.appendPopup();
       this.removePopup();

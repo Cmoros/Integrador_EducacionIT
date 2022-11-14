@@ -265,15 +265,23 @@ export default class Cart {
       );
       return false;
     }
+
     const finalProducts = { products: [] };
+
     for (const id in this.products) {
       const quantity = this.products[id].quantity;
       if (isNaN(quantity) || quantity <= 0) continue;
       finalProducts.products.push({
         product: id,
         quantity,
+        subtotal: quantity * this.products[id].price,
       });
     }
+
+    finalProducts.total = finalProducts.products.reduce((acc, product) => {
+      return acc + product.subtotal;
+    }, 0);
+
     try {
       const result = await fetch("/api/cart/", {
         method: "POST",

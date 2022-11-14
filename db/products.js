@@ -426,8 +426,7 @@ export default [
       "/img/productos/auto_radio_control_6.webp",
     ],
     shipping: true,
-    shortDescription:
-      "Auto con Control remoto de mano con sensor de movimiento LIBERCAM",
+    shortDescription: "Auto con Control remoto de mano con sensor LIBERCAM",
     longDescription: `- Ruedas de goma texturizadas antideslizantes.
     - El auto funciona con 1 baterías recargables (INCLUIDAS).
     - Doble control remoto.
@@ -459,7 +458,7 @@ export default [
   }),
 
   new Product({
-    name: "Burbujero Súper Pistola Automática De Burbujas Gun",
+    name: "Burbujero Súper Pistola Automática Gun",
     price: 1668,
     stock: 19,
     brand: "Gatling",
@@ -485,7 +484,7 @@ export default [
   }),
 
   new Product({
-    name: "Lol Muñeca Surprise Movie Magic Coleccionable Original",
+    name: "Lol Muñeca Surprise Movie Magic Original",
     price: 4199,
     stock: 20,
     brand: "LOL Surprise",
@@ -502,8 +501,7 @@ export default [
       "/img/productos/lol_muneca_7.webp",
     ],
     shipping: true,
-    shortDescription:
-      "Muñeca LOL con accesorios para completar el look y juegos",
+    shortDescription: "Muñeca LOL con accesorios para completar look juegos",
     longDescription: `Sigan las pistas y descubran qué personaje se esconde. Cada LOL Surprise será una nueva aventura para transitar y ¡dejarse llevar por la sorpresa! Además, viene con accesorios que permiten completar el look y juegos.
 
     Personajes inolvidables
@@ -529,7 +527,7 @@ export default [
       "/img/productos/cocicina_madera_7.webp",
     ],
     shipping: true,
-    shortDescription: "Cocinita infantil con apertura de puertas Marca Imback",
+    shortDescription: "Cocinita infantil con apertura de puertas Imback",
     longDescription: `- Traba sujeta fondo (a diferencia de la competencia no se desarma con el uso!)
     - Medidas del producto: 58,6 cm de ancho x 80,6 cm de alto x 29,5 cm de profundidad
     - Medidas de la bacha: 17 cm de diámetro x 5 cm de profundidad

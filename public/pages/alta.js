@@ -5,9 +5,9 @@ const MAX_IMAGE_SIZE = 1048576 / 2;
 
 const errors = {
   "product-name": {
-    message: "Campo hasta 30 caracteres del español",
+    message: "Campo hasta 35 caracteres del español",
     regExp:
-      /^(?!\s)(?!.\s$)(?=.[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç])[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç :°='\.\\¡$#"_@¿*&%\/,+\-\(\)~?!]{2,30}$/,
+      /^(?!\s)(?!.\s$)(?=.[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç])[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç :°='\.\\¡$#"_@¿*&%\/,+\-\(\)~?!]{2,35}$/,
   },
   "product-id": {
     message: "Esto no debería estar incorrecto. Algo ocurrió",

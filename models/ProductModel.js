@@ -60,16 +60,22 @@ const productSquema = mongoose.Schema({
   },
   visits: {
     type: Number,
-    default: 0,
+    // default: 0,
   },
   date: {
     type: Date,
-    default: Date.now,
+    // default: Date.now,
   },
   sponsored: {
     type: Boolean,
-    default: false,
+    // default: false,
   },
+});
+
+productSquema.pre("save", function () {
+  this.sponsored ||= false;
+  this.date ||= Date.now();
+  this.visites ||= 0;
 });
 
 productSquema.pre("validate", function () {

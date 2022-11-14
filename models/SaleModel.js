@@ -17,11 +17,17 @@ const saleSchema = mongoose.Schema({
         type: Number,
         required: true,
       },
+      subtotal: {
+        type: Number,
+      },
     },
   ],
   client: {
     type: String,
     default: "Anonymous",
+  },
+  total: {
+    type: Number,
   },
 });
 

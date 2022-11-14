@@ -24,14 +24,12 @@ export default class PageController {
     }
   };
 
-  getModal = async (req, res) => {
-    
-  }
+  getModal = async (req, res) => {};
 
   getRemoveModal = async (req, res) => {
-    const {id} = req.params
-    res.status(200).render("modal", await this.api.getRemoveModal(id))
-  }
+    const { id } = req.params;
+    res.status(200).render("modal", await this.api.getRemoveModal(id));
+  };
 
   get404 = async (req, res) => {
     res.status(404).render("404", await this.api.get404());
