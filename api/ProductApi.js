@@ -1,8 +1,10 @@
 // import Model from "../models/ModelMem.js";
 import Model from "../models/ModelMongo.js";
+import Api from "./Api.js";
 
-export default class ProductApi {
+export default class ProductApi extends Api {
   constructor() {
+    super();
     this.model = new Model();
   }
   async getProduct(id) {
@@ -54,10 +56,10 @@ export default class ProductApi {
 
   async getHTMLManyProducts(reqQuery) {
     let { skip, limit, query, order } = reqQuery;
-    const orderFormatted = getOrderFormatted(order);
+    const orderFormatted = this.getOrderFormatted(order);
     const queryFromReq = query;
     [skip, limit] = [+skip, +limit];
-    query = getQueryObjectFromSearch(query);
+    query = this.getQueryObjectFromSearch(query);
     const len = await this.model.getProductsQuantity(query);
     const products = await this.getManyProducts({
       ...reqQuery,
@@ -72,7 +74,7 @@ export default class ProductApi {
       layout: false,
       products,
       order,
-      ...getPaginationHbsObj(skip, limit, len),
+      ...this.getPaginationHbsObj(skip, limit, len),
     };
   }
 
@@ -87,50 +89,4 @@ export default class ProductApi {
   async deleteProduct(id) {
     return await this.model.deleteProduct(id);
   }
-}
-
-function getPaginationHbsObj(skip, limit, len) {
-  const pages = [];
-  let nextPage = 0;
-  let prevPage = 0;
-  for (let i = 0; i < len / limit; i++) {
-    let current = false;
-    if (i == skip / limit) {
-      current = true;
-      nextPage = i + 2;
-      prevPage = i;
-    }
-    pages.push({ page: i + 1, current });
-  }
-  const first = skip == 0;
-  const last = skip + limit >= len;
-  return { pages, nextPage, prevPage, first, last, len };
-}
-
-function getQueryObjectFromSearch(query) {
-  if (!query) return {};
-  const regExpName = RegExp(query, "i");
-  return {
-    $or: [
-      { name: regExpName },
-      { brand: regExpName },
-      { category: regExpName },
-      { shortDescription: regExpName },
-    ],
-  };
-}
-
-function getOrderFormatted(order) {
-  // console.log(order)
-  if (!order) {
-    console.log("order vacío");
-    return {};
-  }
-  const splitted = order.split(":");
-  const orderFormatted = {};
-  for (let i = 0; i < splitted.length; i += 2) {
-    const [name, value] = [splitted[i], splitted[i + 1]];
-    orderFormatted[name] = value;
-  }
-  return orderFormatted;
 }

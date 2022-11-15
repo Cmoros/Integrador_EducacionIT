@@ -13,7 +13,7 @@ import config from "./config.js";
 import MainRouter from "./routers/MainRouter.js";
 import PageRouter from "./routers/PageRouter.js";
 import ProductRouter from "./routers/ProductRouter.js";
-import CartRouter from "./routers/CartRouter.js";
+import SaleRouter from "./routers/SaleRouter.js";
 import ContactRouter from "./routers/ContactRouter.js";
 // import {} from "./models/DB/MongoDB.js";
 
@@ -44,7 +44,8 @@ app.get("/api", (req, res) => {
 const productRouter = new ProductRouter(app);
 export { productRouter };
 
-const cartRouter = new CartRouter(app);
+const saleRouter = new SaleRouter(app);
+export { saleRouter };
 
 const contactRouter = new ContactRouter(app);
 

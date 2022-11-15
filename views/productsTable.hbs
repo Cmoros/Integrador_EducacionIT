@@ -1,47 +1,47 @@
 
 {{#if products.length }}
-<div class="table-products__container">
-  <table class="table-products">
+<div class="table__container table__container--product">
+  <table class="table">
     <caption>Productos</caption>
     <thead>
       <tr>
-        <th scope="column" class="table-products__th table-products__th--id">Id</th>
-        <th scope="column" class="table-products__th table-products__th--image">Imagen</th>
-        <th scope="column" class="table-products__th table-products__th--name">Nombre</th>
-        <th scope="column" class="table-products__th table-products__th--price">Precio</th>
-        <th scope="column" class="table-products__th table-products__th--description">Descripción</th>
-        <th scope="column" class="table-products__th table-products__th--actions">Acciones</th>
+        <th scope="column" class="table__th table__th--id">Id</th>
+        <th scope="column" class="table__th table__th--image">Imagen</th>
+        <th scope="column" class="table__th table__th--name">Nombre</th>
+        <th scope="column" class="table__th table__th--price">Precio</th>
+        <th scope="column" class="table__th table__th--description">Descripción</th>
+        <th scope="column" class="table__th table__th--actions">Acciones</th>
       </tr>
     </thead>
     <tbody>
       {{#each products}}
-      <tr class="table-products__tr">
-        <td data-product-property="id" class="table-products__td table-products__td--id">{{id}}</td>
-        <td data-product-property="profileImageUrl" class="table-products__td table-products__td--image"><img
-            class="table-products__image" src="{{profileImageUrl}}" alt="{{name}}"></td>
-        <td data-product-property="name" class="table-products__td table-products__td--name">
-          <a href="/#/products/{{id}}" class="table-products__link">{{name}}</a>
+      <tr class="table__tr">
+        <td data-product-property="id" class="table__td table__td--id">{{id}}</td>
+        <td data-product-property="profileImageUrl" class="table__td table__td--image"><img
+            class="table__image" src="{{profileImageUrl}}" alt="{{name}}"></td>
+        <td data-product-property="name" class="table__td table__td--name">
+          <a href="/#/products/{{id}}" class="table__link">{{name}}</a>
           </td>
-        <td data-product-property="price" class="table-products__td table-products__td--price">{{price}}</td>
-        <td data-product-property="shortDescription" class="table-products__td table-products__td--description">
+        <td data-product-property="price" class="table__td table__td--price">{{price}}</td>
+        <td data-product-property="shortDescription" class="table__td table__td--description">
           {{shortDescription}}</td>
-        <td class="table-products__td table-products__td--actions">
+        <td class="table__td table__td--actions">
           <button title="Editar producto"
-            class="table-products__btn table-products__btn--edit fa-solid fa-pen" data-id="{{id}}"></button>
+            class="table__btn table__btn--edit fa-solid fa-pen" data-id="{{id}}"></button>
           <button title="Eliminar producto"
-            class="table-products__btn table-products__btn--delete fa-solid fa-trash" data-id="{{id}}"></button>
+            class="table__btn table__btn--delete fa-solid fa-trash" data-id="{{id}}"></button>
         </td>
       </tr>
       {{/each}}
     </tbody>
     <tfoot>
       <tr>
-        <td colspan="5" class="table-products__footer-td">Se encontraron {{len}} productos</td>
+        <td colspan="5" class="table__footer-td">Se encontraron {{len}} productos</td>
       </tr>
     </tfoot>
   </table>
   {{> components/pagination}}
 </div>
 {{else}}
-<p class="table-products__empty">No se encontraron productos</p>
+<p class="table__empty empty">No se encontraron productos</p>
 {{/if}}

@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { unlink } from "fs";
 
-const productSquema = mongoose.Schema({
+const productSchemaObj = {
   name: {
     type: String,
     required: true,
@@ -70,7 +70,9 @@ const productSquema = mongoose.Schema({
     type: Boolean,
     // default: false,
   },
-});
+};
+
+const productSquema = mongoose.Schema(productSchemaObj);
 
 productSquema.pre("save", function () {
   this.sponsored ||= false;
@@ -126,3 +128,5 @@ productSquema.post("findOneAndDelete", function (doc) {
 });
 
 export default mongoose.model("product", productSquema);
+
+export { productSchemaObj };

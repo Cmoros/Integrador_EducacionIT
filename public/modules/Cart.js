@@ -1,5 +1,6 @@
 import popup from "./popup.js";
 import Spin from "./Spin.js";
+import Modal from "./Modal.js";
 
 export default class Cart {
   constructor(cartCheckboxToggle, cartButton, cartWindow) {
@@ -40,10 +41,15 @@ export default class Cart {
       }
       if (e.target.classList.contains("cart-window__submit")) {
         e.preventDefault();
+        const confirmed = await this.confirmSale();
+        if (!confirmed) return;
         Spin.init();
-        const success = await this.completeSale();
+        const result = await this.completeSale();
         Spin.remove();
-        success === true && this.restart();
+        if (Object.keys(result).length == 0) return;
+        this.approvedSale(result.id);
+        this.restart();
+        this.toggleCartModal();
       }
     });
     document.addEventListener("keydown", (e) => {
@@ -259,20 +265,13 @@ export default class Cart {
   }
 
   async completeSale() {
-    if (this.countProducts() == 0) {
-      popup.init(
-        `<i class="fa-solid fa-cart-plus"></i>Ups! No hay productos en el carrito`
-      );
-      return false;
-    }
-
     const finalProducts = { products: [] };
 
     for (const id in this.products) {
       const quantity = this.products[id].quantity;
       if (isNaN(quantity) || quantity <= 0) continue;
       finalProducts.products.push({
-        product: id,
+        productId: id,
         quantity,
         subtotal: quantity * this.products[id].price,
       });
@@ -283,7 +282,7 @@ export default class Cart {
     }, 0);
 
     try {
-      const result = await fetch("/api/cart/", {
+      const result = await fetch("/api/sales/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -295,13 +294,40 @@ export default class Cart {
         `<i class="fa-solid fa-truck"></i>Compra exitosa! Los productos ya van en camino!`,
         5
       );
-      return true;
+      console.log(result);
+      return result;
     } catch (e) {
       console.log("Error realizando la compra:", e);
       popup.init(
         `<i class="fa-solid fa-ban"></i>Algo salio mal en la compra. Intente mas tarde`
       );
-      return false;
+      return {};
     }
   }
+
+  async confirmSale() {
+    if (this.countProducts() == 0) {
+      popup.init(
+        `<i class="fa-solid fa-cart-plus"></i>Ups! No hay productos en el carrito`
+      );
+      return false;
+    }
+    const infoProducts = {};
+    for (const id in this.products) {
+      const { quantity } = this.products[id];
+      if (quantity >= 1) {
+        infoProducts[id] = quantity;
+      }
+    }
+    const query = new URLSearchParams(infoProducts);
+    return await Modal.init("confirm/?" + query, this.setOpenModal);
+  }
+
+  async approvedSale(id) {
+    return await Modal.init("approved/" + id);
+  }
+
+  setOpenModal = () => {
+    this.body.classList.add("open-modal");
+  };
 }

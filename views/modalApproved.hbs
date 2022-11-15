@@ -1,0 +1,15 @@
+<div class="modal">
+  <button class="modal__close-btn fa-solid fa-xmark"></button>
+  <div class="modal__content">
+    <h3 class="modal__text">¡Has realizado la compra con éxito!</h3>
+    <p>Id de la compra: {{sale.id}}</p>
+    <p>Nombre del cliente: {{sale.client}}</p>
+    <p>Total: {{sale.total}}</p>
+    <div class="modal__btns-container">
+      {{#if confirm}}
+        <button class="btn btn--success modal__success">Confirmar</button>
+        <a href="#/sales/{{sale.id}}" class="btn modal__link">Ver detalles</a>
+      {{/if}}
+    </div>
+  </div>
+</div>

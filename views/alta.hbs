@@ -327,17 +327,30 @@
     </div>
   </form>
 </div>
-<div class="table-products__wrapper-wrapper">
+<div class="table__wrapper-wrapper">
   <input
     type="checkbox"
-    id="table-products__toggle-checkbox"
-    class="table-products__toggle-checkbox"
+    id="table__toggle-checkbox--product"
+    class="table__toggle-checkbox--product"
   />
   <label
-    for="table-products__toggle-checkbox"
-    class="btn btn--big table-products__toggle-label"
+    for="table__toggle-checkbox--product"
+    class="btn btn--big table__toggle-label"
   >todos los productos</label>
-  <div class="table-products__wrapper"></div>
+  <div class="table__wrapper"></div>
+  {{!-- {{> components/products-table}} --}}
+</div>
+<div class="table__wrapper-wrapper">
+  <input
+    type="checkbox"
+    id="table__toggle-checkbox--sales"
+    class="table__toggle-checkbox--sales"
+  />
+  <label
+    for="table__toggle-checkbox--sales"
+    class="btn btn--big table__toggle-label"
+  >todas las ventas</label>
+  <div class="table__wrapper table__wrapper--sales"></div>
   {{!-- {{> components/products-table}} --}}
 </div>
 <script src="./js/Form.js"></script>

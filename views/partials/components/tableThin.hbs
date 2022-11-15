@@ -1,0 +1,52 @@
+<table class="table table--thin">
+  <thead>
+    <tr>
+      {{#if fromProducts}}
+        <th scope="column" class="table__th table__th--imagen">Imagen</th>
+      {{else}}
+        <th scope="column" class="table__th table__th--id">Id</th>
+      {{/if}}
+      <th scope="column" class="table__th table__th--name">Nombre</th>
+      <th scope="column" class="table__th table__th--quantity">Cantidad</th>
+      <th scope="column" class="table__th table__th--subtotal">Subtotal</th>
+    </tr>
+  </thead>
+  {{#if fromProducts}}
+    {{#each products}}
+      <tr class="table__tr">
+        <td scope="column" class="table__td table__td--image d-tcell"><img
+            src="{{profileImageUrl}}"
+            alt="{{name}}"
+            class="table__image"
+          /></td>
+        <td scope="column" class="table__td table__td--name">{{name}}</td>
+        <td
+          scope="column"
+          class="table__td table__td--quantity"
+        >{{quantity}}</td>
+        <td
+          scope="column"
+          class="table__td table__td--subtotal"
+        >{{subtotal}}</td>
+      </tr>
+    {{/each}}
+  {{else}}
+    {{#each products}}
+      <tr class="table__tr">
+        <td scope="column" class="table__td table__td--id"><a href="#/products/{{productId}}" class="table__link">{{productId}}</a></td>
+        <td
+          scope="column"
+          class="table__td table__td--name"
+        >{{product.name}}</td>
+        <td
+          scope="column"
+          class="table__td table__td--quantity"
+        >{{quantity}}</td>
+        <td
+          scope="column"
+          class="table__td table__td--subtotal"
+        >{{subtotal}}</td>
+      </tr>
+    {{/each}}
+  {{/if}}
+</table>

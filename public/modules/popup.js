@@ -15,7 +15,7 @@ export default {
         this.popupEl.style.animationDuration = animationTime + "s";
       }
       this.appendPopup();
-      this.removePopup();
+      this.removePopup(animationTime * 1000);
     }
   },
 
@@ -31,7 +31,7 @@ export default {
     container.append(popupFrag);
   },
 
-  removePopup(time = 3000, popupEl = this.popupEl) {
+  removePopup(time = 4000, popupEl = this.popupEl) {
     this.time = time;
     this.timeoutId = setTimeout(() => {
       popupEl.remove();

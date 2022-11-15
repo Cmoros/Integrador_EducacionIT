@@ -51,3 +51,7 @@ $textAlignValues:("left", "right", "center", "justify" );
 .text-center {
     text-align: center;
 }
+
+.d-tcell {
+    display: table-cell !important;
+}

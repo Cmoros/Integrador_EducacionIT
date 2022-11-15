@@ -1,0 +1,15 @@
+<div class="modal">
+  <button class="modal__close-btn fa-solid fa-xmark"></button>
+  <div class="modal__content">
+    <h3 class="modal__text">Estás por concretar esta compra:</h3>
+    <div class="table__container--thin">
+      {{> components/tableThin}}
+    </div>
+    <p>Total: {{total}}</p>
+    <div class="modal__btns-container">
+      {{#if confirm}}
+      <button class="btn btn--success modal__success">Confirmar</button>
+      {{/if}}
+    </div>
+  </div>
+</div>

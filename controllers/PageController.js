@@ -24,11 +24,25 @@ export default class PageController {
     }
   };
 
-  getModal = async (req, res) => {};
+  getApprovedModal = async (req, res) => {
+    const { saleId } = req.params;
+    res
+      .status(200)
+      .render("modalApproved", await this.api.getApprovedModal(saleId));
+  };
 
   getRemoveModal = async (req, res) => {
-    const { id } = req.params;
-    res.status(200).render("modal", await this.api.getRemoveModal(id));
+    const { productId } = req.params;
+    res
+      .status(200)
+      .render("modalRemove", await this.api.getRemoveModal(productId));
+  };
+
+  getConfirmModal = async (req, res) => {
+    const { query } = req;
+    res
+      .status(200)
+      .render("modalConfirm", await this.api.getConfirmModal(query));
   };
 
   get404 = async (req, res) => {
@@ -48,6 +62,16 @@ export default class PageController {
     }
     product.imagesUrls.unshift({ imageUrl: product.profileImageUrl });
     res.status(200).render("product", { layout: false, ...product });
+  }
+
+  async getSalePage(req, res, next) {
+    const { id } = req.params;
+    const config = await this.api.getSalePage(id);
+    if (Object.keys(config).length == 0) {
+      next();
+      return;
+    }
+    res.status(200).render("sale", config);
   }
 
   async getListadoPage(req, res) {

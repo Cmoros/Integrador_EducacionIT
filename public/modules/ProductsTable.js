@@ -1,24 +1,16 @@
 import { altaForm } from "../pages/alta.js";
 import Modal from "./Modal.js";
-import popup from "./popup.js";
 import Spin from "./Spin.js";
+import Table from "./Table.js";
 
-export default class ProductsTable {
-  constructor(tableProductsContainer) {
+export default class ProductsTable extends Table {
+  constructor(tableProductsContainer, baseUrl) {
+    super(tableProductsContainer, baseUrl);
     this.form = altaForm;
-    this.container = tableProductsContainer;
-    this.currentProducts = {};
-    this.limit = 5;
-    this.restartTable();
     this.container.addEventListener("click", async (e) => {
-      if (e.target.dataset.page) {
-        e.preventDefault();
-        const page = e.target.dataset.page;
-        this.currentPage = page >= 1 ? page : 1;
-        this.updateTable(this.calculateSkip(), this.limit);
-      } else if (e.target.classList.contains("table-products__btn--edit")) {
-        this.form.selectProduct(this.currentProducts[e.target.dataset.id]);
-      } else if (e.target.classList.contains("table-products__btn--delete")) {
+      if (e.target.classList.contains("table__btn--edit")) {
+        this.form.selectProduct(this.currentItems[e.target.dataset.id]);
+      } else if (e.target.classList.contains("table__btn--delete")) {
         if (await Modal.init("remove/" + e.target.dataset.id)) {
           const result = await this.deleteProduct(e.target.dataset.id);
           if (this.checkResultFromFetch(result, "borrar", "borró")) {
@@ -29,69 +21,14 @@ export default class ProductsTable {
     });
   }
 
-  async updateTable(skip = this.calculateSkip(), limit = this.limit) {
-    const query = new URLSearchParams({ skip, limit });
-    Spin.init(this.container);
-    try {
-      const newProducts = await fetch(
-        "./api/products/table/json?" + query
-      ).then((res) => res.json());
-      for (const product of newProducts) {
-        this.currentProducts[product.id] = product;
-      }
-      const newHTML = await fetch("./api/products/table/text?" + query).then(
-        (res) => res.text()
-      );
-      this.container.innerHTML = newHTML;
-      if (
-        this.container.querySelector(".table-products__empty") &&
-        this.currentPage > 1
-      ) {
-        this.currentPage -= 1;
-        this.updateTable();
-      }
-    } catch (e) {
-      console.log(e);
-      this.currentProducts = {};
-      this.restartTable();
-    }
-    Spin.remove();
-  }
-
-  checkResultFromFetch(result, text1, text2) {
-    if (!Object.keys(result).length) {
-      popup.init(
-        `<i class="fa-solid fa-ban"></i>Ups! No se pudo ${text1} el producto`
-      );
-      return false;
-    }
-    popup.init(
-      `<i class="fa-solid fa-check"></i>Se ${text2} el producto correctamente`
-    );
-    return true;
-  }
-
-  calculateSkip() {
-    return (this.currentPage - 1) * this.limit;
-  }
-
-  async restartTable() {
-    this.currentPage = 1;
-    try {
-      await this.updateTable();
-    } catch (e) {
-      this.container.innerHTML = "<p>Hubo algun error</p>";
-    }
-  }
-
   async deleteProduct(id) {
     Spin.init();
     let deletedProduct;
     try {
-      deletedProduct = await fetch("./api/products/" + id, {
+      deletedProduct = await fetch(this.url + id, {
         method: "delete",
       }).then((res) => res.json());
-      delete this.currentProducts[id];
+      delete this.currentItems[id];
       if (altaForm.state[1] == id) altaForm.restartForm();
     } catch (e) {
       console.log(`Hubo un error borrando el producto ${id}. Detalles: ${e}`);
@@ -100,6 +37,4 @@ export default class ProductsTable {
     Spin.remove();
     return deletedProduct;
   }
-
-  async modifyProduct(id) {}
 }

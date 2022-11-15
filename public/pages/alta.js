@@ -1,5 +1,6 @@
 import ProductsTable from "../modules/ProductsTable.js";
 import popup from "../modules/popup.js";
+import SalesTable from "../modules/SalesTable.js";
 
 const MAX_IMAGE_SIZE = 1048576 / 2;
 
@@ -131,10 +132,6 @@ async function altaCbPost(e) {
   try {
     const result = await fetch("./api/products/", {
       method: "post",
-      // headers: {
-      //   // Accept: "application/json",
-      //   "content-type": "application/json",
-      // },
       body: data,
     }).then((res) => res.json());
     if (checkResultFromFetch(result, "dar de alta", "dio de alta")) {
@@ -150,6 +147,7 @@ async function altaCbPut(e) {
   e.preventDefault();
   const data = altaForm.getFormData();
   normalizeFileInputs(data);
+  // Prueba para el caso de enviar con método post y anexando un valor _method: put, y ver si el server atajaba con put
   // data.append("_method", "PUT");
   try {
     const result = await fetch(
@@ -159,12 +157,6 @@ async function altaCbPut(e) {
         new URLSearchParams({ _method: "PUT", method: "PUT" }),
       {
         method: "post",
-        // _method: "put",
-        // headers: {
-        //   // Accept: "application/json",
-        //   // "content-type": "application/json",
-        // "Content-Type": "multipart/form-data"
-        // },
         body: data,
       }
     ).then((res) => res.json());
@@ -257,11 +249,16 @@ let currentTable;
 
 export default class PageAlta {
   constructor() {
-    this.tableContainer = document.querySelector(".table-products__wrapper");
+    this.tableProductContainer = document.querySelector(".table__wrapper");
+    this.tableSaleContainer = document.querySelector(".table__wrapper--sales");
     this.errors = errors;
     this.altaFormHTML = document.querySelector(".main-form");
-    this.table = new ProductsTable(this.tableContainer, this.altaFormHTML);
-    currentTable = this.table;
+    this.productTable = new ProductsTable(
+      this.tableProductContainer,
+      "./api/products/"
+    );
+    this.saleTable = new SalesTable(this.tableSaleContainer, "./api/sales/");
+    currentTable = this.productTable;
 
     this.altaForm = altaForm;
     if (altaForm.formTarget != this.altaFormHTML) {

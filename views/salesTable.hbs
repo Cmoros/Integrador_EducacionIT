@@ -1,0 +1,41 @@
+{{#if sales.length }}
+<div class="table__container table__container--sales">
+  <div class="table__overflow">
+    <table class="table">
+      <caption>Ventas</caption>
+      <thead>
+        <tr>
+          <th scope="column" class="table__th table__th--id">Id</th>
+          <th scope="column" class="table__th table__th--name">Cliente</th>
+          <th scope="column" class="table__th table__th--total">Total</th>
+          <th scope="column" class="table__th table__th--all">Compras</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each sales}}
+        <tr class="table__tr">
+          <td class="table__td table__td--id"><a href="#/sales/{{id}}" class="table__link">{{id}}</a></td>
+          <td class="table__td table__td--name">
+            {{client}}
+          <td class="table__td table__td--total">{{total}}</td>
+          <td class="table__td table__td--all">
+            <div class="table__container--thin">
+    
+              {{> components/tableThin}}
+          </div>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="5" class="table__footer-td">Se encontraron {{len}} ventas</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  {{> components/pagination}}
+</div>
+{{else}}
+<p class="table__empty empty">No se encontraron ventas</p>
+{{/if}}

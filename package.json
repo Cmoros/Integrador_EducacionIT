@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write \"./**/*.js\"",
+    "format:check": "prettier --check \"./**/*.{js,jsx}\"",
     "sass": "sass ./sass/main.scss ./public/css/main.css",
     "sass:watch": "sass --watch ./sass/main.scss ./public/css/main.css",
-    "format:check": "prettier --check \"src/**/*.{js,jsx}\"",
     "debug": "node --inspect app.js",
     "start": "node app.js",
     "start:watch": "nodemon app.js"

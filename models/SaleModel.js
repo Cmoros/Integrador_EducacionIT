@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import ProductModel from "./ProductModel.js";
+import ProductModel, { productSchemaObj } from "./ProductModel.js";
 
 const saleSchema = mongoose.Schema({
   date: {
@@ -8,11 +8,12 @@ const saleSchema = mongoose.Schema({
   },
   products: [
     {
-      product: {
+      productId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "product",
         required: true,
       },
+      product: productSchemaObj,
       quantity: {
         type: Number,
         required: true,
@@ -31,21 +32,22 @@ const saleSchema = mongoose.Schema({
   },
 });
 
-saleSchema.pre("save", async function preSaveSaleMiddleware() {
+saleSchema.pre("validate", async function preSaveSaleMiddleware() {
   for (const productSale of this.products) {
-    const productId = productSale.product;
+    const { productId, quantity } = productSale;
     const product = await ProductModel.findById(productId).lean().exec();
-    if (product.stock <= product.quantity)
+    if (product.stock < quantity)
       throw new Error(
         "Error tratando de comprar un producto sin suficiente stock"
       );
+    productSale.product = product;
   }
   await Promise.all(
-    this.products.map(async (product) => {
+    this.products.map(async (productSale) => {
       const updated = await ProductModel.findByIdAndUpdate(
-        product.product,
+        productSale.productId,
         {
-          $inc: { stock: -1 * product.quantity },
+          $inc: { stock: -1 * productSale.quantity },
         },
         { new: true }
       );

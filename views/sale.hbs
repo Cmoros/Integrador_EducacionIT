@@ -1,0 +1,13 @@
+<div class="table__wrapper-wrapper">
+  <div class="table__info">
+  <h1 class="table__header">Datos asociados a la compra de ID: {{id}}</h1>
+  <h2 class="table__extra-info">Cliente: {{client}}</h2>
+  <h3 class="table__extra-info">Fecha: {{date}}</h3>
+  </div>
+  <div class="table__wrapper table__wrapper--sales">
+  <div class="table__overflow">
+  {{> components/tableThin}}
+  </div>
+  </div>
+  <h3 class="table__extra-info">Total pagado: <span class="card__price">{{total}}</span></h3>
+</div>

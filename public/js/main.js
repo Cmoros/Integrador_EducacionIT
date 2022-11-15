@@ -99,6 +99,7 @@ class Main {
 
   getPageUrlFromId(id) {
     if (id.includes("products/")) id = "product";
+    else if (id.includes("sales/")) id = "sale";
     return `/pages/${id}.js`;
   }
 }

@@ -1,4 +1,5 @@
 import Form from "/modules/Form.js";
+import popup from "/modules/popup.js";
 
 class Footer {
   constructor() {
@@ -12,7 +13,16 @@ class Footer {
         regExp: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
       },
     };
-    this.form = new Form(this.invitationForm, this.formErrors);
+    this.form = new Form(
+      this.invitationForm,
+      this.formErrors,
+      function submitNewsletter(e) {
+        e.preventDefault();
+        popup.init(
+          `<i class="fa-solid fa-check"></i>¡Gracias por suscribirte a nuestro Newsletter!`
+        );
+      }
+    );
   }
   init() {}
 }

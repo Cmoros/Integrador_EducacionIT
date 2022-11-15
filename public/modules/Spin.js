@@ -6,6 +6,7 @@ const body = document.querySelector("body");
 
 export default class Spin {
   static init(target = body) {
+    getComputedStyle(target).width;
     target.append(container);
   }
 
