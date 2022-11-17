@@ -56,7 +56,7 @@ app.get("/*", function getMain(req, res) {
 });
 
 const server = app.listen(config.PORT, function appListen() {
-  console.log(
+  console.info(
     `Servidor iniciado en el http://localhost:${this.address().port}`
   );
 });

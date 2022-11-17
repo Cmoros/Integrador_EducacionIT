@@ -32,9 +32,7 @@ export default class Api {
   }
 
   getOrderFormatted(order) {
-    // console.log(order)
     if (!order) {
-      console.log("order vacío");
       return {};
     }
     const splitted = order.split(":");

@@ -7,4 +7,4 @@ import products from "./db/products.js";
 
 const algo = await ProductModel.create(products);
 
-console.log("Productos agregados satisfactoriamente");
+console.info("Productos agregados satisfactoriamente");

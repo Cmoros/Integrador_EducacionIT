@@ -37,7 +37,7 @@ export default class PageListado {
       ).then((res) => res.text());
       this.container.innerHTML = newHTML;
     } catch (e) {
-      console.log(e);
+      console.error("Error trayendo el listado: ", e);
     }
   }
 

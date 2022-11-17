@@ -67,7 +67,6 @@ export default class ProductController {
       return;
     }
     const product = req.body;
-    console.log("🚀 ~ ProductController ~ postProduct= ~ product", product);
     handleReqFiles(req.files, product);
     res.status(201).json(await this.api.postProduct(product));
   };

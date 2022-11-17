@@ -37,7 +37,7 @@ export default class Table {
         this.updateTable();
       }
     } catch (e) {
-      console.log(e);
+      console.error("Error actualizando el carrito:", e);
       this.currentItems = {};
       this.restartTable();
     }

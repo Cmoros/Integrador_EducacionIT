@@ -60,13 +60,7 @@ export default class ModelMongoCart {
       return {};
     }
     try {
-      console.log(sale);
       let newSale = new SaleModel(sale);
-      // console.log("before populate", newSale);
-      // newSale = await newSale.populate({
-      //   path: "products.product",
-      // })
-      // console.log("after populate", newSale);
       await newSale.save();
       return DBMongoDB.getObjectWithId(newSale.toObject());
     } catch (e) {

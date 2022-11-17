@@ -31,7 +31,7 @@ export default class ProductsTable extends Table {
       delete this.currentItems[id];
       if (altaForm.state[1] == id) altaForm.restartForm();
     } catch (e) {
-      console.log(`Hubo un error borrando el producto ${id}. Detalles: ${e}`);
+      console.error(`Hubo un error borrando el producto ${id}. Detalles: ${e}`);
       deletedProduct = {};
     }
     Spin.remove();

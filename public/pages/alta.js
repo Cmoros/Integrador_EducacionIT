@@ -136,9 +136,10 @@ async function altaCbPost(e) {
     }).then((res) => res.json());
     if (checkResultFromFetch(result, "dar de alta", "dio de alta")) {
       currentTable.updateTable();
+      this.restartForm();
     }
   } catch (e) {
-    console.log("Error tratando de actualizar un producto: ", e);
+    console.error("Error tratando de actualizar un producto: ", e);
     checkResultFromFetch({}, "dar de alta", "dio de alta");
   }
 }
@@ -162,9 +163,11 @@ async function altaCbPut(e) {
     ).then((res) => res.json());
     if (checkResultFromFetch(result, "actualizar", "actualizó")) {
       currentTable.updateTable();
+      this.restartForm();
+      this.setButtons("adding");
     }
   } catch (e) {
-    console.log("Error tratando de actualizar un producto: ", e);
+    console.error("Error tratando de actualizar un producto: ", e);
     checkResultFromFetch({}, "actualizar", "actualizó");
   }
 }
@@ -178,7 +181,8 @@ altaForm.state = ["adding"];
 altaForm.updateButton = altaFormHTML.querySelector(".form-buttons__update");
 altaForm.cancelButton = altaFormHTML.querySelector(".form-buttons__cancel");
 
-altaForm.setButtons = function () {
+altaForm.setButtons = function (newState) {
+  if (newState) altaForm.state[0] = newState;
   const adding = altaForm.state[0] == "adding";
   altaForm.submitButton.disabled = !adding;
   altaForm.submitButton.classList.toggle("hidden", !adding);

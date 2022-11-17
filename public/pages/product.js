@@ -20,21 +20,12 @@ export default class ProductPage {
       '<i class="fa fa-shopping-basket solo-product__form-link-icon" aria-hidden="true"></i>Agregar al carrito'
     );
     PageHome.prototype.checkLocalStorage.call(this);
-    // this.checkLocalStorage = PageHome.prototype.checkLocalStorage;
-    // this.checkLocalStorage();
     this.quantityToAdd = 1;
-    // this.addFavoriteButtonEvent = PageHome.prototype.addFavoriteButtonEvent;
-    // this.addFavoriteButtonEvent()
     PageHome.prototype.addFavoriteButtonEvent.call(this);
     this.productElement.addEventListener("click", async (e) => {
       if (e.target.classList.contains("solo-product__image")) {
         this.imgDisplayingEl.src = e.target.src;
       }
-      // if(e.target.classList.contains('solo-product__form-link--add')) {
-      //   e.preventDefault();
-      //   console.log(this.quantityToAdd)
-      //   await cart.addNewCartProduct(this.productId, this.quantityToAdd);
-      // }
     });
     this.productElement.addEventListener("input", (e) => {
       if (e.target.classList.contains("solo-product__datalist-input")) {

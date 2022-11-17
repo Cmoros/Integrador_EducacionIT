@@ -92,7 +92,7 @@ class Main {
       }
       await pageInstance.init();
     } catch (error) {
-      console.log("Detalles del error:", error);
+      console.error("Detalles del error:", error);
       console.error(`No se pudo importar el módulo ${moduleUrl}.`);
     }
   }

@@ -111,7 +111,7 @@ export default [
       "/img/productos/teclado_musical_4.webp",
       "/img/productos/teclado_musical_5.webp",
     ],
-    shipping: false,
+    shipping: true,
     shortDescription:
       "Marca NEWVISION. Dispone de 37 teclas, 8 tonos, 8 ritmos y más",
     longDescription: `•Tamaño pequeño, portátil y resistente.
@@ -382,7 +382,7 @@ export default [
       "Bingo en casa cuenta con bolillero. Edad minima 6 años marca Ruibal",
     longDescription: `¿Qué mejor plan para una tarde de lluvia que un juego de mesa? Con el Un bingo en mi casa vas a crear divertidos recuerdos y pasar momentos inolvidables junto a tus amigos y amigas. Con este pasatiempo entretenido las risas están aseguradas.`,
     sponsored: false,
-    date: new Date("2023-05-01"),
+    visits: 15,
   }),
 
   new Product({
@@ -480,7 +480,8 @@ export default [
     - Funciona con 3 pilas AA - no incluidas
     - El color es aleatorio (negro o dorado) - no se puede elegir
     - Medidas pistola: 20 cm`,
-    sponsored: true,
+
+    visits: 10,
   }),
 
   new Product({
@@ -507,6 +508,7 @@ export default [
     Personajes inolvidables
     Con Movie Magic, ¡las experiencias de los más pequeños serán increíbles! Su diseño favorece la creatividad y la imaginación.`,
     sponsored: true,
+    
   }),
 
   new Product({

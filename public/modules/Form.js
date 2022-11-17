@@ -6,13 +6,11 @@ export default class Form {
     this.submitCb = submitCb;
     formTarget.querySelectorAll("[required]").forEach((input) => {
       if (this.errors[input.id]) {
-        // console.log(input)
         this.inputsToGo++;
       }
     });
     this.inputsCurrentlyValid = new Set();
     this.init();
-    // }
   }
 
   init() {
@@ -70,8 +68,8 @@ export default class Form {
     const inputsWithErrors = this.formTarget.querySelectorAll(
       ".error-display__popup-input-error"
     );
-    console.log("Validados:", this.inputsCurrentlyValid.size);
-    console.log("Total a Validar:", this.inputsToGo);
+    console.warn("Validados:", this.inputsCurrentlyValid.size);
+    console.warn("Total a Validar:", this.inputsToGo);
     if (
       this.inputsToGo !== this.inputsCurrentlyValid.size ||
       inputsWithErrors.length > 0
@@ -146,41 +144,18 @@ const styleArg1 = "color: teal; font-weight: bold; font-size: 1.1em;";
 const styleArg2 = "color: pink; background-color: #111; padding: 3px;";
 
 function printDataInfo(data) {
-  //console.log(data)
-
   let keys = data.keys();
   let values = data.values();
-  // console.log(keys);
-  // console.log(values);
-
-  //    let key = keys.next();
-  //    let value = values.next();
-  //
-  //    key = keys.next();
-  //    value = values.next();
-  //    // console.log('key:', key);
-  //    // console.log('value:', value);
-  //    console.log(`${key.value}: ${value.value}`);
-  //
-  //    key = keys.next();
-  //    value = values.next();
-  //    // console.log('key:', key);
-  //    // console.log('value:', value);
-  //    console.log(`${key.value}: ${value.value}`);
 
   do {
     let key = keys.next();
     let value = values.next();
-    // console.log('key:', key);
-    // console.log('value:', value);
 
     if (key.done || value.done) {
-      // console.error('No hay más contenido');
       break;
     }
 
-    // console.log(`${key.value}: ${value.value}`);
-    console.log(
+    console.info(
       `%c${key.value}: %c${value.value.toString() || value.value}`,
       styleArg1,
       styleArg2

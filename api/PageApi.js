@@ -65,7 +65,6 @@ export default class PageApi {
       idQuery._id.$in.push(Types.ObjectId(id));
     }
     const products = await this.productApi.getManyProducts({ query: idQuery });
-    console.log(products);
     const total = products.reduce((acc, product) => {
       const quantity = query[product.id];
       product.quantity = quantity;

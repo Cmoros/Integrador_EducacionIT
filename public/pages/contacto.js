@@ -56,7 +56,7 @@ export default class PageContacto {
         popup.init(
           `<i class="fa-solid fa-ban"></i>Ups! Algo salio mal enviando el formulario`
         );
-        console.log("Error enviando el formulario de contacto: ", e);
+        console.error("Error enviando el formulario de contacto: ", e);
       }
       Spin.remove();
     };

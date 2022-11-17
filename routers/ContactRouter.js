@@ -6,7 +6,7 @@ export default class ContacttRouter {
   constructor(app) {
     this.router = Router();
     this.controller = new ContactController();
-    this.router.post("/", upload.fields([]), this.controller.postContact);
+    this.router.post("/:format?", upload.fields([]), this.controller.postContact);
     app.use("/api/contact", this.router);
   }
 }

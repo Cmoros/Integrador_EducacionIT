@@ -37,7 +37,7 @@ class DBMongoDB {
         useUnifiedTopology: true,
         serverSelectionTimeoutMS: config.MONGODB_TIMEOUT,
       });
-      console.log("Conexión con MongoDB exitosa.");
+      console.error("Conexión con MongoDB exitosa.");
       return true;
     } catch (error) {
       console.error(

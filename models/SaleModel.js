@@ -55,4 +55,9 @@ saleSchema.pre("validate", async function preSaveSaleMiddleware() {
   );
 });
 
+saleSchema.post("save", function showSale(doc) {
+  console.info("Compra realizada:");
+  console.info(doc);
+});
+
 export default mongoose.model("sale", saleSchema);

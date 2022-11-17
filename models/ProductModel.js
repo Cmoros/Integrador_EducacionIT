@@ -68,8 +68,8 @@ const productSchemaObj = {
     type: Boolean,
   },
   ages: {
-    type: String
-  }
+    type: String,
+  },
 };
 
 const productSquema = mongoose.Schema(productSchemaObj);
@@ -78,12 +78,12 @@ productSquema.pre("save", function () {
   this.sponsored ||= false;
   this.date ||= Date.now();
   this.visites ||= 0;
-  const typeAge = this.typeAge == "Y" ? "años" : "meses"
-  this.ages = `${this.minAge} ${typeAge} ${this.maxAge} ${typeAge}`
+  const typeAge = this.typeAge == "Y" ? "años" : "meses";
+  this.ages = `${this.minAge} ${typeAge} ${this.maxAge} ${typeAge}`;
 });
 
 productSquema.pre("validate", function () {
-  console.log("pre-validate");
+  console.info("pre-validate");
   if (!this.imagesUrls || !Array.isArray(this.imagesUrls)) {
     this.imagesUrls = [
       // Para el caso de tener inicialmente algo en el imageUrls, que se arregló después en el controller
@@ -91,16 +91,18 @@ productSquema.pre("validate", function () {
     ];
     return;
   }
-  console.log("this", this);
-  this.shipping &&= true;
-  this.shipping ||= false;
+  this.shipping = !!this.shipping;
 });
 
 productSquema.pre("findOneAndUpdate", function () {
-  console.log("pre-findOneAndUpdate");
+  console.info("pre-findOneAndUpdate");
   if (this._update.$set) {
-    this._update.$set.shipping &&= true;
+    this._update.$set.shipping = !!this._update.$set.shipping;
+  } else {
+    this.shipping = !!this.shipping;
   }
+  console.log(this);
+
   // Solamente por las dudas
   // if (this.stock == -1) {
   //   delete this.stock;
@@ -111,11 +113,11 @@ productSquema.pre("findOneAndUpdate", function () {
 });
 
 productSquema.post("findOneAndDelete", function (doc) {
-  console.log("Documento a eliminar:", doc);
+  console.info("Documento eliminado:", doc);
   if (doc.profileImageUrl.includes("uploads")) {
     unlink("./public/" + doc.profileImageUrl, (err) => {
-      if (err) return console.log(err);
-      console.log("Eliminado", doc.profileImageUrl);
+      if (err) return console.error(err);
+      console.info("Eliminado", doc.profileImageUrl);
     });
   }
 
@@ -123,10 +125,18 @@ productSquema.post("findOneAndDelete", function (doc) {
     const { imageUrl } = image;
     if (!imageUrl.includes("uploads")) continue;
     unlink("./public/" + doc.profileImageUrl, (err) => {
-      if (err) return console.log(err);
-      console.log("Eliminado", imageUrl);
+      if (err) return console.error(err);
+      console.info("Eliminado", imageUrl);
     });
   }
+});
+
+productSquema.post("save", function (doc) {
+  console.info("Producto guardado: ", doc._id);
+});
+
+productSquema.post("findOneAndUpdate", function (doc) {
+  console.info("Producto actualizado: ", doc._id);
 });
 
 export default mongoose.model("product", productSquema);

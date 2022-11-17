@@ -294,10 +294,9 @@ export default class Cart {
         `<i class="fa-solid fa-truck"></i>Compra exitosa! Los productos ya van en camino!`,
         5
       );
-      console.log(result);
       return result;
     } catch (e) {
-      console.log("Error realizando la compra:", e);
+      console.error("Error realizando la compra:", e);
       popup.init(
         `<i class="fa-solid fa-ban"></i>Algo salio mal en la compra. Intente mas tarde`
       );
