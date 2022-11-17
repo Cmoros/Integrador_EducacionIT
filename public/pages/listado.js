@@ -1,4 +1,5 @@
 import { query } from "/js/header.js";
+import Spin from "../modules/Spin.js";
 
 export default class PageListado {
   constructor() {
@@ -31,6 +32,7 @@ export default class PageListado {
     const params = { skip, limit, order };
     if (query) params.query = query;
     const searchParams = "?" + new URLSearchParams(params);
+    Spin.init();
     try {
       const newHTML = await fetch(
         "./api/products/listado/text" + searchParams
@@ -39,6 +41,7 @@ export default class PageListado {
     } catch (e) {
       console.error("Error trayendo el listado: ", e);
     }
+    Spin.remove();
   }
 
   getOrder() {

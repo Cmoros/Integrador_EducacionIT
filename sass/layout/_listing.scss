@@ -2,6 +2,7 @@
 
 .listing {
   padding: 2rem 0;
+  position: relative;
   &__wrapper {
     max-width: variables.$max-width;
     width: 100%;
@@ -23,6 +24,7 @@
 
   &__empty {
     font-size: calc(1rem + 1vw);
+    padding: 2rem 0;
     text-align: center;
     width: 100%;
   }

@@ -2191,6 +2191,7 @@ body {
 
 .listing {
   padding: 2rem 0;
+  position: relative;
 }
 .listing__wrapper {
   max-width: 1180px;
@@ -2209,6 +2210,7 @@ body {
 }
 .listing__empty {
   font-size: calc(1rem + 1vw);
+  padding: 2rem 0;
   text-align: center;
   width: 100%;
 }
