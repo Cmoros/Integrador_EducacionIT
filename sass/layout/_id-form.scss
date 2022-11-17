@@ -41,7 +41,7 @@
     &:checked {
       & ~ .id-form {
         padding: 1em;
-        max-height: 125px;
+        max-height: 175px;
         &__toggle-label::before {
           content: "Ocultar formulario ID";
         }

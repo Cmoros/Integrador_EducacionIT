@@ -36,7 +36,7 @@
     }
   }
   &__container {
-    transition: max-height 0.5s;
+    // transition: max-height 0.5s;
     max-height: 0;
     width: 100%;
     overflow-y: hidden;
@@ -45,6 +45,10 @@
       max-height: 500px;
       // overflow: auto;
       max-width: 100%;
+    }
+    transition: max-height 0.5s ease-in;
+    &--sales {
+      transition: max-height 1.25s linear ease-in;
     }
   }
 
@@ -204,10 +208,12 @@
     &:checked {
       & ~ .table__wrapper {
         .table__container--product {
+          // transition-timing-function: ease-out;
           max-height: 900px;
         }
         .table__container--sales {
-          max-height: max-content;
+          // transition-timing-function: ease-out;
+          max-height: 2000px;
         }
       }
       & ~ .table__toggle-label::before {

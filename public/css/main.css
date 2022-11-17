@@ -674,10 +674,12 @@ body {
   border-bottom-right-radius: 10px;
   height: 100%;
   width: 75%;
+  max-width: 350px;
   overflow-y: auto;
 }
 @media (min-width: 992px) {
   .main-nav {
+    max-width: none;
     width: 100%;
     height: 100%;
     background-color: transparent;
@@ -738,7 +740,7 @@ body {
 .main-nav__link line {
   transition: inherit;
 }
-.main-nav__link:hover, .main-nav__link:focus, .main-nav__link.actual-page {
+.main-nav__link:hover, .main-nav__link:focus, .main-nav__link.actual-page, .main-nav__link--active {
   outline: none;
   border-radius: 10px;
   border: #00123a 2px solid;
@@ -1347,15 +1349,23 @@ body {
 .section-cards__footer-link {
   display: flex;
   align-items: center;
-  height: 75px;
+  justify-content: center;
+  vertical-align: middle;
+  text-decoration: none;
+  color: inherit;
   position: absolute;
-  bottom: 0;
+  bottom: 0.5rem;
   left: 50%;
+  padding: 0.35rem 0.7rem;
+  color: white;
+  background-color: rgb(75, 93, 225);
+  border-radius: 0.35rem;
+  z-index: 0;
+  transform: translateX(-50%);
+  transition: filter 0.15s;
 }
-@media (min-width: 1024px) {
-  .section-cards__footer-link {
-    height: 75px;
-  }
+.section-cards__footer-link:hover, .section-cards__footer-link:focus, .section-cards__footer-link:active {
+  filter: brightness(1.1);
 }
 .section-cards--info {
   background-color: rgba(172, 200, 254, 0.9);
@@ -1907,7 +1917,7 @@ body {
 }
 .id-form__toggle-checkbox:checked ~ .id-form {
   padding: 1em;
-  max-height: 125px;
+  max-height: 175px;
 }
 .id-form__toggle-checkbox:checked ~ .id-form__toggle-label::before {
   content: "Ocultar formulario ID";
@@ -1966,14 +1976,17 @@ body {
   padding: 1em;
 }
 .table__container {
-  transition: max-height 0.5s;
   max-height: 0;
   width: 100%;
   overflow-y: hidden;
+  transition: max-height 0.5s ease-in;
 }
 .table__container--thin {
   max-height: 500px;
   max-width: 100%;
+}
+.table__container--sales {
+  transition: max-height 1.25s linear ease-in;
 }
 .table__overflow {
   overflow: auto;
@@ -2117,7 +2130,7 @@ body {
   max-height: 900px;
 }
 .table__toggle-checkbox--product:checked ~ .table__wrapper .table__container--sales, .table__toggle-checkbox--sales:checked ~ .table__wrapper .table__container--sales {
-  max-height: max-content;
+  max-height: 2000px;
 }
 .table__toggle-checkbox--product:checked ~ .table__toggle-label::before, .table__toggle-checkbox--sales:checked ~ .table__toggle-label::before {
   content: "Ocultar ";

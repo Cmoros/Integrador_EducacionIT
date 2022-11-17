@@ -6,7 +6,7 @@ export default class Table {
     this.url = baseUrl;
     this.container = tableProductsContainer;
     this.currentItems = {};
-    this.limit = 5;
+    this.limit = 7;
     this.restartTable();
     this.container.addEventListener("click", async (e) => {
       if (e.target.dataset.page) {

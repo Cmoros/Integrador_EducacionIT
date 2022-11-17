@@ -15,7 +15,7 @@ export default {
         this.popupEl.style.animationDuration = animationTime + "s";
       }
       this.appendPopup();
-      this.removePopup(animationTime * 1000);
+      this.removePopup(animationTime * 1000 || 4000);
     }
   },
 

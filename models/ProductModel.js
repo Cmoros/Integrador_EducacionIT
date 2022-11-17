@@ -60,16 +60,16 @@ const productSchemaObj = {
   },
   visits: {
     type: Number,
-    // default: 0,
   },
   date: {
     type: Date,
-    // default: Date.now,
   },
   sponsored: {
     type: Boolean,
-    // default: false,
   },
+  ages: {
+    type: String
+  }
 };
 
 const productSquema = mongoose.Schema(productSchemaObj);
@@ -78,6 +78,8 @@ productSquema.pre("save", function () {
   this.sponsored ||= false;
   this.date ||= Date.now();
   this.visites ||= 0;
+  const typeAge = this.typeAge == "Y" ? "años" : "meses"
+  this.ages = `${this.minAge} ${typeAge} ${this.maxAge} ${typeAge}`
 });
 
 productSquema.pre("validate", function () {

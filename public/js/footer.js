@@ -21,6 +21,7 @@ class Footer {
         popup.init(
           `<i class="fa-solid fa-check"></i>¡Gracias por suscribirte a nuestro Newsletter!`
         );
+        this.restartForm()
       }
     );
   }

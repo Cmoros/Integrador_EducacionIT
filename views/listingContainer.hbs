@@ -3,7 +3,7 @@
 <div class="listing__products-container">
   <header class="listing__products-header">
     <div class="products-header">
-      <strong class="products-header__title">{{len}} productos encontrados {{#if query}}para "{{query}}"{{/if}}
+      <strong class="products-header__title">{{len}} resultados encontrados {{#if query}}para "{{query}}"{{/if}}
       </strong>
       <select class="products-header__select">
         <option class="products-header__option" {{#ifCond order '==' "sponsored:-1"}} selected {{/ifCond}} value="sponsored:-1">Más recomendado</option>
@@ -14,6 +14,7 @@
         <option class="products-header__option" {{#ifCond order '==' "typeAge:-1:minAge:-1"}} selected {{/ifCond}} value="typeAge:-1:minAge:-1">Mayor Edad</option>
       </select>
     </div>
+{{> components/pagination}}
   </header>
   {{#each products}}
   <article class="card-product-list">
@@ -56,5 +57,5 @@
 
 </div>
 {{else}}
-<p class="listing__empty">No se encontraron productos {{#if query}}para "{{query}}"{{/if}}</p>
+<p class="listing__empty">No se encontraron resultados {{#if query}}para "{{query}}"{{/if}}</p>
 {{/if}}

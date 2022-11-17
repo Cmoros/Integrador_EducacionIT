@@ -4,7 +4,7 @@ export default class PageListado {
   constructor() {
     this.container = document.querySelector(".listing__wrapper");
     this.initialSkip = 0;
-    this.limit = 5;
+    this.limit = 7;
     this.currentPage = 1;
     this.container.addEventListener("click", async (e) => {
       if (e.target.dataset.page) {
