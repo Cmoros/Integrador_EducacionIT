@@ -508,7 +508,6 @@ export default [
     Personajes inolvidables
     Con Movie Magic, ¡las experiencias de los más pequeños serán increíbles! Su diseño favorece la creatividad y la imaginación.`,
     sponsored: true,
-    
   }),
 
   new Product({

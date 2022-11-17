@@ -84,18 +84,6 @@ export default class ProductController {
     const removedProduct = await this.api.deleteProduct(id);
     res.json(removedProduct);
   };
-
-  // async getSponsored(req, res) {
-
-  // }
-
-  // async getPopular(req, res) {
-
-  // }
-
-  // async getNewest(req, res) {
-
-  // }
 }
 
 function handleReqFiles(files, product) {
@@ -107,7 +95,7 @@ function handleReqFiles(files, product) {
   }
   if (imagesUrls) {
     product.imagesUrls = [
-      ,/*{ imageUrl: config.IMAGE_ROUTE + profileImageUrl[0].filename }*/
+      /*{ imageUrl: config.IMAGE_ROUTE + profileImageUrl[0].filename }*/
     ];
     for (const file of imagesUrls) {
       product.imagesUrls.push({

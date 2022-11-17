@@ -66,9 +66,9 @@ document.addEventListener("click", function delegateClickEvents(e) {
     });
     mainNavToggle.checked = false;
     cart.toggleCartModal("hide");
-    return
+    return;
   }
-  if (e.target.classList.contains('main-header__main-nav-container')){
+  if (e.target.classList.contains("main-header__main-nav-container")) {
     mainNavToggle.checked = false;
   }
 });

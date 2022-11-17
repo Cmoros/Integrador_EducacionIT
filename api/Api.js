@@ -26,7 +26,7 @@ export default class Api {
         { brand: regExpName },
         { category: regExpName },
         { shortDescription: regExpName },
-        { ages: regExpName }
+        { ages: regExpName },
       ],
     };
   }

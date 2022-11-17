@@ -43,6 +43,12 @@
     padding: 0.75rem 1rem;
   }
 
+  &--nostock {
+    background-color: palette.$sunglow;
+    border-color: palette.$sunglow;
+    color: palette.$oxford-blue;
+  }
+
   .fa-solid {
     pointer-events: none;
   }

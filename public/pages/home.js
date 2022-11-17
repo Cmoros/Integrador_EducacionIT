@@ -24,6 +24,8 @@ export default class PageHome {
     container.addEventListener("click", async (e) => {
       if (e.target.classList.contains(className)) {
         e.preventDefault();
+        // if (e.target.constains("btn--nostock")) return;
+
         const id = e.target.dataset.id;
 
         this.addBtns[id] ||= new Btn(e.target, className);
@@ -35,19 +37,20 @@ export default class PageHome {
         if (added === false && !cart.checkProductInCart(id)) {
           return;
         }
+        e.target.classList.remove("btn--process");
         if (added == "nostock") {
-          e.target.classList.remove("btn--process");
-          e.target.innerHTML = btn.originalContent;
+          clearTimeout(btn.timeoutId);
+          btn.timeoutId = btn.timeoutMessage(
+            "btn--nostock",
+            btn.nostockContent
+          );
           return;
         }
-        e.target.innerHTML = btn.successContent;
-        e.target.classList.add("btn--success");
-        e.target.classList.remove("btn--process");
+        // e.target.innerHTML = btn.successContent;
+        // e.target.classList.add("btn--success");
         clearTimeout(btn.timeoutId);
-        btn.timeoutId = setTimeout(() => {
-          e.target.classList.remove("btn--success");
-          e.target.innerHTML = btn.originalContent;
-        }, 3000);
+
+        btn.timeoutId = btn.timeoutMessage("btn--success", btn.successContent);
       }
     });
   }

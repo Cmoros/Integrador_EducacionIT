@@ -2402,6 +2402,11 @@ body {
   font-size: 1.25rem;
   padding: 0.75rem 1rem;
 }
+.btn--nostock {
+  background-color: rgb(254, 204, 38);
+  border-color: rgb(254, 204, 38);
+  color: #00123a;
+}
 .btn .fa-solid {
   pointer-events: none;
 }

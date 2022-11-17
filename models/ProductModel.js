@@ -101,8 +101,6 @@ productSquema.pre("findOneAndUpdate", function () {
   } else {
     this.shipping = !!this.shipping;
   }
-  console.log(this);
-
   // Solamente por las dudas
   // if (this.stock == -1) {
   //   delete this.stock;

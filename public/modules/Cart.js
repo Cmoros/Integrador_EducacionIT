@@ -125,12 +125,17 @@ export default class Cart {
       this.loading[id] = 0;
       const res = await fetch(`./api/products/${id}/cart/json`);
       const product = await res.json();
-      if (product.error /*|| product.stock == 0*/) {
+      if (
+        product.error ||
+        // Agregar (o quitar) linea si se desea que no deje agregar sin stock
+        product.stock == 0
+      ) {
         popup.init(
           '<i class="fa-solid fa-ban"></i>Ups! Nos quedamos sin stock'
         );
         delete this.loading[id];
-        return "error";
+        return "nostock";
+        // return "error";
       }
       added = true;
       product.quantity = this.loading[id] + quantity;
