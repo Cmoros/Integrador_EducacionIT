@@ -14,7 +14,8 @@ export default class PageListado {
         e.preventDefault();
         const page = e.target.dataset.page;
         this.currentPage = page >= 1 ? page : 1;
-        this.init(this.calculateSkip(), this.limit);
+        const order = this.getOrder();
+        this.init(this.calculateSkip(), this.limit, order);
       }
     });
     this.container.addEventListener("change", (e) => {
