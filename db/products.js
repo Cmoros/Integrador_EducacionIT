@@ -22,7 +22,7 @@ export default [
     sponsored: true,
   }),
   new Product({
-    name: "Auto De Policía A Radio Control",
+    name: "Auto De Policía Control Remoto",
     price: 2609,
     stock: 7,
     brand: "Yifeng",
@@ -362,7 +362,7 @@ export default [
   }),
 
   new Product({
-    name: "Juego de mesa Un bingo en mi casa Ruibal",
+    name: "Juego Un bingo en mi casa",
     price: 4797,
     stock: 12,
     brand: "Ruibal",
@@ -386,7 +386,7 @@ export default [
   }),
 
   new Product({
-    name: "Poppi Valen mis Primeras palabras",
+    name: "Poppi Valen Primeras palabras",
     price: 3465,
     stock: 18,
     brand: "Poppi",
@@ -410,7 +410,7 @@ export default [
   }),
 
   new Product({
-    name: "Auto A Radio Control Remoto Luces Led",
+    name: "Auto Control Remoto Luces Led",
     price: 14999,
     stock: 80,
     brand: "LIBERCAM",
@@ -436,7 +436,7 @@ export default [
   }),
 
   new Product({
-    name: "Bloques para armar Duravit Balde de 240 piezas",
+    name: "Bloques Duravit Balde 240 pzs",
     price: 5995,
     stock: 15,
     brand: "Duravit",
@@ -447,7 +447,7 @@ export default [
     imagesUrls: [],
     shipping: true,
     shortDescription:
-      "Balde de bloques de excelente calidad, apuntando al sano entretenimiento de niños y niñas",
+      "Balde de bloques de excelente calidad, apuntando al sano entretenimiento de niños",
     longDescription: `Fácil traslado y guardado
     Su presentación en balde, permite que lleves tu set a todos lados de manera cómoda y práctica. Es útil no solo para transportarlo, sino además para guardarlo de forma sencilla en cualquier lugar de tu casa.
     
@@ -458,7 +458,7 @@ export default [
   }),
 
   new Product({
-    name: "Burbujero Súper Pistola Automática Gun",
+    name: "Burbujero Pistola Automática",
     price: 1668,
     stock: 19,
     brand: "Gatling",
@@ -485,7 +485,7 @@ export default [
   }),
 
   new Product({
-    name: "Lol Muñeca Surprise Movie Magic Original",
+    name: "Lol Muñeca Surprise Movie",
     price: 4199,
     stock: 20,
     brand: "LOL Surprise",
@@ -511,7 +511,7 @@ export default [
   }),
 
   new Product({
-    name: "Cocinita De Juguete Cocina De Madera",
+    name: "Cocinita De Juguete De Madera",
     price: 6299,
     stock: 45,
     brand: "Imback",

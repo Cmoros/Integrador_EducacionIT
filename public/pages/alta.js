@@ -6,9 +6,9 @@ const MAX_IMAGE_SIZE = 1048576 / 2;
 
 const errors = {
   "product-name": {
-    message: "Campo hasta 35 caracteres del español",
+    message: "Campo hasta 30 caracteres del español",
     regExp:
-      /^(?!\s)(?!.\s$)(?=.[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç])[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç :°='\.\\¡$#"_@¿*&%\/,+\-\(\)~?!]{2,35}$/,
+      /^(?!\s)(?!.\s$)(?=.[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç])[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç :°='\.\\¡$#"_@¿*&%\/,+\-\(\)~?!]{2,30}$/,
   },
   "product-id": {
     message: "Esto no debería estar incorrecto. Algo ocurrió",
@@ -38,8 +38,8 @@ const errors = {
     // /^(?!\s)(?!.\s$)(?=.[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç])[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç :°='\.\\¡$#"@¿*&%\/,+\-\(\)~?!]{10,80}$/,
   },
   "product-description-long": {
-    message: "Campo de hasta 300 caracteres libres",
-    regExp: /^.{10,450}$/m,
+    message: "Campo de hasta 2000 caracteres libres",
+    regExp: /^.{10,2000}$/m,
     // /^(?!\s)(?!.\s$)(?=.[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç])[a-zA-Z0-9ÁÉÍÚÑÜáéíóúñüÀÂÃÊÓÔÕàâãêôõÇç :°='\.\\¡$#"@¿*&%\/,+\-\(\)~?!]{20,2000}$/,
   },
   "product-age-max": {
@@ -209,7 +209,7 @@ altaForm.selectProduct = function (product) {
   altaForm.formTarget.querySelectorAll("[data-input]").forEach((input) => {
     input.required && altaForm.inputsCurrentlyValid.add(input);
     const value = product[input.dataset.input];
-    if (value) {
+    if (value != null) {
       input.value = value;
     }
   });

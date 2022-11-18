@@ -105,4 +105,10 @@
   &__submit {
     font-size: calc(0.8rem + 0.8vw);
   }
+
+  &__empty {
+    font-size: calc(0.8rem + 0.8vw);
+    padding: calc(0.8rem + 0.8vw);
+    text-align: center;
+  }
 }

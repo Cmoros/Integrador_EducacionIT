@@ -1,5 +1,6 @@
 import { query } from "/js/header.js";
 import Spin from "../modules/Spin.js";
+import PageHome from "./home.js";
 
 export default class PageListado {
   constructor() {
@@ -7,6 +8,7 @@ export default class PageListado {
     this.initialSkip = 0;
     this.limit = 7;
     this.currentPage = 1;
+    this.favoriteClassName = "card__favorite";
     this.container.addEventListener("click", async (e) => {
       if (e.target.dataset.page) {
         e.preventDefault();
@@ -42,6 +44,7 @@ export default class PageListado {
       console.error("Error trayendo el listado: ", e);
     }
     Spin.remove();
+    this.updateFavorites();
   }
 
   getOrder() {
@@ -51,5 +54,11 @@ export default class PageListado {
 
   calculateSkip() {
     return (this.currentPage - 1) * this.limit;
+  }
+
+  updateFavorites() {
+    this.updateLocalStorage = PageHome.prototype.updateLocalStorage;
+    PageHome.prototype.checkLocalStorage.call(this);
+    PageHome.prototype.addFavoriteButtonEvent.call(this);
   }
 }

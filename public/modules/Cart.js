@@ -17,6 +17,7 @@ export default class Cart {
       ".cart-window__subtotal-price"
     );
     this.bubble = document.querySelector(".cart-button__bubble");
+    this.submitBtn = cartWindow.querySelector(".cart-window__submit");
     this.subtotal = 0;
 
     document.addEventListener("click", async (e) => {
@@ -57,6 +58,9 @@ export default class Cart {
         this.toggleCartModal("hide");
       }
     });
+    this.cartWindowEmptyHTML = document.createElement("div");
+    this.cartWindowEmptyHTML.classList.add("cart-window__empty");
+    this.cartWindowEmptyHTML.innerHTML = "El carrito está vacío";
     this.checkLocalStorage();
   }
 
@@ -259,6 +263,18 @@ export default class Cart {
   updateBubble() {
     this.numberOfProducts = this.countProducts();
     this.bubble.innerHTML = this.numberOfProducts;
+    this.updateEmptyCart();
+  }
+
+  updateEmptyCart() {
+    if (this.numberOfProducts === 0) {
+      this.cartProductsContainer.innerHTML = "";
+      this.cartProductsContainer.append(this.cartWindowEmptyHTML);
+      this.submitBtn.classList.add("disabled");
+    } else {
+      this.cartWindowEmptyHTML.remove();
+      this.submitBtn.classList.remove("disabled");
+    }
   }
 
   countProducts() {

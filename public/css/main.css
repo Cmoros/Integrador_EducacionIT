@@ -1630,6 +1630,11 @@ body {
 .cart-window__submit {
   font-size: calc(0.8rem + 0.8vw);
 }
+.cart-window__empty {
+  font-size: calc(0.8rem + 0.8vw);
+  padding: calc(0.8rem + 0.8vw);
+  text-align: center;
+}
 
 .cart-modal-toggle {
   display: none;
@@ -2219,6 +2224,9 @@ body {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0 0 0.75rem;
 }
 .products-header__title {
   font-weight: 600;
@@ -3390,6 +3398,9 @@ body {
 @media (min-width: 768px) {
   .card-product-list__profile {
     flex: 0 0 30%;
+  }
+  .card-product-list__profile:hover .card__favorite path {
+    stroke: #e74c3c;
   }
 }
 .card-product-list__badges-container {
