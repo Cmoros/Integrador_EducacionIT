@@ -5,7 +5,7 @@ const PERSISTENCE_TYPE = {
 };
 
 export default {
-  PORT: process.env.PORT || 8080,
+  PORT: process.env.PORT || 8081,
   PERSISTENCE_TYPE: PERSISTENCE_TYPE.TYPE_MONGODB,
   // MONGODB_CONNECTION_STR: 'mongodb://localhost/ecommerce',
   // MONGODB_CONNECTION_STR: "mongodb://localhost:27017/ecommerce",

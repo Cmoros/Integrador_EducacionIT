@@ -16,11 +16,11 @@
             
             & ~ .main-header {
                 .main-header__main-nav-container {
+                    height: 100vh;  // Firefox fix
                     display: block;
                     position: absolute;
                     bottom: 0;
                     transform: translateX(100%);
-                    // background-color: rgba(palette.$oxford-blue, 0.5);
                 }
     
                 .main-header__hamburger-button-container {

@@ -7,7 +7,10 @@
   position: absolute;
   top: 75%;
   width: 100vw;
-  height: 100vh;
+  // Commented this for Fix for Firefox bottom overflow
+  // height: 100vh;   
+  height: 0;
+  // overflow: hidden;
   pointer-events: none;
   right: 0;
   z-index: 15;

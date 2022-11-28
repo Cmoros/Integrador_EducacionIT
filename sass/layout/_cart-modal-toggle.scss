@@ -3,6 +3,7 @@
   &:checked {
     & ~ .main-header {
       .cart-window {
+        height: 100vh;  // Fix for Firefox bottom overflow
         opacity: 1;
         pointer-events: initial;
       }

@@ -120,7 +120,7 @@ export default class Cart {
     // En caso de existir el producto pero no el id, es que está agregandose
     let added = false;
     if (this.loading[id] != null) {
-      this.loading[id] += 1;
+      this.loading[id] += quantity;
       return added;
     }
     if (id in this.products || id in this.loading) {
@@ -271,6 +271,9 @@ export default class Cart {
       this.cartProductsContainer.innerHTML = "";
       this.cartProductsContainer.append(this.cartWindowEmptyHTML);
       this.submitBtn.classList.add("disabled");
+      for (const id in this.products) {
+        delete this.products[id];
+      }
     } else {
       this.cartWindowEmptyHTML.remove();
       this.submitBtn.classList.remove("disabled");
