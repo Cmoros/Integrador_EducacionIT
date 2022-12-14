@@ -59,6 +59,11 @@ El objetivo de dicho proyecto fue desarrollar un e-commerce cubriendo todas las 
 
 ---
 
+## Galería 
+
+![Integrador_EducacionIT](https://user-images.githubusercontent.com/93099135/207626377-37127e84-a68f-4c11-86d5-ecc3010be6ff.png)
+
+
 #### [![Glitch](https://img.shields.io/badge/glitch-%233333FF.svg?style=for-the-badge&logo=glitch&logoColor=white) ](https://cmoros-ecommerce-jcosmica.glitch.me/)
 
 #### [🔗Link a la página del proyecto ](https://cmoros-ecommerce-jcosmica.glitch.me/)
