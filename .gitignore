@@ -2,3 +2,4 @@
 /.vscode
 /public/img/productos/uploads/*
 !.gitkeep
+.env

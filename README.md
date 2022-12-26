@@ -36,7 +36,7 @@ El objetivo de dicho proyecto fue desarrollar un e-commerce cubriendo todas las 
 - ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 - ![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
 
-## Getting Started
+<!-- ## Getting Started
 
 ### Instalación
 
@@ -57,7 +57,7 @@ El objetivo de dicho proyecto fue desarrollar un e-commerce cubriendo todas las 
    
 4. Abre en `http://localhost:8081/` para ver el frontEnd
 
----
+--- -->
 
 ## Galería 
 
